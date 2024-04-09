@@ -10,23 +10,32 @@ import pojo.Specialization;
  *
  * @author Laboratorios
  */
-public class NewDoctorDTO {
-    
+public class ExistentDoctorDTO {
+    private Long id;
     private String name;
     private String firstName;
     private String SecondName;
     private Specialization specialization;
     private String medicalCart;
 
-    public NewDoctorDTO() {
+    public ExistentDoctorDTO() {
     }
 
-    public NewDoctorDTO(String name, String firstName, String SecondName, Specialization specialization, String medicalCart) {
+    public ExistentDoctorDTO(Long id, String name, String firstName, String SecondName, Specialization specialization, String medicalCart) {
+        this.id = id;
         this.name = name;
         this.firstName = firstName;
         this.SecondName = SecondName;
         this.specialization = specialization;
         this.medicalCart = medicalCart;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -68,7 +77,4 @@ public class NewDoctorDTO {
     public void setMedicalCart(String medicalCart) {
         this.medicalCart = medicalCart;
     }
-    
-    
-    
 }
