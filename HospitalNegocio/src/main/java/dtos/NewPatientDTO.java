@@ -17,17 +17,67 @@ public class NewPatientDTO {
     private String curp;
     private String phone;
     private Calendar birthDate;
+    private String sex;
+    private String street;
+    private String postalNumber;
+    private String colonia;
+    private String socialNumber;
 
     public NewPatientDTO() {
     }
 
-    public NewPatientDTO(String name, String firstName, String secondName, String curp, String phone, Calendar birthDate) {
+    public NewPatientDTO(String name, String firstName, String secondName, String curp, String phone, Calendar birthDate, String sex, String street, String postalNumber, String colonia, String socialNumber) {
         this.name = name;
         this.firstName = firstName;
         this.secondName = secondName;
         this.curp = curp;
         this.phone = phone;
         this.birthDate = birthDate;
+        this.sex = sex;
+        this.street = street;
+        this.postalNumber = postalNumber;
+        this.colonia = colonia;
+        this.socialNumber = socialNumber;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getPostalNumber() {
+        return postalNumber;
+    }
+
+    public void setPostalNumber(String postalNumber) {
+        this.postalNumber = postalNumber;
+    }
+
+    public String getColonia() {
+        return colonia;
+    }
+
+    public void setColonia(String colonia) {
+        this.colonia = colonia;
+    }
+
+    public String getSocialNumber() {
+        return socialNumber;
+    }
+
+    public void setSocialNumber(String socialNumber) {
+        this.socialNumber = socialNumber;
     }
 
     public String getName() {
