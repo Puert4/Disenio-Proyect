@@ -1,5 +1,7 @@
 package presentation;
 
+import dtos.NewPatientDTO;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -34,6 +36,7 @@ public class JFrameRegister extends javax.swing.JFrame {
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
+        buttonGroup5 = new javax.swing.ButtonGroup();
         txtNombres = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
@@ -51,7 +54,7 @@ public class JFrameRegister extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtSegurityNumber = new javax.swing.JTextField();
         jSeparator8 = new javax.swing.JSeparator();
         btnCancel = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
@@ -146,12 +149,12 @@ public class JFrameRegister extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel10.setText("Numero  seguro social");
 
-        jTextField8.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField8.setBorder(null);
-        jTextField8.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        txtSegurityNumber.setForeground(new java.awt.Color(204, 204, 204));
+        txtSegurityNumber.setBorder(null);
+        txtSegurityNumber.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtSegurityNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                txtSegurityNumberActionPerformed(evt);
             }
         });
 
@@ -173,8 +176,14 @@ public class JFrameRegister extends javax.swing.JFrame {
         });
 
         jrbOtro.setText("Otro...");
+        jrbOtro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbOtroActionPerformed(evt);
+            }
+        });
 
         txtOtro.setEditable(false);
+        txtOtro.setEnabled(false);
 
         txtApellidoPaterno.setForeground(new java.awt.Color(204, 204, 204));
         txtApellidoPaterno.setBorder(null);
@@ -290,7 +299,7 @@ public class JFrameRegister extends javax.swing.JFrame {
                                     .addComponent(jSeparator9))
                                 .addGap(66, 66, 66)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField8)
+                                    .addComponent(txtSegurityNumber)
                                     .addComponent(jSeparator8)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
@@ -382,7 +391,7 @@ public class JFrameRegister extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSegurityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
@@ -410,19 +419,29 @@ public class JFrameRegister extends javax.swing.JFrame {
 
     private void jrbHombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHombreActionPerformed
         // TODO add your handling code here:
+        
+        jrbMujer.setSelected(false);
+        jrbOtro.setSelected(false);
+        txtOtro.setEnabled(false);
+        
     }//GEN-LAST:event_jrbHombreActionPerformed
 
     private void jrbMujerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMujerActionPerformed
-        // TODO add your handling code here:
+
+        jrbHombre.setSelected(false);
+        jrbOtro.setSelected(false);
+        txtOtro.setEnabled(false);
+        
+        
     }//GEN-LAST:event_jrbMujerActionPerformed
 
     private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void txtSegurityNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSegurityNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_txtSegurityNumberActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
@@ -435,13 +454,43 @@ public class JFrameRegister extends javax.swing.JFrame {
 
     private void btnConfirm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirm1ActionPerformed
         // TODO add your handling code here:
-        
-        JFrameLogin login = new JFrameLogin();
+        NewPatientDTO patient = new NewPatientDTO();
+        patient = createPatient();
+        JFrameLogin login = new JFrameLogin(patient);
         login.setVisible(true);
         this.dispose();
         
     }//GEN-LAST:event_btnConfirm1ActionPerformed
 
+    public NewPatientDTO createPatient(){
+        
+        NewPatientDTO patient = new NewPatientDTO();
+        patient.setName(txtNombres.getText());
+        patient.setFirstName(txtApellidoPaterno.getText());
+        patient.setSecondName(txtApellidoMaterno.getText());
+        patient.setColonia(txtColonia.getText());
+        patient.setPostalNumber(txtCodigoPostal.getText());
+        patient.setCurp(txtCurp.getText());
+        patient.setPhone(txtTelefono.getText());
+        patient.setSocialNumber(txtSegurityNumber.getText());
+        if(jrbHombre.isSelected()){
+            
+            patient.setSex("Hombre");
+            
+        }else if(jrbMujer.isSelected()){
+            
+            patient.setSex("Mujer");
+            
+        }else if(jrbOtro.isSelected()){
+            
+            patient.setSex(txtOtro.getText());
+            
+        }
+        
+        return patient;
+        
+    }
+    
     private void txtApellidoPaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoPaternoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoPaternoActionPerformed
@@ -457,6 +506,15 @@ public class JFrameRegister extends javax.swing.JFrame {
     private void txtColoniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColoniaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtColoniaActionPerformed
+
+    private void jrbOtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbOtroActionPerformed
+        // TODO add your handling code here:
+        
+        jrbHombre.setSelected(false);
+        jrbMujer.setSelected(false);
+        txtOtro.setEnabled(true);
+        
+    }//GEN-LAST:event_jrbOtroActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -507,6 +565,7 @@ public class JFrameRegister extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -530,7 +589,6 @@ public class JFrameRegister extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JRadioButton jrbHombre;
     private javax.swing.JRadioButton jrbMujer;
     private javax.swing.JRadioButton jrbOtro;
@@ -542,6 +600,7 @@ public class JFrameRegister extends javax.swing.JFrame {
     private javax.swing.JTextField txtCurp;
     private javax.swing.JTextField txtNombres;
     private javax.swing.JTextField txtOtro;
+    private javax.swing.JTextField txtSegurityNumber;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
