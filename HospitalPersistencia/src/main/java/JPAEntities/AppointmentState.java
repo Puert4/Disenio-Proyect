@@ -6,4 +6,7 @@ package JPAEntities;
  */
 public enum AppointmentState {
 
+    ACTIVE,
+    PENDING,
+    DONE;
 }
