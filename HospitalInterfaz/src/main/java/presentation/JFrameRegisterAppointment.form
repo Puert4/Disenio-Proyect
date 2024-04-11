@@ -40,6 +40,7 @@
                               <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="txtNota" alignment="0" min="-2" pref="388" max="-2" attributes="0"/>
+                          <Component id="txt_fecha" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -67,7 +68,9 @@
               <Component id="jSeparator7" pref="10" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="txt_fecha" min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtNota" min="-2" max="-2" attributes="0"/>
@@ -148,6 +151,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNota">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txt_fecha">
     </Component>
   </SubComponents>
 </Form>

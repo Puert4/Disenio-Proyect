@@ -44,6 +44,7 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         txtNota = new javax.swing.JTextField();
+        txt_fecha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,7 +94,8 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
                                 .addComponent(cmbDoctor, 0, 147, Short.MAX_VALUE)
                                 .addComponent(jSeparator7)
                                 .addComponent(jLabel12))
-                            .addComponent(txtNota, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtNota, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(149, 149, 149)
@@ -115,7 +117,9 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
                 .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 10, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
-                .addGap(58, 58, 58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,5 +223,6 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTextField txtNota;
+    private javax.swing.JTextField txt_fecha;
     // End of variables declaration//GEN-END:variables
 }
