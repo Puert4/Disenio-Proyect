@@ -22,14 +22,14 @@ public class Patient implements Serializable {
     @Column(name = "names")
     private String names;
 
-    @Column(name = "firstLastName")
-    private String firstLastName;
+    @Column(name = "firsttName")
+    private String firsttName;
 
-    @Column(name = "secondLastName")
-    private String secondLastName;
+    @Column(name = "secondName")
+    private String secondName;
 
-    @Column(name = "dateOfBirth")
-    private Calendar dateOfBirth;
+    @Column(name = "birthDate")
+    private Calendar birthDate;
 
     @Column(name = "sex")
     private String sex;
@@ -37,11 +37,37 @@ public class Patient implements Serializable {
     @Column(name = "curp")
     private String curp;
 
-    @Column(name = "socialSecurityNumber")
-    private String socialSecurityNumber;
+    @Column(name = "socialNumber")
+    private String socialNumber;
 
     @Column(name = "phone")
     private String phone;
+
+    @Column(name = "street")
+    private String street;
+
+    @Column(name = "colony")
+    private String colony;
+
+    @Column(name = "zip_code")
+    private int zipCode;
+
+    public Patient() {
+    }
+
+    public Patient(String names, String firsttName, String secondName, Calendar birthDate, String sex, String curp, String socialNumber, String phone, String street, String colony, int zipCode) {
+        this.names = names;
+        this.firsttName = firsttName;
+        this.secondName = secondName;
+        this.birthDate = birthDate;
+        this.sex = sex;
+        this.curp = curp;
+        this.socialNumber = socialNumber;
+        this.phone = phone;
+        this.street = street;
+        this.colony = colony;
+        this.zipCode = zipCode;
+    }
 
     public Long getId() {
         return id;
@@ -59,28 +85,28 @@ public class Patient implements Serializable {
         this.names = names;
     }
 
-    public String getFirstLastName() {
-        return firstLastName;
+    public String getFirsttName() {
+        return firsttName;
     }
 
-    public void setFirstLastName(String firstLastName) {
-        this.firstLastName = firstLastName;
+    public void setFirsttName(String firsttName) {
+        this.firsttName = firsttName;
     }
 
-    public String getSecondLastName() {
-        return secondLastName;
+    public String getSecondName() {
+        return secondName;
     }
 
-    public void setSecondLastName(String secondLastName) {
-        this.secondLastName = secondLastName;
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 
-    public Calendar getDateOfBirth() {
-        return dateOfBirth;
+    public Calendar getBirthDate() {
+        return birthDate;
     }
 
-    public void setDateOfBirth(Calendar dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setBirthDate(Calendar birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getSex() {
@@ -99,12 +125,12 @@ public class Patient implements Serializable {
         this.curp = curp;
     }
 
-    public String getSocialSecurityNumber() {
-        return socialSecurityNumber;
+    public String getSocialNumber() {
+        return socialNumber;
     }
 
-    public void setSocialSecurityNumber(String socialSecurityNumber) {
-        this.socialSecurityNumber = socialSecurityNumber;
+    public void setSocialNumber(String socialNumber) {
+        this.socialNumber = socialNumber;
     }
 
     public String getPhone() {
@@ -114,7 +140,29 @@ public class Patient implements Serializable {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
-    
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getColony() {
+        return colony;
+    }
+
+    public void setColony(String colony) {
+        this.colony = colony;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
+    }
 
 }

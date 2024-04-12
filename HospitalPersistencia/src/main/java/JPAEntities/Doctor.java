@@ -30,24 +30,23 @@ public class Doctor implements Serializable {
     @Column(name = "secondLastName")
     private String secondLastName;
 
-    @Column(name = "dateOfBirth")
-    private Calendar dateOfBirth;
+    @Column(name = "specialization")
+    private String specialization;
 
-    @Column(name = "sex")
-    private String sex;
+    @Column(name = "medicalCart")
+    private String medicalCart;
 
-    @Column(name = "curp")
-    private String curp;
+    public Doctor() {
+    }
 
-    @Column(name = "socialSecurityNumber")
-    private String socialSecurityNumber;
-
-    @Column(name = "phone")
-    private String phone;
-
-    
-    @OneToMany(mappedBy = "Doctor ")
-    List<Appointment> appointmentList;
+    public Doctor(Long id, String names, String firstLastName, String secondLastName, String specialization, String medicalCart) {
+        this.id = id;
+        this.names = names;
+        this.firstLastName = firstLastName;
+        this.secondLastName = secondLastName;
+        this.specialization = specialization;
+        this.medicalCart = medicalCart;
+    }
 
     public Long getId() {
         return id;
@@ -81,52 +80,20 @@ public class Doctor implements Serializable {
         this.secondLastName = secondLastName;
     }
 
-    public Calendar getDateOfBirth() {
-        return dateOfBirth;
+    public String getSpecialization() {
+        return specialization;
     }
 
-    public void setDateOfBirth(Calendar dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 
-    public String getSex() {
-        return sex;
+    public String getMedicalCart() {
+        return medicalCart;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getCurp() {
-        return curp;
-    }
-
-    public void setCurp(String curp) {
-        this.curp = curp;
-    }
-
-    public String getSocialSecurityNumber() {
-        return socialSecurityNumber;
-    }
-
-    public void setSocialSecurityNumber(String socialSecurityNumber) {
-        this.socialSecurityNumber = socialSecurityNumber;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public List<Appointment> getAppointmentList() {
-        return appointmentList;
-    }
-
-    public void setAppointmentList(List<Appointment> appointmentList) {
-        this.appointmentList = appointmentList;
+    public void setMedicalCart(String medicalCart) {
+        this.medicalCart = medicalCart;
     }
 
 }
