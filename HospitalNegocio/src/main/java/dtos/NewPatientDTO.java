@@ -11,6 +11,7 @@ import java.util.Calendar;
  * @author Laboratorios
  */
 public class NewPatientDTO {
+
     private String name;
     private String firstName;
     private String secondName;
@@ -19,14 +20,14 @@ public class NewPatientDTO {
     private Calendar birthDate;
     private String sex;
     private String street;
-    private String postalNumber;
-    private String colonia;
+    private String zipCode;
+    private String colony;
     private String socialNumber;
 
     public NewPatientDTO() {
     }
 
-    public NewPatientDTO(String name, String firstName, String secondName, String curp, String phone, Calendar birthDate, String sex, String street, String postalNumber, String colonia, String socialNumber) {
+    public NewPatientDTO(String name, String firstName, String secondName, String curp, String phone, Calendar birthDate, String sex, String street, String zipCode, String colony, String socialNumber) {
         this.name = name;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -35,8 +36,8 @@ public class NewPatientDTO {
         this.birthDate = birthDate;
         this.sex = sex;
         this.street = street;
-        this.postalNumber = postalNumber;
-        this.colonia = colonia;
+        this.zipCode = zipCode;
+        this.colony = colony;
         this.socialNumber = socialNumber;
     }
 
@@ -56,20 +57,20 @@ public class NewPatientDTO {
         this.street = street;
     }
 
-    public String getPostalNumber() {
-        return postalNumber;
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public void setPostalNumber(String postalNumber) {
-        this.postalNumber = postalNumber;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
-    public String getColonia() {
-        return colonia;
+    public String getColony() {
+        return colony;
     }
 
-    public void setColonia(String colonia) {
-        this.colonia = colonia;
+    public void setColony(String colony) {
+        this.colony = colony;
     }
 
     public String getSocialNumber() {

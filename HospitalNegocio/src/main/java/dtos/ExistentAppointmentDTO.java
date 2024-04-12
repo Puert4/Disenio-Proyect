@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dtos;
 
 import java.util.Calendar;
@@ -10,21 +6,22 @@ import java.util.Calendar;
  *
  * @author Laboratorios
  */
-public class ExistentCiteDTO {
+public class ExistentAppointmentDTO {
+
     private Long id;
     private ExistentDoctorDTO doctor;
     private ExistentPatientDTO patient;
-    private Calendar citeDate;
+    private Calendar appointmentDate;
     private int status;
 
-    public ExistentCiteDTO() {
+    public ExistentAppointmentDTO() {
     }
 
-    public ExistentCiteDTO(Long id, ExistentDoctorDTO doctor, ExistentPatientDTO patient, Calendar citeDate, int status) {
+    public ExistentAppointmentDTO(Long id, ExistentDoctorDTO doctor, ExistentPatientDTO patient, Calendar appointmentDate, int status) {
         this.id = id;
         this.doctor = doctor;
         this.patient = patient;
-        this.citeDate = citeDate;
+        this.appointmentDate = appointmentDate;
         this.status = status;
     }
 
@@ -52,12 +49,12 @@ public class ExistentCiteDTO {
         this.patient = patient;
     }
 
-    public Calendar getCiteDate() {
-        return citeDate;
+    public Calendar getAppointmentDate() {
+        return appointmentDate;
     }
 
-    public void setCiteDate(Calendar citeDate) {
-        this.citeDate = citeDate;
+    public void setAppointmentDate(Calendar appointmentDate) {
+        this.appointmentDate = appointmentDate;
     }
 
     public int getStatus() {
