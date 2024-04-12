@@ -9,12 +9,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author TeLesheo
  */
 @Entity
+@Table(name = "doctor")
 public class Doctor implements Serializable {
 
     @Id

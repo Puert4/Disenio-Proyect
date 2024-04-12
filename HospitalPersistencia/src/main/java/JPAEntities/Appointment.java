@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 /**
@@ -15,6 +17,7 @@ import javax.persistence.Temporal;
  * @author TeLesheo
  */
 @Entity
+@Table(name = "appointment")
 public class Appointment implements Serializable {
 
     @Id
@@ -22,11 +25,11 @@ public class Appointment implements Serializable {
     private Long id;
 
     @Column(name = "id_doctor")
-    @OneToOne
+    @JoinColumn(name = "id_doctor")
     private Doctor doctor;
 
-    @Column(name = "id_patient")
     @OneToOne
+    @JoinColumn(name = "id_patint")
     private Patient patient;
 
     @Column(name = "appointment_date")

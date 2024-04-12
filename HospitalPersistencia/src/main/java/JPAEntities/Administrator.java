@@ -7,12 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author TeLesheo
  */
 @Entity
+@Table(name = "administrator")
 public class Administrator implements Serializable {
 
     @Id
