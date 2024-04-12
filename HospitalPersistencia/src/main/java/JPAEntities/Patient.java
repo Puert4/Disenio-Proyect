@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -29,6 +30,7 @@ public class Patient implements Serializable {
     private String secondName;
 
     @Column(name = "birthDate")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar birthDate;
 
     @Column(name = "sex")

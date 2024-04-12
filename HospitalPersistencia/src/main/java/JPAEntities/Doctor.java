@@ -21,7 +21,7 @@ public class Doctor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "names")
+    @Column(name = "names") 
     private String names;
 
     @Column(name = "firstLastName")

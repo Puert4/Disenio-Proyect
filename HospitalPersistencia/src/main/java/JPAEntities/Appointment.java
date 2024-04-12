@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -20,12 +22,15 @@ public class Appointment implements Serializable {
     private Long id;
 
     @Column(name = "id_doctor")
+    @OneToOne
     private Doctor doctor;
 
     @Column(name = "id_patient")
+    @OneToOne
     private Patient patient;
 
     @Column(name = "appointment_date")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar appointmentDate;
 
     @Column(name = "apponitment_state")
