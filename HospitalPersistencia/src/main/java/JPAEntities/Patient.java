@@ -1,12 +1,16 @@
 package JPAEntities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -55,10 +59,12 @@ public class Patient implements Serializable {
 
     @Column(name = "zip_code")
     private int zipCode;
-    
-    
+
+    @OneToMany(mappedBy = "patient")
+    private List<Doctor> asignedDoctors;
 
     public Patient() {
+        this.asignedDoctors = new ArrayList<>();
     }
 
     public Patient(String names, String firsttName, String secondName, Calendar birthDate, String sex, String curp, String socialNumber, String phone, String street, String colony, int zipCode) {
@@ -73,6 +79,7 @@ public class Patient implements Serializable {
         this.street = street;
         this.colony = colony;
         this.zipCode = zipCode;
+        this.asignedDoctors = new ArrayList<>();
     }
 
     public Long getId() {
@@ -169,6 +176,14 @@ public class Patient implements Serializable {
 
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public List<Doctor> getAsignedDoctors() {
+        return asignedDoctors;
+    }
+
+    public void setAsignedDoctors(List<Doctor> asignedDoctors) {
+        this.asignedDoctors = asignedDoctors;
     }
 
 }

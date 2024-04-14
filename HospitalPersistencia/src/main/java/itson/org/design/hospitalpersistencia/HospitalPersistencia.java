@@ -14,6 +14,7 @@ public class HospitalPersistencia {
 
     public static void main(String[] args) {
 
+        /*
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
         Calendar birthDate = Calendar.getInstance();
@@ -39,5 +40,6 @@ public class HospitalPersistencia {
         em.getTransaction().commit();
         em.close();
         emf.close();
+         */
     }
 }
