@@ -10,6 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -60,7 +63,7 @@ public class Patient implements Serializable {
     @Column(name = "zip_code")
     private int zipCode;
 
-    @OneToMany(mappedBy = "patient")
+    @OneToMany
     private List<Doctor> asignedDoctors;
 
     public Patient() {

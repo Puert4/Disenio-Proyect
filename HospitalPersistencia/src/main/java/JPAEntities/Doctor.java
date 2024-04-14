@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,7 +24,7 @@ public class Doctor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "names") 
+    @Column(name = "names")
     private String names;
 
     @Column(name = "firstLastName")
@@ -38,7 +39,9 @@ public class Doctor implements Serializable {
     @Column(name = "medicalCart")
     private String medicalCart;
 
+
     public Doctor() {
+
     }
 
     public Doctor(Long id, String names, String firstLastName, String secondLastName, String specialization, String medicalCart) {
