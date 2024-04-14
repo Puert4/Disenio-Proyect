@@ -24,6 +24,9 @@ public class Administrator implements Serializable {
     @Column(name = "names")
     private String names;
 
+    public Administrator() {
+    }
+
     public Administrator(Long id, String names) {
         this.id = id;
         this.names = names;

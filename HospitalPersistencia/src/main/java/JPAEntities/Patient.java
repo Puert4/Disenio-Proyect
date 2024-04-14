@@ -55,6 +55,8 @@ public class Patient implements Serializable {
 
     @Column(name = "zip_code")
     private int zipCode;
+    
+    
 
     public Patient() {
     }
