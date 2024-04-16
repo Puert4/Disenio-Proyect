@@ -10,12 +10,12 @@ package presentation;
  *
  * @author daani
  */
-public class InicioMedicos extends javax.swing.JFrame {
+public class JFrameInitialMedicos extends javax.swing.JFrame {
 
     /**
      * Creates new form InicioPaciente
      */
-    public InicioMedicos() {
+    public JFrameInitialMedicos() {
         initComponents();
     }
 

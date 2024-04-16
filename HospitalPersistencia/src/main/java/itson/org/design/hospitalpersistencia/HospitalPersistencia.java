@@ -9,6 +9,9 @@ import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import loginManager.ILogIn;
+import loginManager.LogIn;
+import org.eclipse.persistence.internal.oxm.mappings.Login;
 import registration.IRegistrationDAO;
 import registration.RegistrationDAO;
 
@@ -19,6 +22,10 @@ import registration.RegistrationDAO;
 public class HospitalPersistencia {
 
     public static void main(String[] args) {
+
+        ILogIn login = LogIn.getInstance();
+        login.validateUser("username", "password");
+
 //        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
 //        EntityManager em = emf.createEntityManager();
 //
@@ -46,7 +53,6 @@ public class HospitalPersistencia {
 //                "Col. On",
 //                12345
 //        );
-
 //        Doctor doctor = new Doctor(
 //                "BBBBBB",
 //                "BBBBBBB",
@@ -74,32 +80,31 @@ public class HospitalPersistencia {
 //        emf.close();
 //        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
 //        EntityManager em = emf.createEntityManager();
-        Calendar birthDate = Calendar.getInstance();
-        birthDate.set(1990, Calendar.JANUARY, 1);
+//        Calendar birthDate = Calendar.getInstance();
+//        birthDate.set(1990, Calendar.JANUARY, 1);
+////
+////        try {
+////            em.getTransaction().begin();
 //
-//        try {
-//            em.getTransaction().begin();
-
-            // Create a new User
-            // Create a new Patient
-            Patient patient = new Patient("AAAAAAAA",
-                    "AAAAAA",
-                    "AAAAA",
-                    birthDate,
-                    "Female",
-                    "CURP123",
-                    "1234567890",
-                    "123-456-7890",
-                    "Ave. Nida",
-                    "Col. On",
-                    12345
-            );
-            User user = new User("username", "password", patient);
-            
-            IRegistrationDAO register = RegistrationDAO.getInstance();
-            register.registerPatient(patient);
-            register.registerUser(user);
-
+//        // Create a new User
+//        // Create a new Patient
+//        Patient patient = new Patient("AAAAAAAA",
+//                "AAAAAA",
+//                "AAAAA",
+//                birthDate,
+//                "Female",
+//                "CURP123",
+//                "1234567890",
+//                "123-456-7890",
+//                "Ave. Nida",
+//                "Col. On",
+//                12345
+//        );
+//        User user = new User("username", "password", patient);
+//        
+//        IRegistrationDAO register = RegistrationDAO.getInstance();
+//        register.registerPatient(patient);
+//        register.registerUser(user);
 //            // Set the relationship between User and Patient
 //            // Persist both User and Patient
 //            em.persist(user);
@@ -116,6 +121,5 @@ public class HospitalPersistencia {
 //            em.close();
 //            emf.close();
 //        }
-
     }
 }

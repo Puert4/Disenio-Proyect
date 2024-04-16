@@ -1,5 +1,7 @@
 package presentation;
 
+import control.Control;
+import control.IControl;
 import dtos.NewPatientDTO;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -38,7 +40,7 @@ public class JFrameLogin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
+        txtUser = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -59,11 +61,11 @@ public class JFrameLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel3.setText("Contraseña");
 
-        txtName.setBorder(null);
-        txtName.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        txtName.addActionListener(new java.awt.event.ActionListener() {
+        txtUser.setBorder(null);
+        txtUser.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
+                txtUserActionPerformed(evt);
             }
         });
 
@@ -116,7 +118,7 @@ public class JFrameLogin extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 262, Short.MAX_VALUE))
                     .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtUser, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1))
                 .addGap(34, 34, 34))
@@ -143,7 +145,7 @@ public class JFrameLogin extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
@@ -187,9 +189,9 @@ public class JFrameLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
+    }//GEN-LAST:event_txtUserActionPerformed
 
     private void jlbCreateAccountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jlbCreateAccountFocusGained
         // TODO add your handling code here:
@@ -217,23 +219,13 @@ public class JFrameLogin extends javax.swing.JFrame {
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         // TODO add your handling code here:
-        if (!patient.getNames().equalsIgnoreCase(txtName.getText())) {
-
-            JOptionPane.showMessageDialog(this, "El nombre dela persona no existe");
-
-        } else if (!patient.getCurp().equalsIgnoreCase(txtPassword.getText())) {
-
-            JOptionPane.showMessageDialog(this, "La curp dela persona no existe");
-
-        } else {
-
-            JOptionPane.showMessageDialog(this, "Bienvenido " + patient.getNames());
-            JFrameMenu menu = new JFrameMenu();
-            menu.setVisible(true);
+        String user = txtUser.getText();
+        String password = txtPassword.getText();
+        IControl control = Control.getInstance();
+        if (control.verifyUser(user, password)) {
+            JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient();
             this.dispose();
-
         }
-
 
     }//GEN-LAST:event_btnStartActionPerformed
 
@@ -288,7 +280,7 @@ public class JFrameLogin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jlbCreateAccount;
-    private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

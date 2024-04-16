@@ -100,7 +100,7 @@ public class Patient implements Serializable {
         this.street = street;
         this.colony = colony;
         this.zipCode = zipCode;
-       
+
         this.asignedDoctors = new ArrayList<>();
     }
 

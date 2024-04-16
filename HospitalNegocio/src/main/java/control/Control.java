@@ -2,6 +2,8 @@ package control;
 
 import JPAEntities.Patient;
 import dtos.NewPatientDTO;
+import loginManager.ILogIn;
+import loginManager.LogIn;
 import registration.IRegistrationDAO;
 import registration.RegistrationDAO;
 
@@ -10,13 +12,13 @@ import registration.RegistrationDAO;
  * @author TeLesheo
  */
 public abstract class Control implements IControl {
-    
+
     private Control() {
     }
-    
+
     /**
-     * 
-     * @param newPatient 
+     *
+     * @param newPatient
      */
     @Override
     public void addNewPatient(NewPatientDTO newPatient) {
@@ -33,13 +35,20 @@ public abstract class Control implements IControl {
         patient.setZipCode(newPatient.getZipCode());
         patient.setColony(newPatient.getColony());
         patient.setSocialNumber(newPatient.getSocialNumber());
-        
+
         registration.registerPatient(patient);
     }
-    
+
+    @Override
+    public boolean verifyUser(String user, String password) {
+        ILogIn login = LogIn.getInstance();
+        return login.validateUser(user, password);
+
+    }
+
     public static Control getInstance() {
         return new Control() {
         };
     }
-    
+
 }
