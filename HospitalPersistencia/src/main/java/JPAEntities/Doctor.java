@@ -39,7 +39,6 @@ public class Doctor implements Serializable {
     @Column(name = "medicalCart")
     private String medicalCart;
 
-
     public Doctor() {
 
     }
