@@ -49,6 +49,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         btnMiNombre = new javax.swing.JButton();
+        txtCloseSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +95,13 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
             }
         });
 
+        txtCloseSesion.setText("Cerrar Sesion");
+        txtCloseSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCloseSesionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,7 +116,9 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                         .addGap(76, 76, 76)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(331, 331, 331)
+                        .addGap(12, 12, 12)
+                        .addComponent(txtCloseSesion)
+                        .addGap(244, 244, 244)
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -123,7 +133,9 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCloseSesion)
+                    .addComponent(jLabel2))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
@@ -165,6 +177,14 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
         cargarDatosPaciente();
     }//GEN-LAST:event_btnMiNombreActionPerformed
+
+    private void txtCloseSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCloseSesionActionPerformed
+        // TODO add your handling code here:
+        JFrameLogin frameLogin = new JFrameLogin();
+        frameLogin.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_txtCloseSesionActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -209,6 +229,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton txtCloseSesion;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
