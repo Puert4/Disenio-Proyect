@@ -7,10 +7,9 @@ import dtos.NewPatientDTO;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
- * @author daani
+ * @author EL Yomero
  */
 public class JFrameRegister extends javax.swing.JFrame {
 
@@ -37,21 +36,21 @@ public class JFrameRegister extends javax.swing.JFrame {
         buttonGroup4 = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
         buttonGroup5 = new javax.swing.ButtonGroup();
-        txtNombres = new javax.swing.JTextField();
+        txtNames = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        txtApellidoMaterno = new javax.swing.JTextField();
+        txtFirstName = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
         txtCurp = new javax.swing.JTextField();
-        jrbHombre = new javax.swing.JRadioButton();
-        jrbMujer = new javax.swing.JRadioButton();
+        jrbMale = new javax.swing.JRadioButton();
+        jrbFemale = new javax.swing.JRadioButton();
         jSeparator7 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
-        txtTelefono = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
         txtSegurityNumber = new javax.swing.JTextField();
@@ -59,20 +58,20 @@ public class JFrameRegister extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         btnConfirm1 = new javax.swing.JButton();
-        jrbOtro = new javax.swing.JRadioButton();
-        txtOtro = new javax.swing.JTextField();
-        txtApellidoPaterno = new javax.swing.JTextField();
+        jrbOther = new javax.swing.JRadioButton();
+        txtBirthDate = new javax.swing.JTextField();
+        txtSecondName = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
-        txtCodigoPostal = new javax.swing.JTextField();
+        txtZipCode = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jSeparator11 = new javax.swing.JSeparator();
         jSeparator12 = new javax.swing.JSeparator();
-        txtCalleNumero = new javax.swing.JTextField();
+        txtStreet = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        txtColonia = new javax.swing.JTextField();
+        txtColony = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
@@ -81,12 +80,12 @@ public class JFrameRegister extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        txtNombres.setForeground(new java.awt.Color(204, 204, 204));
-        txtNombres.setBorder(null);
-        txtNombres.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        txtNombres.addActionListener(new java.awt.event.ActionListener() {
+        txtNames.setForeground(new java.awt.Color(204, 204, 204));
+        txtNames.setBorder(null);
+        txtNames.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtNames.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombresActionPerformed(evt);
+                txtNamesActionPerformed(evt);
             }
         });
 
@@ -99,12 +98,12 @@ public class JFrameRegister extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel5.setText("Apellido Paterno");
 
-        txtApellidoMaterno.setForeground(new java.awt.Color(204, 204, 204));
-        txtApellidoMaterno.setBorder(null);
-        txtApellidoMaterno.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        txtApellidoMaterno.addActionListener(new java.awt.event.ActionListener() {
+        txtFirstName.setForeground(new java.awt.Color(204, 204, 204));
+        txtFirstName.setBorder(null);
+        txtFirstName.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtFirstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellidoMaternoActionPerformed(evt);
+                txtFirstNameActionPerformed(evt);
             }
         });
 
@@ -120,29 +119,29 @@ public class JFrameRegister extends javax.swing.JFrame {
             }
         });
 
-        jrbHombre.setText("Hombre");
-        jrbHombre.addActionListener(new java.awt.event.ActionListener() {
+        jrbMale.setText("Hombre");
+        jrbMale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbHombreActionPerformed(evt);
+                jrbMaleActionPerformed(evt);
             }
         });
 
-        jrbMujer.setText("Mujer");
-        jrbMujer.addActionListener(new java.awt.event.ActionListener() {
+        jrbFemale.setText("Mujer");
+        jrbFemale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbMujerActionPerformed(evt);
+                jrbFemaleActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel9.setText("Teléfono");
 
-        txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
-        txtTelefono.setBorder(null);
-        txtTelefono.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+        txtPhone.setForeground(new java.awt.Color(204, 204, 204));
+        txtPhone.setBorder(null);
+        txtPhone.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoActionPerformed(evt);
+                txtPhoneActionPerformed(evt);
             }
         });
 
@@ -175,46 +174,47 @@ public class JFrameRegister extends javax.swing.JFrame {
             }
         });
 
-        jrbOtro.setText("Otro...");
-        jrbOtro.addActionListener(new java.awt.event.ActionListener() {
+        jrbOther.setText("Otro...");
+        jrbOther.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbOtroActionPerformed(evt);
+                jrbOtherActionPerformed(evt);
             }
         });
 
-        txtOtro.setEditable(false);
-        txtOtro.setEnabled(false);
+        txtBirthDate.setEditable(false);
+        txtBirthDate.setBackground(new java.awt.Color(255, 255, 255));
+        txtBirthDate.setEnabled(false);
 
-        txtApellidoPaterno.setForeground(new java.awt.Color(204, 204, 204));
-        txtApellidoPaterno.setBorder(null);
-        txtApellidoPaterno.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        txtApellidoPaterno.addActionListener(new java.awt.event.ActionListener() {
+        txtSecondName.setForeground(new java.awt.Color(204, 204, 204));
+        txtSecondName.setBorder(null);
+        txtSecondName.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtSecondName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellidoPaternoActionPerformed(evt);
+                txtSecondNameActionPerformed(evt);
             }
         });
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel12.setText("Apellido Materno");
 
-        txtCodigoPostal.setForeground(new java.awt.Color(204, 204, 204));
-        txtCodigoPostal.setBorder(null);
-        txtCodigoPostal.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        txtCodigoPostal.addActionListener(new java.awt.event.ActionListener() {
+        txtZipCode.setForeground(new java.awt.Color(204, 204, 204));
+        txtZipCode.setBorder(null);
+        txtZipCode.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtZipCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoPostalActionPerformed(evt);
+                txtZipCodeActionPerformed(evt);
             }
         });
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel13.setText("Codigo Postal");
 
-        txtCalleNumero.setForeground(new java.awt.Color(204, 204, 204));
-        txtCalleNumero.setBorder(null);
-        txtCalleNumero.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        txtCalleNumero.addActionListener(new java.awt.event.ActionListener() {
+        txtStreet.setForeground(new java.awt.Color(204, 204, 204));
+        txtStreet.setBorder(null);
+        txtStreet.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtStreet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCalleNumeroActionPerformed(evt);
+                txtStreetActionPerformed(evt);
             }
         });
 
@@ -224,12 +224,12 @@ public class JFrameRegister extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel15.setText("Colonia");
 
-        txtColonia.setForeground(new java.awt.Color(204, 204, 204));
-        txtColonia.setBorder(null);
-        txtColonia.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        txtColonia.addActionListener(new java.awt.event.ActionListener() {
+        txtColony.setForeground(new java.awt.Color(204, 204, 204));
+        txtColony.setBorder(null);
+        txtColony.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtColony.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtColoniaActionPerformed(evt);
+                txtColonyActionPerformed(evt);
             }
         });
 
@@ -260,7 +260,7 @@ public class JFrameRegister extends javax.swing.JFrame {
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtNombres, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                    .addComponent(txtNames, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                                     .addComponent(jSeparator7))
                                 .addGap(21, 21, 21)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,31 +271,31 @@ public class JFrameRegister extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel5)
-                                    .addComponent(txtApellidoMaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                    .addComponent(txtFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                                     .addComponent(jSeparator2))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jSeparator10)
-                                    .addComponent(txtApellidoPaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                    .addComponent(txtSecondName, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                                     .addComponent(jLabel12)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(jrbHombre)
-                                .addGap(18, 18, 18)
-                                .addComponent(jrbMujer)
-                                .addGap(27, 27, 27)
-                                .addComponent(jrbOtro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtOtro, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(59, 59, 59))))
+                                .addGap(38, 38, 38)
+                                .addComponent(jrbMale)
+                                .addGap(18, 18, 18)
+                                .addComponent(jrbFemale)
+                                .addGap(27, 27, 27)
+                                .addComponent(jrbOther)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .addComponent(txtBirthDate))
+                                .addContainerGap())))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                                     .addComponent(jSeparator9))
                                 .addGap(66, 66, 66)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -309,18 +309,18 @@ public class JFrameRegister extends javax.swing.JFrame {
                                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(txtCalleNumero)
+                                            .addComponent(txtStreet)
                                             .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(21, 21, 21)))
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel15)
-                                    .addComponent(txtColonia)
+                                    .addComponent(txtColony)
                                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jSeparator11)
-                                    .addComponent(txtCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -336,9 +336,9 @@ public class JFrameRegister extends javax.swing.JFrame {
                             .addComponent(jLabel12))
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtApellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNames, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSecondName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel2)))
@@ -358,10 +358,10 @@ public class JFrameRegister extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCurp, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jrbHombre)
-                            .addComponent(jrbMujer)
-                            .addComponent(jrbOtro)
-                            .addComponent(txtOtro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jrbMale)
+                            .addComponent(jrbFemale)
+                            .addComponent(jrbOther)
+                            .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -371,9 +371,9 @@ public class JFrameRegister extends javax.swing.JFrame {
                     .addComponent(jLabel13))
                 .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCalleNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtColonia, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtColony, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -385,7 +385,7 @@ public class JFrameRegister extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -405,39 +405,39 @@ public class JFrameRegister extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
+    private void txtNamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombresActionPerformed
+    }//GEN-LAST:event_txtNamesActionPerformed
 
-    private void txtApellidoMaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoMaternoActionPerformed
+    private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidoMaternoActionPerformed
+    }//GEN-LAST:event_txtFirstNameActionPerformed
 
     private void txtCurpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCurpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCurpActionPerformed
 
-    private void jrbHombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHombreActionPerformed
+    private void jrbMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMaleActionPerformed
         // TODO add your handling code here:
-        
-        jrbMujer.setSelected(false);
-        jrbOtro.setSelected(false);
-        txtOtro.setEnabled(false);
-        
-    }//GEN-LAST:event_jrbHombreActionPerformed
 
-    private void jrbMujerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMujerActionPerformed
+        jrbFemale.setSelected(false);
+        jrbOther.setSelected(false);
+        txtBirthDate.setEnabled(false);
 
-        jrbHombre.setSelected(false);
-        jrbOtro.setSelected(false);
-        txtOtro.setEnabled(false);
-        
-        
-    }//GEN-LAST:event_jrbMujerActionPerformed
+    }//GEN-LAST:event_jrbMaleActionPerformed
 
-    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+    private void jrbFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbFemaleActionPerformed
+
+        jrbMale.setSelected(false);
+        jrbOther.setSelected(false);
+        txtBirthDate.setEnabled(false);
+
+
+    }//GEN-LAST:event_jrbFemaleActionPerformed
+
+    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoActionPerformed
+    }//GEN-LAST:event_txtPhoneActionPerformed
 
     private void txtSegurityNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSegurityNumberActionPerformed
         // TODO add your handling code here:
@@ -445,76 +445,87 @@ public class JFrameRegister extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-        
+
         JFrameLogin login = new JFrameLogin();
         login.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnConfirm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirm1ActionPerformed
         // TODO add your handling code here:
         NewPatientDTO patient = new NewPatientDTO();
-        patient = createPatient();
+  
         JFrameLogin login = new JFrameLogin(patient);
         login.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btnConfirm1ActionPerformed
 
-    public NewPatientDTO createPatient(){
-        
+    /*
+    public NewPatientDTO createPatient() {
+
+        String name = txtNames.getText();
+        String secondName = txtSecondName.getText();
+        String firstName = txtFirstName.getText();
+        String colony = txtColony.getText();
+        String zipCode = txtZipCode.getText();
+        String curp = txtCurp.getText();
+        String phone = txtPhone.getText();
+        String socialNumber = txtSegurityNumber.getText();
+
         NewPatientDTO patient = new NewPatientDTO();
-        patient.setName(txtNombres.getText());
-        patient.setFirstName(txtApellidoPaterno.getText());
-        patient.setSecondName(txtApellidoMaterno.getText());
-        patient.setColonia(txtColonia.getText());
-        patient.setPostalNumber(txtCodigoPostal.getText());
-        patient.setCurp(txtCurp.getText());
-        patient.setPhone(txtTelefono.getText());
-        patient.setSocialNumber(txtSegurityNumber.getText());
-        if(jrbHombre.isSelected()){
-            
+        patient.setName(name);
+        patient.setFirstName(secondName);
+        patient.setSecondName(firstName);
+        patient.setColony(colony);
+        patient.setZipCode(zipCode);
+        patient.setCurp(curp);
+        patient.setPhone(phone);
+        patient.setSocialNumber(socialNumber);
+        if (jrbMale.isSelected()) {
+
             patient.setSex("Hombre");
-            
-        }else if(jrbMujer.isSelected()){
-            
+
+        } else if (jrbFemale.isSelected()) {
+
             patient.setSex("Mujer");
-            
-        }else if(jrbOtro.isSelected()){
-            
-            patient.setSex(txtOtro.getText());
-            
+
+        } else if (jrbOther.isSelected()) {
+
+            patient.setSex(txtBirthDate.getText());
+
         }
-        
+
         return patient;
-        
+
     }
-    
-    private void txtApellidoPaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoPaternoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidoPaternoActionPerformed
+     */
 
-    private void txtCodigoPostalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoPostalActionPerformed
+    private void txtSecondNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecondNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoPostalActionPerformed
+    }//GEN-LAST:event_txtSecondNameActionPerformed
 
-    private void txtCalleNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCalleNumeroActionPerformed
+    private void txtZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZipCodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCalleNumeroActionPerformed
+    }//GEN-LAST:event_txtZipCodeActionPerformed
 
-    private void txtColoniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColoniaActionPerformed
+    private void txtStreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStreetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtColoniaActionPerformed
+    }//GEN-LAST:event_txtStreetActionPerformed
 
-    private void jrbOtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbOtroActionPerformed
+    private void txtColonyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColonyActionPerformed
         // TODO add your handling code here:
-        
-        jrbHombre.setSelected(false);
-        jrbMujer.setSelected(false);
-        txtOtro.setEnabled(true);
-        
-    }//GEN-LAST:event_jrbOtroActionPerformed
+    }//GEN-LAST:event_txtColonyActionPerformed
+
+    private void jrbOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbOtherActionPerformed
+        // TODO add your handling code here:
+
+        jrbMale.setSelected(false);
+        jrbFemale.setSelected(false);
+        txtBirthDate.setEnabled(true);
+
+    }//GEN-LAST:event_jrbOtherActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -589,18 +600,18 @@ public class JFrameRegister extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JRadioButton jrbHombre;
-    private javax.swing.JRadioButton jrbMujer;
-    private javax.swing.JRadioButton jrbOtro;
-    private javax.swing.JTextField txtApellidoMaterno;
-    private javax.swing.JTextField txtApellidoPaterno;
-    private javax.swing.JTextField txtCalleNumero;
-    private javax.swing.JTextField txtCodigoPostal;
-    private javax.swing.JTextField txtColonia;
+    private javax.swing.JRadioButton jrbFemale;
+    private javax.swing.JRadioButton jrbMale;
+    private javax.swing.JRadioButton jrbOther;
+    private javax.swing.JTextField txtBirthDate;
+    private javax.swing.JTextField txtColony;
     private javax.swing.JTextField txtCurp;
-    private javax.swing.JTextField txtNombres;
-    private javax.swing.JTextField txtOtro;
+    private javax.swing.JTextField txtFirstName;
+    private javax.swing.JTextField txtNames;
+    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtSecondName;
     private javax.swing.JTextField txtSegurityNumber;
-    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtStreet;
+    private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 }

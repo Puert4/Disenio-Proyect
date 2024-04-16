@@ -39,10 +39,21 @@ public class Doctor implements Serializable {
     @Column(name = "medicalCart", nullable = false)
     private String medicalCart;
 
+    /**
+     *
+     */
     public Doctor() {
 
     }
 
+    /**
+     *
+     * @param names
+     * @param firstLastName
+     * @param secondLastName
+     * @param specialization
+     * @param medicalCart
+     */
     public Doctor(String names, String firstLastName, String secondLastName, String specialization, String medicalCart) {
         this.names = names;
         this.firstLastName = firstLastName;

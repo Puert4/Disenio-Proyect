@@ -75,7 +75,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="txtNombres" pref="215" max="32767" attributes="0"/>
+                                  <Component id="txtNames" pref="215" max="32767" attributes="0"/>
                                   <Component id="jSeparator7" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -90,29 +90,29 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtApellidoMaterno" alignment="0" pref="215" max="32767" attributes="0"/>
+                                  <Component id="txtFirstName" alignment="0" pref="215" max="32767" attributes="0"/>
                                   <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jSeparator10" max="32767" attributes="0"/>
-                                  <Component id="txtApellidoPaterno" pref="215" max="32767" attributes="0"/>
+                                  <Component id="txtSecondName" pref="215" max="32767" attributes="0"/>
                                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="jrbHombre" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jrbMujer" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="jrbOtro" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtOtro" min="-2" pref="101" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel4" min="-2" pref="143" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="jrbMale" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jrbFemale" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jrbOther" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel4" pref="143" max="32767" attributes="0"/>
+                                  <Component id="txtBirthDate" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -121,7 +121,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel9" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
-                                  <Component id="txtTelefono" pref="318" max="32767" attributes="0"/>
+                                  <Component id="txtPhone" pref="318" max="32767" attributes="0"/>
                                   <Component id="jSeparator9" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
@@ -139,7 +139,7 @@
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="txtCalleNumero" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtStreet" alignment="1" max="32767" attributes="0"/>
                                           <Component id="jSeparator12" alignment="1" min="-2" pref="215" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -148,13 +148,13 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtColonia" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtColony" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jSeparator5" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jSeparator11" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtCodigoPostal" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
+                                  <Component id="txtZipCode" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
                                   <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -178,9 +178,9 @@
                       </Group>
                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtNombres" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="txtApellidoMaterno" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="txtApellidoPaterno" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="txtNames" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="txtFirstName" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="txtSecondName" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -207,10 +207,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtCurp" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jrbHombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jrbMujer" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jrbOtro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtOtro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jrbMale" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jrbFemale" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jrbOther" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtBirthDate" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
@@ -224,9 +224,9 @@
               </Group>
               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtCalleNumero" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="txtColonia" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="txtCodigoPostal" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="txtStreet" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="txtColony" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="txtZipCode" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -241,7 +241,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtTelefono" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="txtPhone" min="-2" pref="28" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator9" min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
@@ -264,7 +264,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="txtNombres">
+    <Component class="javax.swing.JTextField" name="txtNames">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -277,7 +277,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombresActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNamesActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -308,7 +308,7 @@
         <Property name="text" type="java.lang.String" value="Apellido Paterno"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtApellidoMaterno">
+    <Component class="javax.swing.JTextField" name="txtFirstName">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -321,7 +321,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtApellidoMaternoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFirstNameActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator3">
@@ -350,20 +350,20 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCurpActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jrbHombre">
+    <Component class="javax.swing.JRadioButton" name="jrbMale">
       <Properties>
         <Property name="text" type="java.lang.String" value="Hombre"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrbHombreActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrbMaleActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jrbMujer">
+    <Component class="javax.swing.JRadioButton" name="jrbFemale">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mujer"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrbMujerActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrbFemaleActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator7">
@@ -376,7 +376,7 @@
         <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTelefono">
+    <Component class="javax.swing.JTextField" name="txtPhone">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -389,7 +389,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelefonoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPhoneActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator9">
@@ -444,21 +444,24 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirm1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jrbOtro">
+    <Component class="javax.swing.JRadioButton" name="jrbOther">
       <Properties>
         <Property name="text" type="java.lang.String" value="Otro..."/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrbOtroActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrbOtherActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtOtro">
+    <Component class="javax.swing.JTextField" name="txtBirthDate">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtApellidoPaterno">
+    <Component class="javax.swing.JTextField" name="txtSecondName">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -471,7 +474,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtApellidoPaternoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSecondNameActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
@@ -484,7 +487,7 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator10">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCodigoPostal">
+    <Component class="javax.swing.JTextField" name="txtZipCode">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -497,7 +500,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoPostalActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtZipCodeActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
@@ -512,7 +515,7 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator12">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCalleNumero">
+    <Component class="javax.swing.JTextField" name="txtStreet">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -525,7 +528,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCalleNumeroActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStreetActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator5">
@@ -546,7 +549,7 @@
         <Property name="text" type="java.lang.String" value="Colonia"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtColonia">
+    <Component class="javax.swing.JTextField" name="txtColony">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -559,7 +562,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtColoniaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtColonyActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

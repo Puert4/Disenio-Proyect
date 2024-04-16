@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dtos;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -12,7 +9,7 @@ import java.util.Calendar;
  */
 public class NewPatientDTO {
 
-    private String name;
+    private String names;
     private String firstName;
     private String secondName;
     private String curp;
@@ -20,73 +17,34 @@ public class NewPatientDTO {
     private Calendar birthDate;
     private String sex;
     private String street;
-    private String zipCode;
+    private int zipCode;
     private String colony;
     private String socialNumber;
 
     public NewPatientDTO() {
     }
 
-    public NewPatientDTO(String name, String firstName, String secondName, String curp, String phone, Calendar birthDate, String sex, String street, String zipCode, String colony, String socialNumber) {
-        this.name = name;
-        this.firstName = firstName;
+    public NewPatientDTO(String names, String firsttName, String secondName, Calendar birthDate, String sex, String curp, String socialNumber, String phone, String street, String colony, int zipCode) {
+        this.names = names;
+        this.firstName = firsttName;
         this.secondName = secondName;
-        this.curp = curp;
-        this.phone = phone;
         this.birthDate = birthDate;
         this.sex = sex;
-        this.street = street;
-        this.zipCode = zipCode;
-        this.colony = colony;
+        this.curp = curp;
         this.socialNumber = socialNumber;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
+        this.phone = phone;
         this.street = street;
-    }
-
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
-    }
-
-    public String getColony() {
-        return colony;
-    }
-
-    public void setColony(String colony) {
         this.colony = colony;
+        this.zipCode = zipCode;
+
     }
 
-    public String getSocialNumber() {
-        return socialNumber;
+    public String getNames() {
+        return names;
     }
 
-    public void setSocialNumber(String socialNumber) {
-        this.socialNumber = socialNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setNames(String names) {
+        this.names = names;
     }
 
     public String getFirstName() {
@@ -128,4 +86,45 @@ public class NewPatientDTO {
     public void setBirthDate(Calendar birthDate) {
         this.birthDate = birthDate;
     }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getColony() {
+        return colony;
+    }
+
+    public void setColony(String colony) {
+        this.colony = colony;
+    }
+
+    public String getSocialNumber() {
+        return socialNumber;
+    }
+
+    public void setSocialNumber(String socialNumber) {
+        this.socialNumber = socialNumber;
+    }
+
 }

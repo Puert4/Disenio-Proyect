@@ -32,8 +32,8 @@ public class Patient implements Serializable {
     @Column(name = "names", nullable = false, length = 70)
     private String names;
 
-    @Column(name = "firsttName", nullable = false, length = 50)
-    private String firsttName;
+    @Column(name = "firstName", nullable = false, length = 50)
+    private String firstName;
 
     @Column(name = "secondName", nullable = false, length = 50)
     private String secondName;
@@ -70,9 +70,23 @@ public class Patient implements Serializable {
         this.asignedDoctors = new ArrayList<>();
     }
 
-    public Patient(String names, String firsttName, String secondName, Calendar birthDate, String sex, String curp, String socialNumber, String phone, String street, String colony, int zipCode) {
+    /**
+     *
+     * @param names
+     * @param firstName
+     * @param secondName
+     * @param birthDate
+     * @param sex
+     * @param curp
+     * @param socialNumber
+     * @param phone
+     * @param street
+     * @param colony
+     * @param zipCode
+     */
+    public Patient(String names, String firstName, String secondName, Calendar birthDate, String sex, String curp, String socialNumber, String phone, String street, String colony, int zipCode) {
         this.names = names;
-        this.firsttName = firsttName;
+        this.firstName = firstName;
         this.secondName = secondName;
         this.birthDate = birthDate;
         this.sex = sex;
@@ -101,12 +115,12 @@ public class Patient implements Serializable {
         this.names = names;
     }
 
-    public String getFirsttName() {
-        return firsttName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirsttName(String firsttName) {
-        this.firsttName = firsttName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getSecondName() {
