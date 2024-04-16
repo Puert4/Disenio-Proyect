@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package presentation;
 
 import dtos.NewPatientDTO;
@@ -10,23 +6,23 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Laboratorios
+ * @author Laboratorios De Criko
  */
 public class JFrameLogin extends javax.swing.JFrame {
 
     NewPatientDTO patient;
-    
+
     /**
      * Creates new form JFrameLogin1
      */
     public JFrameLogin() {
         initComponents();
     }
-    
-    public JFrameLogin(NewPatientDTO patient){
+
+    public JFrameLogin(NewPatientDTO patient) {
         initComponents();
         this.patient = patient;
-        
+
     }
 
     /**
@@ -205,77 +201,77 @@ public class JFrameLogin extends javax.swing.JFrame {
     private void jlbCreateAccountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jlbCreateAccountFocusLost
         // TODO add your handling code here:
 
-        Color color = new Color(51,204,255);
+        Color color = new Color(51, 204, 255);
         jlbCreateAccount.setForeground(color);
 
     }//GEN-LAST:event_jlbCreateAccountFocusLost
 
     private void jlbCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlbCreateAccountActionPerformed
         // TODO add your handling code here:
-        
+
         JFrameRegister register = new JFrameRegister();
         register.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jlbCreateAccountActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         // TODO add your handling code here:
-        if(!patient.getName().equalsIgnoreCase(txtName.getText())){
-            
+        if (!patient.getNames().equalsIgnoreCase(txtName.getText())) {
+
             JOptionPane.showMessageDialog(this, "El nombre dela persona no existe");
-            
-        }else if(!patient.getCurp().equalsIgnoreCase(txtPassword.getText())){
-            
+
+        } else if (!patient.getCurp().equalsIgnoreCase(txtPassword.getText())) {
+
             JOptionPane.showMessageDialog(this, "La curp dela persona no existe");
-            
-        }else{
-            
-            JOptionPane.showMessageDialog(this, "Bienvenido " + patient.getName());
+
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Bienvenido " + patient.getNames());
             JFrameMenu menu = new JFrameMenu();
             menu.setVisible(true);
             this.dispose();
-            
+
         }
-        
-        
+
+
     }//GEN-LAST:event_btnStartActionPerformed
 
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new JFrameLogin().setVisible(true);
-//            }
-//        });
-//    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new JFrameLogin().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStart;

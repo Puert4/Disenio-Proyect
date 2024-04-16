@@ -24,9 +24,9 @@ public class NewPatientDTO {
     public NewPatientDTO() {
     }
 
-    public NewPatientDTO(String names, String firsttName, String secondName, Calendar birthDate, String sex, String curp, String socialNumber, String phone, String street, String colony, int zipCode) {
+    public NewPatientDTO(String names, String firstName, String secondName, Calendar birthDate, String sex, String curp, String socialNumber, String phone, String street, String colony, int zipCode) {
         this.names = names;
-        this.firstName = firsttName;
+        this.firstName = firstName;
         this.secondName = secondName;
         this.birthDate = birthDate;
         this.sex = sex;
