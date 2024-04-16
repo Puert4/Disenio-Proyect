@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -66,6 +67,9 @@ public class Patient implements Serializable {
     @OneToMany
     private List<Doctor> asignedDoctors;
 
+    @OneToOne(mappedBy = "patient")
+    private User user;
+
     public Patient() {
         this.asignedDoctors = new ArrayList<>();
     }
@@ -96,6 +100,7 @@ public class Patient implements Serializable {
         this.street = street;
         this.colony = colony;
         this.zipCode = zipCode;
+       
         this.asignedDoctors = new ArrayList<>();
     }
 
@@ -193,6 +198,14 @@ public class Patient implements Serializable {
 
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<Doctor> getAsignedDoctors() {

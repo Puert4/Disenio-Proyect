@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package registration;
 
 import JPAEntities.Administrator;
 import JPAEntities.Appointment;
 import JPAEntities.Doctor;
 import JPAEntities.Patient;
+import JPAEntities.User;
 import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -63,6 +60,17 @@ public abstract class RegistrationDAO implements IRegistrationDAO {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(appointment);
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
+    }
+
+    @Override
+    public void registerUser(User user) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(user);
         em.getTransaction().commit();
         em.close();
         emf.close();
