@@ -43,8 +43,7 @@ public class Doctor implements Serializable {
 
     }
 
-    public Doctor(Long id, String names, String firstLastName, String secondLastName, String specialization, String medicalCart) {
-        this.id = id;
+    public Doctor(String names, String firstLastName, String secondLastName, String specialization, String medicalCart) {
         this.names = names;
         this.firstLastName = firstLastName;
         this.secondLastName = secondLastName;

@@ -1,5 +1,6 @@
 package itson.org.design.hospitalpersistencia;
 
+import JPAEntities.Doctor;
 import JPAEntities.Patient;
 import java.util.Calendar;
 import javax.persistence.EntityManager;
@@ -20,6 +21,7 @@ public class HospitalPersistencia {
         EntityManager em = emf.createEntityManager();
          */
 
+ /*
         Calendar birthDate = Calendar.getInstance();
         birthDate.set(1990, Calendar.JANUARY, 1);
 
@@ -37,9 +39,18 @@ public class HospitalPersistencia {
                 "Col. On",
                 12345
         );
+        
+         */
+        Doctor doctor = new Doctor(
+                "Carlos",
+                "Perez",
+                "Dominguez",
+                "Familiar",
+                "AAAAA"
+        );
 
         IRegistrationDAO registration = RegistrationDAO.getInstance();
-        registration.registerPatient(patient);
+        registration.registerDoctor(doctor);
 
         /*    em.getTransaction().begin();
          em.persist(patient);
