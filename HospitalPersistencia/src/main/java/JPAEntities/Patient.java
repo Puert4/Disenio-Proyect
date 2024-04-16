@@ -29,38 +29,38 @@ public class Patient implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "names")
+    @Column(name = "names", nullable = false, length = 70)
     private String names;
 
-    @Column(name = "firsttName")
+    @Column(name = "firsttName", nullable = false, length = 50)
     private String firsttName;
 
-    @Column(name = "secondName")
+    @Column(name = "secondName", nullable = false, length = 50)
     private String secondName;
 
-    @Column(name = "birthDate")
+    @Column(name = "birthDate", nullable = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar birthDate;
 
-    @Column(name = "sex")
+    @Column(name = "sex", nullable = false)
     private String sex;
 
-    @Column(name = "curp")
+    @Column(name = "curp", nullable = false, length = 16)
     private String curp;
 
-    @Column(name = "socialNumber")
+    @Column(name = "socialNumber", nullable = false)
     private String socialNumber;
 
-    @Column(name = "phone")
+    @Column(name = "phone", length = 20)
     private String phone;
 
-    @Column(name = "street")
+    @Column(name = "street", nullable = false, length = 50)
     private String street;
 
-    @Column(name = "colony")
+    @Column(name = "colony", nullable = false, length = 50)
     private String colony;
 
-    @Column(name = "zip_code")
+    @Column(name = "zip_code", nullable = false, length = 7)
     private int zipCode;
 
     @OneToMany

@@ -24,19 +24,19 @@ public class Doctor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "names")
+    @Column(name = "names", nullable = false)
     private String names;
 
-    @Column(name = "firstLastName")
+    @Column(name = "firstLastName", nullable = false)
     private String firstLastName;
 
-    @Column(name = "secondLastName")
+    @Column(name = "secondLastName", nullable = false)
     private String secondLastName;
 
-    @Column(name = "specialization")
+    @Column(name = "specialization", nullable = false)
     private String specialization;
 
-    @Column(name = "medicalCart")
+    @Column(name = "medicalCart", nullable = false)
     private String medicalCart;
 
     public Doctor() {

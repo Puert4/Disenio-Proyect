@@ -25,18 +25,18 @@ public class Appointment implements Serializable {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "id_doctor") 
+    @JoinColumn(name = "id_doctor", nullable = false)
     private Doctor doctor;
 
     @OneToOne
-    @JoinColumn(name = "id_patint")
+    @JoinColumn(name = "id_patint", nullable = false)
     private Patient patient;
 
-    @Column(name = "appointment_date")
+    @Column(name = "appointment_date", nullable = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar appointmentDate;
 
-    @Column(name = "apponitment_state")
+    @Column(name = "apponitment_state", nullable = false)
     private AppointmentState AppointmentState;
 
     public Appointment() {
