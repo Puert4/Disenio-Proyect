@@ -10,7 +10,11 @@ import dtos.NewPatientDTO;
  *
  * @author TeLesheo
  */
-public class Registration implements IRegistration {
+public abstract class Registration implements IRegistration {
+
+    private Registration() {
+        // Constructor privado para evitar la instanciación directa
+    }
 
     @Override
     public void registerPatient(NewPatientDTO patientDTO) {
@@ -18,7 +22,8 @@ public class Registration implements IRegistration {
     }
 
     public static Registration getInstance() {
-        return new Registration();
+        return new Registration() {};
+
     }
 
 }

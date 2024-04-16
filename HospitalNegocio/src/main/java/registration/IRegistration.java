@@ -6,7 +6,7 @@ import dtos.NewPatientDTO;
  *
  * @author TeLesheo
  */
-public interface IRegistration {
+public abstract interface IRegistration {
 
     public void registerPatient(NewPatientDTO patientDTO);
 
