@@ -4,25 +4,26 @@
  */
 package registration;
 
-import dtos.NewPatientDTO;
+import JPAEntities.Patient;
 
 /**
  *
  * @author TeLesheo
  */
-public abstract class Registration implements IRegistration {
+public abstract class Registration implements IRegistrationDAO {
 
     private Registration() {
         // Constructor privado para evitar la instanciación directa
     }
 
     @Override
-    public void registerPatient(NewPatientDTO patientDTO) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void registerPatient(Patient patient) {
+
     }
 
     public static Registration getInstance() {
-        return new Registration() {};
+        return new Registration() {
+        };
 
     }
 

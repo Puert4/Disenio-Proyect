@@ -9,7 +9,7 @@ package pojo;
  * @author Laboratorios
  */
 public class Specialization {
-    
+
     private String name;
     private int level;
     private int time;
@@ -46,7 +46,5 @@ public class Specialization {
     public void setTime(int time) {
         this.time = time;
     }
-    
-    
-    
+
 }
