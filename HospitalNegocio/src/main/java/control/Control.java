@@ -1,7 +1,7 @@
 package control;
 
-import JPAEntities.Patient;
-import JPAEntities.User;
+import JPAEntities.PatientEntity;
+import JPAEntities.UserEntity;
 import dtos.ExistentPatientDTO;
 import dtos.NewPatientDTO;
 import dtos.UserDTO;
@@ -18,6 +18,7 @@ import searches.Search;
  */
 public abstract class Control implements IControl {
 
+    int code = 9;
     private Control() {
     }
 
@@ -28,7 +29,7 @@ public abstract class Control implements IControl {
     @Override
     public void addNewPatient(NewPatientDTO newPatient) {
         IRegistrationDAO registration = RegistrationDAO.getInstance();
-        Patient patient = new Patient();
+        PatientEntity patient = new PatientEntity();
         patient.setNames(newPatient.getNames());
         patient.setFirstName(newPatient.getFirstName());
         patient.setSecondName(newPatient.getSecondName());
@@ -48,15 +49,15 @@ public abstract class Control implements IControl {
     public void addNewUser(UserDTO newUser) {
         IRegistrationDAO registration = RegistrationDAO.getInstance();
 
-        User user = new User();
-        user.setUser(newUser.getUser());
-        user.setPassword(newUser.getPassword());
+        UserEntity user = new UserEntity();
+        user.setUser(encrypt(newUser.getUser(), code));
+        user.setPassword(encrypt(newUser.getPassword(), code));
         user.setPatient(getPatientByCurp(newUser.getPatientDTO().getCurp()));
         registration.registerUser(user);
     }
 
     @Override
-    public Patient getPatientByCurp(String curp) {
+    public PatientEntity getPatientByCurp(String curp) {
         ISearch search = Search.getInstance();
         return search.searchPatientByCurp(curp);
 
@@ -65,7 +66,7 @@ public abstract class Control implements IControl {
     @Override
     public Long verifyUser(String user, String password) {
         ILogIn login = LogIn.getInstance();
-        Long patientId = login.validateUser(user, password);
+        Long patientId = login.validateUser(encrypt(user, code), encrypt(password, code));
         return patientId;
 
     }
@@ -80,7 +81,7 @@ public abstract class Control implements IControl {
     }
 
     @Override
-    public ExistentPatientDTO convertPatientToExistent(Patient patient) {
+    public ExistentPatientDTO convertPatientToExistent(PatientEntity patient) {
         ExistentPatientDTO existentPatientDTO = new ExistentPatientDTO();
         existentPatientDTO.setId(patient.getId());
         existentPatientDTO.setName(patient.getNames());
@@ -102,5 +103,32 @@ public abstract class Control implements IControl {
         return new Control() {
         };
     }
+
+    @Override
+    public String encrypt(String text, int code) {
+    
+        StringBuilder resultado = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            char caracter = text.charAt(i);
+            if (Character.isLetter(caracter)) {
+                char base = Character.isLowerCase(caracter) ? 'a' : 'A';
+                char encriptado = (char) (((caracter - base + code) % 26) + base);
+                resultado.append(encriptado);
+            } else {
+                resultado.append(caracter);
+            }
+        }
+        return resultado.toString();
+        
+    }
+
+    @Override
+    public String decrypt(String text, int code) {
+    
+        return encrypt(text, 26 - code);
+        
+    }
+    
+    
 
 }

@@ -1,6 +1,6 @@
 package control;
 
-import JPAEntities.Patient;
+import JPAEntities.PatientEntity;
 import dtos.ExistentPatientDTO;
 import dtos.NewPatientDTO;
 import dtos.UserDTO;
@@ -11,15 +11,19 @@ import dtos.UserDTO;
  */
 public interface IControl {
 
+    public String encrypt(String text, int code);
+    
+    public String decrypt(String text, int code);
+    
     public void addNewPatient(NewPatientDTO newPatient);
 
     public Long verifyUser(String user, String password);
 
     public ExistentPatientDTO getPatientByID(Long idPatient);
 
-    public ExistentPatientDTO convertPatientToExistent(Patient patient);
+    public ExistentPatientDTO convertPatientToExistent(PatientEntity patient);
 
     public void addNewUser(UserDTO newUser);
 
-    public Patient getPatientByCurp(String curp);
+    public PatientEntity getPatientByCurp(String curp);
 }
