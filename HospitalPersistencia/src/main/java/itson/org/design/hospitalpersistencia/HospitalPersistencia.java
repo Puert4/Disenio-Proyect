@@ -13,13 +13,13 @@ import registration.RegistrationDAO;
  * @author Laboratorios
  */
 public class HospitalPersistencia {
-    
+
     public static void main(String[] args) {
         /*
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
          */
-        
+
         Calendar birthDate = Calendar.getInstance();
         birthDate.set(1990, Calendar.JANUARY, 1);
 
@@ -37,7 +37,7 @@ public class HospitalPersistencia {
                 "Col. On",
                 12345
         );
-        
+
         IRegistrationDAO registration = RegistrationDAO.getInstance();
         registration.registerPatient(patient);
 

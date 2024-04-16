@@ -4,6 +4,9 @@
  */
 package registration;
 
+import JPAEntities.Administrator;
+import JPAEntities.Appointment;
+import JPAEntities.Doctor;
 import JPAEntities.Patient;
 import java.util.Calendar;
 import javax.persistence.EntityManager;
@@ -30,6 +33,39 @@ public abstract class RegistrationDAO implements IRegistrationDAO {
         em.close();
         emf.close();
 
+    }
+
+    @Override
+    public void registerDoctor(Doctor doctor) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(doctor);
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
+    }
+
+    @Override
+    public void registerAdministrator(Administrator administrator) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(administrator);
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
+    }
+
+    @Override
+    public void registerAppointment(Appointment appointment) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(appointment);
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
     }
 
     public static RegistrationDAO getInstance() {
