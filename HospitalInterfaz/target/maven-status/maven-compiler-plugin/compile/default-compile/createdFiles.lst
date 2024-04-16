@@ -15,6 +15,8 @@ presentation\JFrameRegister$10.class
 presentation\JFrameRegister$13.class
 presentation\JFrameRegisterDoctor$15.class
 presentation\JFrameRegisterDoctor$8.class
+presentation\JFrameCreateUser.class
+presentation\JFrameCreateUser$1.class
 presentation\JFrameRegister$8.class
 presentation\JFrameAdministrator.class
 presentation\JFrameInitialPatient$2.class
@@ -33,6 +35,8 @@ presentation\JFrameLogin$5.class
 presentation\JFrameRegister$7.class
 presentation\JFrameRegister$14.class
 presentation\JFrameRegisterDoctor$4.class
+presentation\JFrameInitialPatient$4.class
+presentation\JFrameInitialPatient$3.class
 presentation\JFrameRegister$11.class
 presentation\JFrameRegister$4.class
 presentation\JFrameLogin$6.class

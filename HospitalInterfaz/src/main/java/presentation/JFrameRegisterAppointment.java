@@ -1,5 +1,6 @@
 package presentation;
 
+import control.IControl;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -8,22 +9,24 @@ import java.util.Date;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author daani
  */
 public class JFrameRegisterAppointment extends javax.swing.JFrame {
 
+    private final IControl control;
+    private final Long idPatient;
+
 //    private JDateChooser dateChooser;
-    
     /**
      * Creates new form ConfirmaciondeCita
      */
-    public JFrameRegisterAppointment() {
+    public JFrameRegisterAppointment(IControl control, Long idPatient) {
+        this.control = control;
+        this.idPatient = idPatient;
         initComponents();
-        
-        
+
     }
 
     /**
@@ -136,32 +139,31 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        JFrameConfirmAppointment confirm = new JFrameConfirmAppointment();
+
+        JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(control, idPatient);
         confirm.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-        JFrameInitialPatient menu = new JFrameInitialPatient();
+
+        JFrameInitialPatient menu = new JFrameInitialPatient(control, idPatient);
         menu.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void crearDateChooser() {
-        
+
 //        dateChooser = new JDateChooser();
 //        dateChooser.setBounds(171, 143, 142, 26);
 //        add(dateChooser);
-        
     }
 
     public void limitarCalendario() {
-        
+
         Calendar calendar = Calendar.getInstance();
         Date fechaActual = calendar.getTime();
 
@@ -173,10 +175,8 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         Date fechaMaxima = calendar.getTime();
 
 //        dateChooser.setSelectableDateRange(fechaMinima, fechaMaxima);
-        
     }
-    
-    
+
 //    /**
 //     * @param args the command line arguments
 //     */

@@ -1,21 +1,27 @@
 package presentation;
 
+import control.IControl;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author daani
  */
 public class JFrameConfirmAppointment extends javax.swing.JFrame {
 
+    private final IControl control;
+    private final Long idPatient;
+
     /**
      * Creates new form AgendarCita
      */
-    public JFrameConfirmAppointment() {
+    public JFrameConfirmAppointment(IControl control, Long idPatient) {
+        this.control = control;
+        this.idPatient = idPatient;
         initComponents();
     }
 
@@ -204,20 +210,20 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        JFrameRegisterAppointment register = new JFrameRegisterAppointment();
+
+        JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
         register.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-        JFrameInitialPatient menu = new JFrameInitialPatient();
+
+        JFrameInitialPatient menu = new JFrameInitialPatient(control, idPatient);
         menu.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
 //    /**

@@ -12,19 +12,11 @@ import javax.swing.JOptionPane;
  */
 public class JFrameLogin extends javax.swing.JFrame {
 
-    NewPatientDTO patient;
-
     /**
      * Creates new form JFrameLogin1
      */
     public JFrameLogin() {
         initComponents();
-    }
-
-    public JFrameLogin(NewPatientDTO patient) {
-        initComponents();
-        this.patient = patient;
-
     }
 
     /**
@@ -222,8 +214,9 @@ public class JFrameLogin extends javax.swing.JFrame {
         String user = txtUser.getText();
         String password = txtPassword.getText();
         IControl control = Control.getInstance();
-        if (control.verifyUser(user, password) != null) {
-            JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient();
+        Long idPatient = control.verifyUser(user, password);
+        if (idPatient != null) {
+            JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(control, idPatient);
             frameInitialPatient.setVisible(true);
             this.dispose();
         }

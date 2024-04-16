@@ -1,5 +1,8 @@
 package presentation;
 
+import control.IControl;
+import dtos.ExistentPatientDTO;
+import dtos.NewPatientDTO;
 import javax.swing.JOptionPane;
 
 /*
@@ -7,18 +10,27 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author daani
  */
 public class JFrameInitialPatient extends javax.swing.JFrame {
 
+    private final IControl control;
+    private final Long idPatient;
+
     /**
      * Creates new form InicioPaciente
      */
-    public JFrameInitialPatient() {
+    public JFrameInitialPatient(IControl control, Long idPatient) {
+        this.control = control;
+        this.idPatient = idPatient;
         initComponents();
+    }
+
+    private void cargarDatosPaciente() {
+        ExistentPatientDTO paciente = control.getPatientByID(idPatient);
+        txtNombre.setText(paciente.getName());
     }
 
     /**
@@ -35,6 +47,8 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        btnMiNombre = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,19 +68,31 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Nombre", "Medico", "Hospital", "Fecha", ""
+                "Fecha", "Medico", "Razon de Consulta"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Bienvenido!!");
+
+        btnMiNombre.setText("Nombre");
+        btnMiNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMiNombreActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,13 +112,26 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(270, 270, 270)
+                .addComponent(btnMiNombre)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(btnMiNombre)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
@@ -107,19 +146,25 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-        JFrameRegisterAppointment register = new JFrameRegisterAppointment();
+
+        JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
         register.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+
         JOptionPane.showMessageDialog(this, "No se a seleccionado ninguna cita", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnMiNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiNombreActionPerformed
+        // TODO add your handling code here:
+
+        cargarDatosPaciente();
+    }//GEN-LAST:event_btnMiNombreActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -158,10 +203,12 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMiNombre;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

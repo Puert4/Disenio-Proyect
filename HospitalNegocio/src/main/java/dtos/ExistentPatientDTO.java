@@ -11,7 +11,7 @@ import java.util.Calendar;
  * @author Laboratorios
  */
 public class ExistentPatientDTO {
-    
+
     private Long id;
     private String name;
     private String firstName;
@@ -21,14 +21,26 @@ public class ExistentPatientDTO {
     private Calendar birthDate;
     private String sex;
     private String street;
-    private String postalNumber;
+    private int zipCode;
     private String colonia;
     private String socialNumber;
 
     public ExistentPatientDTO() {
     }
 
-    public ExistentPatientDTO(Long id, String name, String firstName, String secondName, String curp, String phone, Calendar birthDate, String sex, String street, String postalNumber, String colonia, String socialNumber) {
+    public ExistentPatientDTO(Long id, String name, String firstName, String secondName, String curp, String phone, Calendar birthDate, String sex, String socialNumber) {
+        this.id = id;
+        this.name = name;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.curp = curp;
+        this.phone = phone;
+        this.birthDate = birthDate;
+        this.sex = sex;
+        this.socialNumber = socialNumber;
+    }
+
+    public ExistentPatientDTO(Long id, String name, String firstName, String secondName, String curp, String phone, Calendar birthDate, String sex, String street, int zipCode, String colonia, String socialNumber) {
         this.id = id;
         this.name = name;
         this.firstName = firstName;
@@ -38,7 +50,7 @@ public class ExistentPatientDTO {
         this.birthDate = birthDate;
         this.sex = sex;
         this.street = street;
-        this.postalNumber = postalNumber;
+        this.zipCode = zipCode;
         this.colonia = colonia;
         this.socialNumber = socialNumber;
     }
@@ -59,12 +71,12 @@ public class ExistentPatientDTO {
         this.street = street;
     }
 
-    public String getPostalNumber() {
-        return postalNumber;
+    public int getZipCode() {
+        return zipCode;
     }
 
-    public void setPostalNumber(String postalNumber) {
-        this.postalNumber = postalNumber;
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
     }
 
     public String getColonia() {
@@ -138,5 +150,5 @@ public class ExistentPatientDTO {
     public void setBirthDate(Calendar birthDate) {
         this.birthDate = birthDate;
     }
-    
+
 }

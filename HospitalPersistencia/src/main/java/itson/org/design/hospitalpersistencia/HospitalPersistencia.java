@@ -14,6 +14,8 @@ import loginManager.LogIn;
 import org.eclipse.persistence.internal.oxm.mappings.Login;
 import registration.IRegistrationDAO;
 import registration.RegistrationDAO;
+import searches.ISearch;
+import searches.Search;
 
 /**
  *
@@ -22,10 +24,26 @@ import registration.RegistrationDAO;
 public class HospitalPersistencia {
 
     public static void main(String[] args) {
+        // ID del paciente que deseas buscar
+        Long idPatientToFind = 1L;
 
-        ILogIn login = LogIn.getInstance();
-        login.validateUser("username", "password");
+        ISearch search = Search.getInstance();
 
+        Patient patient = search.serachPatientById(idPatientToFind);
+
+        if (patient != null) {
+            System.out.println("Paciente encontrado:");
+            System.out.println("ID: " + patient.getId());
+            System.out.println("Nombre: " + patient.getNames());
+            // Agrega aquí más atributos que desees mostrar
+        } else {
+            System.out.println("No se encontró ningún paciente con el ID especificado.");
+        }
+    }
+
+//
+//        ILogIn login = LogIn.getInstance();
+//        login.validateUser("username", "password");
 //        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
 //        EntityManager em = emf.createEntityManager();
 //
@@ -121,5 +139,4 @@ public class HospitalPersistencia {
 //            em.close();
 //            emf.close();
 //        }
-    }
 }
