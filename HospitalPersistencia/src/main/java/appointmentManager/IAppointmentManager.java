@@ -1,6 +1,6 @@
 package appointmentManager;
 
-import JPAEntities.Appointment;
+import JPAEntities.AppointmentEntity;
 
 /**
  *
@@ -8,5 +8,5 @@ import JPAEntities.Appointment;
  */
 public interface IAppointmentManager {
 
-    public void createAppointment(Appointment appointment);
+    public void createAppointment(AppointmentEntity appointment);
 }

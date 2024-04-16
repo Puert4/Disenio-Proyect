@@ -4,7 +4,7 @@ package JPAEntities;
  *
  * @author TeLesheo
  */
-public enum AppointmentState {
+public enum AppointmentStateEntity {
 
     ACTIVE,
     PENDING,

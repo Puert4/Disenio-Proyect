@@ -1,10 +1,10 @@
 package registration;
 
-import JPAEntities.Administrator;
-import JPAEntities.Appointment;
-import JPAEntities.Doctor;
-import JPAEntities.Patient;
-import JPAEntities.User;
+import JPAEntities.AdministratorEntity;
+import JPAEntities.AppointmentEntity;
+import JPAEntities.DoctorEntity;
+import JPAEntities.PatientEntity;
+import JPAEntities.UserEntity;
 
 /**
  *
@@ -12,13 +12,13 @@ import JPAEntities.User;
  */
 public interface IRegistrationDAO {
 
-    public void registerPatient(Patient patient);
+    public void registerPatient(PatientEntity patient);
 
-    public void registerDoctor(Doctor doctor);
+    public void registerDoctor(DoctorEntity doctor);
 
-    public void registerAdministrator(Administrator administrator);
+    public void registerAdministrator(AdministratorEntity administrator);
 
-    public void registerAppointment(Appointment appointment);
+    public void registerAppointment(AppointmentEntity appointment);
 
-    public void registerUser(User user);
+    public void registerUser(UserEntity user);
 }

@@ -1,6 +1,6 @@
 package searches;
 
-import JPAEntities.Patient;
+import JPAEntities.PatientEntity;
 
 /**
  *
@@ -8,8 +8,8 @@ import JPAEntities.Patient;
  */
 public interface ISearch {
 
-    public Patient serachPatientById(Long idPatient);
+    public PatientEntity serachPatientById(Long idPatient);
 
-    public Patient searchPatientByCurp(String curp);
+    public PatientEntity searchPatientByCurp(String curp);
 
 }

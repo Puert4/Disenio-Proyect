@@ -1,6 +1,6 @@
 package appointmentManager;
 
-import JPAEntities.Appointment;
+import JPAEntities.AppointmentEntity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -15,7 +15,7 @@ public abstract class AppointmentManager implements IAppointmentManager {
     }
 
     @Override
-    public void createAppointment(Appointment appointment) {
+    public void createAppointment(AppointmentEntity appointment) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();

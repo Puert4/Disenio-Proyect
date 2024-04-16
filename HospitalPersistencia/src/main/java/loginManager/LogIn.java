@@ -1,6 +1,6 @@
 package loginManager;
 
-import JPAEntities.User;
+import JPAEntities.UserEntity;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -55,11 +55,11 @@ public abstract class LogIn implements ILogIn {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
 
-        TypedQuery<User> consultUser = em.createQuery("SELECT u FROM User u WHERE u.user = :user", User.class);
+        TypedQuery<UserEntity> consultUser = em.createQuery("SELECT u FROM UserEntity u WHERE u.user = :user", UserEntity.class);
         consultUser.setParameter("user", user);
 
         try {
-            User userEntity = consultUser.getSingleResult();
+            UserEntity userEntity = consultUser.getSingleResult();
 
             if (userEntity != null && userEntity.getPassword().equals(password)) {
                 LOGGER.log(Level.INFO, "Usuario Validado");

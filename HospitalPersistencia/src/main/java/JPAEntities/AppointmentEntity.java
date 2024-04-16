@@ -17,8 +17,8 @@ import javax.persistence.Temporal;
  * @author TeLesheo
  */
 @Entity
-@Table(name = "appointment")
-public class Appointment implements Serializable {
+@Table(name = "AppointmentEntity")
+public class AppointmentEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,23 +26,23 @@ public class Appointment implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "id_doctor", nullable = false)
-    private Doctor doctor;
+    private DoctorEntity doctor;
 
     @OneToOne
     @JoinColumn(name = "id_patint", nullable = false)
-    private Patient patient;
+    private PatientEntity patient;
 
     @Column(name = "appointment_date", nullable = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar appointmentDate;
 
     @Column(name = "apponitment_state", nullable = false)
-    private AppointmentState AppointmentState;
+    private AppointmentStateEntity AppointmentState;
 
-    public Appointment() {
+    public AppointmentEntity() {
     }
 
-    public Appointment(Doctor doctor, Patient patient, Calendar appointmentDate, AppointmentState AppointmentState) {
+    public AppointmentEntity(DoctorEntity doctor, PatientEntity patient, Calendar appointmentDate, AppointmentStateEntity AppointmentState) {
         this.doctor = doctor;
         this.patient = patient;
         this.appointmentDate = appointmentDate;
@@ -57,19 +57,19 @@ public class Appointment implements Serializable {
         this.id = id;
     }
 
-    public Doctor getDoctor() {
+    public DoctorEntity getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(Doctor doctor) {
+    public void setDoctor(DoctorEntity doctor) {
         this.doctor = doctor;
     }
 
-    public Patient getPatient() {
+    public PatientEntity getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(PatientEntity patient) {
         this.patient = patient;
     }
 
@@ -81,11 +81,11 @@ public class Appointment implements Serializable {
         this.appointmentDate = appointmentDate;
     }
 
-    public AppointmentState getAppointmentState() {
+    public AppointmentStateEntity getAppointmentState() {
         return AppointmentState;
     }
 
-    public void setAppointmentState(AppointmentState AppointmentState) {
+    public void setAppointmentState(AppointmentStateEntity AppointmentState) {
         this.AppointmentState = AppointmentState;
     }
 

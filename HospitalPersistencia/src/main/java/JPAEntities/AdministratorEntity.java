@@ -14,8 +14,8 @@ import javax.persistence.Table;
  * @author TeLesheo
  */
 @Entity
-@Table(name = "administrator")
-public class Administrator implements Serializable {
+@Table(name = "AdministratorEntity")
+public class AdministratorEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +24,10 @@ public class Administrator implements Serializable {
     @Column(name = "names")
     private String names;
 
-    public Administrator() {
+    public AdministratorEntity() {
     }
 
-    public Administrator(Long id, String names) {
+    public AdministratorEntity(Long id, String names) {
         this.id = id;
         this.names = names;
     }

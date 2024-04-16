@@ -17,8 +17,8 @@ import javax.persistence.Table;
  * @author TeLesheo
  */
 @Entity
-@Table(name = "doctor")
-public class Doctor implements Serializable {
+@Table(name = "DoctorEntity")
+public class DoctorEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,7 +42,7 @@ public class Doctor implements Serializable {
     /**
      *
      */
-    public Doctor() {
+    public DoctorEntity() {
 
     }
 
@@ -54,7 +54,7 @@ public class Doctor implements Serializable {
      * @param specialization
      * @param medicalCart
      */
-    public Doctor(String names, String firstLastName, String secondLastName, String specialization, String medicalCart) {
+    public DoctorEntity(String names, String firstLastName, String secondLastName, String specialization, String medicalCart) {
         this.names = names;
         this.firstLastName = firstLastName;
         this.secondLastName = secondLastName;

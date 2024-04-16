@@ -23,8 +23,8 @@ import javax.persistence.Temporal;
  * @author TeLesheo
  */
 @Entity
-@Table(name = "patient")
-public class Patient implements Serializable {
+@Table(name = "PatientEntity")
+public class PatientEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,7 +46,7 @@ public class Patient implements Serializable {
     @Column(name = "sex", nullable = false)
     private String sex;
 
-    @Column(name = "curp", nullable = false, length = 16)
+    @Column(name = "curp", nullable = false, length = 18)
     private String curp;
 
     @Column(name = "socialNumber", nullable = false)
@@ -65,12 +65,12 @@ public class Patient implements Serializable {
     private int zipCode;
 
     @OneToMany
-    private List<Doctor> asignedDoctors;
+    private List<DoctorEntity> asignedDoctors;
 
     @OneToOne(mappedBy = "patient")
-    private User user;
+    private UserEntity user;
 
-    public Patient() {
+    public PatientEntity() {
         this.asignedDoctors = new ArrayList<>();
     }
 
@@ -88,7 +88,7 @@ public class Patient implements Serializable {
      * @param colony
      * @param zipCode
      */
-    public Patient(String names, String firstName, String secondName, Calendar birthDate, String sex, String curp, String socialNumber, String phone, String street, String colony, int zipCode) {
+    public PatientEntity(String names, String firstName, String secondName, Calendar birthDate, String sex, String curp, String socialNumber, String phone, String street, String colony, int zipCode) {
         this.names = names;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -200,19 +200,19 @@ public class Patient implements Serializable {
         this.zipCode = zipCode;
     }
 
-    public User getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
-    public List<Doctor> getAsignedDoctors() {
+    public List<DoctorEntity> getAsignedDoctors() {
         return asignedDoctors;
     }
 
-    public void setAsignedDoctors(List<Doctor> asignedDoctors) {
+    public void setAsignedDoctors(List<DoctorEntity> asignedDoctors) {
         this.asignedDoctors = asignedDoctors;
     }
 

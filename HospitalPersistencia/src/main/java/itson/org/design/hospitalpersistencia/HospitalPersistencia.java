@@ -1,10 +1,10 @@
 package itson.org.design.hospitalpersistencia;
 
-import JPAEntities.Appointment;
-import JPAEntities.AppointmentState;
-import JPAEntities.Doctor;
-import JPAEntities.Patient;
-import JPAEntities.User;
+import JPAEntities.AppointmentEntity;
+import JPAEntities.AppointmentStateEntity;
+import JPAEntities.DoctorEntity;
+import JPAEntities.PatientEntity;
+import JPAEntities.UserEntity;
 import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -29,7 +29,7 @@ public class HospitalPersistencia {
 
         ISearch search = Search.getInstance();
 
-        Patient patient = search.serachPatientById(idPatientToFind);
+        PatientEntity patient = search.serachPatientById(idPatientToFind);
 
         if (patient != null) {
             System.out.println("Paciente encontrado:");

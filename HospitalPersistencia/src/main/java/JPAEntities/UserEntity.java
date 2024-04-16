@@ -14,8 +14,8 @@ import javax.persistence.Table;
  * @author TeLesheo
  */
 @Entity
-@Table(name = "users")
-public class User implements Serializable {
+@Table(name = "UserEntity")
+public class UserEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,13 +28,13 @@ public class User implements Serializable {
     private String password;
 
     @OneToOne
-    private Patient patient;
+    private PatientEntity patient;
 
-    public User() {
+    public UserEntity() {
 
     }
 
-    public User(String user, String password, Patient patient) {
+    public UserEntity(String user, String password, PatientEntity patient) {
         this.user = user;
         this.password = password;
         this.patient = patient;
@@ -64,11 +64,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Patient getPatient() {
+    public PatientEntity getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(PatientEntity patient) {
         this.patient = patient;
     }
 

@@ -1,6 +1,6 @@
 package searches;
 
-import JPAEntities.Patient;
+import JPAEntities.PatientEntity;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -22,13 +22,13 @@ public abstract class Search implements ISearch {
     }
 
     @Override
-    public Patient serachPatientById(Long idPatient) {
+    public PatientEntity serachPatientById(Long idPatient) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
 
         try {
             // Consulta el paciente por su ID
-            return em.find(Patient.class, idPatient);
+            return em.find(PatientEntity.class, idPatient);
         } catch (NoResultException e) {
             LOGGER.log(Level.INFO, "No se encontró ningún paciente con el ID especificado.");
             return null;
@@ -39,12 +39,12 @@ public abstract class Search implements ISearch {
     }
 
     @Override
-    public Patient searchPatientByCurp(String curp) {
+    public PatientEntity searchPatientByCurp(String curp) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
 
         try {
-            TypedQuery<Patient> query = em.createQuery("SELECT p FROM Patient p WHERE p.curp = :curp", Patient.class);
+            TypedQuery<PatientEntity> query = em.createQuery("SELECT p FROM PatientEntity p WHERE p.curp = :curp", PatientEntity.class);
             query.setParameter("curp", curp);
             return query.getSingleResult();
         } catch (NoResultException e) {

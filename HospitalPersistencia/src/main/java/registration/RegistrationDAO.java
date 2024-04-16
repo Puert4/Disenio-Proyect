@@ -1,10 +1,10 @@
 package registration;
 
-import JPAEntities.Administrator;
-import JPAEntities.Appointment;
-import JPAEntities.Doctor;
-import JPAEntities.Patient;
-import JPAEntities.User;
+import JPAEntities.AdministratorEntity;
+import JPAEntities.AppointmentEntity;
+import JPAEntities.DoctorEntity;
+import JPAEntities.PatientEntity;
+import JPAEntities.UserEntity;
 import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,7 +21,7 @@ public abstract class RegistrationDAO implements IRegistrationDAO {
     }
 
     @Override
-    public void registerPatient(Patient patient) {
+    public void registerPatient(PatientEntity patient) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -33,7 +33,7 @@ public abstract class RegistrationDAO implements IRegistrationDAO {
     }
 
     @Override
-    public void registerDoctor(Doctor doctor) {
+    public void registerDoctor(DoctorEntity doctor) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -44,7 +44,7 @@ public abstract class RegistrationDAO implements IRegistrationDAO {
     }
 
     @Override
-    public void registerAdministrator(Administrator administrator) {
+    public void registerAdministrator(AdministratorEntity administrator) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -55,7 +55,7 @@ public abstract class RegistrationDAO implements IRegistrationDAO {
     }
 
     @Override
-    public void registerAppointment(Appointment appointment) {
+    public void registerAppointment(AppointmentEntity appointment) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -66,7 +66,7 @@ public abstract class RegistrationDAO implements IRegistrationDAO {
     }
 
     @Override
-    public void registerUser(User user) {
+    public void registerUser(UserEntity user) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
