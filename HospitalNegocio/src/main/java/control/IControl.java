@@ -10,5 +10,5 @@ public interface IControl {
 
     public void addNewPatient(NewPatientDTO newPatient);
 
-    public boolean verifyUser(String user, String password);
+    public Long verifyUser(String user, String password);
 }

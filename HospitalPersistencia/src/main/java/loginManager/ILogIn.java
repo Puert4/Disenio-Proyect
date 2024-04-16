@@ -10,6 +10,5 @@ package loginManager;
  */
 public interface ILogIn {
 
-    public boolean validateUser(String user, String password);
-
+    public Long validateUser(String user, String password);
 }

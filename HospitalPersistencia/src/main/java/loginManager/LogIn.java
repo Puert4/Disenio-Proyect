@@ -26,9 +26,36 @@ public abstract class LogIn implements ILogIn {
 
     }
 
+//    @Override
+//    public boolean validateUser(String user, String password) {
+//
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
+//        EntityManager em = emf.createEntityManager();
+//
+//        TypedQuery<User> consultUser = em.createQuery("SELECT u FROM User u WHERE u.user = :user", User.class);
+//        consultUser.setParameter("user", user);
+//
+//        try {
+//            User username = consultUser.getSingleResult();
+//
+//            if (username != null && username.getPassword().equals(password)) {
+//
+//                LOGGER.log(Level.INFO, "Usuario Validado");
+//                return true;
+//            } else {
+//                LOGGER.log(Level.INFO, "Contrasena Invalida o Usuario Inexistente");
+//                return false;
+//            }
+//        } catch (Exception e) {
+//            LOGGER.log(Level.SEVERE, "Error Validar ", e);
+//            return false;
+//        } finally {
+//            em.close();
+//            emf.close();
+//        }
+//    }
     @Override
-    public boolean validateUser(String user, String password) {
-
+    public Long validateUser(String user, String password) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
 
@@ -36,19 +63,22 @@ public abstract class LogIn implements ILogIn {
         consultUser.setParameter("user", user);
 
         try {
-            User username = consultUser.getSingleResult();
+            User userEntity = consultUser.getSingleResult();
 
-            if (username != null && username.getPassword().equals(password)) {
-
+            if (userEntity != null && userEntity.getPassword().equals(password)) {
                 LOGGER.log(Level.INFO, "Usuario Validado");
-                return true;
+                // Devuelve el ID del paciente asociado al usuario
+                return userEntity.getPatient().getId();
             } else {
                 LOGGER.log(Level.INFO, "Contrasena Invalida o Usuario Inexistente");
-                return false;
+                return null;
             }
+        } catch (NoResultException e) {
+            LOGGER.log(Level.INFO, "El usuario no existe");
+            return null;
         } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "Error Validar ", e);
-            return false;
+            LOGGER.log(Level.SEVERE, "Error al validar", e);
+            return null;
         } finally {
             em.close();
             emf.close();

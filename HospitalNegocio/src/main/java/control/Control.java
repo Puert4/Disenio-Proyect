@@ -40,9 +40,10 @@ public abstract class Control implements IControl {
     }
 
     @Override
-    public boolean verifyUser(String user, String password) {
+    public Long verifyUser(String user, String password) {
         ILogIn login = LogIn.getInstance();
-        return login.validateUser(user, password);
+        Long patientId = login.validateUser(user, password);
+        return patientId;
 
     }
 

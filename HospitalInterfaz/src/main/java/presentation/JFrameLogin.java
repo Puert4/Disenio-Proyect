@@ -222,8 +222,9 @@ public class JFrameLogin extends javax.swing.JFrame {
         String user = txtUser.getText();
         String password = txtPassword.getText();
         IControl control = Control.getInstance();
-        if (control.verifyUser(user, password)) {
+        if (control.verifyUser(user, password) != null) {
             JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient();
+            frameInitialPatient.setVisible(true);
             this.dispose();
         }
 
