@@ -8,10 +8,8 @@ import dtos.UserDTO;
 import loginManager.ILogIn;
 import loginManager.LogIn;
 import patient.system.IPatientDAO;
-import registration.IRegistrationDAO;
-import registration.RegistrationDAO;
-import searches.ISearch;
-import searches.Search;
+import user.system.IUserDAO;
+import user.system.UserDAO;
 
 /**
  *
@@ -30,7 +28,8 @@ public abstract class Control implements IControl {
      */
     @Override
     public void addNewPatient(NewPatientDTO newPatient) {
-        IPatientDAO registration = Factory.getRegistrationDAO();
+        IPatientDAO patientSystem = Factory.getPatientDAO();
+
         PatientEntity patient = new PatientEntity();
         patient.setNames(newPatient.getNames());
         patient.setFirstName(newPatient.getFirstName());
@@ -44,25 +43,19 @@ public abstract class Control implements IControl {
         patient.setColony(newPatient.getColony());
         patient.setSocialNumber(newPatient.getSocialNumber());
 
-        registration.registerPatient(patient);
+        patientSystem.registerPatient(patient);
     }
 
     @Override
     public void addNewUser(UserDTO newUser) {
-        IRegistrationDAO registration = RegistrationDAO.getInstance();
+        IUserDAO userSystem = UserDAO.getInstance();
+        IPatientDAO patientSystem = Factory.getPatientDAO();
 
         UserEntity user = new UserEntity();
         user.setUser(encrypt(newUser.getUser(), code));
         user.setPassword(encrypt(newUser.getPassword(), code));
-        user.setPatient(getPatientByCurp(newUser.getPatientDTO().getCurp()));
-        registration.registerUser(user);
-    }
-
-    @Override
-    public PatientEntity getPatientByCurp(String curp) {
-        ISearch search = Search.getInstance();
-        return search.searchPatientByCurp(curp);
-
+        user.setPatient(patientSystem.searchPatientByCurp(newUser.getPatientDTO().getCurp()));
+        userSystem.registerUser(user);
     }
 
     @Override
@@ -71,15 +64,6 @@ public abstract class Control implements IControl {
         Long patientId = login.validateUser(encrypt(user, code), encrypt(password, code));
         return patientId;
 
-    }
-
-    @Override
-    public ExistentPatientDTO getPatientByID(Long idPatient) {
-        ISearch search = Search.getInstance();
-        return convertPatientToExistent(search.serachPatientById(idPatient));
-
-//        Patient patient = search.serachPatientById(idPatient);
-//        return patient;
     }
 
     @Override

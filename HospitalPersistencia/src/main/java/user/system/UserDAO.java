@@ -11,6 +11,9 @@ import javax.persistence.Persistence;
  */
 public class UserDAO implements IUserDAO {
 
+    private UserDAO() {
+    }
+
     @Override
     public void registerUser(UserEntity user) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
@@ -20,5 +23,10 @@ public class UserDAO implements IUserDAO {
         em.getTransaction().commit();
         em.close();
         emf.close();
+    }
+
+    public static UserDAO getInstance() {
+        return new UserDAO() {
+        };
     }
 }
