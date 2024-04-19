@@ -1,4 +1,4 @@
-package searches;
+package patient.system;
 
 import JPAEntities.PatientEntity;
 import java.util.logging.Level;
@@ -13,11 +13,19 @@ import javax.persistence.TypedQuery;
  *
  * @author TeLesheo
  */
-public abstract class Search implements ISearch {
+public class PatientDAO implements IPatientDAO {
 
-    private static final Logger LOGGER = Logger.getLogger(Search.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(PatientDAO.class.getName());
 
-    private Search() {
+    @Override
+    public void registerPatient(PatientEntity patient) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(patient);
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
 
     }
 
@@ -56,8 +64,8 @@ public abstract class Search implements ISearch {
         }
     }
 
-    public static Search getInstance() {
-        return new Search() {
+    public static PatientDAO getInstance() {
+        return new PatientDAO() {
         };
     }
 

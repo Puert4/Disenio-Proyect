@@ -1,4 +1,4 @@
-package appointmentManager;
+package appointment.system;
 
 import JPAEntities.AppointmentEntity;
 

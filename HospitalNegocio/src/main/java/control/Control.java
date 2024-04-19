@@ -7,6 +7,7 @@ import dtos.NewPatientDTO;
 import dtos.UserDTO;
 import loginManager.ILogIn;
 import loginManager.LogIn;
+import patient.system.IPatientDAO;
 import registration.IRegistrationDAO;
 import registration.RegistrationDAO;
 import searches.ISearch;
@@ -19,6 +20,7 @@ import searches.Search;
 public abstract class Control implements IControl {
 
     int code = 9;
+
     private Control() {
     }
 
@@ -28,7 +30,7 @@ public abstract class Control implements IControl {
      */
     @Override
     public void addNewPatient(NewPatientDTO newPatient) {
-        IRegistrationDAO registration = RegistrationDAO.getInstance();
+        IPatientDAO registration = Factory.getRegistrationDAO();
         PatientEntity patient = new PatientEntity();
         patient.setNames(newPatient.getNames());
         patient.setFirstName(newPatient.getFirstName());
@@ -106,7 +108,7 @@ public abstract class Control implements IControl {
 
     @Override
     public String encrypt(String text, int code) {
-    
+
         StringBuilder resultado = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
             char caracter = text.charAt(i);
@@ -119,16 +121,14 @@ public abstract class Control implements IControl {
             }
         }
         return resultado.toString();
-        
+
     }
 
     @Override
     public String decrypt(String text, int code) {
-    
+
         return encrypt(text, 26 - code);
-        
+
     }
-    
-    
 
 }

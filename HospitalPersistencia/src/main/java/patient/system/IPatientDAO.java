@@ -1,4 +1,4 @@
-package searches;
+package patient.system;
 
 import JPAEntities.PatientEntity;
 
@@ -6,7 +6,9 @@ import JPAEntities.PatientEntity;
  *
  * @author TeLesheo
  */
-public interface ISearch {
+public interface IPatientDAO {
+
+    public void registerPatient(PatientEntity patient);
 
     public PatientEntity serachPatientById(Long idPatient);
 
