@@ -59,6 +59,20 @@ public abstract class Control implements IControl {
     }
 
     @Override
+    public PatientEntity findByCurp(String curp) {
+        IPatientDAO patientSystem = Factory.getPatientDAO();
+        return patientSystem.searchPatientByCurp(curp);
+    }
+
+    @Override
+    public ExistentPatientDTO findById(Long id) {
+
+        IPatientDAO patientSystem = Factory.getPatientDAO();
+        return convertPatientToExistent(patientSystem.serachPatientById(id));
+
+    }
+
+    @Override
     public Long verifyUser(String user, String password) {
         ILogIn login = LogIn.getInstance();
         Long patientId = login.validateUser(encrypt(user, code), encrypt(password, code));

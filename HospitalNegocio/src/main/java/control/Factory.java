@@ -21,4 +21,5 @@ public class Factory {
     public static IUserDAO getUserDAO() {
         return userDAO == null ? (userDAO = UserDAO.getInstance()) : userDAO;
     }
+
 }

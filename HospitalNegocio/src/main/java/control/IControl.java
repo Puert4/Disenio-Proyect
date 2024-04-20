@@ -21,6 +21,10 @@ public interface IControl {
 
     public ExistentPatientDTO convertPatientToExistent(PatientEntity patient);
 
+    public PatientEntity findByCurp(String curp);
+
+    public ExistentPatientDTO findById(Long id);
+
     public void addNewUser(UserDTO newUser);
 
 }

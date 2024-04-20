@@ -10,7 +10,7 @@ import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import searches.Search;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,8 +22,6 @@ import searches.Search;
  * @author EL Yomero
  */
 public class JFrameRegister extends javax.swing.JFrame {
-
-    private static final Logger LOGGER = Logger.getLogger(Search.class.getName());
 
     /**
      * Creates new form lOGUIN

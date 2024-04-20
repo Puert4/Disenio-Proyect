@@ -1,5 +1,7 @@
 package presentation;
 
+import control.Control;
+import control.Factory;
 import control.IControl;
 import dtos.ExistentPatientDTO;
 import dtos.NewPatientDTO;
@@ -29,7 +31,10 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     }
 
     private void cargarDatosPaciente() {
-        ExistentPatientDTO paciente = control.getPatientByID(idPatient);
+//        ExistentPatientDTO paciente = control.getPatientByID(idPatient);
+        IControl control = Control.getInstance();
+        Factory factory = new Factory();
+        ExistentPatientDTO paciente = control.findById(idPatient);
         txtNombre.setText(paciente.getName());
     }
 
