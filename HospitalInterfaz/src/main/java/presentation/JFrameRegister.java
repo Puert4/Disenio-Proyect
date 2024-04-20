@@ -544,16 +544,21 @@ public class JFrameRegister extends javax.swing.JFrame {
             }
             Calendar birthDate = calendar;
 
-            //Creamos paciente nuevo
-            NewPatientDTO patient = new NewPatientDTO(
-                    names, firstName, secondName, birthDate, sex, curp, socialNumber, phone, street, colony, zipCode
-            );
+            try {
+                //Creamos paciente nuevo
+                NewPatientDTO patient = new NewPatientDTO(
+                        names, firstName, secondName, birthDate, sex, curp, socialNumber, phone, street, colony, zipCode
+                );
 
-            IControl control = Control.getInstance();
-            control.addNewPatient(patient);
+                IControl control = Control.getInstance();
+                control.addNewPatient(patient);
 
-            UserDTO user = new UserDTO(username, password, patient);
-            control.addNewUser(user);
+                UserDTO user = new UserDTO(username, password, patient);
+                control.addNewUser(user);
+
+            } catch (Exception ex) {
+                Logger.getLogger(JFrameRegister.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
+            }
 
             JFrameLogin login = new JFrameLogin();
             login.setVisible(true);
