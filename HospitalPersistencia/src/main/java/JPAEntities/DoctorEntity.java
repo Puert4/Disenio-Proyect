@@ -34,7 +34,7 @@ public class DoctorEntity implements Serializable {
     private String secondLastName;
 
     @Column(name = "specialization", nullable = false)
-    private String specialization;
+    private Specialization specialization;
 
     @Column(name = "medicalCart", nullable = false)
     private String medicalCart;
@@ -54,7 +54,7 @@ public class DoctorEntity implements Serializable {
      * @param specialization
      * @param medicalCart
      */
-    public DoctorEntity(String names, String firstLastName, String secondLastName, String specialization, String medicalCart) {
+    public DoctorEntity(String names, String firstLastName, String secondLastName, Specialization specialization, String medicalCart) {
         this.names = names;
         this.firstLastName = firstLastName;
         this.secondLastName = secondLastName;
@@ -94,11 +94,11 @@ public class DoctorEntity implements Serializable {
         this.secondLastName = secondLastName;
     }
 
-    public String getSpecialization() {
+    public Specialization getSpecialization() {
         return specialization;
     }
 
-    public void setSpecialization(String specialization) {
+    public void setSpecialization(Specialization specialization) {
         this.specialization = specialization;
     }
 

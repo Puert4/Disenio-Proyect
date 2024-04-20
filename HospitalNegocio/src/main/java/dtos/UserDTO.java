@@ -15,6 +15,8 @@ public class UserDTO {
     private String password;
     
     private NewPatientDTO patientDTO;
+    
+    private NewDoctorDTO doctorDTO;
 
     public UserDTO() {
     }
@@ -23,6 +25,12 @@ public class UserDTO {
         this.user = user;
         this.password = password;
         this.patientDTO = patientDTO;
+    }
+    
+     public UserDTO(String user, String password, NewDoctorDTO doctorDTO) {
+        this.user = user;
+        this.password = password;
+        this.doctorDTO = doctorDTO;
     }
 
     public String getUser() {
