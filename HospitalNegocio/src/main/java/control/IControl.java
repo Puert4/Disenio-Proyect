@@ -1,10 +1,10 @@
 package control;
 
 import JPAEntities.PatientEntity;
-import dtos.ExistentPatientDTO;
-import dtos.NewPatientDTO;
 import dtos.SpecializationD;
 import dtos.UserDTO;
+import patient.system.ExistentPatientDTO;
+import patient.system.NewPatientDTO;
 
 /**
  *

@@ -4,6 +4,8 @@
  */
 package dtos;
 
+import patient.system.NewPatientDTO;
+
 /**
  *
  * @author TeLesheo

@@ -1,6 +1,7 @@
 package dtos;
 
 import java.util.Calendar;
+import patient.system.ExistentPatientDTO;
 
 /**
  *

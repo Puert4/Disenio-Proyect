@@ -2,13 +2,13 @@ package control;
 
 import JPAEntities.PatientEntity;
 import JPAEntities.UserEntity;
-import dtos.ExistentPatientDTO;
-import dtos.NewPatientDTO;
 import dtos.SpecializationD;
 import dtos.UserDTO;
 import loginManager.ILogIn;
 import loginManager.LogIn;
+import patient.system.ExistentPatientDTO;
 import patient.system.IPatientDAO;
+import patient.system.NewPatientDTO;
 import user.system.IUserDAO;
 import user.system.UserDAO;
 
@@ -19,7 +19,7 @@ import user.system.UserDAO;
 public abstract class Control implements IControl {
 
     private static Control control;
-    int code = 9;
+    private final int code = 9;
 
     private Control() {
     }
@@ -45,7 +45,7 @@ public abstract class Control implements IControl {
         patient.setColony(newPatient.getColony());
         patient.setSocialNumber(newPatient.getSocialNumber());
 
-        patientSystem.registerPatient(patient);
+        patientSystem.registerPatient(newPatient);
     }
 
     @Override
