@@ -2,7 +2,6 @@ package presentation;
 
 import control.Control;
 import control.IControl;
-import dtos.NewPatientDTO;
 import dtos.UserDTO;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,6 +9,7 @@ import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import patient.system.NewPatientDTO;
 
 
 /*
@@ -21,12 +21,12 @@ import javax.swing.JOptionPane;
  *
  * @author EL Yomero
  */
-public class JFRegister extends javax.swing.JFrame {
+public class JFRegisterPatient extends javax.swing.JFrame {
 
     /**
      * Creates new form lOGUIN
      */
-    public JFRegister() {
+    public JFRegisterPatient() {
         initComponents();
     }
 
@@ -540,7 +540,7 @@ public class JFRegister extends javax.swing.JFrame {
             try {
                 calendar.setTime(sdf.parse(birthDateTexto));
             } catch (ParseException ex) {
-                Logger.getLogger(JFRegister.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
+                Logger.getLogger(JFRegisterPatient.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
             }
             Calendar birthDate = calendar;
 
@@ -557,7 +557,7 @@ public class JFRegister extends javax.swing.JFrame {
                 control.addNewUser(user);
 
             } catch (Exception ex) {
-                Logger.getLogger(JFRegister.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
+                Logger.getLogger(JFRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
             }
 
             JFLogin login = new JFLogin();

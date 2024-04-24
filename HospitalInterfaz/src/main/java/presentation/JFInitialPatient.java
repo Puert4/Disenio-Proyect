@@ -3,9 +3,8 @@ package presentation;
 import control.Control;
 import control.Factory;
 import control.IControl;
-import dtos.ExistentPatientDTO;
-import dtos.NewPatientDTO;
 import javax.swing.JOptionPane;
+import patient.system.ExistentPatientDTO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
