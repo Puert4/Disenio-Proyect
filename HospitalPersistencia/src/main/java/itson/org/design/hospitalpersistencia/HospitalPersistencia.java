@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import patient.system.IPatientDAO;
+import patient.system.NewPatientDTO;
 import patient.system.PatientDAO;
 
 /**
@@ -46,23 +47,23 @@ public class HospitalPersistencia {
          */
         //Usando los metodos para guardar
         Calendar birthDate = Calendar.getInstance();
-        birthDate.set(1975, 02, 18);
+        birthDate.set(1980, 04, 15);
 
-        PatientEntity patient = new PatientEntity(
-                "Rodrigo ",
-                "Lopez",
-                "Inzunza",
+        NewPatientDTO patientDTO = new NewPatientDTO(
+                "Hector ",
+                "Ester",
+                "Nunez",
                 birthDate,
                 "M",
-                "BBBBBBBB",
-                "657987654",
-                "6441571346",
+                "CCCCCCCCC",
+                "312312",
+                "64415346",
                 "Pto. Topolobampo",
                 "Mexico",
                 85900);
 
         IPatientDAO patientDAO = PatientDAO.getInstance();
-        patientDAO.registerPatient(patient);
+        patientDAO.registerPatient(patientDTO);
 
     }
 }
