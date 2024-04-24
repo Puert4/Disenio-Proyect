@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author daani
  */
-public class JFrameInitialPatient extends javax.swing.JFrame {
+public class JFInitialPatient extends javax.swing.JFrame {
 
     private final IControl control;
     private final Long idPatient;
@@ -24,7 +24,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     /**
      * Creates new form InicioPaciente
      */
-    public JFrameInitialPatient(IControl control, Long idPatient) {
+    public JFInitialPatient(IControl control, Long idPatient) {
         this.control = control;
         this.idPatient = idPatient;
         initComponents();
@@ -164,7 +164,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-        JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
+        JFRegisterAppointment register = new JFRegisterAppointment(control, idPatient);
         register.setVisible(true);
         this.dispose();
 
@@ -185,7 +185,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
     private void txtCloseSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCloseSesionActionPerformed
         // TODO add your handling code here:
-        JFrameLogin frameLogin = new JFrameLogin();
+        JFLogin frameLogin = new JFLogin();
         frameLogin.setVisible(true);
         this.dispose();
 
@@ -208,13 +208,13 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(JFrameInitialPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFInitialPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(JFrameInitialPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFInitialPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(JFrameInitialPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFInitialPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(JFrameInitialPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFInitialPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //        //</editor-fold>
@@ -222,7 +222,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new JFrameInitialPatient().setVisible(true);
+//                new JFInitialPatient().setVisible(true);
 //            }
 //        });
 //    }

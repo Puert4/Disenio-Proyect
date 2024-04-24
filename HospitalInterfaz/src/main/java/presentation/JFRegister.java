@@ -21,12 +21,12 @@ import javax.swing.JOptionPane;
  *
  * @author EL Yomero
  */
-public class JFrameRegister extends javax.swing.JFrame {
+public class JFRegister extends javax.swing.JFrame {
 
     /**
      * Creates new form lOGUIN
      */
-    public JFrameRegister() {
+    public JFRegister() {
         initComponents();
     }
 
@@ -347,7 +347,7 @@ public class JFrameRegister extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -496,7 +496,7 @@ public class JFrameRegister extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
 
-        JFrameLogin login = new JFrameLogin();
+        JFLogin login = new JFLogin();
         login.setVisible(true);
         this.dispose();
 
@@ -540,7 +540,7 @@ public class JFrameRegister extends javax.swing.JFrame {
             try {
                 calendar.setTime(sdf.parse(birthDateTexto));
             } catch (ParseException ex) {
-                Logger.getLogger(JFrameRegister.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
+                Logger.getLogger(JFRegister.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
             }
             Calendar birthDate = calendar;
 
@@ -557,10 +557,10 @@ public class JFrameRegister extends javax.swing.JFrame {
                 control.addNewUser(user);
 
             } catch (Exception ex) {
-                Logger.getLogger(JFrameRegister.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
+                Logger.getLogger(JFRegister.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
             }
 
-            JFrameLogin login = new JFrameLogin();
+            JFLogin login = new JFLogin();
             login.setVisible(true);
             this.dispose();
         }

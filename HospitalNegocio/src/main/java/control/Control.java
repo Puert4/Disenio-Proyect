@@ -4,6 +4,7 @@ import JPAEntities.PatientEntity;
 import JPAEntities.UserEntity;
 import dtos.ExistentPatientDTO;
 import dtos.NewPatientDTO;
+import dtos.SpecializationD;
 import dtos.UserDTO;
 import loginManager.ILogIn;
 import loginManager.LogIn;
@@ -17,6 +18,7 @@ import user.system.UserDAO;
  */
 public abstract class Control implements IControl {
 
+    private static Control control;
     int code = 9;
 
     private Control() {
@@ -99,9 +101,18 @@ public abstract class Control implements IControl {
         return existentPatientDTO;
     }
 
+    public SpecializationD fromString(String text) {
+        for (SpecializationD specialization : SpecializationD.values()) {
+            if (specialization.name().equalsIgnoreCase(text)) {
+                return specialization;
+            }
+        }
+        return null; // Return null if no match is found
+    }
+
     public static Control getInstance() {
-        return new Control() {
-        };
+//        return control == null ? (control = new Control()) : control;
+        return control == null ? (control = new Control() {}) : control;
     }
 
     @Override

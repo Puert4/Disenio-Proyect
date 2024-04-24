@@ -3,6 +3,7 @@ package control;
 import JPAEntities.PatientEntity;
 import dtos.ExistentPatientDTO;
 import dtos.NewPatientDTO;
+import dtos.SpecializationD;
 import dtos.UserDTO;
 
 /**
@@ -26,5 +27,7 @@ public interface IControl {
     public ExistentPatientDTO findById(Long id);
 
     public void addNewUser(UserDTO newUser);
+
+    public SpecializationD fromString(String text);
 
 }
