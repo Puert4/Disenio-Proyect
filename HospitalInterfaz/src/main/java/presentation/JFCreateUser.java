@@ -4,17 +4,27 @@
  */
 package presentation;
 
+import control.Control;
+import control.IControl;
+import dtos.UserDTO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import patient.system.NewPatientDTO;
+
 /**
  *
  * @author TeLesheo
  */
 public class JFCreateUser extends javax.swing.JFrame {
 
+   public NewPatientDTO newPatient;
+    
     /**
      * Creates new form JFrameCreateUser
      */
-    public JFCreateUser() {
+    public JFCreateUser(NewPatientDTO newPatient) {
         initComponents();
+        this.newPatient = newPatient;
     }
 
     /**
@@ -26,21 +36,147 @@ public class JFCreateUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        FondoPanel = new javax.swing.JPanel();
+        Iniciar_Sesion = new javax.swing.JLabel();
+        FondoAzul = new javax.swing.JPanel();
+        Hospital_General = new javax.swing.JLabel();
+        btnAceptar = new javax.swing.JButton();
+        Usuario4 = new javax.swing.JLabel();
+        txtUserName = new javax.swing.JTextField();
+        Usuario = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        FondoPanel.setBackground(new java.awt.Color(255, 255, 255));
+        FondoPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        Iniciar_Sesion.setFont(new java.awt.Font("Roboto", 3, 24)); // NOI18N
+        Iniciar_Sesion.setText("Registro-Usuario");
+
+        FondoAzul.setBackground(new java.awt.Color(0, 153, 255));
+        FondoAzul.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        Hospital_General.setFont(new java.awt.Font("Roboto", 3, 18)); // NOI18N
+        Hospital_General.setText("Hospital General");
+
+        javax.swing.GroupLayout FondoAzulLayout = new javax.swing.GroupLayout(FondoAzul);
+        FondoAzul.setLayout(FondoAzulLayout);
+        FondoAzulLayout.setHorizontalGroup(
+            FondoAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FondoAzulLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Hospital_General, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(596, Short.MAX_VALUE))
+        );
+        FondoAzulLayout.setVerticalGroup(
+            FondoAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoAzulLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Hospital_General, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        btnAceptar.setBackground(new java.awt.Color(0, 0, 0));
+        btnAceptar.setFont(new java.awt.Font("Roboto", 2, 12)); // NOI18N
+        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
+
+        Usuario4.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario4.setText("Contraseña");
+
+        Usuario.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario.setText("Nombre de usuario");
+
+        txtPassword.setText("jPasswordField1");
+
+        javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
+        FondoPanel.setLayout(FondoPanelLayout);
+        FondoPanelLayout.setHorizontalGroup(
+            FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(FondoPanelLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(FondoPanelLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(Usuario))
+            .addGroup(FondoPanelLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(FondoPanelLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(Usuario4))
+            .addGroup(FondoPanelLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(FondoPanelLayout.createSequentialGroup()
+                .addGap(230, 230, 230)
+                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        FondoPanelLayout.setVerticalGroup(
+            FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FondoPanelLayout.createSequentialGroup()
+                .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(Iniciar_Sesion)
+                .addGap(78, 78, 78)
+                .addComponent(Usuario)
+                .addGap(1, 1, 1)
+                .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(Usuario4)
+                .addGap(11, 11, 11)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(FondoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 519, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(FondoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        // TODO add your handling code here:
+
+
+        try {
+            //Creamos paciente nuevo
+
+            IControl control = Control.getInstance();
+            control.addNewPatient(newPatient);
+
+            UserDTO user = new UserDTO(txtUserName.getText(), txtPassword.getText(), newPatient);
+            control.addNewUser(user);
+
+        } catch (Exception ex) {
+            Logger.getLogger(JFRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
+        }
+
+        JFLogin login = new JFLogin();
+        login.setVisible(true);
+        this.dispose();
+        
+
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -79,5 +215,14 @@ public class JFCreateUser extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel FondoAzul;
+    private javax.swing.JPanel FondoPanel;
+    private javax.swing.JLabel Hospital_General;
+    private javax.swing.JLabel Iniciar_Sesion;
+    private javax.swing.JLabel Usuario;
+    private javax.swing.JLabel Usuario4;
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }
