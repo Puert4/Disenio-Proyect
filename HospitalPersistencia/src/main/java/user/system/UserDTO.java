@@ -2,6 +2,8 @@ package user.system;
 
 import patient.system.NewPatientDTO;
 
+import patient.system.NewPatientDTO;
+
 /**
  *
  * @author TeLesheo
