@@ -1,6 +1,7 @@
 package appointment.system;
 
 import JPAEntities.AppointmentEntity;
+import JPAEntities.DoctorEntity;
 
 /**
  *
@@ -8,5 +9,9 @@ import JPAEntities.AppointmentEntity;
  */
 public interface IAppointmentManager {
 
-    public void createAppointment(AppointmentEntity appointment);
+    public void createAppointment(NewAppointmentDTO newAppointmentDTO);
+
+    public AppointmentEntity DtoToEntity(NewAppointmentDTO newAppointmentDTO);
+
+   
 }

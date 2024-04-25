@@ -1,15 +1,19 @@
 package presentation;
 
 import control.Control;
+import control.Factory;
 import control.IControl;
-import dtos.NewPatientDTO;
-import dtos.UserDTO;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import patient.system.IPatientDAO;
+import patient.system.NewPatientDTO;
+import user.system.IUserDAO;
+import user.system.UserDTO;
 
 
 /*
@@ -21,12 +25,12 @@ import javax.swing.JOptionPane;
  *
  * @author EL Yomero
  */
-public class JFRegister extends javax.swing.JFrame {
+public class JFRegisterPatient extends javax.swing.JFrame {
 
     /**
      * Creates new form lOGUIN
      */
-    public JFRegister() {
+    public JFRegisterPatient() {
         initComponents();
     }
 
@@ -477,7 +481,7 @@ public class JFRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_radioMaleActionPerformed
 
     private void radioFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioFemaleActionPerformed
-
+        
         radioMale.setSelected(false);
         radioOther.setSelected(false);
 //        txtBirthDate.setEnabled(false);
@@ -509,7 +513,7 @@ public class JFRegister extends javax.swing.JFrame {
         String firstName = txtFirstName.getText();
         String colony = txtColony.getText();
         String zipCodeS = txtZipCode.getText();
-
+        
         String curp = txtCurp.getText();
         String phone = txtPhone.getText();
         String socialNumber = txtSegurityNumber.getText();
@@ -526,7 +530,7 @@ public class JFRegister extends javax.swing.JFrame {
         } else {
             sex = "";
         }
-
+        
         if (names.isEmpty() || firstName.isEmpty() || secondName.isEmpty() || colony.isEmpty()
                 || zipCodeS.isEmpty() || curp.isEmpty() || phone.isEmpty() || socialNumber.isEmpty()
                 || street.isEmpty() || sex.isEmpty() || username.isEmpty() || password.isEmpty()) {
@@ -540,26 +544,27 @@ public class JFRegister extends javax.swing.JFrame {
             try {
                 calendar.setTime(sdf.parse(birthDateTexto));
             } catch (ParseException ex) {
-                Logger.getLogger(JFRegister.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
+                Logger.getLogger(JFRegisterPatient.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
             }
             Calendar birthDate = calendar;
-
+            
             try {
                 //Creamos paciente nuevo
                 NewPatientDTO patient = new NewPatientDTO(
                         names, firstName, secondName, birthDate, sex, curp, socialNumber, phone, street, colony, zipCode
                 );
-
-                IControl control = Control.getInstance();
-                control.addNewPatient(patient);
-
+                IPatientDAO patientF = Factory.getPatientDAO();
+                
+                patientF.registerPatient(patient);
+                
                 UserDTO user = new UserDTO(username, password, patient);
-                control.addNewUser(user);
-
+                IUserDAO userF = Factory.getUserDAO();
+                userF.registerUser(user);
+                
             } catch (Exception ex) {
-                Logger.getLogger(JFRegister.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
+                Logger.getLogger(JFRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
             }
-
+            
             JFLogin login = new JFLogin();
             login.setVisible(true);
             this.dispose();

@@ -2,7 +2,6 @@ package presentation;
 
 import control.Control;
 import control.IControl;
-import dtos.NewPatientDTO;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -203,7 +202,7 @@ public class JFLogin extends javax.swing.JFrame {
     private void jlbCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlbCreateAccountActionPerformed
         // TODO add your handling code here:
 
-        JFRegister register = new JFRegister();
+        JFRegisterPatient register = new JFRegisterPatient();
         register.setVisible(true);
         this.dispose();
 

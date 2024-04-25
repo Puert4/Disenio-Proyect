@@ -8,5 +8,11 @@ import JPAEntities.DoctorEntity;
  */
 public interface IDoctorDAO {
 
-    public void registerDoctor(DoctorEntity doctor);
+    public void registerDoctor(NewDoctorDTO doctorDTO);
+
+    public DoctorEntity DtoToEntity(NewDoctorDTO doctorDTO);
+
+    public DoctorEntity serachById(Long idDoctor);
+
+    public DoctorEntity searchByMedicart(String medicart);
 }

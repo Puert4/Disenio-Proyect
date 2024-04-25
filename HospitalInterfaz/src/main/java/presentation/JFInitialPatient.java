@@ -3,9 +3,9 @@ package presentation;
 import control.Control;
 import control.Factory;
 import control.IControl;
-import dtos.ExistentPatientDTO;
-import dtos.NewPatientDTO;
+
 import javax.swing.JOptionPane;
+import patient.system.ExistentPatientDTO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -34,7 +34,7 @@ public class JFInitialPatient extends javax.swing.JFrame {
 //        ExistentPatientDTO paciente = control.getPatientByID(idPatient);
         IControl control = Control.getInstance();
         Factory factory = new Factory();
-        ExistentPatientDTO paciente = control.findById(idPatient);
+        ExistentPatientDTO paciente = (ExistentPatientDTO) control.findById(idPatient);
         txtNombre.setText(paciente.getName());
     }
 

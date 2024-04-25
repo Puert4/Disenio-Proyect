@@ -70,7 +70,7 @@ public abstract class LogIn implements ILogIn {
                 return null;
             }
         } catch (NoResultException e) {
-            LOGGER.log(Level.INFO, "El usuario no existe");
+            LOGGER.log(Level.INFO, "Usuario Invalido o Inexistente");
             return null;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error al validar", e);

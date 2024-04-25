@@ -1,13 +1,28 @@
 package itson.org.design.hospitalpersistencia;
 
+import static JPAEntities.AppointmentEntity_.doctor;
+import JPAEntities.DoctorEntity;
 import JPAEntities.PatientEntity;
+import JPAEntities.Specialization;
+import appointment.system.AppointmentStatus;
+import appointment.system.IAppointmentManager;
+import appointment.system.NewAppointmentDTO;
+import control.Factory;
+import doctor.system.DoctorDAO;
+import doctor.system.ExistentDoctorDTO;
+import doctor.system.IDoctorDAO;
+import doctor.system.NewDoctorDTO;
 import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import patient.system.ExistentPatientDTO;
 import patient.system.IPatientDAO;
 import patient.system.NewPatientDTO;
 import patient.system.PatientDAO;
+import user.system.IUserDAO;
+import user.system.UserDAO;
+import user.system.UserDTO;
 
 /**
  *
@@ -26,44 +41,102 @@ public class HospitalPersistencia {
         em.getTransaction().begin();
 
         Calendar birthDate = Calendar.getInstance();
-        birthDate.set(2000, 06, 06);
+        birthDate.set(2002, 06, 06);
 
-        PatientEntity patient = new PatientEntity("Juan ",
-                "Perez",
-                "Gonzales",
+        PatientEntity patient = new PatientEntity("Gabino ",
+                "Pom",
+                "Gerac",
                 birthDate,
                 "M",
-                "AAAAAAAAAAA",
-                "66498998",
-                "64416441",
+                "IIIII",
+                "66789417",
+                "644168",
                 "Pto. Cabos San Lucas",
-                "Mexico",
+                "Oeste",
                 85900);
 
         em.persist(patient);
         em.getTransaction().commit();
         em.close();
-        
          */
-        //Usando los metodos para guardar
+        // Agrega Persona y Usuario
+        /*
         Calendar birthDate = Calendar.getInstance();
         birthDate.set(1980, 04, 15);
 
         NewPatientDTO patientDTO = new NewPatientDTO(
-                "Hector ",
-                "Ester",
-                "Nunez",
+                "Teresa ",
+                "Vazquez",
+                "Montoya",
                 birthDate,
                 "M",
-                "CCCCCCCCC",
-                "312312",
-                "64415346",
-                "Pto. Topolobampo",
-                "Mexico",
+                "EEEEEE",
+                "984841",
+                "66475126",
+                "Nuevo Leon",
+                "Centro",
                 85900);
 
         IPatientDAO patientDAO = PatientDAO.getInstance();
         patientDAO.registerPatient(patientDTO);
+
+        UserDTO userDTO = new UserDTO();
+        userDTO.setPassword("PANA");
+        userDTO.setUser("pana");
+        userDTO.setPatientDTO(patientDTO);
+
+        IUserDAO userDAO = UserDAO.getInstance();
+        userDAO.registerUser(userDTO);
+         */
+ /*
+        
+        //Agregar Doctor
+        NewDoctorDTO doctorDTO = new NewDoctorDTO(
+                "Carlos",
+                "Perez",
+                "Lopez",
+                "Cardiologia",
+                "1231312"
+        );
+
+        
+        
+        IDoctorDAO doctorDAO = DoctorDAO.getInstance();
+        doctorDAO.registerDoctor(doctorDTO);
+         */
+        IPatientDAO patientD = Factory.getPatientDAO();
+        PatientEntity patient = patientD.searchPatientByCurp("DDDDD");
+
+        ExistentPatientDTO patientDTO = new ExistentPatientDTO();
+        patientDTO = patientD.EntityToDto(patient);
+
+        IDoctorDAO doctorD = Factory.getDoctorDAO();
+        String medicart = "1231312";
+        DoctorEntity doctor = doctorD.searchByMedicart(medicart);
+
+        /*
+        DoctorEntity doctor = doctorD.serachById(Long.MIN_VALUE);
+         */
+        ExistentDoctorDTO doctorDTO = new ExistentDoctorDTO();
+        doctorDTO.setId(doctor.getId());
+        doctorDTO.setFirstName(doctor.getNames());
+        doctorDTO.setFirstName(doctor.getFirstLastName());
+        doctorDTO.setSecondName(doctor.getSecondLastName());
+        doctorDTO.setMedicalCart(doctor.getMedicalCart());
+
+        Calendar birthDate = Calendar.getInstance();
+        birthDate.set(1980, 04, 15);
+
+        NewAppointmentDTO appointment = new NewAppointmentDTO(
+                doctorDTO,
+                patientDTO,
+                birthDate,
+                AppointmentStatus.ACTIVE
+        );
+
+        IAppointmentManager appointmentManager = Factory.getAppointmentManager();
+
+        appointmentManager.createAppointment(appointment);
 
     }
 }
