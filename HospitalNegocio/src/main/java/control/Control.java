@@ -2,8 +2,6 @@ package control;
 
 import JPAEntities.PatientEntity;
 import JPAEntities.UserEntity;
-import dtos.SpecializationD;
-import dtos.UserDTO;
 import loginManager.ILogIn;
 import loginManager.LogIn;
 import patient.system.ExistentPatientDTO;
@@ -11,6 +9,7 @@ import patient.system.IPatientDAO;
 import patient.system.NewPatientDTO;
 import user.system.IUserDAO;
 import user.system.UserDAO;
+import user.system.UserDTO;
 
 /**
  *
@@ -101,6 +100,7 @@ public abstract class Control implements IControl {
         return existentPatientDTO;
     }
 
+    @Override
     public SpecializationD fromString(String text) {
         for (SpecializationD specialization : SpecializationD.values()) {
             if (specialization.name().equalsIgnoreCase(text)) {

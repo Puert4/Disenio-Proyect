@@ -6,10 +6,10 @@ package presentation;
 
 import control.Control;
 import control.IControl;
-import dtos.UserDTO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import patient.system.NewPatientDTO;
+import user.system.UserDTO;
 
 /**
  *

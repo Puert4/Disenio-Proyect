@@ -6,7 +6,6 @@ package presentation;
 
 import control.Control;
 import control.IControl;
-import dtos.UserDTO;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -19,12 +18,12 @@ import patient.system.NewPatientDTO;
  *
  * @author Arell
  */
-public class JFRegisterPatient extends javax.swing.JFrame {
+public class JFrameRegisterPatient extends javax.swing.JFrame {
 
     /**
      * Creates new form RegistroPaciente
      */
-    public JFRegisterPatient() {
+    public JFrameRegisterPatient() {
         initComponents();
         txtOther.setEditable(false);
         this.setTitle("Registro Paciente");
@@ -336,7 +335,7 @@ public class JFRegisterPatient extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(FondoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 223, Short.MAX_VALUE))
         );
 
         pack();
@@ -380,7 +379,7 @@ public class JFRegisterPatient extends javax.swing.JFrame {
             try {
                 calendar.setTime(sdf.parse(birthDateTexto));
             } catch (ParseException ex) {
-                Logger.getLogger(JFRegisterPatient.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
+                Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
             }
             Calendar birthDate = calendar;
 
@@ -390,12 +389,12 @@ public class JFRegisterPatient extends javax.swing.JFrame {
                         names, firstName, secondName, birthDate, sex, curp, socialNumber, phone, street, colony, zipCode
                 );
 
-                JFCreateUser user = new JFCreateUser(patient);
+                JFrameCreateUser user = new JFrameCreateUser(patient);
                 user.setVisible(true);
                 this.dispose();
 
             } catch (Exception ex) {
-                Logger.getLogger(JFRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
+                Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
             }
         }
         

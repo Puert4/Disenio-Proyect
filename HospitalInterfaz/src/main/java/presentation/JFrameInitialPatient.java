@@ -15,7 +15,7 @@ import patient.system.ExistentPatientDTO;
  *
  * @author daani
  */
-public class JFInitialPatient extends javax.swing.JFrame {
+public class JFrameInitialPatient extends javax.swing.JFrame {
 
     private final IControl control;
     private final Long idPatient;
@@ -23,7 +23,7 @@ public class JFInitialPatient extends javax.swing.JFrame {
     /**
      * Creates new form InicioPaciente
      */
-    public JFInitialPatient(IControl control, Long idPatient) {
+    public JFrameInitialPatient(IControl control, Long idPatient) {
         this.control = control;
         this.idPatient = idPatient;
         initComponents();
@@ -163,7 +163,7 @@ public class JFInitialPatient extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-        JFRegisterAppointment register = new JFRegisterAppointment(control, idPatient);
+        JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
         register.setVisible(true);
         this.dispose();
 
@@ -184,7 +184,7 @@ public class JFInitialPatient extends javax.swing.JFrame {
 
     private void txtCloseSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCloseSesionActionPerformed
         // TODO add your handling code here:
-        JFLogin frameLogin = new JFLogin();
+        JFrameLogin frameLogin = new JFrameLogin();
         frameLogin.setVisible(true);
         this.dispose();
 

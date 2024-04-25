@@ -1,7 +1,7 @@
 package presentation;
 
 import control.Factory;
-import dtos.NewDoctorDTO;
+import doctor.system.NewDoctorDTO;
 import java.awt.FlowLayout;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
