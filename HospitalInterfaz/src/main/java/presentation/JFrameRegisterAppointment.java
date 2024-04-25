@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author daani
  */
-public class JFRegisterAppointment extends javax.swing.JFrame {
+public class JFrameRegisterAppointment extends javax.swing.JFrame {
 
     private final IControl control;
     private final Long idPatient;
@@ -22,7 +22,7 @@ public class JFRegisterAppointment extends javax.swing.JFrame {
     /**
      * Creates new form ConfirmaciondeCita
      */
-    public JFRegisterAppointment(IControl control, Long idPatient) {
+    public JFrameRegisterAppointment(IControl control, Long idPatient) {
         this.control = control;
         this.idPatient = idPatient;
         initComponents();
@@ -138,7 +138,7 @@ public class JFRegisterAppointment extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        JFConfirmAppointment confirm = new JFConfirmAppointment(control, idPatient);
+        JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(control, idPatient);
         confirm.setVisible(true);
         this.dispose();
 
@@ -147,7 +147,7 @@ public class JFRegisterAppointment extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-        JFInitialPatient menu = new JFInitialPatient(control, idPatient);
+        JFrameInitialPatient menu = new JFrameInitialPatient(control, idPatient);
         menu.setVisible(true);
         this.dispose();
 
@@ -192,13 +192,13 @@ public class JFRegisterAppointment extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(JFConfirmAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameConfirmAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(JFConfirmAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameConfirmAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(JFConfirmAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameConfirmAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(JFConfirmAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameConfirmAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //        //</editor-fold>
@@ -206,7 +206,7 @@ public class JFRegisterAppointment extends javax.swing.JFrame {
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new JFConfirmAppointment().setVisible(true);
+//                new JFrameConfirmAppointment().setVisible(true);
 //            }
 //        });
 //    }

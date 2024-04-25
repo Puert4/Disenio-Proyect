@@ -15,14 +15,14 @@ import patient.system.NewPatientDTO;
  *
  * @author TeLesheo
  */
-public class JFCreateUser extends javax.swing.JFrame {
+public class JFrameCreateUser extends javax.swing.JFrame {
 
    public NewPatientDTO newPatient;
     
     /**
      * Creates new form JFrameCreateUser
      */
-    public JFCreateUser(NewPatientDTO newPatient) {
+    public JFrameCreateUser(NewPatientDTO newPatient) {
         initComponents();
         this.newPatient = newPatient;
     }
@@ -168,10 +168,10 @@ public class JFCreateUser extends javax.swing.JFrame {
             control.addNewUser(user);
 
         } catch (Exception ex) {
-            Logger.getLogger(JFRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
+            Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
         }
 
-        JFLogin login = new JFLogin();
+        JFrameLogin login = new JFrameLogin();
         login.setVisible(true);
         this.dispose();
         
@@ -195,13 +195,13 @@ public class JFCreateUser extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(JFCreateUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameCreateUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(JFCreateUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameCreateUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(JFCreateUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameCreateUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(JFCreateUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameCreateUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //        //</editor-fold>
@@ -209,7 +209,7 @@ public class JFCreateUser extends javax.swing.JFrame {
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new JFCreateUser().setVisible(true);
+//                new JFrameCreateUser().setVisible(true);
 //            }
 //        });
 //    }

@@ -4,7 +4,7 @@
 
 package itson.org.design.hospitalinterfaz;
 
-import presentation.JFLogin;
+import presentation.JFrameLogin;
 
 /**
  *
@@ -14,7 +14,7 @@ public class HospitalInterfaz {
 
     public static void main(String[] args) {
         
-        JFLogin login  = new JFLogin();
+        JFrameLogin login  = new JFrameLogin();
         login.setVisible(true);
         
     }

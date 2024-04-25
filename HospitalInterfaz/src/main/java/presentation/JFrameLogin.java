@@ -14,12 +14,12 @@ import javax.swing.ImageIcon;
  *
  * @author Arell
  */
-public class JFLogin extends javax.swing.JFrame {
+public class JFrameLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    public JFLogin() {
+    public JFrameLogin() {
         initComponents();
         this.setTitle("Login");
         // Configurar la Foto
@@ -109,7 +109,6 @@ public class JFLogin extends javax.swing.JFrame {
             }
         });
 
-        jlbCreateAccount.setBackground(new java.awt.Color(255, 255, 255));
         jlbCreateAccount.setForeground(new java.awt.Color(51, 204, 255));
         jlbCreateAccount.setText("Crear Cuenta");
         jlbCreateAccount.setBorder(null);
@@ -232,7 +231,7 @@ public class JFLogin extends javax.swing.JFrame {
     private void jlbCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlbCreateAccountActionPerformed
         // TODO add your handling code here:
 
-        JFRegisterPatient register = new JFRegisterPatient();
+        JFrameRegisterPatient register = new JFrameRegisterPatient();
         register.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jlbCreateAccountActionPerformed
@@ -245,7 +244,7 @@ public class JFLogin extends javax.swing.JFrame {
         IControl control = Control.getInstance();
         Long idPatient = control.verifyUser(user, password);
         if (idPatient != null) {
-            JFInitialPatient frameInitialPatient = new JFInitialPatient(control, idPatient);
+            JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(control, idPatient);
             frameInitialPatient.setVisible(true);
             this.dispose();
         }
@@ -270,13 +269,13 @@ public class JFLogin extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //        //</editor-fold>
@@ -284,7 +283,7 @@ public class JFLogin extends javax.swing.JFrame {
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new JFLogin().setVisible(true);
+//                new JFrameLogin().setVisible(true);
 //            }
 //        });
 //    }

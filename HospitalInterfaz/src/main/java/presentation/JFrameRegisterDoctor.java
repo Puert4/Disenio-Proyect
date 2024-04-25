@@ -13,12 +13,12 @@ import patient.system.PatientDAO;
  *
  * @author TeLesheo
  */
-public class JFRegisterDoctor extends javax.swing.JFrame {
+public class JFrameRegisterDoctor extends javax.swing.JFrame {
 private IPatientDAO patients;
     /**
      * Creates new form JFrameRegisterDoctor
      */
-    public JFRegisterDoctor() {
+    public JFrameRegisterDoctor() {
         initComponents();
         this.patients = Factory.getPatientDAO();
     }
@@ -270,7 +270,7 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
 
-        JFLogin login = new JFLogin();
+        JFrameLogin login = new JFrameLogin();
         login.setVisible(true);
         this.dispose();
 
@@ -361,20 +361,20 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(JFRegisterDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameRegisterDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(JFRegisterDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameRegisterDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(JFRegisterDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameRegisterDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(JFRegisterDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameRegisterDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new JFRegisterDoctor().setVisible(true);
+//                new JFrameRegisterDoctor().setVisible(true);
 //            }
 //        });
 //    }
@@ -392,13 +392,13 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //        //</editor-fold>
@@ -406,7 +406,7 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new JFRegisterDoctor().setVisible(true);
+//                new JFrameRegisterDoctor().setVisible(true);
 //            }
 //        });
 //    }
