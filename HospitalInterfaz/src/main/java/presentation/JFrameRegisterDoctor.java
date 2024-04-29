@@ -1,26 +1,24 @@
 package presentation;
 
 import control.Factory;
+import doctor.system.IDoctorDAO;
 import doctor.system.NewDoctorDTO;
-import java.awt.FlowLayout;
-import java.util.logging.Logger;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import patient.system.IPatientDAO;
-import patient.system.PatientDAO;
+import user.system.IUserDAO;
+import user.system.NewUserDTO;
 
 /**
  *
  * @author TeLesheo
  */
 public class JFrameRegisterDoctor extends javax.swing.JFrame {
-private IPatientDAO patients;
+
     /**
      * Creates new form JFrameRegisterDoctor
      */
     public JFrameRegisterDoctor() {
         initComponents();
-        this.patients = Factory.getPatientDAO();
+
     }
 
     /**
@@ -55,7 +53,6 @@ private IPatientDAO patients;
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel3.setText("Registro");
 
-        txtNames.setForeground(new java.awt.Color(204, 204, 204));
         txtNames.setBorder(null);
         txtNames.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtNames.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +70,6 @@ private IPatientDAO patients;
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel12.setText("Apellido Materno");
 
-        txtSeconName.setForeground(new java.awt.Color(204, 204, 204));
         txtSeconName.setBorder(null);
         txtSeconName.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtSeconName.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +95,6 @@ private IPatientDAO patients;
             }
         });
 
-        txtFirstName.setForeground(new java.awt.Color(204, 204, 204));
         txtFirstName.setBorder(null);
         txtFirstName.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtFirstName.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +103,6 @@ private IPatientDAO patients;
             }
         });
 
-        txtMedicalCart.setForeground(new java.awt.Color(204, 204, 204));
         txtMedicalCart.setBorder(null);
         txtMedicalCart.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtMedicalCart.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +117,6 @@ private IPatientDAO patients;
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel13.setText("Usuario");
 
-        txtPassword.setForeground(new java.awt.Color(204, 204, 204));
         txtPassword.setBorder(null);
         txtPassword.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +125,6 @@ private IPatientDAO patients;
             }
         });
 
-        txtUser.setForeground(new java.awt.Color(204, 204, 204));
         txtUser.setBorder(null);
         txtUser.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
@@ -303,14 +295,25 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
             JOptionPane.showMessageDialog(null, "Favor de llenar todos los campos", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
 
-//            NewDoctorDTO doctor = new NewDoctorDTO(
-//                    names,
-//                    firstName,
-//                    secondName,
-//                    specialization,
-//                    medicalCart);
-            NewDoctorDTO doctor = new NewDoctorDTO();
-//            doctor.setSpecialization(specialization);
+            NewDoctorDTO doctorDTO = new NewDoctorDTO(
+                    names,
+                    firstName,
+                    secondName,
+                    specialization,
+                    medicalCart);
+
+            doctorDTO.setSpecialization(specialization);
+
+            IDoctorDAO doctorDAO = Factory.getDoctorDAO();
+            doctorDAO.registerDoctor(doctorDTO);
+
+            IUserDAO userDAO = Factory.getUserDAO();
+            NewUserDTO userDTO = new NewUserDTO(user, password, doctorDTO);
+            userDAO.registerDoctorUser(doctorDTO, userDTO);
+
+            JFrameAdministrator frameAdministrator = new JFrameAdministrator();
+            frameAdministrator.setVisible(true);
+            this.dispose();
 
         }
 
@@ -341,7 +344,7 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
         //        }
 
 //        comboBox.get
-        
+
     }//GEN-LAST:event_comboBoxActionPerformed
 
 //    /**

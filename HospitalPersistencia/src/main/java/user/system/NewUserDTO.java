@@ -80,5 +80,6 @@ public class NewUserDTO {
     public void setAdministratorDTO(newAdministratorDTO administratorDTO) {
         this.administratorDTO = administratorDTO;
     }
+    
 
 }

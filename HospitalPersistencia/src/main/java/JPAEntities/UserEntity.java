@@ -113,6 +113,4 @@ public class UserEntity implements Serializable {
         this.doctor = doctor;
     }
      */
-    
-    
 }

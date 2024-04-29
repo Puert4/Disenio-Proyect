@@ -9,6 +9,7 @@
     <class>JPAEntities.UserEntity</class>
     <class>JPAEntities.UserAdministrator</class>
     <class>JPAEntities.UserPatient</class>
+    <class>JPAEntities.UserDoctor</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hospital?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

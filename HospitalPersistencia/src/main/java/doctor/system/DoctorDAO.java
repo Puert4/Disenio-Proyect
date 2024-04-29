@@ -70,7 +70,7 @@ public class DoctorDAO implements IDoctorDAO {
             query.setParameter("medicalCart", medicart);
             return query.getSingleResult();
         } catch (NoResultException e) {
-            LOGGER.log(Level.INFO, "No se encontró ningún paciente con el CURP especificado.");
+            LOGGER.log(Level.INFO, "No se encontró ningún Doctor con el medicalCart especificado.");
             return null;
         } finally {
             em.close();
