@@ -112,16 +112,15 @@ public class UserDAO implements IUserDAO {
         EntityManager em = emf.createEntityManager();
 
         try {
-            // Consulta para buscar al usuario por nombre de usuario y tipo de usuario
+
             TypedQuery<UserPatient> consultUser = em.createQuery("SELECT u FROM UserPatient u WHERE u.user = :user", UserPatient.class);
             consultUser.setParameter("user", user);
 
             UserPatient userPatient = consultUser.getSingleResult();
 
-            // Verificar si se encontró un usuario y si la contraseña es correcta
             if (userPatient != null && userPatient.getPassword().equals(password)) {
                 LOGGER.log(Level.INFO, "Usuario Validado");
-                // Devuelve el ID del paciente asociado al usuario
+
                 return userPatient.getPatient().getId();
             } else {
                 LOGGER.log(Level.INFO, "Contraseña Inválida o Usuario Inexistente");
@@ -145,16 +144,15 @@ public class UserDAO implements IUserDAO {
         EntityManager em = emf.createEntityManager();
 
         try {
-            // Consulta JPQL para buscar un usuario con el nombre de usuario y contraseña dados
+
             TypedQuery<UserEntity> query = em.createQuery(
                     "SELECT u FROM UserEntity u WHERE u.user = :user AND u.password = :password", UserEntity.class);
             query.setParameter("user", user);
             query.setParameter("password", password);
 
-            // Obtener el resultado como SingleResult
             UserEntity userEntity = query.getSingleResult();
             if (userEntity != null) {
-                // Devolver el valor de DTYPE si se encuentra un usuario
+
                 if (userEntity instanceof UserAdministrator) {
                     return "admin";
                 } else if (userEntity instanceof UserPatient) {
@@ -162,18 +160,18 @@ public class UserDAO implements IUserDAO {
                 }
             }
         } catch (NoResultException e) {
-            // Manejar caso en que no se encuentre ningún resultado
+
             System.err.println("No se encontraron resultados para el usuario y la contraseña proporcionados.");
         } catch (Exception e) {
-            // Manejar cualquier otra excepción imprimiéndola
+
             e.printStackTrace();
         } finally {
-            // Cerrar el EntityManager y el EntityManagerFactory en el bloque finally para asegurar su cierre
+
             em.close();
             emf.close();
         }
 
-        return null; // Devolver null si no se encuentra un usuario válido o si hay algún error
+        return null;
     }
 
 }
