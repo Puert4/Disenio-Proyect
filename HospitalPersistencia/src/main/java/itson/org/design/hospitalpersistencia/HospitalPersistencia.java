@@ -22,7 +22,7 @@ import patient.system.NewPatientDTO;
 import patient.system.PatientDAO;
 import user.system.IUserDAO;
 import user.system.UserDAO;
-import user.system.UserDTO;
+import user.system.NewUserDTO;
 
 /**
  *
@@ -80,7 +80,7 @@ public class HospitalPersistencia {
         IPatientDAO patientDAO = PatientDAO.getInstance();
         patientDAO.registerPatient(patientDTO);
 
-        UserDTO userDTO = new UserDTO();
+        NewUserDTO userDTO = new NewUserDTO();
         userDTO.setPassword("PANA");
         userDTO.setUser("pana");
         userDTO.setPatientDTO(patientDTO);

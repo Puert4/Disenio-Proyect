@@ -17,24 +17,23 @@ import patient.system.ExistentPatientDTO;
  */
 public class JFrameInitialPatient extends javax.swing.JFrame {
 
-    private final IControl control;
     private final Long idPatient;
 
     /**
      * Creates new form InicioPaciente
      */
-    public JFrameInitialPatient(IControl control, Long idPatient) {
-        this.control = control;
+    public JFrameInitialPatient(Long idPatient) {
+
         this.idPatient = idPatient;
         initComponents();
     }
 
     private void cargarDatosPaciente() {
 //        ExistentPatientDTO paciente = control.getPatientByID(idPatient);
-        IControl control = Control.getInstance();
+
         Factory factory = new Factory();
-        ExistentPatientDTO paciente = control.findById(idPatient);
-        txtNombre.setText(paciente.getName());
+     //   ExistentPatientDTO paciente = control.findById(idPatient);
+     //   txtNombre.setText(paciente.getName());
     }
 
     /**
@@ -163,8 +162,8 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-        JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
-        register.setVisible(true);
+//        JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
+//        register.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed

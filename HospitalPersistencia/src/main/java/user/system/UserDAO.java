@@ -18,7 +18,7 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
-    public void registerUser(UserDTO userDTO) {
+    public void registerUser(NewUserDTO userDTO) {
         UserEntity user = DtoToEntity(userDTO);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
@@ -30,7 +30,7 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
-    public UserEntity DtoToEntity(UserDTO userDTO) {
+    public UserEntity DtoToEntity(NewUserDTO userDTO) {
         IPatientDAO patientD = Factory.getPatientDAO();
         UserEntity user = new UserEntity();
         user.setUser(userDTO.getUser());

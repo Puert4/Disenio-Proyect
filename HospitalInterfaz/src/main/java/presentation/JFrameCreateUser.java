@@ -1,15 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package presentation;
 
-import control.Control;
-import control.IControl;
+import control.Factory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import patient.system.IPatientDAO;
 import patient.system.NewPatientDTO;
-import user.system.UserDTO;
+import user.system.IUserDAO;
+import user.system.NewUserDTO;
 
 /**
  *
@@ -17,8 +14,8 @@ import user.system.UserDTO;
  */
 public class JFrameCreateUser extends javax.swing.JFrame {
 
-   public NewPatientDTO newPatient;
-    
+    public NewPatientDTO newPatient;
+
     /**
      * Creates new form JFrameCreateUser
      */
@@ -92,8 +89,6 @@ public class JFrameCreateUser extends javax.swing.JFrame {
         Usuario.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
         Usuario.setText("Nombre de usuario");
 
-        txtPassword.setText("jPasswordField1");
-
         javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
         FondoPanel.setLayout(FondoPanelLayout);
         FondoPanelLayout.setHorizontalGroup(
@@ -157,16 +152,16 @@ public class JFrameCreateUser extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
 
-
         try {
             //Creamos paciente nuevo
 
-            IControl control = Control.getInstance();
-            control.addNewPatient(newPatient);
+            IPatientDAO patientSystem = Factory.getPatientDAO();
+            patientSystem.registerPatient(newPatient);
 
-            UserDTO user = new UserDTO(txtUserName.getText(), txtPassword.getText(), newPatient);
-            control.addNewUser(user);
+            IUserDAO userSystem = Factory.getUserDAO();
+            NewUserDTO user = new NewUserDTO(txtUserName.getText(), txtPassword.getText(), newPatient);
 
+            userSystem.registerUser(user);
         } catch (Exception ex) {
             Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
         }
@@ -174,7 +169,7 @@ public class JFrameCreateUser extends javax.swing.JFrame {
         JFrameLogin login = new JFrameLogin();
         login.setVisible(true);
         this.dispose();
-        
+
 
     }//GEN-LAST:event_btnAceptarActionPerformed
 

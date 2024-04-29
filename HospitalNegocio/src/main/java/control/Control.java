@@ -9,7 +9,7 @@ import patient.system.IPatientDAO;
 import patient.system.NewPatientDTO;
 import user.system.IUserDAO;
 import user.system.UserDAO;
-import user.system.UserDTO;
+
 
 /**
  *
@@ -47,6 +47,7 @@ public abstract class Control implements IControl {
         patientSystem.registerPatient(newPatient);
     }
 
+    /*
     @Override
     public void addNewUser(UserDTO newUser) {
         IUserDAO userSystem = UserDAO.getInstance();
@@ -58,13 +59,14 @@ public abstract class Control implements IControl {
         user.setPatient(patientSystem.searchPatientByCurp(newUser.getPatientDTO().getCurp()));
         userSystem.registerUser(user);
     }
-
+     */
     @Override
     public PatientEntity findByCurp(String curp) {
         IPatientDAO patientSystem = Factory.getPatientDAO();
         return patientSystem.searchPatientByCurp(curp);
     }
 
+    /*
     @Override
     public ExistentPatientDTO findById(Long id) {
 
@@ -72,6 +74,7 @@ public abstract class Control implements IControl {
         return convertPatientToExistent(patientSystem.serachPatientById(id));
 
     }
+     */
 
     @Override
     public Long verifyUser(String user, String password) {
@@ -100,6 +103,7 @@ public abstract class Control implements IControl {
         return existentPatientDTO;
     }
 
+    /*
     @Override
     public SpecializationD fromString(String text) {
         for (SpecializationD specialization : SpecializationD.values()) {
@@ -114,7 +118,7 @@ public abstract class Control implements IControl {
 //        return control == null ? (control = new Control()) : control;
         return control == null ? (control = new Control() {}) : control;
     }
-
+     */
     @Override
     public String encrypt(String text, int code) {
 

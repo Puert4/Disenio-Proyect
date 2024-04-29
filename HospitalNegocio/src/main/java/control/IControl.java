@@ -1,10 +1,10 @@
 package control;
 
 import JPAEntities.PatientEntity;
-import dtos.UserDTO;
+
 import patient.system.ExistentPatientDTO;
 import patient.system.NewPatientDTO;
-import user.system.UserDTO;
+
 
 /**
  *
@@ -26,8 +26,8 @@ public interface IControl {
 
     public ExistentPatientDTO findById(Long id);
 
-    public void addNewUser(UserDTO newUser);
+   // public void addNewUser(UserDTO newUser);
 
-    public SpecializationD fromString(String text);
+   // public SpecializationD fromString(String text);
 
 }

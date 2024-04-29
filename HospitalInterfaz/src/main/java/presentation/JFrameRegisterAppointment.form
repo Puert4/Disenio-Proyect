@@ -38,12 +38,10 @@
                               <Component id="jButton1" min="-2" pref="173" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel13" min="-2" pref="94" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel11" min="-2" pref="94" max="-2" attributes="0"/>
-                              <Component id="cmbDoctor" alignment="0" pref="147" max="32767" attributes="0"/>
-                              <Component id="jSeparator7" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel11" min="-2" pref="94" max="-2" attributes="0"/>
+                          <Component id="cmbDoctor" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jSeparator7" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="txtNota" alignment="0" min="-2" pref="388" max="-2" attributes="0"/>
                           <Component id="txt_fecha" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
                       </Group>

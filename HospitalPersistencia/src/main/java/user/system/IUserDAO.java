@@ -8,8 +8,8 @@ import JPAEntities.UserEntity;
  */
 public interface IUserDAO {
 
-    public void registerUser(UserDTO userDTO);
+    public void registerUser(NewUserDTO userDTO);
 
-    public UserEntity DtoToEntity(UserDTO userDTO);
+    public UserEntity DtoToEntity(NewUserDTO userDTO);
 
 }
