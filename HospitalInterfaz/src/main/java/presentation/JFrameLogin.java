@@ -11,7 +11,7 @@ import user.system.IUserDAO;
 
 /**
  *
- * @author Arell
+ * @author TeLesheo
  */
 public class JFrameLogin extends javax.swing.JFrame {
 

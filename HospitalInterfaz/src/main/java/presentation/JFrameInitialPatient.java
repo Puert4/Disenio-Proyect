@@ -5,6 +5,7 @@ import control.Factory;
 import control.IControl;
 import javax.swing.JOptionPane;
 import patient.system.ExistentPatientDTO;
+import patient.system.IPatientDAO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,9 +32,9 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     private void cargarDatosPaciente() {
 //        ExistentPatientDTO paciente = control.getPatientByID(idPatient);
 
-        Factory factory = new Factory();
-     //   ExistentPatientDTO paciente = control.findById(idPatient);
-     //   txtNombre.setText(paciente.getName());
+        IPatientDAO patientSystem = Factory.getPatientDAO();
+        ExistentPatientDTO paciente = patientSystem.EntityToDto(patientSystem.serachPatientById(idPatient));
+        txtNombre.setText(paciente.getName());
     }
 
     /**

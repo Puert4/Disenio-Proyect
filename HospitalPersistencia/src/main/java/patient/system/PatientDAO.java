@@ -29,8 +29,6 @@ public class PatientDAO implements IPatientDAO {
         emf.close();
 
     }
-    
-    /*
 
     @Override
     public PatientEntity serachPatientById(Long idPatient) {
@@ -40,6 +38,7 @@ public class PatientDAO implements IPatientDAO {
         try {
             // Consulta el paciente por su ID
             return em.find(PatientEntity.class, idPatient);
+            
         } catch (NoResultException e) {
             LOGGER.log(Level.INFO, "No se encontró ningún paciente con el ID especificado.");
             return null;
@@ -48,7 +47,7 @@ public class PatientDAO implements IPatientDAO {
             emf.close();
         }
     }
-*/
+
     @Override
     public PatientEntity searchPatientByCurp(String curp) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
