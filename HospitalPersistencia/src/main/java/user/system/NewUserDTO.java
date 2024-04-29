@@ -1,7 +1,7 @@
 package user.system;
 
-import patient.system.NewPatientDTO;
-
+import administrator.system.newAdministratorDTO;
+import doctor.system.NewDoctorDTO;
 import patient.system.NewPatientDTO;
 
 /**
@@ -16,7 +16,10 @@ public class NewUserDTO {
 
     private NewPatientDTO patientDTO;
 
-//    private NewDoctorDTO doctorDTO;
+    private NewDoctorDTO doctorDTO;
+
+    private newAdministratorDTO administratorDTO;
+
     public NewUserDTO() {
     }
 
@@ -26,11 +29,18 @@ public class NewUserDTO {
         this.patientDTO = patientDTO;
     }
 
-//    public NewUserDTO(String user, String password, NewDoctorDTO doctorDTO) {
-//        this.user = user;
-//        this.password = password;
-//        this.doctorDTO = doctorDTO;
-//    }
+    public NewUserDTO(String user, String password, NewDoctorDTO doctorDTO) {
+        this.user = user;
+        this.password = password;
+        this.doctorDTO = doctorDTO;
+    }
+
+    public NewUserDTO(String user, String password, newAdministratorDTO administratorDTO) {
+        this.user = user;
+        this.password = password;
+        this.administratorDTO = administratorDTO;
+    }
+
     public String getUser() {
         return user;
     }
@@ -53,6 +63,22 @@ public class NewUserDTO {
 
     public void setPatientDTO(NewPatientDTO patientDTO) {
         this.patientDTO = patientDTO;
+    }
+
+    public NewDoctorDTO getDoctorDTO() {
+        return doctorDTO;
+    }
+
+    public void setDoctorDTO(NewDoctorDTO doctorDTO) {
+        this.doctorDTO = doctorDTO;
+    }
+
+    public newAdministratorDTO getAdministratorDTO() {
+        return administratorDTO;
+    }
+
+    public void setAdministratorDTO(newAdministratorDTO administratorDTO) {
+        this.administratorDTO = administratorDTO;
     }
 
 }

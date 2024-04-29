@@ -1,5 +1,7 @@
 package control;
 
+import administrator.system.AdministratorDAO;
+import administrator.system.IAdministratorDAO;
 import appointment.system.AppointmentManager;
 import appointment.system.IAppointmentManager;
 import doctor.system.DoctorDAO;
@@ -22,6 +24,7 @@ public class Factory {
     private static ILogIn logIn;
     private static IDoctorDAO doctorDAO;
     public static IAppointmentManager appointmentManager;
+    public static IAdministratorDAO administratorDAO;
 
     public Factory() {
 
@@ -45,6 +48,10 @@ public class Factory {
 
     public static IAppointmentManager getAppointmentManager() {
         return appointmentManager == null ? (appointmentManager = AppointmentManager.getInstance()) : appointmentManager;
+    }
+
+    public static IAdministratorDAO getAdministratorDAO() {
+        return administratorDAO == null ? (administratorDAO = AdministratorDAO.getInstance()) : administratorDAO;
     }
 
 }

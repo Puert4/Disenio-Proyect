@@ -1,6 +1,7 @@
 package loginManager;
 
 import JPAEntities.UserEntity;
+import JPAEntities.UserPatient;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -50,16 +51,17 @@ public abstract class LogIn implements ILogIn {
 //            emf.close();
 //        }
 //    }
+    //cambio de userEntity a patientEntity
     @Override
     public Long validateUser(String user, String password) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
 
-        TypedQuery<UserEntity> consultUser = em.createQuery("SELECT u FROM UserEntity u WHERE u.user = :user", UserEntity.class);
+        TypedQuery<UserPatient> consultUser = em.createQuery("SELECT u FROM UserEntity u WHERE u.user = :user", UserPatient.class);
         consultUser.setParameter("user", user);
 
         try {
-            UserEntity userEntity = consultUser.getSingleResult();
+            UserPatient userEntity = consultUser.getSingleResult();
 
             if (userEntity != null && userEntity.getPassword().equals(password)) {
                 LOGGER.log(Level.INFO, "Usuario Validado");

@@ -27,17 +27,40 @@ public class UserEntity implements Serializable {
     @Column(name = "password")
     private String password;
 
+    /*
+
     @OneToOne
     private PatientEntity patient;
 
+    @OneToOne
+    private AdministratorEntity administrator;
+
+    @OneToOne
+    private DoctorEntity doctor;
+     */
     public UserEntity() {
 
     }
 
+    /*
     public UserEntity(String user, String password, PatientEntity patient) {
         this.user = user;
         this.password = password;
         this.patient = patient;
+    }
+
+    public UserEntity(String user, String password, AdministratorEntity administrator) {
+        this.user = user;
+        this.password = password;
+        this.administrator = administrator;
+    }
+    
+  
+     */
+    public UserEntity(Long id, String user, String password) {
+        this.id = id;
+        this.user = user;
+        this.password = password;
     }
 
     public Long getId() {
@@ -64,6 +87,8 @@ public class UserEntity implements Serializable {
         this.password = password;
     }
 
+
+    /*
     public PatientEntity getPatient() {
         return patient;
     }
@@ -72,4 +97,20 @@ public class UserEntity implements Serializable {
         this.patient = patient;
     }
 
+    public AdministratorEntity getAdministrator() {
+        return administrator;
+    }
+
+    public void setAdministrator(AdministratorEntity administrator) {
+        this.administrator = administrator;
+    }
+
+    public DoctorEntity getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(DoctorEntity doctor) {
+        this.doctor = doctor;
+    }
+     */
 }

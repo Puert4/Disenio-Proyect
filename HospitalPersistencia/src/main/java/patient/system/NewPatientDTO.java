@@ -7,8 +7,8 @@ import java.util.Calendar;
  * @author TeLesheo
  */
 public class NewPatientDTO {
-    
-      private String names;
+
+    private String names;
     private String firstName;
     private String secondName;
     private String curp;
@@ -125,5 +125,5 @@ public class NewPatientDTO {
     public void setSocialNumber(String socialNumber) {
         this.socialNumber = socialNumber;
     }
-    
+
 }

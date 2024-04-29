@@ -4,6 +4,8 @@ import static JPAEntities.AppointmentEntity_.doctor;
 import JPAEntities.DoctorEntity;
 import JPAEntities.PatientEntity;
 import JPAEntities.Specialization;
+import administrator.system.IAdministratorDAO;
+import administrator.system.newAdministratorDTO;
 import appointment.system.AppointmentStatus;
 import appointment.system.IAppointmentManager;
 import appointment.system.NewAppointmentDTO;
@@ -33,7 +35,6 @@ public class HospitalPersistencia {
     public static void main(String[] args) {
 
         /*
-        
         //Probando que guarde adecuadamente
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
         EntityManager em = emf.createEntityManager();
@@ -104,6 +105,7 @@ public class HospitalPersistencia {
         IDoctorDAO doctorDAO = DoctorDAO.getInstance();
         doctorDAO.registerDoctor(doctorDTO);
          */
+ /*
         IPatientDAO patientD = Factory.getPatientDAO();
         PatientEntity patient = patientD.searchPatientByCurp("DDDDD");
 
@@ -117,6 +119,7 @@ public class HospitalPersistencia {
         /*
         DoctorEntity doctor = doctorD.serachById(Long.MIN_VALUE);
          */
+ /*
         ExistentDoctorDTO doctorDTO = new ExistentDoctorDTO();
         doctorDTO.setId(doctor.getId());
         doctorDTO.setFirstName(doctor.getNames());
@@ -137,6 +140,18 @@ public class HospitalPersistencia {
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
 
         appointmentManager.createAppointment(appointment);
+         */
+ /*
+        newAdministratorDTO administrator = new newAdministratorDTO();
+        administrator.setName("Jullian");
 
+        IAdministratorDAO admin = Factory.getAdministratorDAO();
+        admin.registerAdministrator(administrator);
+
+        IUserDAO user = Factory.getUserDAO();
+
+        NewUserDTO newUserDTO = new NewUserDTO("Puerta", "Puerta", administrator);
+        user.registerAdminUser(administrator, newUserDTO);
+         */
     }
 }

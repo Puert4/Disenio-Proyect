@@ -68,7 +68,7 @@ public class PatientEntity implements Serializable {
     private List<DoctorEntity> asignedDoctors;
 
     @OneToOne(mappedBy = "patient")
-    private UserEntity user;
+    private UserPatient user;
 
     public PatientEntity() {
         this.asignedDoctors = new ArrayList<>();
@@ -200,11 +200,11 @@ public class PatientEntity implements Serializable {
         this.zipCode = zipCode;
     }
 
-    public UserEntity getUser() {
+    public UserPatient getUser() {
         return user;
     }
 
-    public void setUser(UserEntity user) {
+    public void setUser(UserPatient user) {
         this.user = user;
     }
 
