@@ -1,5 +1,6 @@
 package loginManager;
 
+import JPAEntities.UserAdministrator;
 import JPAEntities.UserEntity;
 import JPAEntities.UserPatient;
 import java.util.logging.Level;
@@ -52,6 +53,7 @@ public abstract class LogIn implements ILogIn {
 //        }
 //    }
     //cambio de userEntity a patientEntity
+    /*
     @Override
     public Long validateUser(String user, String password) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
@@ -73,6 +75,49 @@ public abstract class LogIn implements ILogIn {
             }
         } catch (NoResultException e) {
             LOGGER.log(Level.INFO, "Usuario Invalido o Inexistente");
+            return null;
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Error al validar", e);
+            return null;
+        } finally {
+            em.close();
+            emf.close();
+        }
+    }
+     */
+    @Override
+    public Long validateUser(String user, String password) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            // Consulta para buscar al usuario por nombre de usuario
+            TypedQuery<UserEntity> consultUser = em.createQuery("SELECT u FROM UserEntity u WHERE u.user = :user", UserEntity.class);
+            consultUser.setParameter("user", user);
+
+            UserEntity userEntity = consultUser.getSingleResult();
+
+            // Verificar si se encontró un usuario y si la contraseña es correcta
+            if (userEntity != null && userEntity.getPassword().equals(password)) {
+                LOGGER.log(Level.INFO, "Usuario Validado");
+
+                // Determinar el tipo de usuario y manejar la autenticación en consecuencia
+                if (userEntity instanceof UserPatient) {
+                    // Para usuarios pacientes, devuelve el ID del paciente asociado al usuario
+                    return ((UserPatient) userEntity).getPatient().getId();
+                } else if (userEntity instanceof UserAdministrator) {
+                    // Para usuarios administradores, puedes devolver algún valor específico o simplemente retornar null
+                    return 0L; // Por ejemplo, si el ID del administrador es 0
+                } else {
+                    // Manejar otros tipos de usuario según sea necesario
+                    return null;
+                }
+            } else {
+                LOGGER.log(Level.INFO, "Contraseña Inválida o Usuario Inexistente");
+                return null;
+            }
+        } catch (NoResultException e) {
+            LOGGER.log(Level.INFO, "Usuario Inválido o Inexistente");
             return null;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error al validar", e);

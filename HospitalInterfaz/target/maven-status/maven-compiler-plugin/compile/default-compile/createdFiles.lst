@@ -13,6 +13,7 @@ presentation\JFrameRegisterDoctor.class
 presentation\JFrameInitialPatient$3.class
 presentation\JFrameRegisterDoctor$9.class
 presentation\JFrameRegisterPatient$2.class
+presentation\JFrameAdministrator$1.class
 presentation\JFrameLogin$3.class
 presentation\JFrameInitialMedicos.class
 presentation\JFrameLogin.class

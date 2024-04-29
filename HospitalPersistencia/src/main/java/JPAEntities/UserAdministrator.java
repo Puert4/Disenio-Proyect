@@ -2,6 +2,9 @@ package JPAEntities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
@@ -38,5 +41,9 @@ public class UserAdministrator extends UserEntity implements Serializable {
     public void setAdministrator(AdministratorEntity administrator) {
         this.administrator = administrator;
     }
+
+
+
+
 
 }

@@ -35,6 +35,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         IPatientDAO patientSystem = Factory.getPatientDAO();
         ExistentPatientDTO paciente = patientSystem.EntityToDto(patientSystem.serachPatientById(idPatient));
         txtNombre.setText(paciente.getName());
+
     }
 
     /**
@@ -163,7 +164,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-//        JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
+//      JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
 //        register.setVisible(true);
         this.dispose();
 

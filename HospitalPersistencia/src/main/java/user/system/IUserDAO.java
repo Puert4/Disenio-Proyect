@@ -13,6 +13,12 @@ public interface IUserDAO {
 
     public UserEntity DtoToEntity(NewUserDTO userDTO);
 
-    public void registerAdminUser(newAdministratorDTO administratorDTO,NewUserDTO userDTO);
+    public void registerAdminUser(newAdministratorDTO administratorDTO, NewUserDTO userDTO);
+
+    public String getUserType(Long userId);
+
+    public Long validateUser(String user, String password);
+
+    public String getUserTypeByUserAndPassword(String user, String password);
 
 }

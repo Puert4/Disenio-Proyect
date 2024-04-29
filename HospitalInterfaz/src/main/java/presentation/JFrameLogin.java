@@ -1,11 +1,10 @@
 package presentation;
 
 import Tools.Pintar;
-import control.Control;
 import control.Factory;
-import control.IControl;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import loginManager.ILogIn;
 import user.system.IUserDAO;
 
@@ -238,19 +237,50 @@ public class JFrameLogin extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
 
+//        String user = txtUser.getText();
+//        String password = txtPassword.getText();
+//
+//        IUserDAO userSystem = Factory.getUserDAO();
+//
+//        ILogIn loginSystem = Factory.getLogIn();
+//        Long idPatient = loginSystem.validateUser(user, password);
+//        if (idPatient != null) {
+//            JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(idPatient);
+//            frameInitialPatient.setVisible(true);
+//            this.dispose();
+//        }
         String user = txtUser.getText();
         String password = txtPassword.getText();
 
         IUserDAO userSystem = Factory.getUserDAO();
 
         ILogIn loginSystem = Factory.getLogIn();
-        Long idPatient = loginSystem.validateUser(user, password);
-        if (idPatient != null) {
-            JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(idPatient);
-            frameInitialPatient.setVisible(true);
-            this.dispose();
-        }
 
+        String userType = userSystem.getUserTypeByUserAndPassword(user, password);
+
+        if (userType != null) {
+            switch (userType) {
+                case "admin":
+
+                    JFrameAdministrator frameAdministrator = new JFrameAdministrator();
+                    frameAdministrator.setVisible(true);
+                    this.dispose();
+                    break;
+                case "patient":
+                    Long idPatient = loginSystem.validateUser(user, password);
+                    JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(idPatient);
+                    frameInitialPatient.setVisible(true);
+                    this.dispose();
+                    break;
+
+                default:
+
+                    break;
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_btnAceptarActionPerformed
 

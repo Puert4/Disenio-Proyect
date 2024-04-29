@@ -150,7 +150,7 @@ public class HospitalPersistencia {
 
         IUserDAO user = Factory.getUserDAO();
 
-        NewUserDTO newUserDTO = new NewUserDTO("Puerta", "Puerta", administrator);
+        NewUserDTO newUserDTO = new NewUserDTO("Jullian", "Jullian", administrator);
         user.registerAdminUser(administrator, newUserDTO);
          */
     }
