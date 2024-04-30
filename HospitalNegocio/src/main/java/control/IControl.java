@@ -1,9 +1,9 @@
 package control;
 
-import JPAEntities.PatientEntity;
-
-import patient.system.ExistentPatientDTO;
-import patient.system.NewPatientDTO;
+//import JPAEntities.PatientEntity;
+//
+//import patient.system.ExistentPatientDTO;
+//import patient.system.NewPatientDTO;
 
 
 /**
@@ -12,22 +12,22 @@ import patient.system.NewPatientDTO;
  */
 public interface IControl {
 
-    public String encrypt(String text, int code);
-
-    public String decrypt(String text, int code);
-
-    public void addNewPatient(NewPatientDTO newPatient);
-
-    public Long verifyUser(String user, String password);
-
-    public ExistentPatientDTO convertPatientToExistent(PatientEntity patient);
-
-    public PatientEntity findByCurp(String curp);
-
-    public ExistentPatientDTO findById(Long id);
-
-   // public void addNewUser(UserDTO newUser);
-
-   // public SpecializationD fromString(String text);
+//    public String encrypt(String text, int code);
+//
+//    public String decrypt(String text, int code);
+//
+//    public void addNewPatient(NewPatientDTO newPatient);
+//
+//    public Long verifyUser(String user, String password);
+//
+//    public ExistentPatientDTO convertPatientToExistent(PatientEntity patient);
+//
+//    public PatientEntity findByCurp(String curp);
+//
+//    public ExistentPatientDTO findById(Long id);
+//
+//   // public void addNewUser(UserDTO newUser);
+//
+//   // public SpecializationD fromString(String text);
 
 }
