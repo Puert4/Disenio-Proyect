@@ -1,6 +1,5 @@
 package presentation;
 
-import control.IControl;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -15,15 +14,15 @@ import java.util.Date;
  */
 public class JFrameRegisterAppointment extends javax.swing.JFrame {
 
-    private final IControl control;
+//    private final IControl control;
     private final Long idPatient;
 
 //    private JDateChooser dateChooser;
     /**
      * Creates new form ConfirmaciondeCita
      */
-    public JFrameRegisterAppointment(IControl control, Long idPatient) {
-        this.control = control;
+    public JFrameRegisterAppointment(Long idPatient) {
+//        this.control = control;
         this.idPatient = idPatient;
         initComponents();
 
@@ -142,7 +141,8 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(control, idPatient);
+//        JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(control, idPatient);
+        JFrameConfirmAppointment confirm = new JFrameConfirmAppointment();
         confirm.setVisible(true);
         this.dispose();
 

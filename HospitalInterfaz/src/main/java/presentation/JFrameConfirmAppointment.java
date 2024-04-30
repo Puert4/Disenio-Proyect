@@ -1,6 +1,5 @@
 package presentation;
 
-import control.IControl;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,15 +12,15 @@ import control.IControl;
  */
 public class JFrameConfirmAppointment extends javax.swing.JFrame {
 
-    private final IControl control;
-    private final Long idPatient;
+//    private final IControl control;
+//    private final Long idPatient;
 
     /**
      * Creates new form AgendarCita
      */
-    public JFrameConfirmAppointment(IControl control, Long idPatient) {
-        this.control = control;
-        this.idPatient = idPatient;
+    public JFrameConfirmAppointment() {
+//        this.control = control;
+//        this.idPatient = idPatient;
         initComponents();
     }
 
@@ -211,9 +210,9 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
-        register.setVisible(true);
-        this.dispose();
+//        JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
+//        register.setVisible(true);
+//        this.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

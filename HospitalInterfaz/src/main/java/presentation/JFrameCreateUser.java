@@ -1,5 +1,6 @@
 package presentation;
 
+//import factory.Factory;
 import factory.Factory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -7,6 +8,10 @@ import patient.system.IPatientDAO;
 import patient.system.NewPatientDTO;
 import user.system.IUserDAO;
 import user.system.NewUserDTO;
+//import patient.system.IPatientDAO;
+//import patient.system.NewPatientDTO;
+//import user.system.IUserDAO;
+//import user.system.NewUserDTO;
 
 /**
  *

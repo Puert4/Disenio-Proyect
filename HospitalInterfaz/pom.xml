@@ -8,8 +8,9 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>HospitalNegocio</artifactId>
-            <version>${project.version}</version>
+            <artifactId>HospitalPersistencia</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
     <properties>
