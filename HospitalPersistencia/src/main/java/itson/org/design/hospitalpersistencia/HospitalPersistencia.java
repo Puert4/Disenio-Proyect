@@ -141,7 +141,6 @@ public class HospitalPersistencia {
 
         appointmentManager.createAppointment(appointment);
          */
-
         newAdministratorDTO administrator = new newAdministratorDTO();
         administrator.setName("Jullian");
 
@@ -152,6 +151,6 @@ public class HospitalPersistencia {
 
         NewUserDTO newUserDTO = new NewUserDTO("Jullian", "Jullian", administrator);
         user.registerAdminUser(administrator, newUserDTO);
-         
+
     }
 }

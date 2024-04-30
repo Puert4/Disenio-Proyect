@@ -40,7 +40,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         Usuario = new javax.swing.JLabel();
         txtFirstName = new javax.swing.JTextField();
         txtBirthDate = new javax.swing.JTextField();
-        Usuario2 = new javax.swing.JLabel();
         txtCurp = new javax.swing.JTextField();
         Usuario3 = new javax.swing.JLabel();
         Usuario4 = new javax.swing.JLabel();
@@ -104,9 +103,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
 
         Usuario.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
         Usuario.setText("Nombres");
-
-        Usuario2.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario2.setText("Fecha");
 
         Usuario3.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
         Usuario3.setText("CURP");
@@ -238,15 +234,10 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                         .addComponent(Usuario)
                         .addGap(221, 221, 221)
                         .addComponent(Usuario4)
-                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FondoPanelLayout.createSequentialGroup()
-                                .addGap(251, 251, 251)
-                                .addComponent(Usuario2))
-                            .addGroup(FondoPanelLayout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addComponent(Usuario10)
-                                .addGap(56, 56, 56)
-                                .addComponent(Usuario12))))
+                        .addGap(78, 78, 78)
+                        .addComponent(Usuario10)
+                        .addGap(56, 56, 56)
+                        .addComponent(Usuario12))
                     .addGroup(FondoPanelLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(FondoGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,8 +294,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                         .addComponent(Iniciar_Sesion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Usuario10)
-                        .addGap(382, 382, 382)
-                        .addComponent(Usuario2))
+                        .addGap(407, 407, 407))
                     .addGroup(FondoPanelLayout.createSequentialGroup()
                         .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(FondoPanelLayout.createSequentialGroup()
@@ -351,8 +341,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                             .addComponent(txtCurp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(72, 72, 72)
                         .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -504,7 +493,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FondoAzul;
     private javax.swing.JPanel FondoGenero;
@@ -516,7 +504,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
     private javax.swing.JLabel Usuario10;
     private javax.swing.JLabel Usuario11;
     private javax.swing.JLabel Usuario12;
-    private javax.swing.JLabel Usuario2;
     private javax.swing.JLabel Usuario3;
     private javax.swing.JLabel Usuario4;
     private javax.swing.JLabel Usuario5;
