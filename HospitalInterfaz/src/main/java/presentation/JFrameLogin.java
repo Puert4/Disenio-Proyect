@@ -1,7 +1,7 @@
 package presentation;
 
 import Tools.Pintar;
-import control.Factory;
+import factory.Factory;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;

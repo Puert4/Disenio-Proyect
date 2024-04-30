@@ -1,6 +1,6 @@
 package presentation;
 
-import control.Factory;
+import factory.Factory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import patient.system.IPatientDAO;

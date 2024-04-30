@@ -1,7 +1,7 @@
 package presentation;
 
 import control.Control;
-import control.Factory;
+import factory.Factory;
 import control.IControl;
 import javax.swing.JOptionPane;
 import patient.system.ExistentPatientDTO;
