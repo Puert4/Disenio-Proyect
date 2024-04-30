@@ -4,6 +4,8 @@ import JPAEntities.AppointmentEntity;
 import JPAEntities.AppointmentStateEntity;
 import JPAEntities.DoctorEntity;
 import JPAEntities.PatientEntity;
+import connection.ConnectionDB;
+import connection.IConnectionDB;
 import control.Factory;
 import doctor.system.DoctorDAO;
 import doctor.system.IDoctorDAO;
@@ -19,15 +21,21 @@ import patient.system.IPatientDAO;
  */
 public abstract class AppointmentManager implements IAppointmentManager {
 
+    private EntityManagerFactory emf;
+    private EntityManager em;
+    
     private AppointmentManager() {
+        
+        IConnectionDB connection = new ConnectionDB();
+        emf = connection.createConnection();
+        em = emf.createEntityManager();
+        
     }
 
     @Override
     public void createAppointment(NewAppointmentDTO newAppointmentDTO) {
         AppointmentEntity appointment = DtoToEntity(newAppointmentDTO);
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(appointment);
         em.getTransaction().commit();

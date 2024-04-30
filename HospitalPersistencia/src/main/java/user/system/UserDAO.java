@@ -9,6 +9,8 @@ import JPAEntities.UserEntity;
 import JPAEntities.UserPatient;
 import administrator.system.IAdministratorDAO;
 import administrator.system.newAdministratorDTO;
+import connection.ConnectionDB;
+import connection.IConnectionDB;
 import control.Factory;
 import doctor.system.IDoctorDAO;
 import doctor.system.NewDoctorDTO;
@@ -29,15 +31,20 @@ import patient.system.PatientDAO;
 public class UserDAO implements IUserDAO {
     
     private static final Logger LOGGER = Logger.getLogger(PatientDAO.class.getName());
+    private EntityManagerFactory emf;
+    private EntityManager em;
     
     private UserDAO() {
+        
+        IConnectionDB connection = new ConnectionDB();
+        emf = connection.createConnection();
+        em = emf.createEntityManager();
+        
     }
     
     @Override
     public void registerUser(NewUserDTO userDTO) {
         UserEntity user = DtoToEntity(userDTO);
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
@@ -74,8 +81,6 @@ public class UserDAO implements IUserDAO {
         AdministratorEntity administrator = administratorD.searchAdministratorByName(userDTO.getAdministratorDTO().getName());
         user.setAdministrator(administrator);
         
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
@@ -86,8 +91,6 @@ public class UserDAO implements IUserDAO {
     
     @Override
     public String getUserType(Long userId) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
         
         try {
             UserEntity user = em.find(UserEntity.class, userId);
@@ -112,8 +115,6 @@ public class UserDAO implements IUserDAO {
     
     @Override
     public Long validateUser(String user, String password) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
         
         try {
             
@@ -144,8 +145,6 @@ public class UserDAO implements IUserDAO {
     
     @Override
     public String getUserTypeByUserAndPassword(String user, String password) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
         
         try {
             
@@ -189,8 +188,6 @@ public class UserDAO implements IUserDAO {
         DoctorEntity doctor = doctorD.searchByMedicart(userDTO.getDoctorDTO().getMedicalCart());
         user.setDoctor(doctor);
         
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();

@@ -1,6 +1,8 @@
 package patient.system;
 
 import JPAEntities.PatientEntity;
+import connection.ConnectionDB;
+import connection.IConnectionDB;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -16,7 +18,17 @@ import javax.persistence.TypedQuery;
 public class PatientDAO implements IPatientDAO {
 
     private static final Logger LOGGER = Logger.getLogger(PatientDAO.class.getName());
-
+    private EntityManagerFactory emf;
+    private EntityManager em;
+    
+    public PatientDAO(){   
+        
+        IConnectionDB connection = new ConnectionDB();
+        emf = connection.createConnection();
+        em = emf.createEntityManager();
+        
+    }
+    
     @Override
     public void registerPatient(NewPatientDTO newPatientDTO) {
         PatientEntity patient = DtoToEntity(newPatientDTO);

@@ -1,6 +1,8 @@
 package doctor.system;
 
 import JPAEntities.DoctorEntity;
+import connection.ConnectionDB;
+import connection.IConnectionDB;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -17,12 +19,20 @@ import patient.system.PatientDAO;
 public class DoctorDAO implements IDoctorDAO {
 
     private static final Logger LOGGER = Logger.getLogger(PatientDAO.class.getName());
-
+    private EntityManagerFactory emf;
+    private EntityManager em;
+    
+    public DoctorDAO(){
+        
+        IConnectionDB connection = new ConnectionDB();
+        emf = connection.createConnection();
+        em = emf.createEntityManager();
+        
+    }
+    
     @Override
     public void registerDoctor(NewDoctorDTO doctorDTO) {
         DoctorEntity doctor = DtoToEntity(doctorDTO);
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(doctor);
         em.getTransaction().commit();
@@ -46,9 +56,6 @@ public class DoctorDAO implements IDoctorDAO {
     @Override
     public DoctorEntity serachById(Long idDoctor) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
-
         try {
             return em.find(DoctorEntity.class, idDoctor);
         } catch (NoResultException e) {
@@ -62,8 +69,6 @@ public class DoctorDAO implements IDoctorDAO {
 
     @Override
     public DoctorEntity searchByMedicart(String medicart) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
 
         try {
             TypedQuery<DoctorEntity> query = em.createQuery("SELECT d FROM DoctorEntity d WHERE d.medicalCart = :medicalCart", DoctorEntity.class);

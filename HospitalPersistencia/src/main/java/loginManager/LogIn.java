@@ -3,6 +3,8 @@ package loginManager;
 import JPAEntities.UserAdministrator;
 import JPAEntities.UserEntity;
 import JPAEntities.UserPatient;
+import connection.ConnectionDB;
+import connection.IConnectionDB;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -19,8 +21,14 @@ import javax.persistence.TypedQuery;
 public abstract class LogIn implements ILogIn {
 
     private static final Logger LOGGER = Logger.getLogger(LogIn.class.getName());
-
+    private EntityManagerFactory emf;
+    private EntityManager em;
+    
     private LogIn() {
+        
+        IConnectionDB connection = new ConnectionDB();
+        emf = connection.createConnection();
+        em = emf.createEntityManager();
 
     }
 
@@ -87,8 +95,6 @@ public abstract class LogIn implements ILogIn {
      */
     @Override
     public Long validateUser(String user, String password) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
 
         try {
             // Consulta para buscar al usuario por nombre de usuario
