@@ -6,9 +6,9 @@ import JPAEntities.DoctorEntity;
 import JPAEntities.PatientEntity;
 import connection.ConnectionDB;
 import connection.IConnectionDB;
-import control.Factory;
 import doctor.system.DoctorDAO;
 import doctor.system.IDoctorDAO;
+import factory.Factory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

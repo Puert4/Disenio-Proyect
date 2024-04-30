@@ -129,8 +129,8 @@ public abstract class LogIn implements ILogIn {
             LOGGER.log(Level.SEVERE, "Error al validar", e);
             return null;
         } finally {
-            em.close();
-            emf.close();
+//            em.close();
+//            emf.close();
         }
     }
 

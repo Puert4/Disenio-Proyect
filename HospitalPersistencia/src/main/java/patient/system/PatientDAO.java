@@ -32,20 +32,16 @@ public class PatientDAO implements IPatientDAO {
     @Override
     public void registerPatient(NewPatientDTO newPatientDTO) {
         PatientEntity patient = DtoToEntity(newPatientDTO);
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(patient);
         em.getTransaction().commit();
-        em.close();
-        emf.close();
+//        em.close();
+//        emf.close();
 
     }
 
     @Override
     public PatientEntity serachPatientById(Long idPatient) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
 
         try {
             // Consulta el paciente por su ID
@@ -55,16 +51,13 @@ public class PatientDAO implements IPatientDAO {
             LOGGER.log(Level.INFO, "No se encontró ningún paciente con el ID especificado.");
             return null;
         } finally {
-            em.close();
-            emf.close();
+//            em.close();
+//            emf.close();
         }
     }
 
     @Override
     public PatientEntity searchPatientByCurp(String curp) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
-
         try {
             TypedQuery<PatientEntity> query = em.createQuery("SELECT p FROM PatientEntity p WHERE p.curp = :curp", PatientEntity.class);
             query.setParameter("curp", curp);
@@ -73,8 +66,8 @@ public class PatientDAO implements IPatientDAO {
             LOGGER.log(Level.INFO, "No se encontró ningún paciente con el CURP especificado.");
             return null;
         } finally {
-            em.close();
-            emf.close();
+//            em.close();
+//            emf.close();
         }
     }
 

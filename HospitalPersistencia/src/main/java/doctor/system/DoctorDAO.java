@@ -36,8 +36,8 @@ public class DoctorDAO implements IDoctorDAO {
         em.getTransaction().begin();
         em.persist(doctor);
         em.getTransaction().commit();
-        em.close();
-        emf.close();
+//        em.close();
+//        emf.close();
     }
 
     @Override
@@ -62,8 +62,8 @@ public class DoctorDAO implements IDoctorDAO {
             LOGGER.log(Level.INFO, "No se encontró ningún doctor con el ID especificado.");
             return null;
         } finally {
-            em.close();
-            emf.close();
+//            em.close();
+//            emf.close();
         }
     }
 
@@ -78,8 +78,8 @@ public class DoctorDAO implements IDoctorDAO {
             LOGGER.log(Level.INFO, "No se encontró ningún Doctor con el medicalCart especificado.");
             return null;
         } finally {
-            em.close();
-            emf.close();
+//            em.close();
+//            emf.close();
         }
     }
 

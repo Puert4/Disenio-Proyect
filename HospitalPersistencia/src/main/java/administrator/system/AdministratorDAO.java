@@ -2,6 +2,8 @@ package administrator.system;
 
 import JPAEntities.AdministratorEntity;
 import JPAEntities.PatientEntity;
+import connection.ConnectionDB;
+import connection.IConnectionDB;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -18,19 +20,25 @@ import patient.system.PatientDAO;
 public class AdministratorDAO implements IAdministratorDAO {
 
     private static final Logger LOGGER = Logger.getLogger(PatientDAO.class.getName());
-
+    private EntityManagerFactory emf;
+    private EntityManager em;
+    
+    public AdministratorDAO(){
+        
+        IConnectionDB connection = new ConnectionDB();
+        emf = connection.createConnection();
+        em = emf.createEntityManager();
+    }
+    
     @Override
     public void registerAdministrator(newAdministratorDTO administratorDTO) {
 
         AdministratorEntity administrator = DtoToEntity(administratorDTO);
-
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(administrator);
         em.getTransaction().commit();
-        em.close();
-        emf.close();
+//        em.close();
+//        emf.close();
     }
 
     @Override
@@ -52,8 +60,6 @@ public class AdministratorDAO implements IAdministratorDAO {
 
     @Override
     public AdministratorEntity searchAdministratorByName(String names) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("connectionPU");
-        EntityManager em = emf.createEntityManager();
 
         try {
             TypedQuery<AdministratorEntity> query = em.createQuery("SELECT a FROM AdministratorEntity a WHERE a.names = :names", AdministratorEntity.class);
@@ -63,8 +69,8 @@ public class AdministratorDAO implements IAdministratorDAO {
             LOGGER.log(Level.INFO, "No se encontró ningún paciente con el CURP especificado.");
             return null;
         } finally {
-            em.close();
-            emf.close();
+//            em.close();
+//            emf.close();
         }
     }
 

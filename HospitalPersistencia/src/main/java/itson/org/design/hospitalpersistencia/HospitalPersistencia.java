@@ -1,6 +1,5 @@
 package itson.org.design.hospitalpersistencia;
 
-import static JPAEntities.AppointmentEntity_.doctor;
 import JPAEntities.DoctorEntity;
 import JPAEntities.PatientEntity;
 import JPAEntities.Specialization;
@@ -9,7 +8,6 @@ import administrator.system.newAdministratorDTO;
 import appointment.system.AppointmentStatus;
 import appointment.system.IAppointmentManager;
 import appointment.system.NewAppointmentDTO;
-import control.Factory;
 import doctor.system.DoctorDAO;
 import doctor.system.ExistentDoctorDTO;
 import doctor.system.IDoctorDAO;
@@ -141,16 +139,16 @@ public class HospitalPersistencia {
 
         appointmentManager.createAppointment(appointment);
          */
-        newAdministratorDTO administrator = new newAdministratorDTO();
-        administrator.setName("Jullian");
-
-        IAdministratorDAO admin = Factory.getAdministratorDAO();
-        admin.registerAdministrator(administrator);
-
-        IUserDAO user = Factory.getUserDAO();
-
-        NewUserDTO newUserDTO = new NewUserDTO("Jullian", "Jullian", administrator);
-        user.registerAdminUser(administrator, newUserDTO);
+//        newAdministratorDTO administrator = new newAdministratorDTO();
+//        administrator.setName("Jullian");
+//
+//        IAdministratorDAO admin = Factory.getAdministratorDAO();
+//        admin.registerAdministrator(administrator);
+//
+//        IUserDAO user = Factory.getUserDAO();
+//
+//        NewUserDTO newUserDTO = new NewUserDTO("Jullian", "Jullian", administrator);
+//        user.registerAdminUser(administrator, newUserDTO);
 
     }
 }

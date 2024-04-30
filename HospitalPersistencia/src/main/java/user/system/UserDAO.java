@@ -11,9 +11,9 @@ import administrator.system.IAdministratorDAO;
 import administrator.system.newAdministratorDTO;
 import connection.ConnectionDB;
 import connection.IConnectionDB;
-import control.Factory;
 import doctor.system.IDoctorDAO;
 import doctor.system.NewDoctorDTO;
+import factory.Factory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -48,8 +48,8 @@ public class UserDAO implements IUserDAO {
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
-        em.close();
-        emf.close();
+//        em.close();
+//        emf.close();
     }
 
     //aqui hice cambios de UserEntity a UserPatient
@@ -84,8 +84,9 @@ public class UserDAO implements IUserDAO {
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
-        em.close();
-        emf.close();
+//        em.close();
+//        emf.close();
+        
         
     }
     
@@ -106,8 +107,8 @@ public class UserDAO implements IUserDAO {
             e.printStackTrace();
             
         } finally {
-            em.close();
-            emf.close();
+//            em.close();
+//            emf.close();
         }
         
         return null;
@@ -138,8 +139,8 @@ public class UserDAO implements IUserDAO {
             LOGGER.log(Level.SEVERE, "Error al validar", e);
             return null;
         } finally {
-            em.close();
-            emf.close();
+//            em.close();
+//            emf.close();
         }
     }
     
@@ -169,9 +170,9 @@ public class UserDAO implements IUserDAO {
             
             e.printStackTrace();
         } finally {
-            
-            em.close();
-            emf.close();
+//            
+//            em.close();
+//            emf.close();
         }
         
         return null;
@@ -191,8 +192,8 @@ public class UserDAO implements IUserDAO {
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
-        em.close();
-        emf.close();
+//        em.close();
+//        emf.close();
         
     }
     
