@@ -54,13 +54,13 @@ public class JFrameCreateUser extends javax.swing.JFrame {
         FondoPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         Iniciar_Sesion.setFont(new java.awt.Font("Roboto", 3, 24)); // NOI18N
-        Iniciar_Sesion.setText("Registro-Usuario");
+        Iniciar_Sesion.setText("Register User");
 
         FondoAzul.setBackground(new java.awt.Color(0, 153, 255));
         FondoAzul.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         Hospital_General.setFont(new java.awt.Font("Roboto", 3, 18)); // NOI18N
-        Hospital_General.setText("Hospital General");
+        Hospital_General.setText("General Hospital");
 
         javax.swing.GroupLayout FondoAzulLayout = new javax.swing.GroupLayout(FondoAzul);
         FondoAzul.setLayout(FondoAzulLayout);
@@ -89,10 +89,10 @@ public class JFrameCreateUser extends javax.swing.JFrame {
         });
 
         Usuario4.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario4.setText("Contraseña");
+        Usuario4.setText("Password");
 
         Usuario.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario.setText("Nombre de usuario");
+        Usuario.setText("Username");
 
         javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
         FondoPanel.setLayout(FondoPanelLayout);

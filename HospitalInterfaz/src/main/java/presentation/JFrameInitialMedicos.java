@@ -58,7 +58,7 @@ public class JFrameInitialMedicos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbUsuarios);
 
-        jButton2.setText("AgendarCita");
+        jButton2.setText("Create Appointment");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -67,13 +67,13 @@ public class JFrameInitialMedicos extends javax.swing.JFrame {
 
         jLabel1.setText("Hospital");
 
-        jLabel2.setText("Razon de Consulta");
+        jLabel2.setText("Reason ");
 
-        jLabel3.setText("Fecha");
+        jLabel3.setText("Date");
 
-        jLabel4.setText("Medicos");
+        jLabel4.setText("Doctors");
 
-        jButton3.setText("Cancelar Cita");
+        jButton3.setText("Cancel Appointment");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -104,7 +104,7 @@ public class JFrameInitialMedicos extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(69, 69, 69)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 441, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 501, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)

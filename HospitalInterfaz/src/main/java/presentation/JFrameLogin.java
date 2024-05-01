@@ -80,18 +80,18 @@ public class JFrameLogin extends javax.swing.JFrame {
         FondoInicio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         Iniciar_Sesion.setFont(new java.awt.Font("Roboto", 2, 24)); // NOI18N
-        Iniciar_Sesion.setText("Iniciar sesion");
+        Iniciar_Sesion.setText("LogIn");
 
         Usuario.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        Usuario.setText("Usuario");
+        Usuario.setText("Username");
 
         Contraseña.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        Contraseña.setText("Contraseña");
+        Contraseña.setText("Password");
 
         btnAceptar.setBackground(new java.awt.Color(0, 0, 0));
         btnAceptar.setFont(new java.awt.Font("Roboto", 2, 12)); // NOI18N
         btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAceptar.setText("Aceptar");
+        btnAceptar.setText("Accept");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
@@ -99,7 +99,7 @@ public class JFrameLogin extends javax.swing.JFrame {
         });
 
         No_Tienes_Cuenta.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        No_Tienes_Cuenta.setText(" No tienes Cuenta? ");
+        No_Tienes_Cuenta.setText("New?");
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,7 @@ public class JFrameLogin extends javax.swing.JFrame {
         });
 
         jlbCreateAccount.setForeground(new java.awt.Color(51, 204, 255));
-        jlbCreateAccount.setText("Crear Cuenta");
+        jlbCreateAccount.setText("Register");
         jlbCreateAccount.setBorder(null);
         jlbCreateAccount.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -129,24 +129,21 @@ public class JFrameLogin extends javax.swing.JFrame {
         FondoInicioLayout.setHorizontalGroup(
             FondoInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoInicioLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
                 .addGroup(FondoInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoInicioLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(FondoInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Contraseña)
-                            .addGroup(FondoInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtUser)
-                                .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
-                            .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(FondoInicioLayout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(btnAceptar))
-                    .addGroup(FondoInicioLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(No_Tienes_Cuenta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jlbCreateAccount)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jlbCreateAccount))
+                    .addGroup(FondoInicioLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(btnAceptar))
+                    .addComponent(Contraseña)
+                    .addGroup(FondoInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtUser)
+                        .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
+                    .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         FondoInicioLayout.setVerticalGroup(

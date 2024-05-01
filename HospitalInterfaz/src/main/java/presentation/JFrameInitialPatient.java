@@ -46,15 +46,13 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_cancelAppointment = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         btnMiNombre = new javax.swing.JButton();
         txtCloseSesion = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton2.setText("AgendarCita");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -63,10 +61,12 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Cancelar Cita");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btn_cancelAppointment.setText("Cancel Appointment");
+        btn_cancelAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_cancelAppointmentActionPerformed(evt);
             }
         });
 
@@ -89,7 +89,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Bienvenido!!");
+        jLabel2.setText("Welcome");
 
         btnMiNombre.setText("Nombre");
         btnMiNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -115,9 +115,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 843, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_cancelAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(txtCloseSesion)
@@ -147,9 +145,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addComponent(btnMiNombre)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                .addComponent(btn_cancelAppointment)
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -166,12 +162,12 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_cancelAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelAppointmentActionPerformed
         // TODO add your handling code here:
 
         JOptionPane.showMessageDialog(this, "No se a seleccionado ninguna cita", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_cancelAppointmentActionPerformed
 
     private void btnMiNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiNombreActionPerformed
         // TODO add your handling code here:
@@ -225,8 +221,8 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMiNombre;
+    private javax.swing.JButton btn_cancelAppointment;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

@@ -61,9 +61,9 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         cbxOther = new javax.swing.JCheckBox();
         txtZipCode = new javax.swing.JTextField();
         Usuario9 = new javax.swing.JLabel();
-        Usuario10 = new javax.swing.JLabel();
         txtSecondName = new javax.swing.JTextField();
         Usuario12 = new javax.swing.JLabel();
+        Usuario13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,7 +71,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         FondoPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         Iniciar_Sesion.setFont(new java.awt.Font("Roboto", 3, 24)); // NOI18N
-        Iniciar_Sesion.setText("Registro-Paciente");
+        Iniciar_Sesion.setText("Register Patient");
 
         FondoAzul.setBackground(new java.awt.Color(0, 153, 255));
         FondoAzul.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -102,16 +102,16 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         });
 
         Usuario.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario.setText("Nombres");
+        Usuario.setText("Names");
 
         Usuario3.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
         Usuario3.setText("CURP");
 
         Usuario4.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario4.setText("Apellido Paterno");
+        Usuario4.setText("First Last Name");
 
         Usuario5.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario5.setText("Colonia");
+        Usuario5.setText("Colony");
 
         txtStreet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,18 +120,18 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         });
 
         Usuario7.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario7.setText("Calle");
+        Usuario7.setText("Street");
 
         Usuario6.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario6.setText("Telefono");
+        Usuario6.setText("Phone Number");
 
         Usuario8.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario8.setText("No. Seguro Social");
+        Usuario8.setText("Insurance Number");
 
         btnAceptar.setBackground(new java.awt.Color(0, 0, 0));
         btnAceptar.setFont(new java.awt.Font("Roboto", 2, 12)); // NOI18N
         btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAceptar.setText("Aceptar");
+        btnAceptar.setText("Accept");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
@@ -142,10 +142,10 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         FondoGenero.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         Usuario1.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario1.setText("Genero");
+        Usuario1.setText("Sex");
 
         cbxMale.setFont(new java.awt.Font("Roboto", 2, 12)); // NOI18N
-        cbxMale.setText("Masculino");
+        cbxMale.setText("Male");
         cbxMale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxMaleActionPerformed(evt);
@@ -153,7 +153,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         });
 
         cbxFamele.setFont(new java.awt.Font("Roboto", 2, 12)); // NOI18N
-        cbxFamele.setText("Femenino");
+        cbxFamele.setText("Female");
         cbxFamele.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxFameleActionPerformed(evt);
@@ -161,10 +161,10 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         });
 
         Usuario11.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario11.setText("Otro...");
+        Usuario11.setText("Other");
 
         cbxOther.setFont(new java.awt.Font("Roboto", 2, 12)); // NOI18N
-        cbxOther.setText("Otro...");
+        cbxOther.setText("Other");
         cbxOther.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxOtherActionPerformed(evt);
@@ -211,13 +211,13 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         );
 
         Usuario9.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario9.setText("Codigo postal");
-
-        Usuario10.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario10.setText("Apellido Materno");
+        Usuario9.setText("Zipcode");
 
         Usuario12.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
-        Usuario12.setText("Fecha Nacimiento");
+        Usuario12.setText("Birth Date");
+
+        Usuario13.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario13.setText("Second Last Name");
 
         javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
         FondoPanel.setLayout(FondoPanelLayout);
@@ -225,19 +225,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
             FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoPanelLayout.createSequentialGroup()
                 .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(FondoPanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(FondoPanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(Usuario)
-                        .addGap(221, 221, 221)
-                        .addComponent(Usuario4)
-                        .addGap(78, 78, 78)
-                        .addComponent(Usuario10)
-                        .addGap(59, 59, 59)
-                        .addComponent(Usuario12))
                     .addGroup(FondoPanelLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(FondoGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,22 +234,8 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                             .addComponent(txtSecurityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(FondoPanelLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(Usuario9)
-                        .addGap(130, 130, 130)
-                        .addComponent(Usuario5)
-                        .addGap(189, 189, 189)
-                        .addComponent(Usuario7))
-                    .addGroup(FondoPanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(txtColony, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(FondoPanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(Usuario6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(290, 290, 290)
+                        .addComponent(Usuario6)
+                        .addGap(258, 258, 258)
                         .addComponent(Usuario3))
                     .addGroup(FondoPanelLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
@@ -271,17 +244,44 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                         .addComponent(txtCurp, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(FondoPanelLayout.createSequentialGroup()
                         .addGap(197, 197, 197)
-                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(81, Short.MAX_VALUE))
-            .addGroup(FondoPanelLayout.createSequentialGroup()
+                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(FondoPanelLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Usuario9))
+                        .addGap(40, 40, 40)
+                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Usuario5)
+                            .addComponent(txtColony, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Usuario7)
+                            .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(135, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoPanelLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(txtSecondName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FondoPanelLayout.createSequentialGroup()
+                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(FondoPanelLayout.createSequentialGroup()
+                                .addComponent(Usuario)
+                                .addGap(233, 233, 233)
+                                .addComponent(Usuario4)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoPanelLayout.createSequentialGroup()
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Usuario13)
+                            .addComponent(txtSecondName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Usuario12)
+                    .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54))
         );
         FondoPanelLayout.setVerticalGroup(
@@ -290,37 +290,41 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                 .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoPanelLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(Iniciar_Sesion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Usuario10)
-                            .addComponent(Usuario12))
-                        .addGap(407, 407, 407))
-                    .addGroup(FondoPanelLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
                         .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Usuario)
-                            .addComponent(Usuario4))
-                        .addGap(1, 1, 1)
-                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtSecondName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FondoGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(FondoPanelLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(Usuario8)
-                                .addGap(1, 1, 1)
-                                .addComponent(txtSecurityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(FondoPanelLayout.createSequentialGroup()
+                                        .addGap(70, 70, 70)
+                                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(Usuario)
+                                            .addComponent(Usuario4))
+                                        .addGap(1, 1, 1))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoPanelLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(Usuario12)
+                                            .addComponent(Usuario13))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtSecondName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(FondoGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(FondoPanelLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(Usuario8)
+                                        .addGap(1, 1, 1)
+                                        .addComponent(txtSecurityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(FondoPanelLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(Iniciar_Sesion)))
                         .addGap(20, 20, 20)
                         .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Usuario9)
-                            .addComponent(Usuario5)
                             .addComponent(Usuario7))
                         .addGap(1, 1, 1)
                         .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,8 +340,11 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                             .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCurp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(72, 72, 72)
-                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FondoPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(Usuario5)))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -350,7 +357,10 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(FondoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -495,9 +505,9 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
     private javax.swing.JLabel Iniciar_Sesion;
     private javax.swing.JLabel Usuario;
     private javax.swing.JLabel Usuario1;
-    private javax.swing.JLabel Usuario10;
     private javax.swing.JLabel Usuario11;
     private javax.swing.JLabel Usuario12;
+    private javax.swing.JLabel Usuario13;
     private javax.swing.JLabel Usuario3;
     private javax.swing.JLabel Usuario4;
     private javax.swing.JLabel Usuario5;

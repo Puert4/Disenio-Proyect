@@ -31,7 +31,11 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="FondoPanel" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="FondoPanel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -53,21 +57,6 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="FondoAzul" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                          <Component id="Iniciar_Sesion" min="-2" pref="240" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                          <Component id="Usuario" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="221" pref="221" max="-2" attributes="0"/>
-                          <Component id="Usuario4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                          <Component id="Usuario10" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                          <Component id="Usuario12" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
                           <Component id="FondoGenero" min="-2" max="-2" attributes="0"/>
@@ -78,25 +67,9 @@
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                          <Component id="Usuario9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="130" pref="130" max="-2" attributes="0"/>
-                          <Component id="Usuario5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="189" pref="189" max="-2" attributes="0"/>
-                          <Component id="Usuario7" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                          <Component id="txtZipCode" min="-2" pref="180" max="-2" attributes="0"/>
-                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                          <Component id="txtColony" min="-2" pref="180" max="-2" attributes="0"/>
-                          <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                          <Component id="txtStreet" min="-2" pref="130" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                          <Component id="Usuario6" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace min="290" pref="290" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="Usuario6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
                           <Component id="Usuario3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -109,18 +82,56 @@
                           <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
                           <Component id="btnAceptar" min="-2" pref="310" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="FondoAzul" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtZipCode" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="Usuario9" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Usuario5" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtColony" min="-2" pref="180" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Usuario7" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtStreet" min="-2" pref="130" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="81" max="32767" attributes="0"/>
+                  <EmptySpace pref="135" max="32767" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                  <Component id="txtName" min="-2" pref="220" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="txtFirstName" min="-2" pref="159" max="-2" attributes="0"/>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
-                  <Component id="txtSecondName" min="-2" pref="159" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txtBirthDate" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Iniciar_Sesion" alignment="0" min="-2" pref="240" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="Usuario" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
+                                  <Component id="Usuario4" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="txtName" min="-2" pref="220" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="txtFirstName" min="-2" pref="159" max="-2" attributes="0"/>
+                          <EmptySpace pref="53" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Usuario13" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtSecondName" min="-2" pref="159" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="Usuario12" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtBirthDate" min="-2" pref="150" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -130,45 +141,54 @@
               <Group type="102" attributes="0">
                   <Component id="FondoAzul" min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                          <Component id="Iniciar_Sesion" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Usuario10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="Usuario12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="407" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Usuario" min="-2" max="-2" attributes="0"/>
-                              <Component id="Usuario4" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtName" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtBirthDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtSecondName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="Usuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Usuario4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="Usuario12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Usuario13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtName" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="txtFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtBirthDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtSecondName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="FondoGenero" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                          <Component id="Usuario8" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                                          <Component id="txtSecurityNumber" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                          </Group>
-                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="FondoGenero" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="Usuario8" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                  <Component id="txtSecurityNumber" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                  <Component id="Iniciar_Sesion" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="Usuario9" min="-2" max="-2" attributes="0"/>
-                              <Component id="Usuario5" min="-2" max="-2" attributes="0"/>
                               <Component id="Usuario7" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
@@ -189,9 +209,13 @@
                           </Group>
                           <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                           <Component id="btnAceptar" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="Usuario5" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace pref="80" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -202,7 +226,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="24" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Registro-Paciente"/>
+            <Property name="text" type="java.lang.String" value="Register Patient"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="FondoAzul">
@@ -257,7 +281,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="14" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nombres"/>
+            <Property name="text" type="java.lang.String" value="Names"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFirstName">
@@ -279,7 +303,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="14" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Apellido Paterno"/>
+            <Property name="text" type="java.lang.String" value="First Last Name"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtColony">
@@ -289,7 +313,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="14" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Colonia"/>
+            <Property name="text" type="java.lang.String" value="Colony"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtStreet">
@@ -302,7 +326,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="14" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Calle"/>
+            <Property name="text" type="java.lang.String" value="Street"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPhone">
@@ -312,7 +336,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="14" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Telefono"/>
+            <Property name="text" type="java.lang.String" value="Phone Number"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSecurityNumber">
@@ -322,7 +346,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="14" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="No. Seguro Social"/>
+            <Property name="text" type="java.lang.String" value="Insurance Number"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAceptar">
@@ -336,7 +360,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Aceptar"/>
+            <Property name="text" type="java.lang.String" value="Accept"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAceptarActionPerformed"/>
@@ -409,7 +433,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Genero"/>
+                <Property name="text" type="java.lang.String" value="Sex"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="cbxMale">
@@ -417,7 +441,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto" size="12" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Masculino"/>
+                <Property name="text" type="java.lang.String" value="Male"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxMaleActionPerformed"/>
@@ -428,7 +452,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto" size="12" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Femenino"/>
+                <Property name="text" type="java.lang.String" value="Female"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxFameleActionPerformed"/>
@@ -439,7 +463,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Otro..."/>
+                <Property name="text" type="java.lang.String" value="Other"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtOther">
@@ -449,7 +473,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto" size="12" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Otro..."/>
+                <Property name="text" type="java.lang.String" value="Other"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxOtherActionPerformed"/>
@@ -464,15 +488,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="14" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Codigo postal"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="Usuario10">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="3"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Apellido Materno"/>
+            <Property name="text" type="java.lang.String" value="Zipcode"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSecondName">
@@ -482,7 +498,15 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="14" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Fecha Nacimiento"/>
+            <Property name="text" type="java.lang.String" value="Birth Date"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="Usuario13">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Roboto" size="14" style="3"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Second Last Name"/>
           </Properties>
         </Component>
       </SubComponents>

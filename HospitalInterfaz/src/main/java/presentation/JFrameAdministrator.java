@@ -33,14 +33,14 @@ public class JFrameAdministrator extends javax.swing.JFrame {
         jLabel1.setText("Admin");
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setText("Registrar Personal Medico");
+        jButton1.setText("Register Doctors");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jToggleButton1.setText("Registrar Paciente");
+        jToggleButton1.setText("Register Pacient");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);

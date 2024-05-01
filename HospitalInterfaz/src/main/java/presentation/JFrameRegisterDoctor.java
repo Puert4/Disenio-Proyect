@@ -51,7 +51,7 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel3.setText("Registro");
+        jLabel3.setText("Register");
 
         txtNames.setBorder(null);
         txtNames.setDisabledTextColor(new java.awt.Color(204, 204, 204));
@@ -62,13 +62,13 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel11.setText("Nombres");
+        jLabel11.setText("Names");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel5.setText("Apellido Paterno");
+        jLabel5.setText("First Last Name");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel12.setText("Apellido Materno");
+        jLabel12.setText("Second Last Name");
 
         txtSeconName.setBorder(null);
         txtSeconName.setDisabledTextColor(new java.awt.Color(204, 204, 204));
@@ -79,16 +79,16 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel9.setText("Cédula profesional");
+        jLabel9.setText("Medicalcart");
 
-        btnCancel.setText("Cancelar");
+        btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
             }
         });
 
-        btnConfirm1.setText("Aceptar");
+        btnConfirm1.setText("Accept");
         btnConfirm1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirm1ActionPerformed(evt);
@@ -112,10 +112,10 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel10.setText("Contrasena");
+        jLabel10.setText("Password");
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel13.setText("Usuario");
+        jLabel13.setText("User");
 
         txtPassword.setBorder(null);
         txtPassword.setDisabledTextColor(new java.awt.Color(204, 204, 204));
