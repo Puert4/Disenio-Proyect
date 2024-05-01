@@ -149,6 +149,52 @@ public class HospitalPersistencia {
 //
 //        NewUserDTO newUserDTO = new NewUserDTO("Jullian", "Jullian", administrator);
 //        user.registerAdminUser(administrator, newUserDTO);
+        //Agregar Doctor
+        NewDoctorDTO doctorDTO = new NewDoctorDTO(
+                "Carlos",
+                "Perez",
+                "Lopez",
+                "Cardiologia",
+                "AAA"
+        );
+
+        NewDoctorDTO doctorDTO2 = new NewDoctorDTO(
+                "Ana",
+                "López",
+                "Sánchez",
+                "Dermatologia",
+                "BBB"
+        );
+
+        NewDoctorDTO doctorDTO3 = new NewDoctorDTO(
+                "Ana",
+                "López",
+                "Sánchez",
+                "Dermatología",
+                "CCC"
+        );
+
+        NewDoctorDTO doctorDTO4 = new NewDoctorDTO(
+                "Juan",
+                "Martín",
+                "Pérez",
+                "Oftalmología",
+                "DDD"
+        );
+        NewDoctorDTO doctorDTO5 = new NewDoctorDTO(
+                "Carla",
+                "Ruiz",
+                "Gómez",
+                "Psiquiatría",
+                "EEE"
+        );
+
+        IDoctorDAO doctorDAO = DoctorDAO.getInstance();
+        doctorDAO.registerDoctor(doctorDTO);
+        doctorDAO.registerDoctor(doctorDTO2);
+        doctorDAO.registerDoctor(doctorDTO3);
+        doctorDAO.registerDoctor(doctorDTO4);
+        doctorDAO.registerDoctor(doctorDTO5);
 
     }
 }

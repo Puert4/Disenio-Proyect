@@ -235,20 +235,7 @@ public class JFrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jlbCreateAccountActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        // TODO add your handling code here:
 
-//        String user = txtUser.getText();
-//        String password = txtPassword.getText();
-//
-//        IUserDAO userSystem = Factory.getUserDAO();
-//
-//        ILogIn loginSystem = Factory.getLogIn();
-//        Long idPatient = loginSystem.validateUser(user, password);
-//        if (idPatient != null) {
-//            JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(idPatient);
-//            frameInitialPatient.setVisible(true);
-//            this.dispose();
-//        }
         String user = txtUser.getText();
         String password = txtPassword.getText();
 

@@ -150,9 +150,8 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -161,9 +160,8 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-
-//      JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
-//        register.setVisible(true);
+      JFrameRegisterAppointment register = new JFrameRegisterAppointment( idPatient);
+      register.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed
