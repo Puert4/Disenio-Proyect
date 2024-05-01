@@ -81,7 +81,7 @@ public class JFrameCreateUser extends javax.swing.JFrame {
         btnAceptar.setBackground(new java.awt.Color(0, 0, 0));
         btnAceptar.setFont(new java.awt.Font("Roboto", 2, 12)); // NOI18N
         btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAceptar.setText("Aceptar");
+        btnAceptar.setText("Register");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
