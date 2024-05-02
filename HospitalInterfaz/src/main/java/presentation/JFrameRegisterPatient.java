@@ -1,12 +1,16 @@
 package presentation;
 
+import factory.Factory;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import patient.system.IPatientDAO;
 import patient.system.NewPatientDTO;
+import user.system.IUserDAO;
+import user.system.NewUserDTO;
 
 /**
  *
@@ -14,12 +18,15 @@ import patient.system.NewPatientDTO;
  */
 public class JFrameRegisterPatient extends javax.swing.JFrame {
 
+    private NewUserDTO userDTO;
+
     /**
      * Creates new form RegistroPaciente
      */
-    public JFrameRegisterPatient() {
+    public JFrameRegisterPatient(NewUserDTO userDTO) {
         initComponents();
         txtOther.setEditable(false);
+        this.userDTO = userDTO;
         this.setTitle("Registro Paciente");
     }
 
@@ -395,33 +402,40 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                 || zipCodeS.isEmpty() || curp.isEmpty() || phone.isEmpty() || socialNumber.isEmpty()
                 || street.isEmpty() || sex.isEmpty() || birthDateTexto.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Favor de llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            int zipCode = Integer.parseInt(zipCodeS);
-            //Convertimos la fecha String a Calendar
-
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            Calendar calendar = Calendar.getInstance();
-            try {
-                calendar.setTime(sdf.parse(birthDateTexto));
-            } catch (ParseException ex) {
-                Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
-            }
-            Calendar birthDate = calendar;
-
-            try {
-
-                NewPatientDTO patient = new NewPatientDTO(
-                        names, firstName, secondName, birthDate, sex, curp, socialNumber, phone, street, colony, zipCode
-                );
-
-                JFrameCreateUser user = new JFrameCreateUser(patient);
-                user.setVisible(true);
-                this.dispose();
-
-            } catch (Exception ex) {
-                Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
-            }
         }
+        int zipCode = Integer.parseInt(zipCodeS);
+        //Convertimos la fecha String a Calendar
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar calendar = Calendar.getInstance();
+        try {
+            calendar.setTime(sdf.parse(birthDateTexto));
+        } catch (ParseException ex) {
+            Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
+        }
+        Calendar birthDate = calendar;
+
+        NewPatientDTO newPatientDTO = new NewPatientDTO(
+                names, firstName, secondName, birthDate, sex, curp, socialNumber, phone, street, colony, zipCode
+        );
+
+        try {
+            //Creamos paciente nuevo
+
+            IPatientDAO patientSystem = Factory.getPatientDAO();
+            patientSystem.registerPatient(newPatientDTO);
+
+            IUserDAO userSystem = Factory.getUserDAO();
+            userDTO.setPatientDTO(newPatientDTO);
+            userSystem.registerUser(userDTO);
+
+        } catch (Exception ex) {
+            Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
+        }
+
+        JFrameLogin frameLogin = new JFrameLogin();
+        frameLogin.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_btnAceptarActionPerformed
 

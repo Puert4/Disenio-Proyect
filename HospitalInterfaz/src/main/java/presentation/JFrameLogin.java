@@ -226,8 +226,8 @@ public class JFrameLogin extends javax.swing.JFrame {
     private void jlbCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlbCreateAccountActionPerformed
         // TODO add your handling code here:
 
-        JFrameRegisterPatient register = new JFrameRegisterPatient();
-        register.setVisible(true);
+        JFrameCreateUser user = new JFrameCreateUser();
+        user.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jlbCreateAccountActionPerformed
 

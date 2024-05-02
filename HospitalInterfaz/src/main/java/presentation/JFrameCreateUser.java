@@ -19,14 +19,12 @@ import user.system.NewUserDTO;
  */
 public class JFrameCreateUser extends javax.swing.JFrame {
 
-    public NewPatientDTO newPatient;
-
     /**
      * Creates new form JFrameCreateUser
      */
-    public JFrameCreateUser(NewPatientDTO newPatient) {
+    public JFrameCreateUser() {
         initComponents();
-        this.newPatient = newPatient;
+
     }
 
     /**
@@ -47,6 +45,7 @@ public class JFrameCreateUser extends javax.swing.JFrame {
         txtUserName = new javax.swing.JTextField();
         Usuario = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
+        btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +93,13 @@ public class JFrameCreateUser extends javax.swing.JFrame {
         Usuario.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
         Usuario.setText("Username");
 
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
         FondoPanel.setLayout(FondoPanelLayout);
         FondoPanelLayout.setHorizontalGroup(
@@ -115,7 +121,9 @@ public class JFrameCreateUser extends javax.swing.JFrame {
                 .addGap(250, 250, 250)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(FondoPanelLayout.createSequentialGroup()
-                .addGap(230, 230, 230)
+                .addGap(70, 70, 70)
+                .addComponent(btnCancel)
+                .addGap(85, 85, 85)
                 .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         FondoPanelLayout.setVerticalGroup(
@@ -133,7 +141,9 @@ public class JFrameCreateUser extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78)
-                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,27 +166,23 @@ public class JFrameCreateUser extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
+        NewUserDTO userDTO = new NewUserDTO();
+        userDTO.setUser(txtUserName.getText());
+        userDTO.setPassword(txtPassword.getText());
 
-        try {
-            //Creamos paciente nuevo
-
-            IPatientDAO patientSystem = Factory.getPatientDAO();
-            patientSystem.registerPatient(newPatient);
-
-            IUserDAO userSystem = Factory.getUserDAO();
-            NewUserDTO user = new NewUserDTO(txtUserName.getText(), txtPassword.getText(), newPatient);
-
-            userSystem.registerUser(user);
-        } catch (Exception ex) {
-            Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
-        }
-
-        JFrameLogin login = new JFrameLogin();
-        login.setVisible(true);
+        JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO);
+        frameRegisterPatient.setVisible(true);
         this.dispose();
 
 
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        JFrameLogin login = new JFrameLogin();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -222,6 +228,7 @@ public class JFrameCreateUser extends javax.swing.JFrame {
     private javax.swing.JLabel Usuario;
     private javax.swing.JLabel Usuario4;
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
