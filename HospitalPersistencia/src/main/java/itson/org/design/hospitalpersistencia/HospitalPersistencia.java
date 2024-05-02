@@ -201,8 +201,6 @@ public class HospitalPersistencia {
         doctorDAO.registerDoctor(doctorDTO5);
 
          */
-        
-        //Prueba de busqueda de medicos mediante especialization
         IDoctorDAO doctorDAO = Factory.getDoctorDAO();
         List<ExistentDoctorDTO> doctores;
         doctores = doctorDAO.searchBySpecialization(Specialization.FAMILY); // Pasar la enumeración Specialization en lugar de una cadena de texto

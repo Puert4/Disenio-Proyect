@@ -142,8 +142,8 @@ public class JFrameLogin extends javax.swing.JFrame {
                     .addGroup(FondoInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtUser)
                         .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         FondoInicioLayout.setVerticalGroup(
@@ -226,10 +226,8 @@ public class JFrameLogin extends javax.swing.JFrame {
     private void jlbCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlbCreateAccountActionPerformed
         // TODO add your handling code here:
 
-
-
-        JFrameCreateUser frameCreateUser = new JFrameCreateUser();
-        frameCreateUser.setVisible(true);
+        JFrameRegisterPatient register = new JFrameRegisterPatient();
+        register.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jlbCreateAccountActionPerformed
 

@@ -98,9 +98,9 @@ public class JFrameAdministrator extends javax.swing.JFrame {
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
 
-//        JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient();
-     //   frameRegisterPatient.setVisible(true);
-      //  this.dispose();
+        JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient();
+        frameRegisterPatient.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void medicoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicoPacienteActionPerformed
