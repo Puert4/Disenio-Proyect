@@ -2,6 +2,7 @@ package presentation;
 
 import java.util.Calendar;
 import java.util.Date;
+import patient.system.ExistentPatientDTO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,20 +11,19 @@ import java.util.Date;
  */
 /**
  *
- * @author daani
+ * @author TeLesheo
  */
 public class JFrameRegisterAppointment extends javax.swing.JFrame {
 
-//    private final IControl control;
-    private final Long idPatient;
+    private ExistentPatientDTO paciente;
 
 //    private JDateChooser dateChooser;
     /**
      * Creates new form ConfirmaciondeCita
      */
-    public JFrameRegisterAppointment(Long idPatient) {
+    public JFrameRegisterAppointment(ExistentPatientDTO paciente) {
 //        this.control = control;
-        this.idPatient = idPatient;
+        this.paciente = paciente;
         initComponents();
 
     }
@@ -156,12 +156,9 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
-//        JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(control, idPatient);
         JFrameConfirmAppointment confirm = new JFrameConfirmAppointment();
         confirm.setVisible(true);
         this.dispose();
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -170,7 +167,6 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         //    JFrameInitialPatient menu = new JFrameInitialPatient(control, idPatient);
         //    menu.setVisible(true);
         this.dispose();
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void cmbDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDoctorActionPerformed

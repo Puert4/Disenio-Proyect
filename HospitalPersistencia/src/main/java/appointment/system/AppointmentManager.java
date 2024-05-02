@@ -6,13 +6,10 @@ import JPAEntities.DoctorEntity;
 import JPAEntities.PatientEntity;
 import connection.ConnectionDB;
 import connection.IConnectionDB;
-import doctor.system.DoctorDAO;
 import doctor.system.IDoctorDAO;
 import factory.Factory;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import patient.system.IPatientDAO;
 
 /**
@@ -23,13 +20,13 @@ public abstract class AppointmentManager implements IAppointmentManager {
 
     private EntityManagerFactory emf;
     private EntityManager em;
-    
+
     private AppointmentManager() {
-        
+
         IConnectionDB connection = new ConnectionDB();
         emf = connection.createConnection();
         em = emf.createEntityManager();
-        
+
     }
 
     @Override

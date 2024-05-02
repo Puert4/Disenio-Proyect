@@ -17,23 +17,20 @@ import patient.system.IPatientDAO;
 public class JFrameInitialPatient extends javax.swing.JFrame {
 
     private final Long idPatient;
+    private ExistentPatientDTO paciente;
 
     /**
      * Creates new form InicioPaciente
      */
     public JFrameInitialPatient(Long idPatient) {
-
         this.idPatient = idPatient;
         initComponents();
+        IPatientDAO patientSystem = Factory.getPatientDAO();
+        paciente = patientSystem.EntityToDto(patientSystem.serachPatientById(idPatient));
     }
 
     private void cargarDatosPaciente() {
-//        ExistentPatientDTO paciente = control.getPatientByID(idPatient);
-
-        IPatientDAO patientSystem = Factory.getPatientDAO();
-        ExistentPatientDTO paciente = patientSystem.EntityToDto(patientSystem.serachPatientById(idPatient));
         txtNombre.setText(paciente.getName());
-
     }
 
     /**
@@ -53,6 +50,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         btnMiNombre = new javax.swing.JButton();
         txtCloseSesion = new javax.swing.JButton();
+        btnCreateAppointment = new javax.swing.JButton();
 
         jButton2.setText("AgendarCita");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +73,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Fecha", "Medico", "Razon de Consulta"
+                "Date", "Doctor", "Reason"
             }
         ) {
             Class[] types = new Class [] {
@@ -105,6 +103,13 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
             }
         });
 
+        btnCreateAppointment.setText("Create Appointment");
+        btnCreateAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateAppointmentActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,6 +120,8 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 843, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCreateAppointment)
+                        .addGap(65, 65, 65)
                         .addComponent(btn_cancelAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
@@ -145,7 +152,9 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addComponent(btnMiNombre)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(btn_cancelAppointment)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_cancelAppointment)
+                    .addComponent(btnCreateAppointment))
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -155,23 +164,16 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-      JFrameRegisterAppointment register = new JFrameRegisterAppointment( idPatient);
-      register.setVisible(true);
-        this.dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btn_cancelAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelAppointmentActionPerformed
         // TODO add your handling code here:
-
         JOptionPane.showMessageDialog(this, "No se a seleccionado ninguna cita", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
-
     }//GEN-LAST:event_btn_cancelAppointmentActionPerformed
 
     private void btnMiNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiNombreActionPerformed
         // TODO add your handling code here:
-
         cargarDatosPaciente();
     }//GEN-LAST:event_btnMiNombreActionPerformed
 
@@ -180,8 +182,14 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         JFrameLogin frameLogin = new JFrameLogin();
         frameLogin.setVisible(true);
         this.dispose();
-
     }//GEN-LAST:event_txtCloseSesionActionPerformed
+
+    private void btnCreateAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAppointmentActionPerformed
+        // TODO add your handling code here:
+        JFrameRegisterAppointment register = new JFrameRegisterAppointment(paciente);
+        register.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCreateAppointmentActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -220,6 +228,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreateAppointment;
     private javax.swing.JButton btnMiNombre;
     private javax.swing.JButton btn_cancelAppointment;
     private javax.swing.JButton jButton2;

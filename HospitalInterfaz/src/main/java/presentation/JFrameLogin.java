@@ -237,7 +237,6 @@ public class JFrameLogin extends javax.swing.JFrame {
         String password = txtPassword.getText();
 
         IUserDAO userSystem = Factory.getUserDAO();
-
         ILogIn loginSystem = Factory.getLogIn();
 
         String userType = userSystem.getUserTypeByUserAndPassword(user, password);
