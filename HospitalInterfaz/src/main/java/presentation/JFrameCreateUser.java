@@ -19,14 +19,12 @@ import user.system.NewUserDTO;
  */
 public class JFrameCreateUser extends javax.swing.JFrame {
 
-    public NewPatientDTO newPatient;
-
     /**
      * Creates new form JFrameCreateUser
      */
-    public JFrameCreateUser(NewPatientDTO newPatient) {
+    public JFrameCreateUser() {
         initComponents();
-        this.newPatient = newPatient;
+
     }
 
     /**
@@ -156,21 +154,11 @@ public class JFrameCreateUser extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
+        NewUserDTO userDTO = new NewUserDTO();
+        userDTO.setUser(txtUserName.getText());
+        userDTO.setPassword(txtPassword.getText());
 
-        try {
-            //Creamos paciente nuevo
-
-            IPatientDAO patientSystem = Factory.getPatientDAO();
-            patientSystem.registerPatient(newPatient);
-
-            IUserDAO userSystem = Factory.getUserDAO();
-            NewUserDTO user = new NewUserDTO(txtUserName.getText(), txtPassword.getText(), newPatient);
-
-            userSystem.registerUser(user);
-        } catch (Exception ex) {
-            Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
-        }
-
+        JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO);
         JFrameLogin login = new JFrameLogin();
         login.setVisible(true);
         this.dispose();

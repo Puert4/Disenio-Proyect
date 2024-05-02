@@ -1,12 +1,16 @@
 package presentation;
 
+import factory.Factory;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import patient.system.IPatientDAO;
 import patient.system.NewPatientDTO;
+import user.system.IUserDAO;
+import user.system.NewUserDTO;
 
 /**
  *
@@ -14,12 +18,15 @@ import patient.system.NewPatientDTO;
  */
 public class JFrameRegisterPatient extends javax.swing.JFrame {
 
+    private NewUserDTO userDTO;
+
     /**
      * Creates new form RegistroPaciente
      */
-    public JFrameRegisterPatient() {
+    public JFrameRegisterPatient(NewUserDTO userDTO) {
         initComponents();
         txtOther.setEditable(false);
+        this.userDTO = userDTO;
         this.setTitle("Registro Paciente");
     }
 
@@ -36,7 +43,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         Iniciar_Sesion = new javax.swing.JLabel();
         FondoAzul = new javax.swing.JPanel();
         Hospital_General = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
         Usuario = new javax.swing.JLabel();
         txtFirstName = new javax.swing.JTextField();
         txtBirthDate = new javax.swing.JTextField();
@@ -64,6 +70,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         txtSecondName = new javax.swing.JTextField();
         Usuario12 = new javax.swing.JLabel();
         Usuario13 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,12 +101,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Hospital_General, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
 
         Usuario.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
         Usuario.setText("Names");
@@ -162,6 +163,12 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
 
         Usuario11.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
         Usuario11.setText("Other");
+
+        txtOther.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtOtherActionPerformed(evt);
+            }
+        });
 
         cbxOther.setFont(new java.awt.Font("Roboto", 2, 12)); // NOI18N
         cbxOther.setText("Other");
@@ -271,9 +278,9 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                                 .addGap(233, 233, 233)
                                 .addComponent(Usuario4)))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoPanelLayout.createSequentialGroup()
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
+                    .addGroup(FondoPanelLayout.createSequentialGroup()
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103)
                         .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                         .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,37 +298,40 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                 .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoPanelLayout.createSequentialGroup()
                         .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FondoPanelLayout.createSequentialGroup()
-                                .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(FondoPanelLayout.createSequentialGroup()
-                                        .addGap(70, 70, 70)
-                                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(Usuario)
-                                            .addComponent(Usuario4))
-                                        .addGap(1, 1, 1))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoPanelLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(Usuario12)
-                                            .addComponent(Usuario13))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(FondoPanelLayout.createSequentialGroup()
+                                    .addGap(70, 70, 70)
                                     .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtSecondName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(FondoGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(FondoPanelLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(Usuario8)
-                                        .addGap(1, 1, 1)
-                                        .addComponent(txtSecurityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(Usuario)
+                                        .addComponent(Usuario4))
+                                    .addGap(1, 1, 1))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoPanelLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(Usuario12)
+                                        .addComponent(Usuario13))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                             .addGroup(FondoPanelLayout.createSequentialGroup()
                                 .addGap(30, 30, 30)
-                                .addComponent(Iniciar_Sesion)))
+                                .addComponent(Iniciar_Sesion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(FondoPanelLayout.createSequentialGroup()
+                                .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSecondName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoPanelLayout.createSequentialGroup()
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FondoGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(FondoPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(Usuario8)
+                                .addGap(1, 1, 1)
+                                .addComponent(txtSecurityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(20, 20, 20)
                         .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Usuario9)
@@ -369,7 +379,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
-
         String names = txtName.getText();
         String firstName = txtFirstName.getText();
         String secondName = txtSecondName.getText();
@@ -408,57 +417,50 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
             }
             Calendar birthDate = calendar;
 
+            NewPatientDTO patientDTO = new NewPatientDTO(
+                    names, firstName, secondName, birthDate, sex, curp, socialNumber, phone, street, colony, zipCode
+            );
+
             try {
+                IPatientDAO patientSystem = Factory.getPatientDAO();
+                patientSystem.registerPatient(patientDTO);
 
-                NewPatientDTO patient = new NewPatientDTO(
-                        names, firstName, secondName, birthDate, sex, curp, socialNumber, phone, street, colony, zipCode
-                );
-
-                JFrameCreateUser user = new JFrameCreateUser(patient);
-                user.setVisible(true);
-                this.dispose();
-
+                IUserDAO userSystem = Factory.getUserDAO();
+                userSystem.registerUser(userDTO);
             } catch (Exception ex) {
                 Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
             }
-        }
 
     }//GEN-LAST:event_btnAceptarActionPerformed
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
-
     private void cbxMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMaleActionPerformed
         // TODO add your handling code here:
-
         cbxFamele.setSelected(false);
         cbxOther.setSelected(false);
         txtOther.setEditable(false);
-
     }//GEN-LAST:event_cbxMaleActionPerformed
 
     private void cbxFameleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxFameleActionPerformed
         // TODO add your handling code here:
-
         cbxMale.setSelected(false);
         txtOther.setEditable(false);
         cbxOther.setSelected(false);
-
     }//GEN-LAST:event_cbxFameleActionPerformed
 
     private void cbxOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxOtherActionPerformed
         // TODO add your handling code here:
-
         cbxMale.setSelected(false);
         cbxFamele.setSelected(false);
         txtOther.setEditable(true);
-
     }//GEN-LAST:event_cbxOtherActionPerformed
 
     private void txtStreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStreetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStreetActionPerformed
+
+    private void txtOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtherActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtOtherActionPerformed
 
 //    /**
 //     * @param args the command line arguments
