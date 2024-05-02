@@ -1,5 +1,7 @@
 package doctor.system;
 
+import JPAEntities.Specialization;
+
 
 
 /**

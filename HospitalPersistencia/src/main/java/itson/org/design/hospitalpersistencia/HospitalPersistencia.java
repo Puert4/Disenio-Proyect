@@ -12,7 +12,9 @@ import doctor.system.DoctorDAO;
 import doctor.system.ExistentDoctorDTO;
 import doctor.system.IDoctorDAO;
 import doctor.system.NewDoctorDTO;
+import factory.Factory;
 import java.util.Calendar;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -149,7 +151,9 @@ public class HospitalPersistencia {
 //
 //        NewUserDTO newUserDTO = new NewUserDTO("Jullian", "Jullian", administrator);
 //        user.registerAdminUser(administrator, newUserDTO);
-        //Agregar Doctor
+
+        /*
+        //Agregar Doctores para pruebas
         NewDoctorDTO doctorDTO = new NewDoctorDTO(
                 "Carlos",
                 "Perez",
@@ -195,6 +199,21 @@ public class HospitalPersistencia {
         doctorDAO.registerDoctor(doctorDTO3);
         doctorDAO.registerDoctor(doctorDTO4);
         doctorDAO.registerDoctor(doctorDTO5);
+
+         */
+        IDoctorDAO doctorDAO = Factory.getDoctorDAO();
+        List<ExistentDoctorDTO> doctores;
+        doctores = doctorDAO.searchBySpecialization(Specialization.FAMILY); // Pasar la enumeración Specialization en lugar de una cadena de texto
+
+        for (ExistentDoctorDTO doctor : doctores) {
+            System.out.println("ID: " + doctor.getId());
+            System.out.println("Nombre: " + doctor.getName());
+            System.out.println("Primer Apellido: " + doctor.getFirstName());
+            System.out.println("Segundo Apellido: " + doctor.getSecondName());
+            System.out.println("Especialización: " + doctor.getSpecialization());
+            System.out.println("Carta Médica: " + doctor.getMedicalCart());
+            System.out.println("----------------------------------");
+        }
 
     }
 }

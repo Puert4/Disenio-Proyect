@@ -1,5 +1,7 @@
 package presentation;
 
+import patient.system.ExistentPatientDTO;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,6 +16,7 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 
 //    private final IControl control;
 //    private final Long idPatient;
+    private ExistentPatientDTO paciente;
 
     /**
      * Creates new form AgendarCita
@@ -145,11 +148,9 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
-//        JFrameRegisterAppointment register = new JFrameRegisterAppointment(control, idPatient);
-//        register.setVisible(true);
-//        this.dispose();
-
+        JFrameRegisterAppointment register = new JFrameRegisterAppointment(paciente);
+        register.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -1,8 +1,11 @@
 package doctor.system;
 
 import JPAEntities.DoctorEntity;
+import JPAEntities.Specialization;
 import connection.ConnectionDB;
 import connection.IConnectionDB;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -21,15 +24,15 @@ public class DoctorDAO implements IDoctorDAO {
     private static final Logger LOGGER = Logger.getLogger(PatientDAO.class.getName());
     private EntityManagerFactory emf;
     private EntityManager em;
-    
-    public DoctorDAO(){
-        
+
+    public DoctorDAO() {
+
         IConnectionDB connection = new ConnectionDB();
         emf = connection.createConnection();
         em = emf.createEntityManager();
-        
+
     }
-    
+
     @Override
     public void registerDoctor(NewDoctorDTO doctorDTO) {
         DoctorEntity doctor = DtoToEntity(doctorDTO);
@@ -87,4 +90,39 @@ public class DoctorDAO implements IDoctorDAO {
         return new DoctorDAO() {
         };
     }
+
+    @Override
+    public List<ExistentDoctorDTO> searchBySpecialization(Specialization specialization) {
+        List<ExistentDoctorDTO> doctorsDTO = new ArrayList<>();
+
+        try {
+            TypedQuery<DoctorEntity> query = em.createQuery("SELECT d FROM DoctorEntity d WHERE d.specialization = :specialization", DoctorEntity.class);
+            query.setParameter("specialization", specialization);
+            List<DoctorEntity> doctors = query.getResultList();
+
+            for (DoctorEntity doctor : doctors) {
+                ExistentDoctorDTO doctorDTO = EntityToDTO(doctor);
+                doctorsDTO.add(doctorDTO);
+            }
+        } catch (Exception e) {
+            LOGGER.log(Level.INFO, "Error al buscar médicos por especialización: " + e.getMessage());
+        } finally {
+//            em.close();
+//            emf.close();
+        }
+
+        return doctorsDTO;
+    }
+
+    public ExistentDoctorDTO EntityToDTO(DoctorEntity doctorEntity) {
+        ExistentDoctorDTO doctorDTO = new ExistentDoctorDTO();
+        doctorDTO.setId(doctorEntity.getId());
+        doctorDTO.setName(doctorEntity.getNames());
+        doctorDTO.setFirstName(doctorEntity.getFirstLastName());
+        doctorDTO.setSecondName(doctorEntity.getSecondLastName());
+        doctorDTO.setSpecialization(doctorEntity.getSpecialization());
+        doctorDTO.setMedicalCart(doctorEntity.getMedicalCart());
+        return doctorDTO;
+    }
+
 }
