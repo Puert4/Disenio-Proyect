@@ -90,7 +90,7 @@ public class DoctorDAO implements IDoctorDAO {
         return new DoctorDAO() {
         };
     }
-
+    
     @Override
     public List<ExistentDoctorDTO> searchBySpecialization(Specialization specialization) {
         List<ExistentDoctorDTO> doctorsDTO = new ArrayList<>();

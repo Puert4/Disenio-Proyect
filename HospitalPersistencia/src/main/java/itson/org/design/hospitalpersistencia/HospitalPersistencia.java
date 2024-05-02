@@ -201,6 +201,8 @@ public class HospitalPersistencia {
         doctorDAO.registerDoctor(doctorDTO5);
 
          */
+        
+        /*
         IDoctorDAO doctorDAO = Factory.getDoctorDAO();
         List<ExistentDoctorDTO> doctores;
         doctores = doctorDAO.searchBySpecialization(Specialization.FAMILY); // Pasar la enumeración Specialization en lugar de una cadena de texto
@@ -214,6 +216,8 @@ public class HospitalPersistencia {
             System.out.println("Carta Médica: " + doctor.getMedicalCart());
             System.out.println("----------------------------------");
         }
+
+*/
 
     }
 }

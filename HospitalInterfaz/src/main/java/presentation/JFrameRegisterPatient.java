@@ -286,10 +286,11 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                         .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Usuario13)
                             .addComponent(txtSecondName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(35, 35, 35)
                 .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Usuario12)
-                    .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54))
+                    .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Usuario12))
+                .addGap(19, 19, 19))
         );
         FondoPanelLayout.setVerticalGroup(
             FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

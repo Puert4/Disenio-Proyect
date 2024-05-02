@@ -8,8 +8,14 @@ import connection.ConnectionDB;
 import connection.IConnectionDB;
 import doctor.system.IDoctorDAO;
 import factory.Factory;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import patient.system.IPatientDAO;
 
 /**
@@ -29,6 +35,26 @@ public abstract class AppointmentManager implements IAppointmentManager {
 
     }
 
+    @Override
+    public List<Calendar> findLimitDays(DoctorEntity doctorEntity){
+        
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<AppointmentEntity> criteriaQuery = criteriaBuilder.createQuery(AppointmentEntity.class);
+        Root<AppointmentEntity> root = criteriaQuery.from(AppointmentEntity.class);
+
+        criteriaQuery.select(root)
+                .where(criteriaBuilder.equal(root.get("doctor"), doctorEntity));
+        List<AppointmentEntity> ams = em.createQuery(criteriaQuery).getResultList();
+        List<Calendar> limitDays = new ArrayList<>();
+        for(AppointmentEntity appointmentEntity: ams){
+            limitDays.add(appointmentEntity.getAppointmentDate());
+        }
+        
+        
+        return limitDays;
+        
+    }
+    
     @Override
     public void createAppointment(NewAppointmentDTO newAppointmentDTO) {
         AppointmentEntity appointment = DtoToEntity(newAppointmentDTO);

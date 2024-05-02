@@ -1,7 +1,17 @@
 package presentation;
 
+import JPAEntities.Specialization;
+import appointment.system.AppointmentStatus;
+import appointment.system.IAppointmentManager;
+import appointment.system.NewAppointmentDTO;
+import doctor.system.ExistentDoctorDTO;
+import doctor.system.IDoctorDAO;
+import factory.Factory;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import patient.system.ExistentPatientDTO;
 
 /*
@@ -16,6 +26,10 @@ import patient.system.ExistentPatientDTO;
 public class JFrameRegisterAppointment extends javax.swing.JFrame {
 
     private ExistentPatientDTO paciente;
+    private List<ExistentDoctorDTO> doctores;
+    private ExistentDoctorDTO existentDoctorDTO;
+    
+    private List<Calendar> limitDays;
 
 //    private JDateChooser dateChooser;
     /**
@@ -24,6 +38,8 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
     public JFrameRegisterAppointment(ExistentPatientDTO paciente) {
         this.paciente = paciente;
         initComponents();
+        this.cmbDoctor.setVisible(false);
+        limitDays = new ArrayList<>();
     }
 
     /**
@@ -45,7 +61,7 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txtNota = new javax.swing.JTextField();
         txt_fecha = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbxSpecialization = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,77 +99,98 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel13.setText("Note...");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxSpecialization.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FAMILY",   "PEDIATRIC",
+            "SURGERY",
+            "PSYCHIATRY",
+            "ANESTHIOLOGY",
+            "CARDIOLGY"}));
+cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cbxSpecializationActionPerformed(evt);
+    }
+    });
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel14.setText("Specialization");
+    jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+    jLabel14.setText("Specialization");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator7)
-                    .addComponent(jLabel12)
-                    .addComponent(txtNota, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(39, 39, 39))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(111, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+            .addGap(121, 121, 121)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator7)
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNota, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addGap(50, 50, 50))
-        );
+                .addComponent(txtNota, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cmbDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cbxSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel14)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(jLabel1)
+                    .addGap(39, 39, 39))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(48, 48, 48)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addContainerGap(111, Short.MAX_VALUE))
+    );
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+            .addGap(14, 14, 14)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(64, 64, 64)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel11)
+                .addComponent(jLabel14))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(cmbDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbxSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+            .addGap(18, 18, 18)
+            .addComponent(jLabel12)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(jLabel13)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(txtNota, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(65, 65, 65)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jButton2)
+                .addComponent(jButton1))
+            .addGap(50, 50, 50))
+    );
 
-        pack();
-        setLocationRelativeTo(null);
+    pack();
+    setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+
+        Calendar calendar = Calendar.getInstance();
+
+        NewAppointmentDTO newAppointmentDTO = new NewAppointmentDTO();
+        newAppointmentDTO.setDoctor(existentDoctorDTO);
+        newAppointmentDTO.setPatient(paciente);
+        newAppointmentDTO.setStatus(AppointmentStatus.ACTIVE);
+        newAppointmentDTO.setAppointmentDate(calendar);
+
+        IAppointmentManager appointmentManager = Factory.getAppointmentManager();
+        appointmentManager.createAppointment(newAppointmentDTO);
+
         JFrameConfirmAppointment confirm = new JFrameConfirmAppointment();
         confirm.setVisible(true);
         this.dispose();
@@ -169,7 +206,32 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
 
     private void cmbDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDoctorActionPerformed
         // TODO add your handling code here:
+
+        
+        
+//        limitDays = 
+        
+        existentDoctorDTO = (ExistentDoctorDTO) cmbDoctor.getSelectedItem();
+
     }//GEN-LAST:event_cmbDoctorActionPerformed
+
+    private void cbxSpecializationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSpecializationActionPerformed
+        // TODO add your handling code here:
+        Specialization specializationEnum = Specialization.PEDIATRIC;
+        IDoctorDAO doctorDAO = Factory.getDoctorDAO();
+
+        String selectedSpecialization = (String) cbxSpecialization.getSelectedItem();
+        doctores = doctorDAO.searchBySpecialization(specializationEnum.StringToEnum(selectedSpecialization));
+        cmbDoctor.removeAllItems();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        cmbDoctor.setModel(model);
+        for (ExistentDoctorDTO doctor : doctores) {
+            model.addElement(doctor);
+        }
+        this.cmbDoctor.setVisible(true);
+        
+
+    }//GEN-LAST:event_cbxSpecializationActionPerformed
 
     private void crearDateChooser() {
 
@@ -186,6 +248,8 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         calendar.add(Calendar.YEAR, -120);
         Date fechaMinima = calendar.getTime();
 
+        
+        
         calendar.setTime(fechaActual);
         calendar.add(Calendar.YEAR, -18);
         Date fechaMaxima = calendar.getTime();
@@ -230,10 +294,10 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbxSpecialization;
     private javax.swing.JComboBox<String> cmbDoctor;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

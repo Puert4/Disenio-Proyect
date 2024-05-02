@@ -2,6 +2,8 @@ package appointment.system;
 
 import JPAEntities.AppointmentEntity;
 import JPAEntities.DoctorEntity;
+import java.util.Calendar;
+import java.util.List;
 
 /**
  *
@@ -13,5 +15,6 @@ public interface IAppointmentManager {
 
     public AppointmentEntity DtoToEntity(NewAppointmentDTO newAppointmentDTO);
 
+    public List<Calendar> findLimitDays(DoctorEntity doctorEntity);
    
 }
