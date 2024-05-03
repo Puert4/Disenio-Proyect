@@ -13,6 +13,8 @@ public interface IDoctorDAO {
     public void registerDoctor(NewDoctorDTO doctorDTO);
 
     public DoctorEntity DtoToEntity(NewDoctorDTO doctorDTO);
+    
+    public DoctorEntity ExistentDtoToEntity(ExistentDoctorDTO existentDoctorDTO);
 
     public DoctorEntity serachById(Long idDoctor);
 
@@ -21,4 +23,6 @@ public interface IDoctorDAO {
     public List<ExistentDoctorDTO> searchBySpecialization(Specialization specialization);
 
     public ExistentDoctorDTO EntityToDTO(DoctorEntity doctorEntity);
+    
+    
 }

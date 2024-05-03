@@ -55,6 +55,13 @@ public class DoctorDAO implements IDoctorDAO {
 
         return doctor;
     }
+    
+    @Override
+    public DoctorEntity ExistentDtoToEntity(ExistentDoctorDTO existentDoctorDTO) {
+
+        return em.find(DoctorEntity.class, existentDoctorDTO.getId());
+
+    }
 
     @Override
     public DoctorEntity serachById(Long idDoctor) {

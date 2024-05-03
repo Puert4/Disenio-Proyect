@@ -109,4 +109,11 @@ public class DoctorEntity implements Serializable {
         this.medicalCart = medicalCart;
     }
 
+    @Override
+    public String toString() {
+        return "DoctorEntity{" + "id=" + id + ", names=" + names + ", firstLastName=" + firstLastName + ", secondLastName=" + secondLastName + ", specialization=" + specialization + ", medicalCart=" + medicalCart + '}';
+    }
+
+    
+    
 }

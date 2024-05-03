@@ -92,4 +92,11 @@ public class AppointmentEntity implements Serializable {
         this.AppointmentState = AppointmentState;
     }
 
+    @Override
+    public String toString() {
+        return "AppointmentEntity{" + "id=" + id + ", doctor=" + doctor + ", patient=" + patient + ", appointmentDate=" + appointmentDate + ", AppointmentState=" + AppointmentState + '}';
+    }
+
+    
+    
 }

@@ -8,11 +8,13 @@ import connection.ConnectionDB;
 import connection.IConnectionDB;
 import doctor.system.IDoctorDAO;
 import factory.Factory;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -38,15 +40,21 @@ public abstract class AppointmentManager implements IAppointmentManager {
     @Override
     public List<Calendar> findLimitDays(DoctorEntity doctorEntity){
         
-        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-        CriteriaQuery<AppointmentEntity> criteriaQuery = criteriaBuilder.createQuery(AppointmentEntity.class);
-        Root<AppointmentEntity> root = criteriaQuery.from(AppointmentEntity.class);
+        System.out.println(doctorEntity);
+        
+        CriteriaBuilder criteria = em.getCriteriaBuilder();
+        CriteriaQuery<AppointmentEntity> consulta = criteria.createQuery(AppointmentEntity.class);
+        Root<AppointmentEntity> root = consulta.from(AppointmentEntity.class);
 
-        criteriaQuery.select(root)
-                .where(criteriaBuilder.equal(root.get("doctor"), doctorEntity));
-        List<AppointmentEntity> ams = em.createQuery(criteriaQuery).getResultList();
+        consulta = consulta.select(root).where(criteria.equal(root.get("doctor"), doctorEntity));
+        
+        TypedQuery<AppointmentEntity> query = em.createQuery(consulta);
+        List<AppointmentEntity> ams = query.getResultList();
+        
         List<Calendar> limitDays = new ArrayList<>();
+        System.out.println("Tamaño: " + ams.size());
         for(AppointmentEntity appointmentEntity: ams){
+            System.out.println("Dias" + appointmentEntity.getAppointmentDate().get(Calendar.DAY_OF_MONTH));
             limitDays.add(appointmentEntity.getAppointmentDate());
         }
         
