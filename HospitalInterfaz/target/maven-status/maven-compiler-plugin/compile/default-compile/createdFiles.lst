@@ -8,6 +8,7 @@ presentation\JFrameLogin$3.class
 presentation\JFrameRegisterDoctor$6.class
 presentation\JFrameCreateUser$2.class
 presentation\JFrameInitialPatient$6.class
+presentation\JFrameConfirmAppointment$3.class
 presentation\JFrameRegisterPatient$3.class
 presentation\JFrameRegisterDoctor$8.class
 presentation\JFrameAdministrator$3.class
@@ -33,6 +34,7 @@ presentation\JFrameRegisterPatient.class
 presentation\JFrameRegisterDoctor$4.class
 presentation\JFrameInitialPatient$4.class
 presentation\JFrameInitialPatient$3.class
+presentation\JFrameRegisterAppointment$6.class
 presentation\JFrameRegisterPatient$2.class
 presentation\JFrameAdministrator$1.class
 presentation\JFrameInitialMedicos.class

@@ -49,7 +49,6 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
      */
     public JFrameRegisterAppointment(ExistentPatientDTO paciente) {
         this.paciente = paciente;
-        
         initComponents();
         dateChooser();
         limitarFecha();
@@ -57,14 +56,14 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         limitDays = new ArrayList<>();
     }
 
-    public void dateChooser(){
-        
+    public void dateChooser() {
+
         dateChooser = new JDateChooser();
         dateChooser.setBounds(lblFecha.getBounds());
         this.add(dateChooser);
-        
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -126,6 +125,12 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel13.setText("Note...");
+
+        txtNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNotaActionPerformed(evt);
+            }
+        });
 
         cbxSpecialization.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FAMILY",   "PEDIATRIC",
             "SURGERY",
@@ -217,29 +222,22 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        
-        
+
         limitDays();
         List<Calendar> dias = limitDays;
-        for(Calendar calendar: limitDays){
-            
-            if(dateChooser.getCalendar().get(Calendar.MONTH) == calendar.get(Calendar.MONTH)){
-                
-                if(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH) == calendar.get(Calendar.DAY_OF_MONTH)){
-                    
-                    if(dateChooser.getCalendar().get(Calendar.YEAR) == calendar.get(Calendar.YEAR)){
-                        
+        for (Calendar calendar : limitDays) {
+
+            if (dateChooser.getCalendar().get(Calendar.MONTH) == calendar.get(Calendar.MONTH)) {
+
+                if (dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH) == calendar.get(Calendar.DAY_OF_MONTH)) {
+
+                    if (dateChooser.getCalendar().get(Calendar.YEAR) == calendar.get(Calendar.YEAR)) {
+
                         JOptionPane.showMessageDialog(this, "This date has already been set aside");
                         return;
-                        
                     }
-                    
                 }
-                
-                
             }
-            
         }
 //        Calendar calendar = Calendar.getInstance();
 
@@ -249,10 +247,7 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
         newAppointmentDTO.setStatus(AppointmentStatus.ACTIVE);
         newAppointmentDTO.setAppointmentDate(dateChooser.getCalendar());
 
-        IAppointmentManager appointmentManager = Factory.getAppointmentManager();
-        appointmentManager.createAppointment(newAppointmentDTO);
-
-        JFrameConfirmAppointment confirm = new JFrameConfirmAppointment();
+        JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(newAppointmentDTO);
         confirm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -267,9 +262,8 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
 
     private void cmbDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDoctorActionPerformed
         // TODO add your handling code here:
-        
+
 //        limitDays = 
-        
         existentDoctorDTO = (ExistentDoctorDTO) cmbDoctor.getSelectedItem();
 
     }//GEN-LAST:event_cmbDoctorActionPerformed
@@ -288,33 +282,36 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
             model.addElement(doctor);
         }
         this.cmbDoctor.setVisible(true);
-        
+
 
     }//GEN-LAST:event_cbxSpecializationActionPerformed
 
-    public void limitDays(){
-        
+    public void limitDays() {
+
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
         IDoctorDAO doctorDAO = Factory.getDoctorDAO();
-        ExistentDoctorDTO existentDoctor = (ExistentDoctorDTO)cmbDoctor.getSelectedItem();
+        ExistentDoctorDTO existentDoctor = (ExistentDoctorDTO) cmbDoctor.getSelectedItem();
         DoctorEntity doctorEntity = doctorDAO.ExistentDtoToEntity(existentDoctor);
-        if(appointmentManager.findLimitDays(doctorEntity)!=null){
+        if (appointmentManager.findLimitDays(doctorEntity) != null) {
 
-
-        limitDays = appointmentManager.findLimitDays(doctorEntity);
+            limitDays = appointmentManager.findLimitDays(doctorEntity);
         }
     }
-    
+
     private void cmbDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbDoctorMouseClicked
         // TODO add your handling code here:
-        if(cmbDoctor.getSize() != null){
+        if (cmbDoctor.getSize() != null) {
 
             limitDays();
         }
-            
+
         System.out.println("click");
-        
+
     }//GEN-LAST:event_cmbDoctorMouseClicked
+
+    private void txtNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNotaActionPerformed
 
 //    private void crearDateChooser() {
 //
@@ -322,8 +319,7 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
 ////        dateChooser.setBounds(171, 143, 142, 26);
 ////        add(dateChooser);
 //    }
-
-    public void deleteDaysApart(){
+    public void deleteDaysApart() {
 //        JDateChooser ola = new JDateChooser();
 //         DateCellEditor cellEditor = new JDateChooserCellEditor(dateChooser);
 //        cellEditor.setSelectableDates(date -> !disabledDates.contains(date)); // Deshabilitar fechas en la lista
@@ -331,22 +327,21 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
 //        // Establecer el DateCellEditor personalizado en el JDateChooser
 //        dateChooser.setDateFormatString("dd-MM-yyyy");
 //        dateChooser.setCellEditor(cellEditor);
-        
+
     }
-    
-    public void limitarFecha(){
+
+    public void limitarFecha() {
 //        dateChooser.remove(2);
         Calendar fechaMinima = Calendar.getInstance();
         fechaMinima.set(Calendar.DATE, 1);
         Date minimo = fechaMinima.getTime();
-        
+
         Calendar fechaMaxima = Calendar.getInstance();
         fechaMaxima.add(Calendar.YEAR, 2);
         Date maximo = fechaMaxima.getTime();
-        
-        
+
         dateChooser.setSelectableDateRange(minimo, maximo);
-        
+
     }
 
 //    /**

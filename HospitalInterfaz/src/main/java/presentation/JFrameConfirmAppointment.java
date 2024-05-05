@@ -1,5 +1,8 @@
 package presentation;
 
+import appointment.system.IAppointmentManager;
+import appointment.system.NewAppointmentDTO;
+import factory.Factory;
 import patient.system.ExistentPatientDTO;
 
 
@@ -16,15 +19,21 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 
 //    private final IControl control;
 //    private final Long idPatient;
-    private ExistentPatientDTO paciente;
+    //   private ExistentPatientDTO paciente;
+    private NewAppointmentDTO newAppointmentDTO;
 
     /**
      * Creates new form AgendarCita
      */
-    public JFrameConfirmAppointment() {
+    public JFrameConfirmAppointment(NewAppointmentDTO newAppointmentDTO) {
 //        this.control = control;
 //        this.idPatient = idPatient;
+
+        this.newAppointmentDTO = newAppointmentDTO;
+
         initComponents();
+        this.txtNames.setText(newAppointmentDTO.getPatient().getName());
+        this.txtDoctor.setText(newAppointmentDTO.getDoctor().getName());
     }
 
     /**
@@ -77,6 +86,11 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         jLabel2.setText("Name");
 
         txtNames.setEnabled(false);
+        txtNames.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNamesActionPerformed(evt);
+            }
+        });
 
         txtSpecialization.setEnabled(false);
 
@@ -148,7 +162,7 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JFrameRegisterAppointment register = new JFrameRegisterAppointment(paciente);
+        JFrameRegisterAppointment register = new JFrameRegisterAppointment(newAppointmentDTO.getPatient());
         register.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -158,9 +172,20 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 
         //    JFrameInitialPatient menu = new JFrameInitialPatient(control, idPatient);
         //     menu.setVisible(true);
+        IAppointmentManager appointmentManager = Factory.getAppointmentManager();
+        appointmentManager.createAppointment(newAppointmentDTO);
+
+        JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(newAppointmentDTO.getPatient().getId());
+        frameInitialPatient.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtNamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamesActionPerformed
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_txtNamesActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -197,7 +222,6 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
