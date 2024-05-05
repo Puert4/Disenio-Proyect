@@ -42,6 +42,9 @@ public class AppointmentEntity implements Serializable {
     @Enumerated(EnumType.STRING)
     private AppointmentStateEntity AppointmentState;
 
+    @Column(name = "note", nullable = true)
+    private String note;
+
     public AppointmentEntity() {
     }
 
@@ -50,6 +53,14 @@ public class AppointmentEntity implements Serializable {
         this.patient = patient;
         this.appointmentDate = appointmentDate;
         this.AppointmentState = AppointmentState;
+    }
+
+    public AppointmentEntity(DoctorEntity doctor, PatientEntity patient, Calendar appointmentDate, AppointmentStateEntity AppointmentState, String note) {
+        this.doctor = doctor;
+        this.patient = patient;
+        this.appointmentDate = appointmentDate;
+        this.AppointmentState = AppointmentState;
+        this.note = note;
     }
 
     public Long getId() {
@@ -92,11 +103,17 @@ public class AppointmentEntity implements Serializable {
         this.AppointmentState = AppointmentState;
     }
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     @Override
     public String toString() {
         return "AppointmentEntity{" + "id=" + id + ", doctor=" + doctor + ", patient=" + patient + ", appointmentDate=" + appointmentDate + ", AppointmentState=" + AppointmentState + '}';
     }
 
-    
-    
 }

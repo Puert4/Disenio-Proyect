@@ -14,6 +14,7 @@ public class NewAppointmentDTO {
     private ExistentPatientDTO patient;
     private Calendar appointmentDate;
     private AppointmentStatus status;
+    private String note;
 
     public NewAppointmentDTO() {
     }
@@ -23,6 +24,14 @@ public class NewAppointmentDTO {
         this.patient = patient;
         this.appointmentDate = appointmentDate;
         this.status = status;
+    }
+
+    public NewAppointmentDTO(ExistentDoctorDTO doctor, ExistentPatientDTO patient, Calendar appointmentDate, AppointmentStatus status, String note) {
+        this.doctor = doctor;
+        this.patient = patient;
+        this.appointmentDate = appointmentDate;
+        this.status = status;
+        this.note = note;
     }
 
     public ExistentDoctorDTO getDoctor() {
@@ -55,6 +64,14 @@ public class NewAppointmentDTO {
 
     public void setStatus(AppointmentStatus status) {
         this.status = status;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
 }
