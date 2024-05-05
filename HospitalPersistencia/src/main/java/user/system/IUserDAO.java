@@ -24,4 +24,6 @@ public interface IUserDAO {
 
     public String getUserTypeByUserAndPassword(String user, String password);
 
+    public boolean userExist(String user);
+    
 }

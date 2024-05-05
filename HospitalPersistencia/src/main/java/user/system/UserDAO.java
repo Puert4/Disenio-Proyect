@@ -14,6 +14,7 @@ import connection.IConnectionDB;
 import doctor.system.IDoctorDAO;
 import doctor.system.NewDoctorDTO;
 import factory.Factory;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -113,6 +114,34 @@ public class UserDAO implements IUserDAO {
         return null;
     }
 
+    @Override
+    public boolean userExist(String user) {
+    
+        try {
+            
+            TypedQuery<UserEntity> consultUser = em.createQuery("SELECT u FROM UserEntity u WHERE u.user = :user", UserEntity.class);
+            consultUser.setParameter("user", user);
+            List<UserEntity> resultList = consultUser.getResultList();
+            
+            int inUse = resultList.size();
+            
+            if (inUse > 0){
+                
+                return true;
+            } else {
+                return false;
+            }
+        } catch (NoResultException e) {
+            return false;
+        } catch (Exception e) {
+            return false;
+        } finally {
+//            em.close();
+//            emf.close();
+        }
+        
+    }
+    
     @Override
     public Long validateUser(String user, String password) {
 
