@@ -256,6 +256,13 @@ public class JFrameLogin extends javax.swing.JFrame {
                     this.dispose();
                     break;
 
+                case "doctor":
+
+                    JFrameInitialMedicos frameInitialMedicos = new JFrameInitialMedicos();
+                    frameInitialMedicos.setVisible(true);
+                    this.dispose();
+                    break;
+
                 default:
 
                     break;
