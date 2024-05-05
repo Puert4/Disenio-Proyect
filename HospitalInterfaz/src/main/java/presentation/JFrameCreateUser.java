@@ -4,6 +4,7 @@ package presentation;
 import factory.Factory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import patient.system.IPatientDAO;
 import patient.system.NewPatientDTO;
 import user.system.IUserDAO;
@@ -170,9 +171,18 @@ public class JFrameCreateUser extends javax.swing.JFrame {
         userDTO.setUser(txtUserName.getText());
         userDTO.setPassword(txtPassword.getText());
 
-        JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO);
-        frameRegisterPatient.setVisible(true);
-        this.dispose();
+        IUserDAO userDAO = Factory.getUserDAO();
+        if(userDAO.userExist(userDTO.getUser())){
+            
+            JOptionPane.showMessageDialog(this, "The username is already in use");
+            
+        }else{
+            
+            JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO);
+            frameRegisterPatient.setVisible(true);
+            this.dispose();
+            
+        }
 
 
     }//GEN-LAST:event_btnAceptarActionPerformed
