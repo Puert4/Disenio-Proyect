@@ -73,8 +73,7 @@ public abstract class AppointmentManager implements IAppointmentManager {
         em.getTransaction().begin();
         em.persist(appointment);
         em.getTransaction().commit();
-//        em.close();
-//        emf.close();
+
     }
 
     @Override
@@ -130,10 +129,7 @@ public abstract class AppointmentManager implements IAppointmentManager {
 
         IPatientDAO patientDAO = Factory.getPatientDAO();
         ExistentPatientDTO patientDTO = patientDAO.EntityToDto(patientDAO.serachPatientById(appointmentEntity.getPatient().getId()));
-        //  ExistentPatientDTO patientDTO = new ExistentPatientDTO();
-        // patientDTO.setId(appointmentEntity.getPatient().getId());
 
-        // Set other patientDTO properties as needed
         ExistentAppointmentDTO appointmentDTO = new ExistentAppointmentDTO();
         appointmentDTO.setId(appointmentEntity.getId());
         appointmentDTO.setDoctor(doctorDTO);
@@ -143,6 +139,25 @@ public abstract class AppointmentManager implements IAppointmentManager {
         appointmentDTO.setNote(appointmentEntity.getNote());
 
         return appointmentDTO;
+    }
+
+    @Override
+    public boolean cancelAppointment(Long appointmentId) {
+        try {
+            em.getTransaction().begin();
+            AppointmentEntity appointment = em.find(AppointmentEntity.class, appointmentId);
+            if (appointment != null) {
+                appointment.setAppointmentState(AppointmentStateEntity.CANCELED);
+                em.merge(appointment);
+                em.getTransaction().commit();
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
 
     public static AppointmentManager getInstance() {
