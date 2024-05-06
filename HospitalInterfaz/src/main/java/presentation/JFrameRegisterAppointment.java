@@ -56,6 +56,8 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         limitDays = new ArrayList<>();
     }
 
+    
+    
     public void dateChooser() {
 
         dateChooser = new JDateChooser();
@@ -246,6 +248,7 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
         newAppointmentDTO.setPatient(paciente);
         newAppointmentDTO.setStatus(AppointmentStatus.ACTIVE);
         newAppointmentDTO.setAppointmentDate(dateChooser.getCalendar());
+        newAppointmentDTO.setNote(txtNota.getText());
 
         JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(newAppointmentDTO);
         confirm.setVisible(true);

@@ -3,6 +3,7 @@ package presentation;
 import appointment.system.IAppointmentManager;
 import appointment.system.NewAppointmentDTO;
 import factory.Factory;
+import java.util.Calendar;
 import patient.system.ExistentPatientDTO;
 
 
@@ -32,9 +33,15 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         this.newAppointmentDTO = newAppointmentDTO;
 
         initComponents();
-        this.txtNames.setText(newAppointmentDTO.getPatient().getName());
-        this.txtDoctor.setText(newAppointmentDTO.getDoctor().getName());
+        this.lblName.setText(newAppointmentDTO.getPatient().getName());
+        this.lblDoctor.setText(newAppointmentDTO.getDoctor().getName());
+        String dateString = "" + newAppointmentDTO.getAppointmentDate().get(Calendar.DATE) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.MONTH) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.YEAR);
+        this.lblDate.setText(dateString);
+        this.lblSpecialitazion.setText(newAppointmentDTO.getDoctor().getSpecialization().toString());
+        this.lblNote.setText(newAppointmentDTO.getNote());
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,12 +60,15 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtNames = new javax.swing.JTextField();
-        txtSpecialization = new javax.swing.JTextField();
-        txtDoctor = new javax.swing.JTextField();
-        txtDate = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        lblDoctor = new javax.swing.JLabel();
+        lblSpecialitazion = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lblNote = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Edit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +76,7 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 382, 90, -1));
 
         jButton2.setText("Confirm");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -73,88 +84,31 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 382, 111, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setText("Confirm Appointment");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 36, 277, 62));
 
         jLabel8.setText("Specialization");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 282, -1, 25));
 
         jLabel9.setText("Date");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 236, -1, -1));
 
         jLabel10.setText("Doctotor");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 183, -1, -1));
 
         jLabel2.setText("Name");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 126, 70, -1));
+        getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 156, 26));
+        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 156, 26));
+        getContentPane().add(lblDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 156, 26));
+        getContentPane().add(lblSpecialitazion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 156, 26));
 
-        txtNames.setEnabled(false);
-        txtNames.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamesActionPerformed(evt);
-            }
-        });
-
-        txtSpecialization.setEnabled(false);
-
-        txtDoctor.setEnabled(false);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel9))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel8))
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txtNames, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(129, 129, 129)))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(69, 69, 69))
-        );
+        jLabel11.setText("Note");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 326, -1, 25));
+        getContentPane().add(lblNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 156, 26));
 
         pack();
         setLocationRelativeTo(null);
@@ -180,12 +134,6 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void txtNamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamesActionPerformed
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_txtNamesActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -226,14 +174,16 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField txtDate;
-    private javax.swing.JTextField txtDoctor;
-    private javax.swing.JTextField txtNames;
-    private javax.swing.JTextField txtSpecialization;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDoctor;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblNote;
+    private javax.swing.JLabel lblSpecialitazion;
     // End of variables declaration//GEN-END:variables
 }
