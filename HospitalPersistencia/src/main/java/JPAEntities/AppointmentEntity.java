@@ -110,6 +110,8 @@ public class AppointmentEntity implements Serializable {
     public void setNote(String note) {
         this.note = note;
     }
+    
+    
 
     @Override
     public String toString() {

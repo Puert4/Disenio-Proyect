@@ -258,7 +258,8 @@ public class JFrameLogin extends javax.swing.JFrame {
 
                 case "doctor":
 
-                    JFrameInitialMedicos frameInitialMedicos = new JFrameInitialMedicos();
+                    Long idDoctor = loginSystem.validateUser(user, password);
+                    JFrameInitialMedicos frameInitialMedicos = new JFrameInitialMedicos(idDoctor);
                     frameInitialMedicos.setVisible(true);
                     this.dispose();
                     break;

@@ -1,6 +1,7 @@
 package loginManager;
 
 import JPAEntities.UserAdministrator;
+import JPAEntities.UserDoctor;
 import JPAEntities.UserEntity;
 import JPAEntities.UserPatient;
 import connection.ConnectionDB;
@@ -107,15 +108,16 @@ public abstract class LogIn implements ILogIn {
             if (userEntity != null && userEntity.getPassword().equals(password)) {
                 LOGGER.log(Level.INFO, "Usuario Validado");
 
-                // Determinar el tipo de usuario y manejar la autenticación en consecuencia
                 if (userEntity instanceof UserPatient) {
-                    // Para usuarios pacientes, devuelve el ID del paciente asociado al usuario
+
                     return ((UserPatient) userEntity).getPatient().getId();
                 } else if (userEntity instanceof UserAdministrator) {
-                    // Para usuarios administradores, puedes devolver algún valor específico o simplemente retornar null
-                    return 0L; // Por ejemplo, si el ID del administrador es 0
+
+                    return 0L;
+                } else if (userEntity instanceof UserDoctor) {
+                    return ((UserDoctor) userEntity).getDoctor().getId();
                 } else {
-                    // Manejar otros tipos de usuario según sea necesario
+
                     return null;
                 }
             } else {

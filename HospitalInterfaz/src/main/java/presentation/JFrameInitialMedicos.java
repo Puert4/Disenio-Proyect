@@ -7,14 +7,17 @@ package presentation;
  */
 /**
  *
- * @author daani
+ * @author Telesheo
  */
 public class JFrameInitialMedicos extends javax.swing.JFrame {
+
+    private Long idDoctor;
 
     /**
      * Creates new form InicioPaciente
      */
-    public JFrameInitialMedicos() {
+    public JFrameInitialMedicos(Long idDoctor) {
+        this.idDoctor = idDoctor;
         initComponents();
     }
 

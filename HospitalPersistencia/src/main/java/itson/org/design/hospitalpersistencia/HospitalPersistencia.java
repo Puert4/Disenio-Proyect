@@ -8,6 +8,7 @@ import administrator.system.IAdministratorDAO;
 import administrator.system.newAdministratorDTO;
 import appointment.system.AppointmentManager;
 import appointment.system.AppointmentStatus;
+import appointment.system.ExistentAppointmentDTO;
 import appointment.system.IAppointmentManager;
 import appointment.system.NewAppointmentDTO;
 import doctor.system.DoctorDAO;
@@ -219,18 +220,38 @@ public class HospitalPersistencia {
         }
 
          */
- 
-  AppointmentManager appointmentManager = AppointmentManager.getInstance();
-        
+        AppointmentManager appointmentManager = AppointmentManager.getInstance();
+
+        /*
         // Supongamos que tienes el ID del paciente
         Long patientId = 1L; // Reemplaza con el ID del paciente deseado
         
-        List<AppointmentEntity> appointments = appointmentManager.findAppointmentsByPatientId(patientId);
+        List<ExistentAppointmentDTO> appointments = appointmentManager.findAppointmentsByPatientId(patientId);
         
         // Mostrar citas encontradas
         System.out.println("Citas asociadas al paciente con ID " + patientId + ":");
-        for (AppointmentEntity appointment : appointments) {
+        for (ExistentAppointmentDTO appointment : appointments) {
             System.out.println(appointment);
+        }
+
+         */
+        // Assuming you have a patient ID
+        Long patientId = 1L; // Replace 123L with the actual patient ID
+
+        // Retrieve appointments for the specified patient ID
+        List<ExistentAppointmentDTO> appointments = appointmentManager.findAppointmentsByPatientId(patientId);
+
+        // Print the retrieved appointments
+        for (ExistentAppointmentDTO appointment : appointments) {
+
+            ExistentDoctorDTO doctor = appointment.getDoctor();
+            System.out.println("Appointment ID: " + appointment.getId());
+            System.out.println("Doctor: " + doctor.getName()); // Assuming getNames() returns doctor's name
+            System.out.println("Patient: " + appointment.getPatient().getName()); // Assuming getNames() returns patient's name
+            System.out.println("Appointment Date: " + appointment.getAppointmentDate());
+            System.out.println("Status: " + appointment.getStatus());
+            System.out.println("Note: " + appointment.getNote());
+            System.out.println("----------------------------------");
         }
     }
 }

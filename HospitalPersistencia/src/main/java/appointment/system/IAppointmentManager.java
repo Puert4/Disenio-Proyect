@@ -18,6 +18,9 @@ public interface IAppointmentManager {
 
     public List<Calendar> findLimitDays(DoctorEntity doctorEntity);
 
-    public List<AppointmentEntity> findAppointmentsByPatientId(Long patientId);
+    // public List<AppointmentEntity> findAppointmentsByPatientId(Long patientId);
+    public List<ExistentAppointmentDTO> findAppointmentsByPatientId(Long patientId);
+
+    public ExistentAppointmentDTO convertToDTO(AppointmentEntity appointmentEntity);
 
 }

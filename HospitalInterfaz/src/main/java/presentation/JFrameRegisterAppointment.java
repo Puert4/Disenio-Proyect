@@ -105,7 +105,7 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
             }
         });
 
-        cmbDoctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbDoctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         cmbDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cmbDoctorMouseClicked(evt);
@@ -301,12 +301,8 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
     private void cmbDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbDoctorMouseClicked
         // TODO add your handling code here:
         if (cmbDoctor.getSize() != null) {
-
             limitDays();
         }
-
-        System.out.println("click");
-
     }//GEN-LAST:event_cmbDoctorMouseClicked
 
     private void txtNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNotaActionPerformed

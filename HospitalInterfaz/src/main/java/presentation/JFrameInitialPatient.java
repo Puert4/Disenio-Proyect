@@ -1,6 +1,9 @@
 package presentation;
 
+import appointment.system.ExistentAppointmentDTO;
+import appointment.system.IAppointmentManager;
 import factory.Factory;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import patient.system.ExistentPatientDTO;
@@ -31,6 +34,25 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         initComponents();
         IPatientDAO patientSystem = Factory.getPatientDAO();
         paciente = patientSystem.EntityToDto(patientSystem.serachPatientById(idPatient));
+    }
+    
+      private void cargarCitasPaciente() {
+        DefaultTableModel tblModel = (DefaultTableModel) jTableAppointment.getModel();
+        tblModel.setRowCount(0); // Limpiar la tabla antes de cargar los nuevos datos
+        
+        // Obtener las citas asociadas al paciente por su ID
+        IAppointmentManager appointmentManager = Factory.getAppointmentManager();
+        
+        List<ExistentAppointmentDTO> appointments = appointmentManager.findAppointmentsByPatientId(idPatient);
+        
+        // Llenar la tabla con los datos de las citas
+        for (ExistentAppointmentDTO appointment : appointments) {
+            tblModel.addRow(new Object[]{
+                appointment.getAppointmentDate().getTime(),
+                appointment.getDoctor().getName(), // Ajusta esto según la estructura de tu DoctorEntity
+                appointment.getNote()
+            });
+        }
     }
 
     private void cargarDatosPaciente() {
@@ -88,6 +110,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jScrollPane2.setViewportView(jTableAppointment);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Welcome");
