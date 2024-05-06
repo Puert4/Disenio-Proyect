@@ -293,6 +293,9 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
                 || medicalCart.isEmpty() || user.isEmpty() || password.isEmpty()) {
 
             JOptionPane.showMessageDialog(null, "Favor de llenar todos los campos", "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+        if (!names.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]+") || !firstName.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ]+") || !secondName.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ]+")) {
+            JOptionPane.showMessageDialog(null, "Names can only contain leters", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
 
             NewDoctorDTO doctorDTO = new NewDoctorDTO(
@@ -311,14 +314,12 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
             if (userDAO.userExist(user)) {
 
                 JOptionPane.showMessageDialog(this, "The username is already in use");
-                
+
             } else {
-                
-                if(doctorDAO.searchByMedicart(doctorDTO.getMedicalCart()) == null){
-                    
-                    
-                    
-                }else{
+
+                if (doctorDAO.searchByMedicart(doctorDTO.getMedicalCart()) == null) {
+
+                } else {
                     doctorDAO.registerDoctor(doctorDTO);
                     NewUserDTO userDTO = new NewUserDTO(user, password, doctorDTO);
                     userDAO.registerDoctorUser(doctorDTO, userDTO);

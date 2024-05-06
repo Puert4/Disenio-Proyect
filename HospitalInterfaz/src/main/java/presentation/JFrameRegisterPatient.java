@@ -430,6 +430,9 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                 || zipCodeS.isEmpty() || curp.isEmpty() || phone.isEmpty() || socialNumber.isEmpty()
                 || street.isEmpty() || sex.isEmpty() || birthDate == null) {
             JOptionPane.showMessageDialog(null, "Favor de llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if (!names.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]+") || !firstName.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ]+") || !secondName.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ]+")) {
+            JOptionPane.showMessageDialog(null, "Names can only contain leters", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
 
             int zipCode = Integer.parseInt(zipCodeS);
