@@ -136,7 +136,7 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
             "PSYCHIATRY",
             "ANESTHIOLOGY",
             "FAMILY",
-            "CARDIOLGY",
+            "CARDIOLOGY",
             "PEDIATRIC"}));
 comboBox.addActionListener(new java.awt.event.ActionListener() {
     public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -311,14 +311,21 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
             if (userDAO.userExist(user)) {
 
                 JOptionPane.showMessageDialog(this, "The username is already in use");
-
+                
             } else {
-                doctorDAO.registerDoctor(doctorDTO);
-                NewUserDTO userDTO = new NewUserDTO(user, password, doctorDTO);
-                userDAO.registerDoctorUser(doctorDTO, userDTO);
-                JFrameAdministrator frameAdministrator = new JFrameAdministrator(userDTOAdmin.getUser(), userDTOAdmin.getPassword());
-                frameAdministrator.setVisible(true);
-                this.dispose();
+                
+                if(doctorDAO.searchByMedicart(doctorDTO.getMedicalCart()) == null){
+                    
+                    
+                    
+                }else{
+                    doctorDAO.registerDoctor(doctorDTO);
+                    NewUserDTO userDTO = new NewUserDTO(user, password, doctorDTO);
+                    userDAO.registerDoctorUser(doctorDTO, userDTO);
+                    JFrameAdministrator frameAdministrator = new JFrameAdministrator(userDTOAdmin.getUser(), userDTOAdmin.getPassword());
+                    frameAdministrator.setVisible(true);
+                    this.dispose();
+                }
 
             }
 

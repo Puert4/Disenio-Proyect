@@ -2,6 +2,7 @@ package presentation;
 
 import appointment.system.IAppointmentManager;
 import appointment.system.NewAppointmentDTO;
+import doctor.system.ExistentDoctorDTO;
 import factory.Factory;
 import java.util.Calendar;
 import patient.system.ExistentPatientDTO;
@@ -22,14 +23,31 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 //    private final Long idPatient;
     //   private ExistentPatientDTO paciente;
     private NewAppointmentDTO newAppointmentDTO;
+    private ExistentPatientDTO patientDTO;
+    private ExistentDoctorDTO doctorDTO;
 
     /**
      * Creates new form AgendarCita
      */
-    public JFrameConfirmAppointment(NewAppointmentDTO newAppointmentDTO) {
+    public JFrameConfirmAppointment(NewAppointmentDTO newAppointmentDTO, ExistentPatientDTO patientDTO) {
 //        this.control = control;
 //        this.idPatient = idPatient;
+        this.patientDTO = patientDTO;
+        this.newAppointmentDTO = newAppointmentDTO;
 
+        initComponents();
+        this.lblName.setText(newAppointmentDTO.getPatient().getName());
+        this.lblDoctor.setText(newAppointmentDTO.getDoctor().getName());
+        String dateString = "" + newAppointmentDTO.getAppointmentDate().get(Calendar.DATE) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.MONTH) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.YEAR);
+        this.lblDate.setText(dateString);
+        this.lblSpecialitazion.setText(newAppointmentDTO.getDoctor().getSpecialization().toString());
+        this.lblNote.setText(newAppointmentDTO.getNote());
+    }
+    
+    public JFrameConfirmAppointment(NewAppointmentDTO newAppointmentDTO, ExistentDoctorDTO doctorDTO) {
+//        this.control = control;
+//        this.idPatient = idPatient;
+        this.doctorDTO = doctorDTO;
         this.newAppointmentDTO = newAppointmentDTO;
 
         initComponents();
@@ -51,8 +69,8 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnConfirm = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -68,21 +86,21 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Edit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEditActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 382, 90, -1));
+        getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 382, 90, -1));
 
-        jButton2.setText("Confirm");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirm.setText("Confirm");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnConfirmActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 382, 111, -1));
+        getContentPane().add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 382, 111, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setText("Confirm Appointment");
@@ -112,14 +130,24 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
-        JFrameRegisterAppointment register = new JFrameRegisterAppointment(newAppointmentDTO.getPatient());
-        register.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if(doctorDTO == null){
+            
+            JFrameRegisterAppointment register = new JFrameRegisterAppointment(newAppointmentDTO, patientDTO);
+            register.setVisible(true);
+            this.dispose();
+            
+        }else{
+            
+            JFrameRegisterAppointment register = new JFrameRegisterAppointment(newAppointmentDTO, doctorDTO);
+            register.setVisible(true);
+            this.dispose();
+            
+        }
+    }//GEN-LAST:event_btnEditActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
 
         //    JFrameInitialPatient menu = new JFrameInitialPatient(control, idPatient);
@@ -127,11 +155,21 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
         appointmentManager.createAppointment(newAppointmentDTO);
 
-        JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(newAppointmentDTO.getPatient().getId());
-        frameInitialPatient.setVisible(true);
-        this.dispose();
+        if(doctorDTO == null){
+            
+            JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(newAppointmentDTO.getPatient().getId());
+            frameInitialPatient.setVisible(true);
+            this.dispose();
+            
+        }else{
+            
+            JFrameInitialMedicos medic = new JFrameInitialMedicos(doctorDTO.getId());
+            medic.setVisible(true);
+            this.dispose();
+            
+        }
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnConfirmActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -169,8 +207,8 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 //        });
 //    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

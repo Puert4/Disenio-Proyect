@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import user.system.IUserDAO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -161,21 +162,10 @@ public class JFrameInitialMedicos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-        int selectedIndex = jTableAppointment.getSelectedRow();
-
-        if (selectedIndex >= 0 && selectedIndex < listaDeLongs.size()) {
-            Long valorCorrespondiente = listaDeLongs.get(selectedIndex);
-            System.out.println(valorCorrespondiente);
-            IAppointmentManager appointmentManager = Factory.getAppointmentManager();
-            ExistentAppointmentDTO appointmentDTO = appointmentManager.findAppointmentById(valorCorrespondiente);
-
-            JFrameRegisterAppointment frameRegisterAppointment = new JFrameRegisterAppointment(appointmentDTO.getPatient());
+            JFrameRegisterAppointment frameRegisterAppointment = new JFrameRegisterAppointment(existentDoctor);
             frameRegisterAppointment.setVisible(true);
             this.dispose();
 
-        } else {
-            JOptionPane.showMessageDialog(null, "Index not valid", "Error", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -187,6 +177,7 @@ public class JFrameInitialMedicos extends javax.swing.JFrame {
             Long valorCorrespondiente = listaDeLongs.get(selectedIndex);
 
             boolean deleted = appointmentManager.cancelAppointment(valorCorrespondiente);
+            JOptionPane.showMessageDialog(this, "The appointment has been Successfully removed", "Success", JOptionPane.INFORMATION_MESSAGE);
             cargarCitasPaciente();
 
         } else {

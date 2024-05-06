@@ -1,6 +1,7 @@
 package presentation;
 
 import JPAEntities.DoctorEntity;
+import JPAEntities.PatientEntity;
 import JPAEntities.Specialization;
 import appointment.system.AppointmentManager;
 import appointment.system.AppointmentStatus;
@@ -25,6 +26,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import patient.system.ExistentPatientDTO;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JDateChooserCellEditor;
+import patient.system.IPatientDAO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -38,8 +40,10 @@ import com.toedter.calendar.JDateChooserCellEditor;
 public class JFrameRegisterAppointment extends javax.swing.JFrame {
 
     private ExistentPatientDTO paciente;
+    private ExistentDoctorDTO doctorP1;
     private List<ExistentDoctorDTO> doctores;
     private ExistentDoctorDTO existentDoctorDTO;
+    private ExistentPatientDTO existentPateintDTO;
     private JDateChooser dateChooser;
     private List<Calendar> limitDays;
 
@@ -47,15 +51,66 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
     /**
      * Creates new form ConfirmaciondeCita
      */
+    public JFrameRegisterAppointment(NewAppointmentDTO appointmentDTO, ExistentDoctorDTO doctorDTO){
+        
+        this.doctorP1 = doctorDTO;
+        initComponents();
+        dateChooser();
+        limitarFecha();
+        txtNota.setText(appointmentDTO.getNote());
+        cmbDoctor.setSelectedItem(appointmentDTO.getPatient());
+        dateChooser.setCalendar(appointmentDTO.getAppointmentDate());
+        
+    }
+    
+    public JFrameRegisterAppointment(NewAppointmentDTO appointmentDTO, ExistentPatientDTO patientDTO){
+        this.paciente = patientDTO;
+        initComponents();
+        dateChooser();
+        limitarFecha();
+        txtNota.setText(appointmentDTO.getNote());
+        cbxSpecialization.setSelectedItem(appointmentDTO.getDoctor().getSpecialization());
+        cmbDoctor.setSelectedItem(appointmentDTO.getDoctor());
+        dateChooser.setCalendar(appointmentDTO.getAppointmentDate());
+        
+    }
+    
     public JFrameRegisterAppointment(ExistentPatientDTO paciente) {
         this.paciente = paciente;
         initComponents();
         dateChooser();
         limitarFecha();
-        this.cmbDoctor.setVisible(false);
         limitDays = new ArrayList<>();
     }
+    
+    public JFrameRegisterAppointment(ExistentDoctorDTO doctor) {
+        this.doctorP1 = doctor;
+        initComponents();
+        dateChooser();
+        limitarFecha();
+        lblSpecilaization.setEnabled(false);
+        cbxSpecialization.setEnabled(false);
+        lblDoctors.setText("Patients");
+        limitDays = new ArrayList<>();
+        patientList();
+    }
 
+    public void patientList(){
+        
+        IPatientDAO patientDAO = Factory.getPatientDAO();
+        List<ExistentPatientDTO> patientList = patientDAO.findAllPatient();
+        cmbDoctor.removeAllItems();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        cmbDoctor.setModel(model);
+        for (ExistentPatientDTO patient : patientList) {
+            model.addElement(patient);
+        }
+        this.cmbDoctor.setVisible(true);
+                
+                
+    }
+    
+    
     public void dateChooser() {
 
         dateChooser = new JDateChooser();
@@ -77,13 +132,13 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         cmbDoctor = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
+        lblDoctors = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         txtNota = new javax.swing.JTextField();
         cbxSpecialization = new javax.swing.JComboBox<>();
-        jLabel14 = new javax.swing.JLabel();
+        lblSpecilaization = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -117,8 +172,8 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel11.setText("Doctores");
+        lblDoctors.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblDoctors.setText("Doctors");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel12.setText("Date ");
@@ -143,8 +198,8 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
     }
     });
 
-    jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-    jLabel14.setText("Specialization");
+    lblSpecilaization.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+    lblSpecilaization.setText("Specialization");
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -157,9 +212,9 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
                     .addComponent(jLabel1))
                 .addGroup(layout.createSequentialGroup()
                     .addGap(121, 121, 121)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDoctors, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(161, 161, 161)
-                    .addComponent(jLabel14))
+                    .addComponent(lblSpecilaization))
                 .addGroup(layout.createSequentialGroup()
                     .addGap(121, 121, 121)
                     .addComponent(cmbDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,8 +249,8 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(64, 64, 64)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel11)
-                .addComponent(jLabel14))
+                .addComponent(lblDoctors)
+                .addComponent(lblSpecilaization))
             .addGap(6, 6, 6)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(cmbDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,68 +296,125 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
         }
 //        Calendar calendar = Calendar.getInstance();
 
-        NewAppointmentDTO newAppointmentDTO = new NewAppointmentDTO();
-        newAppointmentDTO.setDoctor(existentDoctorDTO);
-        newAppointmentDTO.setPatient(paciente);
-        newAppointmentDTO.setStatus(AppointmentStatus.ACTIVE);
-        newAppointmentDTO.setAppointmentDate(dateChooser.getCalendar());
-        newAppointmentDTO.setNote(txtNota.getText());
+        if(doctorP1 == null){
+            
+            NewAppointmentDTO newAppointmentDTO = new NewAppointmentDTO();
+            newAppointmentDTO.setDoctor(existentDoctorDTO);
+            newAppointmentDTO.setPatient(paciente);
+            newAppointmentDTO.setStatus(AppointmentStatus.ACTIVE);
+            newAppointmentDTO.setAppointmentDate(dateChooser.getCalendar());
+            newAppointmentDTO.setNote(txtNota.getText());
 
-        JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(newAppointmentDTO);
-        confirm.setVisible(true);
-        this.dispose();
+            JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(newAppointmentDTO, paciente);
+            confirm.setVisible(true);
+            this.dispose();
+            
+        }else{
+            
+            NewAppointmentDTO newAppointmentDTO = new NewAppointmentDTO();
+            newAppointmentDTO.setDoctor(doctorP1);
+            newAppointmentDTO.setPatient(existentPateintDTO);
+            newAppointmentDTO.setStatus(AppointmentStatus.ACTIVE);
+            newAppointmentDTO.setAppointmentDate(dateChooser.getCalendar());
+            newAppointmentDTO.setNote(txtNota.getText());
+            
+            JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(newAppointmentDTO, doctorP1);
+            confirm.setVisible(true);
+            this.dispose();
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-
-        //    JFrameInitialPatient menu = new JFrameInitialPatient(control, idPatient);
-        //    menu.setVisible(true);
-        this.dispose();
+            if(doctorP1 == null){
+                
+                JFrameInitialPatient pat = new JFrameInitialPatient(paciente.getId());
+                pat.setVisible(true);
+                this.dispose();
+                
+            }else{
+                
+                JFrameInitialMedicos medic = new JFrameInitialMedicos(doctorP1.getId());
+                medic.setVisible(true);
+                this.dispose();
+                
+            }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void cmbDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDoctorActionPerformed
         // TODO add your handling code here:
 
 //        limitDays = 
-        existentDoctorDTO = (ExistentDoctorDTO) cmbDoctor.getSelectedItem();
+        if(doctorP1 == null){
+            
+            existentDoctorDTO = (ExistentDoctorDTO) cmbDoctor.getSelectedItem();
+        
+        }else{
+            
+            existentPateintDTO = (ExistentPatientDTO) cmbDoctor.getSelectedItem();
+            
+        }
 
     }//GEN-LAST:event_cmbDoctorActionPerformed
 
     private void cbxSpecializationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSpecializationActionPerformed
         // TODO add your handling code here:
-        Specialization specializationEnum = Specialization.PEDIATRIC;
-        IDoctorDAO doctorDAO = Factory.getDoctorDAO();
+        if(doctorP1 == null){
+            
+            Specialization specializationEnum = Specialization.PEDIATRIC;
+            IDoctorDAO doctorDAO = Factory.getDoctorDAO();
 
-        String selectedSpecialization = (String) cbxSpecialization.getSelectedItem();
-        doctores = doctorDAO.searchBySpecialization(specializationEnum.StringToEnum(selectedSpecialization));
-        cmbDoctor.removeAllItems();
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
-        cmbDoctor.setModel(model);
-        for (ExistentDoctorDTO doctor : doctores) {
-            model.addElement(doctor);
+            String selectedSpecialization = (String) cbxSpecialization.getSelectedItem();
+            doctores = doctorDAO.searchBySpecialization(specializationEnum.StringToEnum(selectedSpecialization));
+            cmbDoctor.removeAllItems();
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            cmbDoctor.setModel(model);
+            for (ExistentDoctorDTO doctor : doctores) {
+                model.addElement(doctor);
+            }
+            this.cmbDoctor.setVisible(true);
+            
         }
-        this.cmbDoctor.setVisible(true);
 
     }//GEN-LAST:event_cbxSpecializationActionPerformed
 
     public void limitDays() {
 
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
-        IDoctorDAO doctorDAO = Factory.getDoctorDAO();
-        ExistentDoctorDTO existentDoctor = (ExistentDoctorDTO) cmbDoctor.getSelectedItem();
-        DoctorEntity doctorEntity = doctorDAO.ExistentDtoToEntity(existentDoctor);
-        if (appointmentManager.findLimitDays(doctorEntity) != null) {
+        if(doctorP1 == null){
+            
+            IDoctorDAO doctorDAO = Factory.getDoctorDAO();
+            ExistentDoctorDTO existentDoctor = (ExistentDoctorDTO) cmbDoctor.getSelectedItem();
+            DoctorEntity doctorEntity = doctorDAO.ExistentDtoToEntity(existentDoctor);
+            if (appointmentManager.findLimitDays(doctorEntity) != null) {
 
-            limitDays = appointmentManager.findLimitDays(doctorEntity);
+                limitDays = appointmentManager.findLimitDays(doctorEntity);
+            }
+            
+        }else{
+            
+            IPatientDAO patientDAO = Factory.getPatientDAO();
+            ExistentPatientDTO existentPatientDTO = (ExistentPatientDTO) cmbDoctor.getSelectedItem();
+            PatientEntity patientEntity = patientDAO.findPatient(existentPatientDTO.getId());
+            if(appointmentManager.findLimitDays(patientEntity) != null){
+                
+                limitDays = appointmentManager.findLimitDays(patientEntity);
+                
+            }
+            
         }
     }
 
     private void cmbDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbDoctorMouseClicked
-        // TODO add your handling code here:
-        if (cmbDoctor.getSize() != null) {
-            limitDays();
-        }
+        // TODO add your handling code 
+       if(doctorP1 == null){
+           
+            if (cmbDoctor.getSize() != null) {
+                limitDays();
+            }
+           
+       }
     }//GEN-LAST:event_cmbDoctorMouseClicked
 
     private void txtNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNotaActionPerformed
@@ -381,12 +493,12 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JLabel lblDoctors;
     private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblSpecilaization;
     private javax.swing.JTextField txtNota;
     // End of variables declaration//GEN-END:variables
 }

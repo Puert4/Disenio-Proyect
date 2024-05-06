@@ -172,20 +172,16 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
     private void btn_cancelAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelAppointmentActionPerformed
         // TODO add your handling code here:
-        /*  int selectedRow = jTableAppointment.getSelectedRow();
-        System.out.println(selectedRow);
-        System.out.println(listaDeLongs);
-         */
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
         int selectedIndex = jTableAppointment.getSelectedRow();
 
 // Asegurarse de que la fila seleccionada esté dentro de los límites
         if (selectedIndex >= 0 && selectedIndex < listaDeLongs.size()) {
             Long valorCorrespondiente = listaDeLongs.get(selectedIndex);
-            System.out.println(valorCorrespondiente);
-
+        
             boolean deleted = appointmentManager.cancelAppointment(valorCorrespondiente);
-            System.out.println("Se elimino");
+            JOptionPane.showMessageDialog(this, "The appointment has been Successfully removed", "Success", JOptionPane.INFORMATION_MESSAGE);
+            cargarCitasPaciente();
         } else {
             JOptionPane.showMessageDialog(null, "Index not valid", "Error", JOptionPane.ERROR_MESSAGE);
         }
