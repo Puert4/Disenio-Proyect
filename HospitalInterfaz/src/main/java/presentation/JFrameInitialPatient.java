@@ -187,7 +187,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
             boolean deleted = appointmentManager.cancelAppointment(valorCorrespondiente);
             System.out.println("Se elimino");
         } else {
-            System.out.println("Por favor, seleccione una fila válida.");
+            JOptionPane.showMessageDialog(null, "Index not valid", "Error", JOptionPane.ERROR_MESSAGE);
         }
         /*
         

@@ -27,4 +27,6 @@ public interface IAppointmentManager {
 
     public boolean cancelAppointment(Long appointmentId);
 
+    public ExistentAppointmentDTO findAppointmentById(Long appointmentId);
+
 }

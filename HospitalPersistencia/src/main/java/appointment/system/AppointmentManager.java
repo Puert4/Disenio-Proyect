@@ -66,6 +66,7 @@ public abstract class AppointmentManager implements IAppointmentManager {
 
     }
 
+    //REVISA
     @Override
     public void createAppointment(NewAppointmentDTO newAppointmentDTO) {
         AppointmentEntity appointment = DtoToEntity(newAppointmentDTO);
@@ -73,7 +74,7 @@ public abstract class AppointmentManager implements IAppointmentManager {
         em.getTransaction().begin();
         em.persist(appointment);
         em.getTransaction().commit();
-//        em.close();
+        //    em.close();
 //        emf.close();
     }
 
@@ -174,6 +175,22 @@ public abstract class AppointmentManager implements IAppointmentManager {
         } catch (Exception ex) {
             ex.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public ExistentAppointmentDTO findAppointmentById(Long appointmentId) {
+        try {
+        //    em.getTransaction().begin();
+            AppointmentEntity appointment = em.find(AppointmentEntity.class, appointmentId);
+            if (appointment != null) {
+                return convertToDTO(appointment);
+            } else {
+                return null;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
         }
     }
 
