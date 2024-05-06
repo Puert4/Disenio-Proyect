@@ -4,10 +4,6 @@ import doctor.system.ExistentDoctorDTO;
 import java.util.Calendar;
 import patient.system.ExistentPatientDTO;
 
-/**
- *
- * @author TeLesheo
- */
 public class ExistentAppointmentDTO {
 
     private Long id;
@@ -20,13 +16,6 @@ public class ExistentAppointmentDTO {
     public ExistentAppointmentDTO() {
     }
 
-//    public ExistentAppointmentDTO(ExistentDoctorDTO doctor, ExistentPatientDTO patient, Calendar appointmentDate, AppointmentStatus status, String note) {
-//        this.doctor = doctor;
-//        this.patient = patient;
-//        this.appointmentDate = appointmentDate;
-//        this.status = status;
-//        this.note = note;
-//    }
     public ExistentAppointmentDTO(ExistentDoctorDTO doctor, ExistentPatientDTO patient, Calendar appointmentDate, String status, String note) {
         this.doctor = doctor;
         this.patient = patient;

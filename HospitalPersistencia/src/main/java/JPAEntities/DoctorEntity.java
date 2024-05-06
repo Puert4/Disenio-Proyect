@@ -10,10 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- *
- * @author TeLesheo
- */
 @Entity
 @Table(name = "DoctorEntity")
 public class DoctorEntity implements Serializable {
@@ -107,11 +103,6 @@ public class DoctorEntity implements Serializable {
 
     public void setMedicalCart(String medicalCart) {
         this.medicalCart = medicalCart;
-    }
-
-    @Override
-    public String toString() {
-        return "DoctorEntity{" + "id=" + id + ", names=" + names + ", firstLastName=" + firstLastName + ", secondLastName=" + secondLastName + ", specialization=" + specialization + ", medicalCart=" + medicalCart + '}';
     }
 
 }

@@ -6,13 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-/**
- *
- * @author TeLesheo
- */
 @Entity
 @Table(name = "UserEntity")
 public class UserEntity implements Serializable {
@@ -87,30 +82,4 @@ public class UserEntity implements Serializable {
         this.password = password;
     }
 
-
-    /*
-    public PatientEntity getPatient() {
-        return patient;
-    }
-
-    public void setPatient(PatientEntity patient) {
-        this.patient = patient;
-    }
-
-    public AdministratorEntity getAdministrator() {
-        return administrator;
-    }
-
-    public void setAdministrator(AdministratorEntity administrator) {
-        this.administrator = administrator;
-    }
-
-    public DoctorEntity getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(DoctorEntity doctor) {
-        this.doctor = doctor;
-    }
-     */
 }

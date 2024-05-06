@@ -2,10 +2,6 @@ package patient.system;
 
 import java.util.Calendar;
 
-/**
- *
- * @author TeLesheo
- */
 public class NewPatientDTO {
 
     private String names;

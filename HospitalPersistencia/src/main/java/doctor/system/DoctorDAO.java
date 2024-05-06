@@ -11,15 +11,10 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import javax.swing.JOptionPane;
 import patient.system.PatientDAO;
 
-/**
- *
- * @author TeLesheo
- */
 public class DoctorDAO implements IDoctorDAO {
 
     private static final Logger LOGGER = Logger.getLogger(PatientDAO.class.getName());
@@ -41,8 +36,7 @@ public class DoctorDAO implements IDoctorDAO {
         em.getTransaction().begin();
         em.persist(doctor);
         em.getTransaction().commit();
-//        em.close();
-//        emf.close();
+
     }
 
     public Specialization setSpecilaization(String string) {
@@ -95,8 +89,7 @@ public class DoctorDAO implements IDoctorDAO {
             LOGGER.log(Level.INFO, "No se encontró ningún doctor con el ID especificado.");
             return null;
         } finally {
-//            em.close();
-//            emf.close();
+
         }
     }
 
@@ -109,8 +102,8 @@ public class DoctorDAO implements IDoctorDAO {
 
             List<DoctorEntity> resultList = query.getResultList();
             int numResults = resultList.size();
-            if(numResults > 0){
-                
+            if (numResults > 0) {
+
                 JOptionPane.showMessageDialog(null, "The meidcalCart is already in use");
                 return null;
             }
@@ -119,8 +112,7 @@ public class DoctorDAO implements IDoctorDAO {
             LOGGER.log(Level.INFO, "No doctor was found with that medical cart");
             return null;
         } finally {
-//            em.close();
-//            emf.close();
+
         }
     }
 
@@ -145,8 +137,7 @@ public class DoctorDAO implements IDoctorDAO {
         } catch (Exception e) {
             LOGGER.log(Level.INFO, "Error al buscar médicos por especialización: " + e.getMessage());
         } finally {
-//            em.close();
-//            emf.close();
+
         }
 
         return doctorsDTO;

@@ -4,10 +4,6 @@ import doctor.system.ExistentDoctorDTO;
 import java.util.Calendar;
 import patient.system.ExistentPatientDTO;
 
-/**
- *
- * @author TeLesheo
- */
 public class NewAppointmentDTO {
 
     private ExistentDoctorDTO doctor;

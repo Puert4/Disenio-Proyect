@@ -1,9 +1,5 @@
 package JPAEntities;
 
-/**
- *
- * @author TeLesheo
- */
 public enum Specialization {
 
     PEDIATRIC,

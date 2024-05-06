@@ -3,10 +3,7 @@ package administrator.system;
 import JPAEntities.AdministratorEntity;
 import JPAEntities.UserAdministrator;
 
-/**
- *
- * @author TeLesheo
- */
+
 public interface IAdministratorDAO {
 
     public void registerAdministrator(newAdministratorDTO administratorDTO);

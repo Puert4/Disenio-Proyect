@@ -4,10 +4,6 @@ import JPAEntities.UserEntity;
 import administrator.system.newAdministratorDTO;
 import doctor.system.NewDoctorDTO;
 
-/**
- *
- * @author TeLesheo
- */
 public interface IUserDAO {
 
     public void registerUser(NewUserDTO userDTO);

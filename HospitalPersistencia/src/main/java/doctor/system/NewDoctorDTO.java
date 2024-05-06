@@ -1,9 +1,5 @@
 package doctor.system;
 
-/**
- *
- * @author TeLesheo
- */
 public class NewDoctorDTO {
 
     private String name;

@@ -1,7 +1,6 @@
 package administrator.system;
 
 import JPAEntities.AdministratorEntity;
-import JPAEntities.PatientEntity;
 import JPAEntities.UserAdministrator;
 import connection.ConnectionDB;
 import connection.IConnectionDB;
@@ -10,14 +9,9 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import patient.system.PatientDAO;
 
-/**
- *
- * @author TeLesheo
- */
 public class AdministratorDAO implements IAdministratorDAO {
 
     private static final Logger LOGGER = Logger.getLogger(PatientDAO.class.getName());
@@ -38,8 +32,7 @@ public class AdministratorDAO implements IAdministratorDAO {
         em.getTransaction().begin();
         em.persist(administrator);
         em.getTransaction().commit();
-//        em.close();
-//        emf.close();
+
     }
 
     @Override
@@ -77,8 +70,7 @@ public class AdministratorDAO implements IAdministratorDAO {
             LOGGER.log(Level.INFO, "No se encontró ningún paciente con el CURP especificado.");
             return null;
         } finally {
-//            em.close();
-//            emf.close();
+
         }
     }
 

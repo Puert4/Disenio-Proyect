@@ -4,10 +4,6 @@ import administrator.system.newAdministratorDTO;
 import doctor.system.NewDoctorDTO;
 import patient.system.NewPatientDTO;
 
-/**
- *
- * @author TeLesheo
- */
 public class NewUserDTO {
 
     private String user;

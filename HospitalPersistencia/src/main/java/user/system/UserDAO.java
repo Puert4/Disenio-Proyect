@@ -20,7 +20,6 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import patient.system.IPatientDAO;
 import patient.system.PatientDAO;
@@ -43,8 +42,6 @@ public class UserDAO implements IUserDAO {
 
     }
 
-    
-    
     @Override
     public void registerUser(NewUserDTO userDTO) {
         UserEntity user = DtoToEntity(userDTO);

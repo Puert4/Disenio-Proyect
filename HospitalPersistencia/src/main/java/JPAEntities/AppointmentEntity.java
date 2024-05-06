@@ -14,10 +14,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
-/**
- *
- * @author TeLesheo
- */
 @Entity
 @Table(name = "AppointmentEntity")
 public class AppointmentEntity implements Serializable {
@@ -109,13 +105,6 @@ public class AppointmentEntity implements Serializable {
 
     public void setNote(String note) {
         this.note = note;
-    }
-    
-    
-
-    @Override
-    public String toString() {
-        return "AppointmentEntity{" + "id=" + id + ", doctor=" + doctor + ", patient=" + patient + ", appointmentDate=" + appointmentDate + ", AppointmentState=" + AppointmentState + '}';
     }
 
 }

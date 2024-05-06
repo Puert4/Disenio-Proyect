@@ -1,9 +1,5 @@
 package administrator.system;
 
-/**
- *
- * @author TeLesheo
- */
 public class newAdministratorDTO {
 
     private String Name;

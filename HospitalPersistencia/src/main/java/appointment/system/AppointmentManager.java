@@ -9,7 +9,6 @@ import connection.IConnectionDB;
 import doctor.system.ExistentDoctorDTO;
 import doctor.system.IDoctorDAO;
 import factory.Factory;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -25,10 +24,6 @@ import javax.persistence.criteria.Root;
 import patient.system.ExistentPatientDTO;
 import patient.system.IPatientDAO;
 
-/**
- *
- * @author TeLesheo
- */
 public abstract class AppointmentManager implements IAppointmentManager {
 
     private EntityManagerFactory emf;
@@ -64,10 +59,9 @@ public abstract class AppointmentManager implements IAppointmentManager {
         return limitDays;
 
     }
-    
+
     @Override
     public List<Calendar> findLimitDays(PatientEntity patientEntity) {
-
 
         CriteriaBuilder criteria = em.getCriteriaBuilder();
         CriteriaQuery<AppointmentEntity> consulta = criteria.createQuery(AppointmentEntity.class);
@@ -95,8 +89,7 @@ public abstract class AppointmentManager implements IAppointmentManager {
         em.getTransaction().begin();
         em.persist(appointment);
         em.getTransaction().commit();
-        //    em.close();
-//        emf.close();
+
     }
 
     @Override
@@ -118,17 +111,6 @@ public abstract class AppointmentManager implements IAppointmentManager {
         return appointment;
     }
 
-//       @Override
-//    public List<AppointmentEntity> findAppointmentsByPatientId(Long patientId) {
-//        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-//        CriteriaQuery<AppointmentEntity> criteriaQuery = criteriaBuilder.createQuery(AppointmentEntity.class);
-//        Root<AppointmentEntity> root = criteriaQuery.from(AppointmentEntity.class);
-//        Join<AppointmentEntity, PatientEntity> patientJoin = root.join("patient");
-//        criteriaQuery.select(root)
-//                    .where(criteriaBuilder.equal(patientJoin.get("id"), patientId));
-//        TypedQuery<AppointmentEntity> query = em.createQuery(criteriaQuery);
-//        return query.getResultList();
-//    }
     @Override
     public List<ExistentAppointmentDTO> findAppointmentsByPatientId(Long patientId) {
         CriteriaBuilder criteria = em.getCriteriaBuilder();
@@ -136,13 +118,13 @@ public abstract class AppointmentManager implements IAppointmentManager {
         Root<AppointmentEntity> root = consulta.from(AppointmentEntity.class);
         Join<AppointmentEntity, PatientEntity> patientJoin = root.join("patient");
         Predicate condiciones = criteria.and(
-        criteria.equal(patientJoin.get("id"), patientId),
-        criteria.equal(root.get("AppointmentState"), AppointmentStateEntity.ACTIVE)
+                criteria.equal(patientJoin.get("id"), patientId),
+                criteria.equal(root.get("AppointmentState"), AppointmentStateEntity.ACTIVE)
         );
         consulta = consulta.select(root).where(condiciones);
         TypedQuery<AppointmentEntity> query = em.createQuery(consulta);
         List<AppointmentEntity> appointmentEntities = query.getResultList();
-        
+
         return appointmentEntities.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
@@ -205,7 +187,7 @@ public abstract class AppointmentManager implements IAppointmentManager {
     @Override
     public ExistentAppointmentDTO findAppointmentById(Long appointmentId) {
         try {
-        //    em.getTransaction().begin();
+            //    em.getTransaction().begin();
             AppointmentEntity appointment = em.find(AppointmentEntity.class, appointmentId);
             if (appointment != null) {
                 return convertToDTO(appointment);

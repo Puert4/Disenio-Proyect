@@ -4,10 +4,6 @@ import JPAEntities.DoctorEntity;
 import JPAEntities.Specialization;
 import java.util.List;
 
-/**
- *
- * @author TeLesheo
- */
 public interface IDoctorDAO {
 
     public void registerDoctor(NewDoctorDTO doctorDTO);

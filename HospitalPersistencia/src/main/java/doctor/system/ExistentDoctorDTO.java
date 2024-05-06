@@ -2,10 +2,6 @@ package doctor.system;
 
 import JPAEntities.Specialization;
 
-/**
- *
- * @author TeLesheo
- */
 public class ExistentDoctorDTO {
 
     private Long id;
@@ -73,13 +69,6 @@ public class ExistentDoctorDTO {
 
     public void setMedicalCart(String medicalCart) {
         this.medicalCart = medicalCart;
-    }
-
-    @Override
-    public String toString() {
-
-        return "Name: " + name + ", Specialization: " + specialization + ", Medical cart: " + medicalCart;
-
     }
 
 }

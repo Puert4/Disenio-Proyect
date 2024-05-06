@@ -2,10 +2,6 @@ package patient.system;
 
 import java.util.Calendar;
 
-/**
- *
- * @author TeLesheo
- */
 public class ExistentPatientDTO {
 
     private Long id;
@@ -147,11 +143,4 @@ public class ExistentPatientDTO {
         this.birthDate = birthDate;
     }
 
-    @Override
-    public String toString(){
-        
-        return name + ", " + firstName + ", " + curp;
-        
-    }
-    
 }

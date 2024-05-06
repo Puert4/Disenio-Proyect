@@ -6,10 +6,6 @@ import JPAEntities.PatientEntity;
 import java.util.Calendar;
 import java.util.List;
 
-/**
- *
- * @author TeLesheo
- */
 public interface IAppointmentManager {
 
     public void createAppointment(NewAppointmentDTO newAppointmentDTO);
