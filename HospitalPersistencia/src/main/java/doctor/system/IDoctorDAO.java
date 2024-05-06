@@ -24,5 +24,6 @@ public interface IDoctorDAO {
 
     public ExistentDoctorDTO EntityToDTO(DoctorEntity doctorEntity);
     
+    public Specialization setSpecilaization(String string);
     
 }

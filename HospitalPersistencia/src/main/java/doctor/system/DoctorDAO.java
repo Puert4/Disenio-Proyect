@@ -36,6 +36,7 @@ public class DoctorDAO implements IDoctorDAO {
     @Override
     public void registerDoctor(NewDoctorDTO doctorDTO) {
         DoctorEntity doctor = DtoToEntity(doctorDTO);
+        doctor.setSpecialization(setSpecilaization(doctorDTO.getSpecialization()));
         em.getTransaction().begin();
         em.persist(doctor);
         em.getTransaction().commit();
@@ -43,6 +44,27 @@ public class DoctorDAO implements IDoctorDAO {
 //        emf.close();
     }
 
+    public Specialization setSpecilaization(String string){
+        
+        return switch (string) {
+            case "PEDIATRIC" ->
+                Specialization.PEDIATRIC;
+            case "SURGERY" ->
+                Specialization.SURGERY;
+            case "PSYCHIATRY" ->
+                Specialization.PSYCHIATRY;
+            case "ANESTHIOLOGY" ->
+                Specialization.ANESTHIOLOGY;
+            case "FAMILY" ->
+                Specialization.FAMILY;
+            case "CARDIOLOGY" ->
+                Specialization.CARDIOLOGY;
+            default ->
+                null;
+        };
+    
+    }
+    
     @Override
     public DoctorEntity DtoToEntity(NewDoctorDTO doctorDTO) {
 

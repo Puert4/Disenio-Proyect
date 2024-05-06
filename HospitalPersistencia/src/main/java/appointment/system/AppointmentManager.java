@@ -70,8 +70,8 @@ public abstract class AppointmentManager implements IAppointmentManager {
         em.getTransaction().begin();
         em.persist(appointment);
         em.getTransaction().commit();
-        em.close();
-        emf.close();
+//        em.close();
+//        emf.close();
     }
 
     @Override
