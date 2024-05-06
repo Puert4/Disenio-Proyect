@@ -25,14 +25,14 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 
     /**
      * Creates new form AgendarCita
-     *
-     * @param newAppointmentDTO
      */
     public JFrameConfirmAppointment(NewAppointmentDTO newAppointmentDTO) {
+//        this.control = control;
+//        this.idPatient = idPatient;
 
         this.newAppointmentDTO = newAppointmentDTO;
-        initComponents();
 
+        initComponents();
         this.lblName.setText(newAppointmentDTO.getPatient().getName());
         this.lblDoctor.setText(newAppointmentDTO.getDoctor().getName());
         String dateString = "" + newAppointmentDTO.getAppointmentDate().get(Calendar.DATE) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.MONTH) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.YEAR);

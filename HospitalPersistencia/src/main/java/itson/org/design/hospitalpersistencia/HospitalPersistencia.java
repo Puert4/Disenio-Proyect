@@ -143,19 +143,19 @@ public class HospitalPersistencia {
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
 
         appointmentManager.createAppointment(appointment);
-         
-        newAdministratorDTO administrator = new newAdministratorDTO();
-        administrator.setName("Jullian");
+         */
+//        newAdministratorDTO administrator = new newAdministratorDTO();
+//        administrator.setName("Jullian");
+//
+//        IAdministratorDAO admin = Factory.getAdministratorDAO();
+//        admin.registerAdministrator(administrator);
+//
+//        IUserDAO user = Factory.getUserDAO();
+//
+//        NewUserDTO newUserDTO = new NewUserDTO("Jullian", "Jullian", administrator);
+//        user.registerAdminUser(administrator, newUserDTO);
 
-        IAdministratorDAO admin = Factory.getAdministratorDAO();
-        admin.registerAdministrator(administrator);
-
-        IUserDAO user = Factory.getUserDAO();
-
-        NewUserDTO newUserDTO = new NewUserDTO("Jullian", "Jullian", administrator);
-        user.registerAdminUser(administrator, newUserDTO);
-
-        
+        /*
         //Agregar Doctores para pruebas
         NewDoctorDTO doctorDTO = new NewDoctorDTO(
                 "Carlos",
@@ -220,7 +220,7 @@ public class HospitalPersistencia {
         }
 
          */
-        //   AppointmentManager appointmentManager = AppointmentManager.getInstance();
+        AppointmentManager appointmentManager = AppointmentManager.getInstance();
 
         /*
         // Supongamos que tienes el ID del paciente
@@ -239,9 +239,9 @@ public class HospitalPersistencia {
         Long patientId = 1L; // Replace 123L with the actual patient ID
 
         // Retrieve appointments for the specified patient ID
-        //List<ExistentAppointmentDTO> appointments = appointmentManager.findAppointmentsByPatientId(patientId);
+        List<ExistentAppointmentDTO> appointments = appointmentManager.findAppointmentsByPatientId(patientId);
+
         // Print the retrieved appointments
-        /*
         for (ExistentAppointmentDTO appointment : appointments) {
 
             ExistentDoctorDTO doctor = appointment.getDoctor();
@@ -253,17 +253,5 @@ public class HospitalPersistencia {
             System.out.println("Note: " + appointment.getNote());
             System.out.println("----------------------------------");
         }
-         */
-        newAdministratorDTO administrator = new newAdministratorDTO();
-        administrator.setName("Jullian");
-
-        IAdministratorDAO admin = Factory.getAdministratorDAO();
-        admin.registerAdministrator(administrator);
-
-        IUserDAO user = Factory.getUserDAO();
-
-        NewUserDTO newUserDTO = new NewUserDTO("Jullian", "Jullian", administrator);
-        user.registerAdminUser(administrator, newUserDTO);
-
     }
 }

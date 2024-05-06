@@ -3,7 +3,6 @@ package presentation;
 import appointment.system.ExistentAppointmentDTO;
 import appointment.system.IAppointmentManager;
 import factory.Factory;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +22,6 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
     private final Long idPatient;
     private ExistentPatientDTO paciente;
-    private ArrayList<Long> listaDeLongs = new ArrayList<>();
 
     /**
      * Creates new form InicioPaciente
@@ -42,6 +40,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
         // Obtener las citas asociadas al paciente por su ID
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
+
         List<ExistentAppointmentDTO> appointments = appointmentManager.findAppointmentsByPatientId(idPatient);
 
         // Llenar la tabla con los datos de las citas
@@ -49,17 +48,15 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
             tblModel.addRow(new Object[]{
                 appointment.getAppointmentDate().getTime(),
                 appointment.getDoctor().getName(),
-                appointment.getNote(),
-                appointment.getStatus()
+                appointment.getNote()
             });
-            listaDeLongs.add(appointment.getId());
         }
     }
 
     private void cargarDatosPaciente() {
         IPatientDAO patientSystem = Factory.getPatientDAO();
         paciente = patientSystem.EntityToDto(patientSystem.serachPatientById(idPatient));
-        //txtNombre.setText(paciente.getName());
+        txtNombre.setText(paciente.getName());
     }
 
     /**
@@ -76,6 +73,8 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAppointment = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        btnMiNombre = new javax.swing.JButton();
         txtCloseSesion = new javax.swing.JButton();
         btnCreateAppointment = new javax.swing.JButton();
 
@@ -116,6 +115,13 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Welcome");
 
+        btnMiNombre.setText("Nombre");
+        btnMiNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMiNombreActionPerformed(evt);
+            }
+        });
+
         txtCloseSesion.setText("Cerrar Sesion");
         txtCloseSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +156,12 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(270, 270, 270)
+                .addComponent(btnMiNombre)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +170,14 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCloseSesion)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(btnMiNombre)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cancelAppointment)
                     .addComponent(btnCreateAppointment))
@@ -176,50 +195,13 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
     private void btn_cancelAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelAppointmentActionPerformed
         // TODO add your handling code here:
-        /*  int selectedRow = jTableAppointment.getSelectedRow();
-        System.out.println(selectedRow);
-        System.out.println(listaDeLongs);
-         */
-        IAppointmentManager appointmentManager = Factory.getAppointmentManager();
-        int selectedIndex = jTableAppointment.getSelectedRow();
-
-// Asegurarse de que la fila seleccionada esté dentro de los límites
-        if (selectedIndex >= 0 && selectedIndex < listaDeLongs.size()) {
-            Long valorCorrespondiente = listaDeLongs.get(selectedIndex);
-            System.out.println(valorCorrespondiente);
-
-            boolean deleted = appointmentManager.cancelAppointment(valorCorrespondiente);
-            System.out.println("Se elimino");
-        } else {
-            System.out.println("Por favor, seleccione una fila válida.");
-        }
-        /*
-        
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Por favor, selecciona una cita para eliminarla.", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            Object appointmentIdObj = jTableAppointment.getValueAt(selectedRow, 0);
-            if (appointmentIdObj instanceof Long) {
-                Long appointmentId = (Long) appointmentIdObj;
-
-                // Llamando al método para eliminar la cita
-                IAppointmentManager appointmentManager = Factory.getAppointmentManager();
-                boolean deleted = appointmentManager.cancelAppointment(appointmentId);
-
-                if (deleted) {
-                    // Si se elimina correctamente, actualiza la tabla
-                    cargarCitasPaciente();
-                    JOptionPane.showMessageDialog(this, "La cita se eliminó correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(this, "No se pudo eliminar la cita.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Error al obtener el ID de la cita.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-         */
-
+        JOptionPane.showMessageDialog(this, "No se a seleccionado ninguna cita", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_cancelAppointmentActionPerformed
+
+    private void btnMiNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiNombreActionPerformed
+        // TODO add your handling code here:
+        cargarDatosPaciente();
+    }//GEN-LAST:event_btnMiNombreActionPerformed
 
     private void txtCloseSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCloseSesionActionPerformed
         // TODO add your handling code here:
@@ -272,11 +254,13 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 //    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateAppointment;
+    private javax.swing.JButton btnMiNombre;
     private javax.swing.JButton btn_cancelAppointment;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableAppointment;
     private javax.swing.JButton txtCloseSesion;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

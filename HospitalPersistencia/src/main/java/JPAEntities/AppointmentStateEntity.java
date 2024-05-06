@@ -7,6 +7,6 @@ package JPAEntities;
 public enum AppointmentStateEntity {
 
     ACTIVE,
-    CANCELED,
+    PENDING,
     DONE;
 }
