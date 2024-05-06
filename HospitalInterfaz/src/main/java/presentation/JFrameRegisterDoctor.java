@@ -13,12 +13,15 @@ import user.system.NewUserDTO;
  */
 public class JFrameRegisterDoctor extends javax.swing.JFrame {
 
+    private NewUserDTO userDTOAdmin;
+    
     /**
      * Creates new form JFrameRegisterDoctor
      */
-    public JFrameRegisterDoctor() {
+    public JFrameRegisterDoctor(NewUserDTO userDTOAdmin) {
         initComponents();
-
+        this.userDTOAdmin = userDTOAdmin;
+        
     }
 
     /**
@@ -43,10 +46,10 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
         txtMedicalCart = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         txtUser = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         comboBox = new javax.swing.JComboBox<>();
+        txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,14 +120,6 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel13.setText("User");
 
-        txtPassword.setBorder(null);
-        txtPassword.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
         txtUser.setBorder(null);
         txtUser.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +133,7 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
 
         comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {" NONE",
             "SURGERY",
-            "PSYCHIATRY,",
+            "PSYCHIATRY",
             "ANESTHIOLOGY",
             "FAMILY",
             "CARDIOLGY",
@@ -148,6 +143,8 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
         comboBoxActionPerformed(evt);
     }
     });
+
+    txtPassword.setText("jPasswordField1");
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -182,17 +179,21 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
                         .addComponent(txtMedicalCart, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGap(109, 109, 109)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel5)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel12)
-                .addComponent(txtSeconName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel14)
-                .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(39, 39, 39))
+                .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel12)
+                        .addComponent(txtSeconName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel14)
+                        .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(39, 39, 39))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
@@ -234,8 +235,8 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
             .addComponent(jLabel10)
             .addGap(18, 18, 18)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addComponent(btnConfirm1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -262,8 +263,8 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
 
-        JFrameLogin login = new JFrameLogin();
-        login.setVisible(true);
+        JFrameAdministrator frameAdministrator = new JFrameAdministrator(userDTOAdmin.getUser(), userDTOAdmin.getPassword());
+        frameAdministrator.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_btnCancelActionPerformed
@@ -305,15 +306,25 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
             doctorDTO.setSpecialization(specialization);
 
             IDoctorDAO doctorDAO = Factory.getDoctorDAO();
-            doctorDAO.registerDoctor(doctorDTO);
+            
 
             IUserDAO userDAO = Factory.getUserDAO();
-            NewUserDTO userDTO = new NewUserDTO(user, password, doctorDTO);
-            userDAO.registerDoctorUser(doctorDTO, userDTO);
+            
+            if(userDAO.userExist(user)){
 
-            JFrameAdministrator frameAdministrator = new JFrameAdministrator();
-            frameAdministrator.setVisible(true);
-            this.dispose();
+                JOptionPane.showMessageDialog(this, "The username is already in use");
+                
+
+            }else{
+                doctorDAO.registerDoctor(doctorDTO);
+                NewUserDTO userDTO = new NewUserDTO(user, password, doctorDTO);
+                userDAO.registerDoctorUser(doctorDTO, userDTO);
+                JFrameAdministrator frameAdministrator = new JFrameAdministrator(userDTOAdmin.getUser(), userDTOAdmin.getPassword());
+                frameAdministrator.setVisible(true);
+                this.dispose();
+
+            }
+            
 
         }
 
@@ -327,10 +338,6 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
     private void txtMedicalCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedicalCartActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMedicalCartActionPerformed
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
@@ -429,7 +436,7 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtMedicalCart;
     private javax.swing.JTextField txtNames;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtSeconName;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables

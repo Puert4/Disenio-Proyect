@@ -20,12 +20,20 @@ import user.system.NewUserDTO;
  */
 public class JFrameCreateUser extends javax.swing.JFrame {
 
+    private NewUserDTO userDTOAdmin;
+    
     /**
      * Creates new form JFrameCreateUser
      */
     public JFrameCreateUser() {
         initComponents();
 
+    }
+    
+    public JFrameCreateUser(NewUserDTO userDTOAdmin){
+        
+        initComponents();
+        this.userDTOAdmin = userDTOAdmin;
     }
 
     /**
@@ -167,31 +175,61 @@ public class JFrameCreateUser extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
-        NewUserDTO userDTO = new NewUserDTO();
-        userDTO.setUser(txtUserName.getText());
-        userDTO.setPassword(txtPassword.getText());
+        
+        
+            
+            NewUserDTO userDTO = new NewUserDTO();
+            userDTO.setUser(txtUserName.getText());
+            userDTO.setPassword(txtPassword.getText());
 
-        IUserDAO userDAO = Factory.getUserDAO();
-        if(userDAO.userExist(userDTO.getUser())){
-            
-            JOptionPane.showMessageDialog(this, "The username is already in use");
-            
-        }else{
-            
-            JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO);
-            frameRegisterPatient.setVisible(true);
-            this.dispose();
-            
-        }
+            IUserDAO userDAO = Factory.getUserDAO();
+            if(userDAO.userExist(userDTO.getUser())){
+
+                JOptionPane.showMessageDialog(this, "The username is already in use");
+
+            }else{
+                
+                if(userDTOAdmin == null){
+                    
+                    JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO);
+                    frameRegisterPatient.setVisible(true);
+                    this.dispose();
+                    
+                }else{
+                    
+                    JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO, userDTOAdmin);
+                    frameRegisterPatient.setVisible(true);
+                    this.dispose();
+                    
+                }
+                
+
+            }
+           
+        
+        
 
 
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-        JFrameLogin login = new JFrameLogin();
-        login.setVisible(true);
-        this.dispose();
+        
+        if(userDTOAdmin == null){
+                    
+            JFrameLogin login = new JFrameLogin();
+            login.setVisible(true);
+            this.dispose();
+
+        }else{
+
+            JFrameAdministrator frameAdministrator = new JFrameAdministrator(userDTOAdmin.getUser(), userDTOAdmin.getPassword());
+            frameAdministrator.setVisible(true);
+            this.dispose();
+
+        }
+        
+        
     }//GEN-LAST:event_btnCancelActionPerformed
 
 //    /**

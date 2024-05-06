@@ -21,6 +21,7 @@ import user.system.NewUserDTO;
 public class JFrameRegisterPatient extends javax.swing.JFrame {
 
     private NewUserDTO userDTO;
+    private NewUserDTO userDTOAdmin;
     private JDateChooser dateChooser;
     
     /**
@@ -32,6 +33,17 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         this.userDTO = userDTO;
         dateChooser();
         this.setTitle("Registro Paciente");
+    }
+    
+    public JFrameRegisterPatient(NewUserDTO userDTO, NewUserDTO userDTOAdmin){
+        
+        initComponents();
+        txtOther.setEditable(false);
+        this.userDTO = userDTO;
+        dateChooser();
+        this.setTitle("Registro Paciente");
+        this.userDTOAdmin = userDTOAdmin;
+        
     }
     
     public void dateChooser() {
@@ -435,10 +447,20 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
         }
-
-        JFrameLogin frameLogin = new JFrameLogin();
-        frameLogin.setVisible(true);
-        this.dispose();
+        
+            if(userDTOAdmin == null){
+                
+                JFrameLogin frameLogin = new JFrameLogin();
+                frameLogin.setVisible(true);
+                this.dispose();
+                
+            } else{
+                
+                JFrameAdministrator admin = new JFrameAdministrator(userDTOAdmin.getUser(), userDTOAdmin.getPassword());
+                admin.setVisible(true);
+                this.dispose();
+                
+            }
             
         }
         

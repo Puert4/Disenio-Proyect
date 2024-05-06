@@ -245,7 +245,7 @@ public class JFrameLogin extends javax.swing.JFrame {
             switch (userType) {
                 case "admin":
 
-                    JFrameAdministrator frameAdministrator = new JFrameAdministrator();
+                    JFrameAdministrator frameAdministrator = new JFrameAdministrator(user, password);
                     frameAdministrator.setVisible(true);
                     this.dispose();
                     break;

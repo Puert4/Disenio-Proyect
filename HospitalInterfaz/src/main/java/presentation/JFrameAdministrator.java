@@ -1,16 +1,37 @@
 package presentation;
 
+import JPAEntities.AdministratorEntity;
+import JPAEntities.UserAdministrator;
+import JPAEntities.UserEntity;
+import administrator.system.AdministratorDAO;
+import administrator.system.IAdministratorDAO;
+import administrator.system.newAdministratorDTO;
+import factory.Factory;
+import user.system.IUserDAO;
+import user.system.NewUserDTO;
+import user.system.UserDAO;
+
 /**
  *
  * @author TeLesheo
  */
 public class JFrameAdministrator extends javax.swing.JFrame {
 
+    private NewUserDTO userDTOAdmin;
+    
     /**
      * Creates new form JFrameAdministrator
      */
-    public JFrameAdministrator() {
+    public JFrameAdministrator(String user, String password) {
         initComponents();
+        newAdministratorDTO newAdministratorDTO = new newAdministratorDTO();
+        IUserDAO userDAO = Factory.getUserDAO();
+        UserEntity userEntity = userDAO.findUserByUserPassword(user, password);
+        IAdministratorDAO administratorDAO = Factory.getAdministratorDAO();
+        UserAdministrator userAdministrator = administratorDAO.findAdministratorById(userEntity.getId());
+        newAdministratorDTO.setName(userAdministrator.getAdministrator().getNames());
+        this.userDTOAdmin = new NewUserDTO(user, password, newAdministratorDTO);
+        
     }
 
     /**
@@ -78,17 +99,18 @@ public class JFrameAdministrator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JFrameRegisterDoctor frameRegisterDoctor = new JFrameRegisterDoctor();
+        JFrameRegisterDoctor frameRegisterDoctor = new JFrameRegisterDoctor(userDTOAdmin);
         frameRegisterDoctor.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-
-        //   JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient();
-        //   frameRegisterPatient.setVisible(true);
-        //  this.dispose();
+        
+        JFrameCreateUser createUser = new JFrameCreateUser(userDTOAdmin);
+        createUser.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 //    /**
