@@ -40,7 +40,7 @@
                       <Component id="txtCloseSesion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="375" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="403" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -94,7 +94,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="txtCloseSesion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
+        <Property name="text" type="java.lang.String" value="Signout"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCloseSesionActionPerformed"/>

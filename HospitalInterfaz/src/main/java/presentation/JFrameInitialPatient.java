@@ -93,7 +93,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Welcome");
 
-        txtCloseSesion.setText("Cerrar Sesion");
+        txtCloseSesion.setText("Signout");
         txtCloseSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCloseSesionActionPerformed(evt);
@@ -136,7 +136,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                         .addComponent(txtCloseSesion)
                         .addGap(244, 244, 244)
                         .addComponent(jLabel2)
-                        .addGap(0, 375, Short.MAX_VALUE))
+                        .addGap(0, 403, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -271,7 +271,6 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableAppointment;
     private javax.swing.JButton txtCloseSesion;
     // End of variables declaration//GEN-END:variables
