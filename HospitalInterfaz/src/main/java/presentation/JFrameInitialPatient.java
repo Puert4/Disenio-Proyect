@@ -28,23 +28,23 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
      */
     public JFrameInitialPatient(Long idPatient) {
         this.idPatient = idPatient;
-        
-        DefaultTableModel tblModel = (DefaultTableModel) jTableAppointment.getModel();
-        
+
+        //   DefaultTableModel tblModel = (DefaultTableModel) jTableAppointment.getModel();
         initComponents();
         IPatientDAO patientSystem = Factory.getPatientDAO();
         paciente = patientSystem.EntityToDto(patientSystem.serachPatientById(idPatient));
+        cargarCitasPaciente();
     }
-    
-      private void cargarCitasPaciente() {
+
+    private void cargarCitasPaciente() {
         DefaultTableModel tblModel = (DefaultTableModel) jTableAppointment.getModel();
         tblModel.setRowCount(0); // Limpiar la tabla antes de cargar los nuevos datos
-        
+
         // Obtener las citas asociadas al paciente por su ID
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
-        
+
         List<ExistentAppointmentDTO> appointments = appointmentManager.findAppointmentsByPatientId(idPatient);
-        
+
         // Llenar la tabla con los datos de las citas
         for (ExistentAppointmentDTO appointment : appointments) {
             tblModel.addRow(new Object[]{
