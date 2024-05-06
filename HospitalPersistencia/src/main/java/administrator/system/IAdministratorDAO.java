@@ -1,6 +1,7 @@
 package administrator.system;
 
 import JPAEntities.AdministratorEntity;
+import JPAEntities.UserAdministrator;
 
 /**
  *
@@ -16,4 +17,6 @@ public interface IAdministratorDAO {
     
      public AdministratorEntity searchAdministratorByName(String names);
 
+     public UserAdministrator findAdministratorById(Long id);
+     
 }

@@ -2,6 +2,7 @@ package administrator.system;
 
 import JPAEntities.AdministratorEntity;
 import JPAEntities.PatientEntity;
+import JPAEntities.UserAdministrator;
 import connection.ConnectionDB;
 import connection.IConnectionDB;
 import java.util.logging.Level;
@@ -58,6 +59,13 @@ public class AdministratorDAO implements IAdministratorDAO {
         return administratorDTO;
     }
 
+    @Override
+    public UserAdministrator findAdministratorById(Long id){
+        
+        return em.find(UserAdministrator.class, id);
+        
+    }
+    
     @Override
     public AdministratorEntity searchAdministratorByName(String names) {
 

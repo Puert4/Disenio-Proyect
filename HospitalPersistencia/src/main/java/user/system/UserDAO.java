@@ -171,6 +171,36 @@ public class UserDAO implements IUserDAO {
 //            emf.close();
         }
     }
+    
+    @Override
+    public UserEntity findUserByUserPassword(String user, String password) {
+
+        try {
+
+            TypedQuery<UserEntity> consultUser = em.createQuery("SELECT u FROM UserEntity u WHERE u.user = :user", UserEntity.class);
+            consultUser.setParameter("user", user);
+
+            UserEntity userEntity = consultUser.getSingleResult();
+
+            if (userEntity != null && userEntity.getPassword().equals(password)) {
+                LOGGER.log(Level.INFO, "Usuario no existe");
+
+                return userEntity;
+            } else {
+                LOGGER.log(Level.INFO, "Contraseña Inválida o Usuario Inexistente");
+                return null;
+            }
+        } catch (NoResultException e) {
+            LOGGER.log(Level.INFO, "Usuario Inválido o Inexistente");
+            return null;
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Error al validar", e);
+            return null;
+        } finally {
+//            em.close();
+//            emf.close();
+        }
+    }
 
     @Override
     public String getUserTypeByUserAndPassword(String user, String password) {

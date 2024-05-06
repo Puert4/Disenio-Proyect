@@ -22,6 +22,8 @@ public interface IUserDAO {
 
     public Long validateUser(String user, String password);
 
+    public UserEntity findUserByUserPassword(String user, String password);
+    
     public String getUserTypeByUserAndPassword(String user, String password);
 
     public boolean userExist(String user);
