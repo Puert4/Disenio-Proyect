@@ -8,10 +8,6 @@ import javax.swing.JOptionPane;
 import loginManager.ILogIn;
 import user.system.IUserDAO;
 
-/**
- *
- * @author TeLesheo
- */
 public class JFrameLogin extends javax.swing.JFrame {
 
     /**

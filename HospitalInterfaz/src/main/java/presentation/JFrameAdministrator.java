@@ -1,20 +1,14 @@
 package presentation;
 
-import JPAEntities.AdministratorEntity;
 import JPAEntities.UserAdministrator;
 import JPAEntities.UserEntity;
-import administrator.system.AdministratorDAO;
 import administrator.system.IAdministratorDAO;
 import administrator.system.newAdministratorDTO;
 import factory.Factory;
 import user.system.IUserDAO;
 import user.system.NewUserDTO;
-import user.system.UserDAO;
 
-/**
- *
- * @author TeLesheo
- */
+
 public class JFrameAdministrator extends javax.swing.JFrame {
 
     private NewUserDTO userDTOAdmin;

@@ -1,23 +1,10 @@
 package presentation;
 
-//import factory.Factory;
 import factory.Factory;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import patient.system.IPatientDAO;
-import patient.system.NewPatientDTO;
 import user.system.IUserDAO;
 import user.system.NewUserDTO;
-//import patient.system.IPatientDAO;
-//import patient.system.NewPatientDTO;
-//import user.system.IUserDAO;
-//import user.system.NewUserDTO;
 
-/**
- *
- * @author TeLesheo
- */
 public class JFrameCreateUser extends javax.swing.JFrame {
 
     private NewUserDTO userDTOAdmin;
@@ -194,34 +181,24 @@ public class JFrameCreateUser extends javax.swing.JFrame {
                 this.dispose();
 
             } else {
-
                 JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO, userDTOAdmin);
                 frameRegisterPatient.setVisible(true);
                 this.dispose();
-
             }
-
         }
-
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-
         if (userDTOAdmin == null) {
-
             JFrameLogin login = new JFrameLogin();
             login.setVisible(true);
             this.dispose();
-
         } else {
-
             JFrameAdministrator frameAdministrator = new JFrameAdministrator(userDTOAdmin.getUser(), userDTOAdmin.getPassword());
             frameAdministrator.setVisible(true);
             this.dispose();
-
         }
-
     }//GEN-LAST:event_btnCancelActionPerformed
 
 //    /**

@@ -3,40 +3,22 @@ package presentation;
 import JPAEntities.DoctorEntity;
 import JPAEntities.PatientEntity;
 import JPAEntities.Specialization;
-import appointment.system.AppointmentManager;
 import appointment.system.AppointmentStatus;
 import appointment.system.IAppointmentManager;
 import appointment.system.NewAppointmentDTO;
-import com.toedter.calendar.JDateChooser;
-import com.toedter.calendar.JDateChooserCellEditor;
-import com.toedter.calendar.JDayChooser;
 import doctor.system.ExistentDoctorDTO;
 import doctor.system.IDoctorDAO;
-import doctor.system.NewDoctorDTO;
 import factory.Factory;
-import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
 import patient.system.ExistentPatientDTO;
 import com.toedter.calendar.JDateChooser;
-import com.toedter.calendar.JDateChooserCellEditor;
 import patient.system.IPatientDAO;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author TeLesheo
- */
 public class JFrameRegisterAppointment extends javax.swing.JFrame {
 
     private ExistentPatientDTO paciente;
@@ -47,12 +29,8 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
     private JDateChooser dateChooser;
     private List<Calendar> limitDays;
 
-//    private JDateChooser dateChooser;
-    /**
-     * Creates new form ConfirmaciondeCita
-     */
-    public JFrameRegisterAppointment(NewAppointmentDTO appointmentDTO, ExistentDoctorDTO doctorDTO){
-        
+    public JFrameRegisterAppointment(NewAppointmentDTO appointmentDTO, ExistentDoctorDTO doctorDTO) {
+
         this.doctorP1 = doctorDTO;
         initComponents();
         dateChooser();
@@ -60,10 +38,10 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         txtNota.setText(appointmentDTO.getNote());
         cmbDoctor.setSelectedItem(appointmentDTO.getPatient());
         dateChooser.setCalendar(appointmentDTO.getAppointmentDate());
-        
+
     }
-    
-    public JFrameRegisterAppointment(NewAppointmentDTO appointmentDTO, ExistentPatientDTO patientDTO){
+
+    public JFrameRegisterAppointment(NewAppointmentDTO appointmentDTO, ExistentPatientDTO patientDTO) {
         this.paciente = patientDTO;
         initComponents();
         dateChooser();
@@ -72,9 +50,9 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         cbxSpecialization.setSelectedItem(appointmentDTO.getDoctor().getSpecialization());
         cmbDoctor.setSelectedItem(appointmentDTO.getDoctor());
         dateChooser.setCalendar(appointmentDTO.getAppointmentDate());
-        
+
     }
-    
+
     public JFrameRegisterAppointment(ExistentPatientDTO paciente) {
         this.paciente = paciente;
         initComponents();
@@ -82,7 +60,7 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         limitarFecha();
         limitDays = new ArrayList<>();
     }
-    
+
     public JFrameRegisterAppointment(ExistentDoctorDTO doctor) {
         this.doctorP1 = doctor;
         initComponents();
@@ -95,8 +73,8 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         patientList();
     }
 
-    public void patientList(){
-        
+    public void patientList() {
+
         IPatientDAO patientDAO = Factory.getPatientDAO();
         List<ExistentPatientDTO> patientList = patientDAO.findAllPatient();
         cmbDoctor.removeAllItems();
@@ -106,11 +84,9 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
             model.addElement(patient);
         }
         this.cmbDoctor.setVisible(true);
-                
-                
+
     }
-    
-    
+
     public void dateChooser() {
 
         dateChooser = new JDateChooser();
@@ -294,10 +270,9 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
                 }
             }
         }
-//        Calendar calendar = Calendar.getInstance();
 
-        if(doctorP1 == null){
-            
+        if (doctorP1 == null) {
+
             NewAppointmentDTO newAppointmentDTO = new NewAppointmentDTO();
             newAppointmentDTO.setDoctor(existentDoctorDTO);
             newAppointmentDTO.setPatient(paciente);
@@ -308,60 +283,52 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
             JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(newAppointmentDTO, paciente);
             confirm.setVisible(true);
             this.dispose();
-            
-        }else{
-            
+
+        } else {
+
             NewAppointmentDTO newAppointmentDTO = new NewAppointmentDTO();
             newAppointmentDTO.setDoctor(doctorP1);
             newAppointmentDTO.setPatient(existentPateintDTO);
             newAppointmentDTO.setStatus(AppointmentStatus.ACTIVE);
             newAppointmentDTO.setAppointmentDate(dateChooser.getCalendar());
             newAppointmentDTO.setNote(txtNota.getText());
-            
+
             JFrameConfirmAppointment confirm = new JFrameConfirmAppointment(newAppointmentDTO, doctorP1);
             confirm.setVisible(true);
             this.dispose();
-            
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-            if(doctorP1 == null){
-                
-                JFrameInitialPatient pat = new JFrameInitialPatient(paciente.getId());
-                pat.setVisible(true);
-                this.dispose();
-                
-            }else{
-                
-                JFrameInitialMedicos medic = new JFrameInitialMedicos(doctorP1.getId());
-                medic.setVisible(true);
-                this.dispose();
-                
-            }
+        if (doctorP1 == null) {
+
+            JFrameInitialPatient pat = new JFrameInitialPatient(paciente.getId());
+            pat.setVisible(true);
+            this.dispose();
+
+        } else {
+
+            JFrameInitialMedicos medic = new JFrameInitialMedicos(doctorP1.getId());
+            medic.setVisible(true);
+            this.dispose();
+
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void cmbDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDoctorActionPerformed
-        // TODO add your handling code here:
 
-//        limitDays = 
-        if(doctorP1 == null){
-            
+        if (doctorP1 == null) {
             existentDoctorDTO = (ExistentDoctorDTO) cmbDoctor.getSelectedItem();
-        
-        }else{
-            
+        } else {
             existentPateintDTO = (ExistentPatientDTO) cmbDoctor.getSelectedItem();
-            
         }
-
     }//GEN-LAST:event_cmbDoctorActionPerformed
 
     private void cbxSpecializationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSpecializationActionPerformed
-        // TODO add your handling code here:
-        if(doctorP1 == null){
-            
+
+        if (doctorP1 == null) {
             Specialization specializationEnum = Specialization.PEDIATRIC;
             IDoctorDAO doctorDAO = Factory.getDoctorDAO();
 
@@ -374,72 +341,43 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
                 model.addElement(doctor);
             }
             this.cmbDoctor.setVisible(true);
-            
         }
-
     }//GEN-LAST:event_cbxSpecializationActionPerformed
 
     public void limitDays() {
 
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
-        if(doctorP1 == null){
-            
+        if (doctorP1 == null) {
             IDoctorDAO doctorDAO = Factory.getDoctorDAO();
             ExistentDoctorDTO existentDoctor = (ExistentDoctorDTO) cmbDoctor.getSelectedItem();
             DoctorEntity doctorEntity = doctorDAO.ExistentDtoToEntity(existentDoctor);
             if (appointmentManager.findLimitDays(doctorEntity) != null) {
-
                 limitDays = appointmentManager.findLimitDays(doctorEntity);
             }
-            
-        }else{
-            
+        } else {
             IPatientDAO patientDAO = Factory.getPatientDAO();
             ExistentPatientDTO existentPatientDTO = (ExistentPatientDTO) cmbDoctor.getSelectedItem();
             PatientEntity patientEntity = patientDAO.findPatient(existentPatientDTO.getId());
-            if(appointmentManager.findLimitDays(patientEntity) != null){
-                
+            if (appointmentManager.findLimitDays(patientEntity) != null) {
                 limitDays = appointmentManager.findLimitDays(patientEntity);
-                
             }
-            
         }
     }
 
     private void cmbDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbDoctorMouseClicked
         // TODO add your handling code 
-       if(doctorP1 == null){
-           
+        if (doctorP1 == null) {
             if (cmbDoctor.getSize() != null) {
                 limitDays();
             }
-           
-       }
+        }
     }//GEN-LAST:event_cmbDoctorMouseClicked
 
     private void txtNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNotaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNotaActionPerformed
 
-//    private void crearDateChooser() {
-//
-////        dateChooser = new JDateChooser();
-////        dateChooser.setBounds(171, 143, 142, 26);
-////        add(dateChooser);
-//    }
-    public void deleteDaysApart() {
-//        JDateChooser ola = new JDateChooser();
-//         DateCellEditor cellEditor = new JDateChooserCellEditor(dateChooser);
-//        cellEditor.setSelectableDates(date -> !disabledDates.contains(date)); // Deshabilitar fechas en la lista
-//
-//        // Establecer el DateCellEditor personalizado en el JDateChooser
-//        dateChooser.setDateFormatString("dd-MM-yyyy");
-//        dateChooser.setCellEditor(cellEditor);
-
-    }
-
     public void limitarFecha() {
-//        dateChooser.remove(2);
         Calendar fechaMinima = Calendar.getInstance();
         fechaMinima.set(Calendar.DATE, 1);
         Date minimo = fechaMinima.getTime();

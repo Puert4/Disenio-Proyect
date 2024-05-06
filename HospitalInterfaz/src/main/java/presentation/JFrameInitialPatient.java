@@ -10,15 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import patient.system.ExistentPatientDTO;
 import patient.system.IPatientDAO;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author daani
- */
+
 public class JFrameInitialPatient extends javax.swing.JFrame {
 
     private final Long idPatient;
@@ -31,7 +23,6 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     public JFrameInitialPatient(Long idPatient) {
         this.idPatient = idPatient;
 
-        //   DefaultTableModel tblModel = (DefaultTableModel) jTableAppointment.getModel();
         initComponents();
         IPatientDAO patientSystem = Factory.getPatientDAO();
         paciente = patientSystem.EntityToDto(patientSystem.serachPatientById(idPatient));
@@ -178,38 +169,13 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 // Asegurarse de que la fila seleccionada esté dentro de los límites
         if (selectedIndex >= 0 && selectedIndex < listaDeLongs.size()) {
             Long valorCorrespondiente = listaDeLongs.get(selectedIndex);
-        
+
             boolean deleted = appointmentManager.cancelAppointment(valorCorrespondiente);
             JOptionPane.showMessageDialog(this, "The appointment has been Successfully removed", "Success", JOptionPane.INFORMATION_MESSAGE);
             cargarCitasPaciente();
         } else {
             JOptionPane.showMessageDialog(null, "Index not valid", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        /*
-        
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Por favor, selecciona una cita para eliminarla.", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            Object appointmentIdObj = jTableAppointment.getValueAt(selectedRow, 0);
-            if (appointmentIdObj instanceof Long) {
-                Long appointmentId = (Long) appointmentIdObj;
-
-                // Llamando al método para eliminar la cita
-                IAppointmentManager appointmentManager = Factory.getAppointmentManager();
-                boolean deleted = appointmentManager.cancelAppointment(appointmentId);
-
-                if (deleted) {
-                    // Si se elimina correctamente, actualiza la tabla
-                    cargarCitasPaciente();
-                    JOptionPane.showMessageDialog(this, "La cita se eliminó correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(this, "No se pudo eliminar la cita.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Error al obtener el ID de la cita.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-         */
     }//GEN-LAST:event_btn_cancelAppointmentActionPerformed
 
     private void txtCloseSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCloseSesionActionPerformed

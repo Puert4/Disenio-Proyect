@@ -2,8 +2,6 @@ package presentation;
 
 import com.toedter.calendar.JDateChooser;
 import factory.Factory;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
@@ -14,10 +12,6 @@ import patient.system.NewPatientDTO;
 import user.system.IUserDAO;
 import user.system.NewUserDTO;
 
-/**
- *
- * @author TeLesheo
- */
 public class JFrameRegisterPatient extends javax.swing.JFrame {
 
     private NewUserDTO userDTO;
@@ -55,17 +49,13 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
     }
 
     public void limitarFecha() {
-//        dateChooser.remove(2);
         Calendar fechaMinima = Calendar.getInstance();
         fechaMinima.set(Calendar.YEAR, -18);
         Date minimo = fechaMinima.getTime();
-
         Calendar fechaMaxima = Calendar.getInstance();
         fechaMaxima.add(Calendar.DATE, -1);
         Date maximo = fechaMaxima.getTime();
-
         dateChooser.setSelectableDateRange(minimo, maximo);
-
     }
 
     /**
@@ -442,7 +432,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
 
             try {
                 //Creamos paciente nuevo
-
                 IPatientDAO patientSystem = Factory.getPatientDAO();
                 patientSystem.registerPatient(newPatientDTO);
 
@@ -455,21 +444,15 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
             }
 
             if (userDTOAdmin == null) {
-
                 JFrameLogin frameLogin = new JFrameLogin();
                 frameLogin.setVisible(true);
                 this.dispose();
-
             } else {
-
                 JFrameAdministrator admin = new JFrameAdministrator(userDTOAdmin.getUser(), userDTOAdmin.getPassword());
                 admin.setVisible(true);
                 this.dispose();
-
             }
-
         }
-
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -478,11 +461,9 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
 
     private void cbxMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMaleActionPerformed
         // TODO add your handling code here:
-
         cbxFamele.setSelected(false);
         cbxOther.setSelected(false);
         txtOther.setEditable(false);
-
     }//GEN-LAST:event_cbxMaleActionPerformed
 
     private void cbxFameleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxFameleActionPerformed
@@ -496,11 +477,9 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
 
     private void cbxOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxOtherActionPerformed
         // TODO add your handling code here:
-
         cbxMale.setSelected(false);
         cbxFamele.setSelected(false);
         txtOther.setEditable(true);
-
     }//GEN-LAST:event_cbxOtherActionPerformed
 
     private void txtStreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStreetActionPerformed

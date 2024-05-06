@@ -9,17 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import user.system.IUserDAO;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author Telesheo
- */
+
 public class JFrameInitialMedicos extends javax.swing.JFrame {
 
     private Long idDoctor;
@@ -156,16 +147,13 @@ public class JFrameInitialMedicos extends javax.swing.JFrame {
 
     private void jTableAppointmentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAppointmentMouseClicked
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jTableAppointmentMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-
             JFrameRegisterAppointment frameRegisterAppointment = new JFrameRegisterAppointment(existentDoctor);
             frameRegisterAppointment.setVisible(true);
             this.dispose();
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

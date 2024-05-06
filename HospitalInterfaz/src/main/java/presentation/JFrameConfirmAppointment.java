@@ -7,21 +7,8 @@ import factory.Factory;
 import java.util.Calendar;
 import patient.system.ExistentPatientDTO;
 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author daani
- */
 public class JFrameConfirmAppointment extends javax.swing.JFrame {
 
-//    private final IControl control;
-//    private final Long idPatient;
-    //   private ExistentPatientDTO paciente;
     private NewAppointmentDTO newAppointmentDTO;
     private ExistentPatientDTO patientDTO;
     private ExistentDoctorDTO doctorDTO;
@@ -30,8 +17,6 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
      * Creates new form AgendarCita
      */
     public JFrameConfirmAppointment(NewAppointmentDTO newAppointmentDTO, ExistentPatientDTO patientDTO) {
-//        this.control = control;
-//        this.idPatient = idPatient;
         this.patientDTO = patientDTO;
         this.newAppointmentDTO = newAppointmentDTO;
 
@@ -43,10 +28,9 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         this.lblSpecialitazion.setText(newAppointmentDTO.getDoctor().getSpecialization().toString());
         this.lblNote.setText(newAppointmentDTO.getNote());
     }
-    
+
     public JFrameConfirmAppointment(NewAppointmentDTO newAppointmentDTO, ExistentDoctorDTO doctorDTO) {
-//        this.control = control;
-//        this.idPatient = idPatient;
+
         this.doctorDTO = doctorDTO;
         this.newAppointmentDTO = newAppointmentDTO;
 
@@ -132,43 +116,33 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
-        if(doctorDTO == null){
-            
+        if (doctorDTO == null) {
+
             JFrameRegisterAppointment register = new JFrameRegisterAppointment(newAppointmentDTO, patientDTO);
             register.setVisible(true);
             this.dispose();
-            
-        }else{
-            
+        } else {
             JFrameRegisterAppointment register = new JFrameRegisterAppointment(newAppointmentDTO, doctorDTO);
             register.setVisible(true);
             this.dispose();
-            
         }
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
-
-        //    JFrameInitialPatient menu = new JFrameInitialPatient(control, idPatient);
-        //     menu.setVisible(true);
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
         appointmentManager.createAppointment(newAppointmentDTO);
 
-        if(doctorDTO == null){
-            
+        if (doctorDTO == null) {
             JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(newAppointmentDTO.getPatient().getId());
             frameInitialPatient.setVisible(true);
             this.dispose();
-            
-        }else{
-            
+
+        } else {
             JFrameInitialMedicos medic = new JFrameInitialMedicos(doctorDTO.getId());
             medic.setVisible(true);
             this.dispose();
-            
         }
-
     }//GEN-LAST:event_btnConfirmActionPerformed
 
 //    /**
