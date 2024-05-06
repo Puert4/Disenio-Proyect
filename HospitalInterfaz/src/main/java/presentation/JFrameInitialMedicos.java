@@ -5,7 +5,6 @@ package presentation;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author daani
@@ -142,7 +141,7 @@ public class JFrameInitialMedicos extends javax.swing.JFrame {
 
     private void tbUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbUsuariosMouseClicked
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_tbUsuariosMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -191,7 +190,6 @@ public class JFrameInitialMedicos extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

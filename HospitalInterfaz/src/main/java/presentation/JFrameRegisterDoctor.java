@@ -14,14 +14,14 @@ import user.system.NewUserDTO;
 public class JFrameRegisterDoctor extends javax.swing.JFrame {
 
     private NewUserDTO userDTOAdmin;
-    
+
     /**
      * Creates new form JFrameRegisterDoctor
      */
     public JFrameRegisterDoctor(NewUserDTO userDTOAdmin) {
         initComponents();
         this.userDTOAdmin = userDTOAdmin;
-        
+
     }
 
     /**
@@ -278,7 +278,6 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
 //        this.pack();
 //        this.setVisible(true);
 //    }
-
     private void btnConfirm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirm1ActionPerformed
         // TODO add your handling code here:
 
@@ -306,16 +305,14 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
             doctorDTO.setSpecialization(specialization);
 
             IDoctorDAO doctorDAO = Factory.getDoctorDAO();
-            
 
             IUserDAO userDAO = Factory.getUserDAO();
-            
-            if(userDAO.userExist(user)){
+
+            if (userDAO.userExist(user)) {
 
                 JOptionPane.showMessageDialog(this, "The username is already in use");
-                
 
-            }else{
+            } else {
                 doctorDAO.registerDoctor(doctorDTO);
                 NewUserDTO userDTO = new NewUserDTO(user, password, doctorDTO);
                 userDAO.registerDoctorUser(doctorDTO, userDTO);
@@ -324,10 +321,8 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
                 this.dispose();
 
             }
-            
 
         }
-
 
     }//GEN-LAST:event_btnConfirm1ActionPerformed
 
@@ -351,7 +346,6 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
         //        }
 
 //        comboBox.get
-
     }//GEN-LAST:event_comboBoxActionPerformed
 
 //    /**
@@ -420,7 +414,6 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
 //            }
 //        });
 //    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnConfirm1;

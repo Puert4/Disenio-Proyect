@@ -56,8 +56,6 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         limitDays = new ArrayList<>();
     }
 
-    
-    
     public void dateChooser() {
 
         dateChooser = new JDateChooser();
@@ -286,7 +284,6 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
         }
         this.cmbDoctor.setVisible(true);
 
-
     }//GEN-LAST:event_cbxSpecializationActionPerformed
 
     public void limitDays() {
@@ -382,7 +379,6 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
 //            }
 //        });
 //    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbxSpecialization;
     private javax.swing.JComboBox<String> cmbDoctor;

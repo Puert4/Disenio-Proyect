@@ -42,8 +42,4 @@ public class UserAdministrator extends UserEntity implements Serializable {
         this.administrator = administrator;
     }
 
-
-
-
-
 }

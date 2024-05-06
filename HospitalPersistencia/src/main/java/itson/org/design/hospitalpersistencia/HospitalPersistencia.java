@@ -1,10 +1,12 @@
 package itson.org.design.hospitalpersistencia;
 
+import JPAEntities.AppointmentEntity;
 import JPAEntities.DoctorEntity;
 import JPAEntities.PatientEntity;
 import JPAEntities.Specialization;
 import administrator.system.IAdministratorDAO;
 import administrator.system.newAdministratorDTO;
+import appointment.system.AppointmentManager;
 import appointment.system.AppointmentStatus;
 import appointment.system.IAppointmentManager;
 import appointment.system.NewAppointmentDTO;
@@ -201,8 +203,7 @@ public class HospitalPersistencia {
         doctorDAO.registerDoctor(doctorDTO5);
 
          */
-        
-        /*
+ /*
         IDoctorDAO doctorDAO = Factory.getDoctorDAO();
         List<ExistentDoctorDTO> doctores;
         doctores = doctorDAO.searchBySpecialization(Specialization.FAMILY); // Pasar la enumeración Specialization en lugar de una cadena de texto
@@ -217,7 +218,19 @@ public class HospitalPersistencia {
             System.out.println("----------------------------------");
         }
 
-*/
-
+         */
+ 
+  AppointmentManager appointmentManager = AppointmentManager.getInstance();
+        
+        // Supongamos que tienes el ID del paciente
+        Long patientId = 1L; // Reemplaza con el ID del paciente deseado
+        
+        List<AppointmentEntity> appointments = appointmentManager.findAppointmentsByPatientId(patientId);
+        
+        // Mostrar citas encontradas
+        System.out.println("Citas asociadas al paciente con ID " + patientId + ":");
+        for (AppointmentEntity appointment : appointments) {
+            System.out.println(appointment);
+        }
     }
 }

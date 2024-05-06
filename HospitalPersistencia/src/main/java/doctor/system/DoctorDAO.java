@@ -44,8 +44,8 @@ public class DoctorDAO implements IDoctorDAO {
 //        emf.close();
     }
 
-    public Specialization setSpecilaization(String string){
-        
+    public Specialization setSpecilaization(String string) {
+
         return switch (string) {
             case "PEDIATRIC" ->
                 Specialization.PEDIATRIC;
@@ -62,9 +62,9 @@ public class DoctorDAO implements IDoctorDAO {
             default ->
                 null;
         };
-    
+
     }
-    
+
     @Override
     public DoctorEntity DtoToEntity(NewDoctorDTO doctorDTO) {
 
@@ -77,7 +77,7 @@ public class DoctorDAO implements IDoctorDAO {
 
         return doctor;
     }
-    
+
     @Override
     public DoctorEntity ExistentDtoToEntity(ExistentDoctorDTO existentDoctorDTO) {
 
@@ -119,7 +119,7 @@ public class DoctorDAO implements IDoctorDAO {
         return new DoctorDAO() {
         };
     }
-    
+
     @Override
     public List<ExistentDoctorDTO> searchBySpecialization(Specialization specialization) {
         List<ExistentDoctorDTO> doctorsDTO = new ArrayList<>();

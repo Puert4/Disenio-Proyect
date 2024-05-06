@@ -14,7 +14,7 @@ public class Registro extends javax.swing.JFrame {
      * Creates new form Registro
      */
     public Registro() {
-         initComponents();
+        initComponents();
         this.setTitle("Registro Medicos");
     }
 
@@ -351,7 +351,6 @@ public class Registro extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CampoUsuario;
     private javax.swing.JTextField CampoUsuario1;

@@ -20,15 +20,15 @@ public class PatientDAO implements IPatientDAO {
     private static final Logger LOGGER = Logger.getLogger(PatientDAO.class.getName());
     private EntityManagerFactory emf;
     private EntityManager em;
-    
-    public PatientDAO(){   
-        
+
+    public PatientDAO() {
+
         IConnectionDB connection = new ConnectionDB();
         emf = connection.createConnection();
         em = emf.createEntityManager();
-        
+
     }
-    
+
     @Override
     public void registerPatient(NewPatientDTO newPatientDTO) {
         PatientEntity patient = DtoToEntity(newPatientDTO);
@@ -46,7 +46,7 @@ public class PatientDAO implements IPatientDAO {
         try {
             // Consulta el paciente por su ID
             return em.find(PatientEntity.class, idPatient);
-            
+
         } catch (NoResultException e) {
             LOGGER.log(Level.INFO, "No se encontró ningún paciente con el ID especificado.");
             return null;

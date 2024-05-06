@@ -116,17 +116,17 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public boolean userExist(String user) {
-    
+
         try {
-            
+
             TypedQuery<UserEntity> consultUser = em.createQuery("SELECT u FROM UserEntity u WHERE u.user = :user", UserEntity.class);
             consultUser.setParameter("user", user);
             List<UserEntity> resultList = consultUser.getResultList();
-            
+
             int inUse = resultList.size();
-            
-            if (inUse > 0){
-                
+
+            if (inUse > 0) {
+
                 return true;
             } else {
                 return false;
@@ -139,9 +139,9 @@ public class UserDAO implements IUserDAO {
 //            em.close();
 //            emf.close();
         }
-        
+
     }
-    
+
     @Override
     public Long validateUser(String user, String password) {
 
@@ -171,7 +171,7 @@ public class UserDAO implements IUserDAO {
 //            emf.close();
         }
     }
-    
+
     @Override
     public UserEntity findUserByUserPassword(String user, String password) {
 

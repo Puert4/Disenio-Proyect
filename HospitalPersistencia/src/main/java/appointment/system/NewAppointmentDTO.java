@@ -19,13 +19,6 @@ public class NewAppointmentDTO {
     public NewAppointmentDTO() {
     }
 
-    public NewAppointmentDTO(ExistentDoctorDTO doctor, ExistentPatientDTO patient, Calendar appointmentDate, AppointmentStatus status) {
-        this.doctor = doctor;
-        this.patient = patient;
-        this.appointmentDate = appointmentDate;
-        this.status = status;
-    }
-
     public NewAppointmentDTO(ExistentDoctorDTO doctor, ExistentPatientDTO patient, Calendar appointmentDate, AppointmentStatus status, String note) {
         this.doctor = doctor;
         this.patient = patient;

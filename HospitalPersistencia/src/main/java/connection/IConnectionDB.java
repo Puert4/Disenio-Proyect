@@ -11,7 +11,7 @@ import javax.persistence.EntityManagerFactory;
  * @author Laboratorios
  */
 public interface IConnectionDB {
-    
+
     public EntityManagerFactory createConnection();
-    
+
 }

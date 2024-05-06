@@ -23,7 +23,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
     private NewUserDTO userDTO;
     private NewUserDTO userDTOAdmin;
     private JDateChooser dateChooser;
-    
+
     /**
      * Creates new form RegistroPaciente
      */
@@ -34,18 +34,18 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         dateChooser();
         this.setTitle("Registro Paciente");
     }
-    
-    public JFrameRegisterPatient(NewUserDTO userDTO, NewUserDTO userDTOAdmin){
-        
+
+    public JFrameRegisterPatient(NewUserDTO userDTO, NewUserDTO userDTOAdmin) {
+
         initComponents();
         txtOther.setEditable(false);
         this.userDTO = userDTO;
         dateChooser();
         this.setTitle("Registro Paciente");
         this.userDTOAdmin = userDTOAdmin;
-        
+
     }
-    
+
     public void dateChooser() {
 
         this.dateChooser = new JDateChooser();
@@ -67,7 +67,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         dateChooser.setSelectableDateRange(minimo, maximo);
 
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -273,11 +273,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                     .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(FondoPanelLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(FondoPanelLayout.createSequentialGroup()
-                                .addGap(220, 220, 220)
-                                .addComponent(Usuario5))))
+                        .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(FondoPanelLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(Usuario)
@@ -294,18 +290,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                         .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Usuario8)
                             .addComponent(txtSecurityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(FondoPanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(Usuario9)
-                        .addGap(407, 407, 407)
-                        .addComponent(Usuario7))
-                    .addGroup(FondoPanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(txtColony, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(FondoPanelLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(Usuario6)
@@ -327,19 +311,30 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addComponent(txtSecondName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
-                        .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FondoPanelLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Usuario9))
+                        .addGap(40, 40, 40)
+                        .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(FondoPanelLayout.createSequentialGroup()
+                                .addComponent(Usuario5)
+                                .addGap(193, 193, 193)
+                                .addComponent(Usuario7))
+                            .addGroup(FondoPanelLayout.createSequentialGroup()
+                                .addComponent(txtColony, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)
+                                .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
         FondoPanelLayout.setVerticalGroup(
             FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoPanelLayout.createSequentialGroup()
                 .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FondoPanelLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(Iniciar_Sesion))
-                    .addComponent(Usuario5))
+                .addGap(30, 30, 30)
+                .addComponent(Iniciar_Sesion)
                 .addGap(3, 3, 3)
                 .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Usuario13)
@@ -365,7 +360,9 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                         .addComponent(txtSecurityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
                 .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Usuario9)
+                    .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Usuario9)
+                        .addComponent(Usuario5))
                     .addComponent(Usuario7))
                 .addGap(1, 1, 1)
                 .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,11 +373,14 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                 .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Usuario6)
                     .addComponent(Usuario3))
-                .addGap(1, 1, 1)
                 .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCurp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
+                    .addGroup(FondoPanelLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(txtCurp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FondoPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(61, 61, 61)
                 .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -392,7 +392,10 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(FondoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -425,45 +428,44 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
 
         if (names.isEmpty() || firstName.isEmpty() || secondName.isEmpty() || colony.isEmpty()
                 || zipCodeS.isEmpty() || curp.isEmpty() || phone.isEmpty() || socialNumber.isEmpty()
-                || street.isEmpty() || sex.isEmpty() || birthDate == null){
+                || street.isEmpty() || sex.isEmpty() || birthDate == null) {
             JOptionPane.showMessageDialog(null, "Favor de llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
-        }else{
-            
+        } else {
+
             int zipCode = Integer.parseInt(zipCodeS);
-        NewPatientDTO newPatientDTO = new NewPatientDTO(
-                names, firstName, secondName, birthDate, sex, curp, socialNumber, phone, street, colony, zipCode
-        );
+            NewPatientDTO newPatientDTO = new NewPatientDTO(
+                    names, firstName, secondName, birthDate, sex, curp, socialNumber, phone, street, colony, zipCode
+            );
 
-        try {
-            //Creamos paciente nuevo
+            try {
+                //Creamos paciente nuevo
 
-            IPatientDAO patientSystem = Factory.getPatientDAO();
-            patientSystem.registerPatient(newPatientDTO);
+                IPatientDAO patientSystem = Factory.getPatientDAO();
+                patientSystem.registerPatient(newPatientDTO);
 
-            IUserDAO userSystem = Factory.getUserDAO();
-            userDTO.setPatientDTO(newPatientDTO);
-            userSystem.registerUser(userDTO);
+                IUserDAO userSystem = Factory.getUserDAO();
+                userDTO.setPatientDTO(newPatientDTO);
+                userSystem.registerUser(userDTO);
 
-        } catch (Exception ex) {
-            Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
-        }
-        
-            if(userDTOAdmin == null){
-                
+            } catch (Exception ex) {
+                Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
+            }
+
+            if (userDTOAdmin == null) {
+
                 JFrameLogin frameLogin = new JFrameLogin();
                 frameLogin.setVisible(true);
                 this.dispose();
-                
-            } else{
-                
+
+            } else {
+
                 JFrameAdministrator admin = new JFrameAdministrator(userDTOAdmin.getUser(), userDTOAdmin.getPassword());
                 admin.setVisible(true);
                 this.dispose();
-                
+
             }
-            
+
         }
-        
 
     }//GEN-LAST:event_btnAceptarActionPerformed
 

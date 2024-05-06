@@ -15,16 +15,17 @@ public class ExistentAppointmentDTO {
     private ExistentPatientDTO patient;
     private Calendar appointmentDate;
     private AppointmentStatus status;
+    private String note;
 
     public ExistentAppointmentDTO() {
     }
 
-    public ExistentAppointmentDTO(Long id, ExistentDoctorDTO doctor, ExistentPatientDTO patient, Calendar appointmentDate, AppointmentStatus status) {
-        this.id = id;
+    public ExistentAppointmentDTO(ExistentDoctorDTO doctor, ExistentPatientDTO patient, Calendar appointmentDate, AppointmentStatus status, String note) {
         this.doctor = doctor;
         this.patient = patient;
         this.appointmentDate = appointmentDate;
         this.status = status;
+        this.note = note;
     }
 
     public Long getId() {
@@ -65,6 +66,14 @@ public class ExistentAppointmentDTO {
 
     public void setStatus(AppointmentStatus status) {
         this.status = status;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
 }

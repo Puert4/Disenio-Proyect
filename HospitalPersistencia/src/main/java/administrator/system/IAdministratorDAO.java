@@ -14,9 +14,9 @@ public interface IAdministratorDAO {
     public AdministratorEntity DtoToEntity(newAdministratorDTO administratorDTO);
 
     public ExistentAdministratorDTO EntityToDto(AdministratorEntity administrator);
-    
-     public AdministratorEntity searchAdministratorByName(String names);
 
-     public UserAdministrator findAdministratorById(Long id);
-     
+    public AdministratorEntity searchAdministratorByName(String names);
+
+    public UserAdministrator findAdministratorById(Long id);
+
 }

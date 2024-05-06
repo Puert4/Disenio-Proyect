@@ -114,6 +114,4 @@ public class DoctorEntity implements Serializable {
         return "DoctorEntity{" + "id=" + id + ", names=" + names + ", firstLastName=" + firstLastName + ", secondLastName=" + secondLastName + ", specialization=" + specialization + ", medicalCart=" + medicalCart + '}';
     }
 
-    
-    
 }

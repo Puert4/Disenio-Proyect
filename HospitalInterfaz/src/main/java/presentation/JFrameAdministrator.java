@@ -18,7 +18,7 @@ import user.system.UserDAO;
 public class JFrameAdministrator extends javax.swing.JFrame {
 
     private NewUserDTO userDTOAdmin;
-    
+
     /**
      * Creates new form JFrameAdministrator
      */
@@ -31,7 +31,7 @@ public class JFrameAdministrator extends javax.swing.JFrame {
         UserAdministrator userAdministrator = administratorDAO.findAdministratorById(userEntity.getId());
         newAdministratorDTO.setName(userAdministrator.getAdministrator().getNames());
         this.userDTOAdmin = new NewUserDTO(user, password, newAdministratorDTO);
-        
+
     }
 
     /**
@@ -106,11 +106,11 @@ public class JFrameAdministrator extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        
+
         JFrameCreateUser createUser = new JFrameCreateUser(userDTOAdmin);
         createUser.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 //    /**
@@ -147,7 +147,6 @@ public class JFrameAdministrator extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

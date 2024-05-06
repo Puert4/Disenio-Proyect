@@ -23,14 +23,14 @@ public class AdministratorDAO implements IAdministratorDAO {
     private static final Logger LOGGER = Logger.getLogger(PatientDAO.class.getName());
     private EntityManagerFactory emf;
     private EntityManager em;
-    
-    public AdministratorDAO(){
-        
+
+    public AdministratorDAO() {
+
         IConnectionDB connection = new ConnectionDB();
         emf = connection.createConnection();
         em = emf.createEntityManager();
     }
-    
+
     @Override
     public void registerAdministrator(newAdministratorDTO administratorDTO) {
 
@@ -60,12 +60,12 @@ public class AdministratorDAO implements IAdministratorDAO {
     }
 
     @Override
-    public UserAdministrator findAdministratorById(Long id){
-        
+    public UserAdministrator findAdministratorById(Long id) {
+
         return em.find(UserAdministrator.class, id);
-        
+
     }
-    
+
     @Override
     public AdministratorEntity searchAdministratorByName(String names) {
 

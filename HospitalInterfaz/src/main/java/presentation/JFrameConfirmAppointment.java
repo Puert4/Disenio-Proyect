@@ -40,8 +40,6 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         this.lblSpecialitazion.setText(newAppointmentDTO.getDoctor().getSpecialization().toString());
         this.lblNote.setText(newAppointmentDTO.getNote());
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.

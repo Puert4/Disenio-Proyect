@@ -23,9 +23,9 @@ public abstract class LogIn implements ILogIn {
     private static final Logger LOGGER = Logger.getLogger(LogIn.class.getName());
     private EntityManagerFactory emf;
     private EntityManager em;
-    
+
     private LogIn() {
-        
+
         IConnectionDB connection = new ConnectionDB();
         emf = connection.createConnection();
         em = emf.createEntityManager();

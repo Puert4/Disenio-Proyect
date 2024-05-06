@@ -11,21 +11,21 @@ import javax.persistence.Persistence;
  *
  * @author Laboratorios
  */
-public class ConnectionDB implements IConnectionDB{
-    
+public class ConnectionDB implements IConnectionDB {
+
     private EntityManagerFactory emf;
-    
-    public ConnectionDB(){
-        
+
+    public ConnectionDB() {
+
         emf = Persistence.createEntityManagerFactory("connectionPU");
-        
+
     }
-    
+
     @Override
-    public EntityManagerFactory createConnection(){
-        
+    public EntityManagerFactory createConnection() {
+
         return emf;
-        
+
     }
-    
+
 }
