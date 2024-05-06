@@ -107,7 +107,7 @@ public abstract class AppointmentManager implements IAppointmentManager {
 //        TypedQuery<AppointmentEntity> query = em.createQuery(criteriaQuery);
 //        return query.getResultList();
 //    }
-   @Override
+    @Override
     public List<ExistentAppointmentDTO> findAppointmentsByPatientId(Long patientId) {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
         CriteriaQuery<AppointmentEntity> criteriaQuery = criteriaBuilder.createQuery(AppointmentEntity.class);
@@ -115,6 +115,22 @@ public abstract class AppointmentManager implements IAppointmentManager {
         Join<AppointmentEntity, PatientEntity> patientJoin = root.join("patient");
         criteriaQuery.select(root)
                 .where(criteriaBuilder.equal(patientJoin.get("id"), patientId));
+        TypedQuery<AppointmentEntity> query = em.createQuery(criteriaQuery);
+        List<AppointmentEntity> appointmentEntities = query.getResultList();
+
+        return appointmentEntities.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ExistentAppointmentDTO> findAppointmentsByDoctorId(Long doctorId) {
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<AppointmentEntity> criteriaQuery = criteriaBuilder.createQuery(AppointmentEntity.class);
+        Root<AppointmentEntity> root = criteriaQuery.from(AppointmentEntity.class);
+        Join<AppointmentEntity, DoctorEntity> doctorJoin = root.join("doctor");
+        criteriaQuery.select(root)
+                .where(criteriaBuilder.equal(doctorJoin.get("id"), doctorId));
         TypedQuery<AppointmentEntity> query = em.createQuery(criteriaQuery);
         List<AppointmentEntity> appointmentEntities = query.getResultList();
 
@@ -160,7 +176,6 @@ public abstract class AppointmentManager implements IAppointmentManager {
             return false;
         }
     }
-    
 
     public static AppointmentManager getInstance() {
         return new AppointmentManager() {

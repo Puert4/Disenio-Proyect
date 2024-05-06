@@ -23,6 +23,8 @@ public interface IAppointmentManager {
 
     public ExistentAppointmentDTO convertToDTO(AppointmentEntity appointmentEntity);
 
+    public List<ExistentAppointmentDTO> findAppointmentsByDoctorId(Long doctorId);
+
     public boolean cancelAppointment(Long appointmentId);
 
 }

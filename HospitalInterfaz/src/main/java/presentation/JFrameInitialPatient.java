@@ -68,11 +68,11 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
         jButton2 = new javax.swing.JButton();
         btn_cancelAppointment = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableAppointment = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         txtCloseSesion = new javax.swing.JButton();
         btnCreateAppointment = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableAppointment = new javax.swing.JTable();
 
         jButton2.setText("AgendarCita");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -89,24 +89,6 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                 btn_cancelAppointmentActionPerformed(evt);
             }
         });
-
-        jTableAppointment.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Date", "Doctor", "Reason"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTableAppointment);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Welcome");
@@ -125,26 +107,44 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
             }
         });
 
+        jTableAppointment.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Doctor", "Note", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableAppointment);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 843, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCreateAppointment)
-                        .addGap(65, 65, 65)
-                        .addComponent(btn_cancelAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                        .addGap(18, 18, 18)
                         .addComponent(txtCloseSesion)
                         .addGap(244, 244, 244)
                         .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 375, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCreateAppointment)
+                .addGap(18, 18, 18)
+                .addComponent(btn_cancelAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,12 +153,13 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCloseSesion)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cancelAppointment)
-                    .addComponent(btnCreateAppointment))
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCreateAppointment)
+                    .addComponent(btn_cancelAppointment))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -269,6 +270,7 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     private javax.swing.JButton btn_cancelAppointment;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableAppointment;
     private javax.swing.JButton txtCloseSesion;
