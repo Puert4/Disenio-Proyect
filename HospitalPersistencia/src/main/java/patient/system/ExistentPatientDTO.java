@@ -147,4 +147,11 @@ public class ExistentPatientDTO {
         this.birthDate = birthDate;
     }
 
+    @Override
+    public String toString(){
+        
+        return name + ", " + firstName + ", " + curp;
+        
+    }
+    
 }

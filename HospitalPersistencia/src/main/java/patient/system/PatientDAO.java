@@ -3,6 +3,8 @@ package patient.system;
 import JPAEntities.PatientEntity;
 import connection.ConnectionDB;
 import connection.IConnectionDB;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -10,6 +12,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 /**
  *
@@ -28,7 +33,31 @@ public class PatientDAO implements IPatientDAO {
         em = emf.createEntityManager();
 
     }
+    @Override
+    public PatientEntity findPatient(Long id){
+        
+        return em.find(PatientEntity.class, id);
+        
+    }
 
+    @Override
+    public List<ExistentPatientDTO> findAllPatient(){
+        
+        CriteriaBuilder criteria = em.getCriteriaBuilder();
+        CriteriaQuery<PatientEntity> consulta = criteria.createQuery(PatientEntity.class);
+        Root<PatientEntity> root = consulta.from(PatientEntity.class);
+        TypedQuery<PatientEntity> query = em.createQuery(consulta);
+        List<PatientEntity> patientList = query.getResultList();
+        List<ExistentPatientDTO> patientDTOsList = new ArrayList<>();
+        for(PatientEntity patientEntity: patientList){
+            
+            ExistentPatientDTO patientDTO = EntityToDto(patientEntity);
+            patientDTOsList.add(patientDTO);
+        }
+        return patientDTOsList;
+        
+    }
+    
     @Override
     public void registerPatient(NewPatientDTO newPatientDTO) {
         PatientEntity patient = DtoToEntity(newPatientDTO);
@@ -70,7 +99,7 @@ public class PatientDAO implements IPatientDAO {
 //            emf.close();
         }
     }
-
+    
     @Override
     public ExistentPatientDTO EntityToDto(PatientEntity patient) {
         ExistentPatientDTO existentPatientDTO = new ExistentPatientDTO();
@@ -105,6 +134,25 @@ public class PatientDAO implements IPatientDAO {
         patient.setZipCode(newPatientDTO.getZipCode());
         patient.setColony(newPatientDTO.getColony());
         patient.setSocialNumber(newPatientDTO.getSocialNumber());
+
+        return patient;
+    }
+    
+     @Override
+    public PatientEntity ExistentDtoToEntity(ExistentPatientDTO existentPatientDTO) {
+        PatientEntity patient = new PatientEntity();
+
+        patient.setNames(existentPatientDTO.getName());
+        patient.setFirstName(existentPatientDTO.getFirstName());
+        patient.setSecondName(existentPatientDTO.getSecondName());
+        patient.setCurp(existentPatientDTO.getCurp());
+        patient.setPhone(existentPatientDTO.getPhone());
+        patient.setBirthDate(existentPatientDTO.getBirthDate());
+        patient.setSex(existentPatientDTO.getSex());
+        patient.setStreet(existentPatientDTO.getStreet());
+        patient.setZipCode(existentPatientDTO.getZipCode());
+        patient.setColony(existentPatientDTO.getColonia());
+        patient.setSocialNumber(existentPatientDTO.getSocialNumber());
 
         return patient;
     }

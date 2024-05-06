@@ -13,6 +13,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.swing.JOptionPane;
 import patient.system.PatientDAO;
 
 /**
@@ -105,9 +106,17 @@ public class DoctorDAO implements IDoctorDAO {
         try {
             TypedQuery<DoctorEntity> query = em.createQuery("SELECT d FROM DoctorEntity d WHERE d.medicalCart = :medicalCart", DoctorEntity.class);
             query.setParameter("medicalCart", medicart);
+
+            List<DoctorEntity> resultList = query.getResultList();
+            int numResults = resultList.size();
+            if(numResults > 0){
+                
+                JOptionPane.showMessageDialog(null, "The meidcalCart is already in use");
+                return null;
+            }
             return query.getSingleResult();
         } catch (NoResultException e) {
-            LOGGER.log(Level.INFO, "No se encontró ningún Doctor con el medicalCart especificado.");
+            LOGGER.log(Level.INFO, "No doctor was found with that medical cart");
             return null;
         } finally {
 //            em.close();

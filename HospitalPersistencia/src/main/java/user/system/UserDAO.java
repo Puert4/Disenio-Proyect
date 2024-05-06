@@ -43,6 +43,8 @@ public class UserDAO implements IUserDAO {
 
     }
 
+    
+    
     @Override
     public void registerUser(NewUserDTO userDTO) {
         UserEntity user = DtoToEntity(userDTO);

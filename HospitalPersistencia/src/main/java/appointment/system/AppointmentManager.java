@@ -20,6 +20,7 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import patient.system.ExistentPatientDTO;
 import patient.system.IPatientDAO;
@@ -56,9 +57,29 @@ public abstract class AppointmentManager implements IAppointmentManager {
         List<AppointmentEntity> ams = query.getResultList();
 
         List<Calendar> limitDays = new ArrayList<>();
-        System.out.println("Tamaño: " + ams.size());
         for (AppointmentEntity appointmentEntity : ams) {
-            System.out.println("Dias" + appointmentEntity.getAppointmentDate().get(Calendar.DAY_OF_MONTH));
+            limitDays.add(appointmentEntity.getAppointmentDate());
+        }
+
+        return limitDays;
+
+    }
+    
+    @Override
+    public List<Calendar> findLimitDays(PatientEntity patientEntity) {
+
+
+        CriteriaBuilder criteria = em.getCriteriaBuilder();
+        CriteriaQuery<AppointmentEntity> consulta = criteria.createQuery(AppointmentEntity.class);
+        Root<AppointmentEntity> root = consulta.from(AppointmentEntity.class);
+
+        consulta = consulta.select(root).where(criteria.equal(root.get("patient"), patientEntity));
+
+        TypedQuery<AppointmentEntity> query = em.createQuery(consulta);
+        List<AppointmentEntity> ams = query.getResultList();
+
+        List<Calendar> limitDays = new ArrayList<>();
+        for (AppointmentEntity appointmentEntity : ams) {
             limitDays.add(appointmentEntity.getAppointmentDate());
         }
 
@@ -110,15 +131,18 @@ public abstract class AppointmentManager implements IAppointmentManager {
 //    }
     @Override
     public List<ExistentAppointmentDTO> findAppointmentsByPatientId(Long patientId) {
-        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-        CriteriaQuery<AppointmentEntity> criteriaQuery = criteriaBuilder.createQuery(AppointmentEntity.class);
-        Root<AppointmentEntity> root = criteriaQuery.from(AppointmentEntity.class);
+        CriteriaBuilder criteria = em.getCriteriaBuilder();
+        CriteriaQuery<AppointmentEntity> consulta = criteria.createQuery(AppointmentEntity.class);
+        Root<AppointmentEntity> root = consulta.from(AppointmentEntity.class);
         Join<AppointmentEntity, PatientEntity> patientJoin = root.join("patient");
-        criteriaQuery.select(root)
-                .where(criteriaBuilder.equal(patientJoin.get("id"), patientId));
-        TypedQuery<AppointmentEntity> query = em.createQuery(criteriaQuery);
+        Predicate condiciones = criteria.and(
+        criteria.equal(patientJoin.get("id"), patientId),
+        criteria.equal(root.get("AppointmentState"), AppointmentStateEntity.ACTIVE)
+        );
+        consulta = consulta.select(root).where(condiciones);
+        TypedQuery<AppointmentEntity> query = em.createQuery(consulta);
         List<AppointmentEntity> appointmentEntities = query.getResultList();
-
+        
         return appointmentEntities.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
