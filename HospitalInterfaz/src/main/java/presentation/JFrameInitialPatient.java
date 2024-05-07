@@ -58,11 +58,14 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
-        btn_cancelAppointment = new javax.swing.JButton();
-        txtCloseSesion = new javax.swing.JButton();
-        btnCreateAppointment = new javax.swing.JButton();
+        FondoPanel = new javax.swing.JPanel();
+        FondoAzul = new javax.swing.JPanel();
+        Hospital_General = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAppointment = new javax.swing.JTable();
+        btn_cancelAppointment = new javax.swing.JButton();
+        btnCreateAppointment = new javax.swing.JButton();
+        txtCloseSesion = new javax.swing.JButton();
 
         jButton2.setText("AgendarCita");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -72,27 +75,21 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_cancelAppointment.setText("Cancel Appointment");
-        btn_cancelAppointment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelAppointmentActionPerformed(evt);
-            }
-        });
+        FondoPanel.setBackground(new java.awt.Color(255, 255, 255));
+        FondoPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        FondoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtCloseSesion.setText("Signout");
-        txtCloseSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCloseSesionActionPerformed(evt);
-            }
-        });
+        FondoAzul.setBackground(new java.awt.Color(0, 153, 255));
+        FondoAzul.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        FondoAzul.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnCreateAppointment.setText("Create Appointment");
-        btnCreateAppointment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateAppointmentActionPerformed(evt);
-            }
-        });
+        Hospital_General.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Hospital_General.setText("General Hospital");
+        FondoAzul.add(Hospital_General, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 39));
+
+        FondoPanel.add(FondoAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, -1, -1));
 
         jTableAppointment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,38 +109,33 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableAppointment);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCloseSesion)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCreateAppointment)
-                .addGap(18, 18, 18)
-                .addComponent(btn_cancelAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(txtCloseSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreateAppointment)
-                    .addComponent(btn_cancelAppointment))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        FondoPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 157, 840, 320));
+
+        btn_cancelAppointment.setText("Cancel Appointment");
+        btn_cancelAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelAppointmentActionPerformed(evt);
+            }
+        });
+        FondoPanel.add(btn_cancelAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, -1, -1));
+
+        btnCreateAppointment.setText("Create Appointment");
+        btnCreateAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateAppointmentActionPerformed(evt);
+            }
+        });
+        FondoPanel.add(btnCreateAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
+
+        txtCloseSesion.setText("Signout");
+        txtCloseSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCloseSesionActionPerformed(evt);
+            }
+        });
+        FondoPanel.add(txtCloseSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+
+        getContentPane().add(FondoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 880, 490));
 
         pack();
         setLocationRelativeTo(null);
@@ -153,12 +145,26 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnCreateAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAppointmentActionPerformed
+        // TODO add your handling code here:
+        JFrameRegisterAppointment register = new JFrameRegisterAppointment(paciente);
+        register.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCreateAppointmentActionPerformed
+
+    private void txtCloseSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCloseSesionActionPerformed
+        // TODO add your handling code here:
+        JFrameLogin frameLogin = new JFrameLogin();
+        frameLogin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_txtCloseSesionActionPerformed
+
     private void btn_cancelAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelAppointmentActionPerformed
         // TODO add your handling code here:
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
         int selectedIndex = jTableAppointment.getSelectedRow();
 
-// Asegurarse de que la fila seleccionada esté dentro de los límites
+        // Asegurarse de que la fila seleccionada esté dentro de los límites
         if (selectedIndex >= 0 && selectedIndex < listaDeLongs.size()) {
             Long valorCorrespondiente = listaDeLongs.get(selectedIndex);
 
@@ -169,20 +175,6 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Index not valid", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btn_cancelAppointmentActionPerformed
-
-    private void txtCloseSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCloseSesionActionPerformed
-        // TODO add your handling code here:
-        JFrameLogin frameLogin = new JFrameLogin();
-        frameLogin.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_txtCloseSesionActionPerformed
-
-    private void btnCreateAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAppointmentActionPerformed
-        // TODO add your handling code here:
-        JFrameRegisterAppointment register = new JFrameRegisterAppointment(paciente);
-        register.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnCreateAppointmentActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -220,6 +212,9 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 //        });
 //    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel FondoAzul;
+    private javax.swing.JPanel FondoPanel;
+    private javax.swing.JLabel Hospital_General;
     private javax.swing.JButton btnCreateAppointment;
     private javax.swing.JButton btn_cancelAppointment;
     private javax.swing.JButton jButton2;

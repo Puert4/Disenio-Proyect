@@ -126,7 +126,7 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
                 btnConfirmActionPerformed(evt);
             }
         });
-        FondoPanel5.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, -1, -1));
+        FondoPanel5.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Confirm Appointment");

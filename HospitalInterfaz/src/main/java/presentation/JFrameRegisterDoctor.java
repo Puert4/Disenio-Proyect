@@ -29,6 +29,9 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        FondoPanel = new javax.swing.JPanel();
+        FondoAzul = new javax.swing.JPanel();
+        Hospital_General = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNames = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -49,8 +52,23 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        FondoPanel.setBackground(new java.awt.Color(255, 255, 255));
+        FondoPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        FondoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        FondoAzul.setBackground(new java.awt.Color(0, 153, 255));
+        FondoAzul.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        FondoAzul.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Hospital_General.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Hospital_General.setText("General Hospital");
+        FondoAzul.add(Hospital_General, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 39));
+
+        FondoPanel.add(FondoAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, -1, -1));
+
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Register Doctor");
+        FondoPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         txtNames.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtNames.setDisabledTextColor(new java.awt.Color(204, 204, 204));
@@ -59,15 +77,19 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
                 txtNamesActionPerformed(evt);
             }
         });
+        FondoPanel.add(txtNames, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 160, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel11.setText("Names");
+        FondoPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 110, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel5.setText("First Last Name");
+        FondoPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel12.setText("Second Last Name");
+        FondoPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
 
         txtSeconName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtSeconName.setDisabledTextColor(new java.awt.Color(204, 204, 204));
@@ -76,9 +98,11 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
                 txtSeconNameActionPerformed(evt);
             }
         });
+        FondoPanel.add(txtSeconName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 110, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel9.setText("Medicalcart");
+        FondoPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +110,7 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
                 btnCancelActionPerformed(evt);
             }
         });
+        FondoPanel.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, -1, -1));
 
         btnConfirm1.setText("Accept");
         btnConfirm1.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +118,7 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
                 btnConfirm1ActionPerformed(evt);
             }
         });
+        FondoPanel.add(btnConfirm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, -1, -1));
 
         txtFirstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtFirstName.setDisabledTextColor(new java.awt.Color(204, 204, 204));
@@ -101,6 +127,7 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
                 txtFirstNameActionPerformed(evt);
             }
         });
+        FondoPanel.add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 110, -1));
 
         txtMedicalCart.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtMedicalCart.setDisabledTextColor(new java.awt.Color(204, 204, 204));
@@ -109,12 +136,15 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
                 txtMedicalCartActionPerformed(evt);
             }
         });
+        FondoPanel.add(txtMedicalCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 160, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel10.setText("Password");
+        FondoPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel13.setText("User");
+        FondoPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
 
         txtUser.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtUser.setDisabledTextColor(new java.awt.Color(204, 204, 204));
@@ -123,9 +153,11 @@ public class JFrameRegisterDoctor extends javax.swing.JFrame {
                 txtUserActionPerformed(evt);
             }
         });
+        FondoPanel.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 130, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel14.setText("Specialization");
+        FondoPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
 
         comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {" NONE",
             "SURGERY",
@@ -139,102 +171,24 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
         comboBoxActionPerformed(evt);
     }
     });
+    FondoPanel.add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 120, -1));
+    FondoPanel.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 360, 130, -1));
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(12, 12, 12)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtMedicalCart, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGap(115, 115, 115)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel12)
-                        .addComponent(txtSeconName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel14)
-                        .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(39, 39, 39))
-                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(layout.createSequentialGroup()
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(30, 30, 30)
-                    .addComponent(btnConfirm1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(17, 17, 17))))
-        .addGroup(layout.createSequentialGroup()
-            .addContainerGap()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(txtNames, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(FondoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 0, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addComponent(jLabel3)
-                    .addGap(63, 63, 63)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel11)))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(101, 101, 101)
-                    .addComponent(jLabel5)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(2, 2, 2)
-                    .addComponent(txtNames, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createSequentialGroup()
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtSeconName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGap(50, 50, 50)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel9)
-                .addComponent(jLabel14))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(txtMedicalCart, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(46, 46, 46)
-                    .addComponent(jLabel10))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(34, 34, 34)
-                    .addComponent(jLabel13)))
-            .addGap(18, 18, 18)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btnConfirm1)
-                .addComponent(btnCancel))
-            .addGap(24, 24, 24))
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(FondoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 0, Short.MAX_VALUE))
     );
 
     pack();
@@ -330,6 +284,9 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_comboBoxActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel FondoAzul;
+    private javax.swing.JPanel FondoPanel;
+    private javax.swing.JLabel Hospital_General;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnConfirm1;
     private javax.swing.JComboBox<String> comboBox;
