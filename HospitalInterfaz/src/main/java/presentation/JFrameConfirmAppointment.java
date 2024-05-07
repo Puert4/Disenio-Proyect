@@ -52,23 +52,65 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField6 = new javax.swing.JTextField();
+        FondoPanel5 = new javax.swing.JPanel();
+        FondoAzul5 = new javax.swing.JPanel();
+        Hospital_General5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         btnEdit = new javax.swing.JButton();
         btnConfirm = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblDoctor = new javax.swing.JLabel();
         lblSpecialitazion = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         lblNote = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        FondoPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        FondoPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        FondoPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        FondoAzul5.setBackground(new java.awt.Color(0, 153, 255));
+        FondoAzul5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        Hospital_General5.setFont(new java.awt.Font("Roboto", 3, 18)); // NOI18N
+        Hospital_General5.setText("Hospital General");
+
+        javax.swing.GroupLayout FondoAzul5Layout = new javax.swing.GroupLayout(FondoAzul5);
+        FondoAzul5.setLayout(FondoAzul5Layout);
+        FondoAzul5Layout.setHorizontalGroup(
+            FondoAzul5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FondoAzul5Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(Hospital_General5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(518, Short.MAX_VALUE))
+        );
+        FondoAzul5Layout.setVerticalGroup(
+            FondoAzul5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoAzul5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Hospital_General5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        FondoPanel5.add(FondoAzul5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 40));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setText("Doctotor");
+        FondoPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("Name");
+        FondoPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel11.setText("Note");
+        FondoPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
 
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +118,7 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
                 btnEditActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 382, 90, -1));
+        FondoPanel5.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, -1, -1));
 
         btnConfirm.setText("Confirm");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -84,36 +126,26 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
                 btnConfirmActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 382, 111, -1));
+        FondoPanel5.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Confirm Appointment");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 40));
+        FondoPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Specialization");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 282, -1, 25));
+        FondoPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("Date");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 236, -1, -1));
+        FondoPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
+        FondoPanel5.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 156, 26));
+        FondoPanel5.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 156, 26));
+        FondoPanel5.add(lblDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 156, 26));
+        FondoPanel5.add(lblSpecialitazion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 156, 26));
+        FondoPanel5.add(lblNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 156, 26));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel10.setText("Doctotor");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 183, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("Name");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 126, 70, -1));
-        getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 156, 26));
-        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 156, 26));
-        getContentPane().add(lblDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 156, 26));
-        getContentPane().add(lblSpecialitazion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 156, 26));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel11.setText("Note");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 326, -1, 25));
-        getContentPane().add(lblNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 156, 26));
+        getContentPane().add(FondoPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 440));
 
         pack();
         setLocationRelativeTo(null);
@@ -186,6 +218,9 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
 //        });
 //    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel FondoAzul5;
+    private javax.swing.JPanel FondoPanel5;
+    private javax.swing.JLabel Hospital_General5;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnEdit;
     private javax.swing.JLabel jLabel10;
@@ -194,7 +229,6 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblDoctor;
     private javax.swing.JLabel lblName;
