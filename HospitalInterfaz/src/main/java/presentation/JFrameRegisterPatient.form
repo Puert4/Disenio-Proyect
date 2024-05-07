@@ -57,10 +57,6 @@
                       <Component id="FondoAzul" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                          <Component id="Iniciar_Sesion" min="-2" pref="240" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
                           <Component id="Usuario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="233" pref="233" max="-2" attributes="0"/>
                           <Component id="Usuario4" min="-2" max="-2" attributes="0"/>
@@ -124,6 +120,10 @@
                               </Group>
                           </Group>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="Iniciar_Sesion" min="-2" pref="240" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="47" max="32767" attributes="0"/>
               </Group>
@@ -133,9 +133,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Component id="FondoAzul" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="Iniciar_Sesion" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="Usuario13" min="-2" max="-2" attributes="0"/>
                       <Component id="Usuario12" min="-2" max="-2" attributes="0"/>
@@ -203,7 +203,7 @@
         <Component class="javax.swing.JLabel" name="Iniciar_Sesion">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="24" style="3"/>
+              <Font name="Tahoma" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Register Patient"/>
           </Properties>
@@ -258,7 +258,7 @@
         <Component class="javax.swing.JLabel" name="Usuario">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="3"/>
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Names"/>
           </Properties>
@@ -270,7 +270,7 @@
         <Component class="javax.swing.JLabel" name="Usuario3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="3"/>
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CURP"/>
           </Properties>
@@ -278,7 +278,7 @@
         <Component class="javax.swing.JLabel" name="Usuario4">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="3"/>
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="First Last Name"/>
           </Properties>
@@ -288,7 +288,7 @@
         <Component class="javax.swing.JLabel" name="Usuario5">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="3"/>
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Colony"/>
           </Properties>
@@ -301,7 +301,7 @@
         <Component class="javax.swing.JLabel" name="Usuario7">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="3"/>
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Street"/>
           </Properties>
@@ -311,7 +311,7 @@
         <Component class="javax.swing.JLabel" name="Usuario6">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="3"/>
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Phone Number"/>
           </Properties>
@@ -321,7 +321,7 @@
         <Component class="javax.swing.JLabel" name="Usuario8">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="3"/>
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Insurance Number"/>
           </Properties>
@@ -408,7 +408,7 @@
             <Component class="javax.swing.JLabel" name="Usuario1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Roboto" size="14" style="3"/>
+                  <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sex"/>
               </Properties>
@@ -438,7 +438,7 @@
             <Component class="javax.swing.JLabel" name="Usuario11">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Roboto" size="14" style="3"/>
+                  <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Other"/>
               </Properties>
@@ -463,7 +463,7 @@
         <Component class="javax.swing.JLabel" name="Usuario9">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="3"/>
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Zipcode"/>
           </Properties>
@@ -473,7 +473,7 @@
         <Component class="javax.swing.JLabel" name="Usuario12">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="3"/>
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Birth Date"/>
           </Properties>
@@ -481,7 +481,7 @@
         <Component class="javax.swing.JLabel" name="Usuario13">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="3"/>
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Second Last Name"/>
           </Properties>

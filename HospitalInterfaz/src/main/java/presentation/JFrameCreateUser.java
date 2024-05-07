@@ -48,13 +48,13 @@ public class JFrameCreateUser extends javax.swing.JFrame {
         FondoPanel.setBackground(new java.awt.Color(255, 255, 255));
         FondoPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        Iniciar_Sesion.setFont(new java.awt.Font("Roboto", 3, 24)); // NOI18N
+        Iniciar_Sesion.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Iniciar_Sesion.setText("Register User");
 
         FondoAzul.setBackground(new java.awt.Color(0, 153, 255));
         FondoAzul.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        Hospital_General.setFont(new java.awt.Font("Roboto", 3, 18)); // NOI18N
+        Hospital_General.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Hospital_General.setText("General Hospital");
 
         javax.swing.GroupLayout FondoAzulLayout = new javax.swing.GroupLayout(FondoAzul);
@@ -83,10 +83,10 @@ public class JFrameCreateUser extends javax.swing.JFrame {
             }
         });
 
-        Usuario4.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario4.setText("Password");
 
-        Usuario.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario.setText("Username");
 
         btnCancel.setText("Cancel");
@@ -101,9 +101,6 @@ public class JFrameCreateUser extends javax.swing.JFrame {
         FondoPanelLayout.setHorizontalGroup(
             FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(FondoPanelLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(FondoPanelLayout.createSequentialGroup()
                 .addGap(250, 250, 250)
                 .addComponent(Usuario))
@@ -121,14 +118,17 @@ public class JFrameCreateUser extends javax.swing.JFrame {
                 .addComponent(btnCancel)
                 .addGap(85, 85, 85)
                 .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(FondoPanelLayout.createSequentialGroup()
+                .addGap(271, 271, 271)
+                .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         FondoPanelLayout.setVerticalGroup(
             FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoPanelLayout.createSequentialGroup()
                 .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(29, 29, 29)
                 .addComponent(Iniciar_Sesion)
-                .addGap(78, 78, 78)
+                .addGap(79, 79, 79)
                 .addComponent(Usuario)
                 .addGap(1, 1, 1)
                 .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -59,7 +59,6 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
 
         jButton2 = new javax.swing.JButton();
         btn_cancelAppointment = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         txtCloseSesion = new javax.swing.JButton();
         btnCreateAppointment = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -80,9 +79,6 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                 btn_cancelAppointmentActionPerformed(evt);
             }
         });
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Welcome");
 
         txtCloseSesion.setText("Signout");
         txtCloseSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -125,10 +121,8 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(txtCloseSesion)
-                        .addGap(244, 244, 244)
-                        .addComponent(jLabel2)
-                        .addGap(0, 403, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -141,10 +135,8 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCloseSesion)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(txtCloseSesion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreateAppointment)
                     .addComponent(btn_cancelAppointment))
@@ -231,7 +223,6 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
     private javax.swing.JButton btnCreateAppointment;
     private javax.swing.JButton btn_cancelAppointment;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAppointment;
     private javax.swing.JButton txtCloseSesion;

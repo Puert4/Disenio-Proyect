@@ -86,19 +86,23 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         });
         getContentPane().add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 382, 111, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Confirm Appointment");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 36, 277, 62));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 40));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Specialization");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 282, -1, 25));
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("Date");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 236, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("Doctotor");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 183, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Name");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 126, 70, -1));
         getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 156, 26));
@@ -106,6 +110,7 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         getContentPane().add(lblDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 156, 26));
         getContentPane().add(lblSpecialitazion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 156, 26));
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setText("Note");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 326, -1, 25));
         getContentPane().add(lblNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 156, 26));

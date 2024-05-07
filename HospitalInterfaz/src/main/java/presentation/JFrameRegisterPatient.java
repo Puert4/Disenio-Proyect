@@ -105,7 +105,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         FondoPanel.setBackground(new java.awt.Color(255, 255, 255));
         FondoPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        Iniciar_Sesion.setFont(new java.awt.Font("Roboto", 3, 24)); // NOI18N
+        Iniciar_Sesion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Iniciar_Sesion.setText("Register Patient");
 
         FondoAzul.setBackground(new java.awt.Color(0, 153, 255));
@@ -136,16 +136,16 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
             }
         });
 
-        Usuario.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario.setText("Names");
 
-        Usuario3.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario3.setText("CURP");
 
-        Usuario4.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario4.setText("First Last Name");
 
-        Usuario5.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario5.setText("Colony");
 
         txtStreet.addActionListener(new java.awt.event.ActionListener() {
@@ -154,13 +154,13 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
             }
         });
 
-        Usuario7.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario7.setText("Street");
 
-        Usuario6.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario6.setText("Phone Number");
 
-        Usuario8.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario8.setText("Insurance Number");
 
         btnAceptar.setBackground(new java.awt.Color(0, 0, 0));
@@ -176,7 +176,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         FondoGenero.setBackground(new java.awt.Color(255, 255, 255));
         FondoGenero.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        Usuario1.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario1.setText("Sex");
 
         cbxMale.setFont(new java.awt.Font("Roboto", 2, 12)); // NOI18N
@@ -195,7 +195,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
             }
         });
 
-        Usuario11.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario11.setText("Other");
 
         cbxOther.setFont(new java.awt.Font("Roboto", 2, 12)); // NOI18N
@@ -245,13 +245,13 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        Usuario9.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario9.setText("Zipcode");
 
-        Usuario12.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario12.setText("Birth Date");
 
-        Usuario13.setFont(new java.awt.Font("Roboto", 3, 14)); // NOI18N
+        Usuario13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Usuario13.setText("Second Last Name");
 
         javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
@@ -261,9 +261,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
             .addGroup(FondoPanelLayout.createSequentialGroup()
                 .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(FondoPanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(FondoPanelLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(Usuario)
@@ -316,16 +313,19 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                             .addGroup(FondoPanelLayout.createSequentialGroup()
                                 .addComponent(txtColony, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60)
-                                .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(FondoPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Iniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
         FondoPanelLayout.setVerticalGroup(
             FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoPanelLayout.createSequentialGroup()
                 .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Iniciar_Sesion)
-                .addGap(3, 3, 3)
+                .addGap(21, 21, 21)
                 .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Usuario13)
                     .addComponent(Usuario12)
