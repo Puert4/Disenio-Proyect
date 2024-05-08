@@ -21,6 +21,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.swing.JOptionPane;
 import patient.system.ExistentPatientDTO;
 import patient.system.IPatientDAO;
 
@@ -118,8 +119,7 @@ public abstract class AppointmentManager implements IAppointmentManager {
         Root<AppointmentEntity> root = consulta.from(AppointmentEntity.class);
         Join<AppointmentEntity, PatientEntity> patientJoin = root.join("patient");
         Predicate condiciones = criteria.and(
-                criteria.equal(patientJoin.get("id"), patientId),
-                criteria.equal(root.get("AppointmentState"), AppointmentStateEntity.ACTIVE)
+                criteria.equal(patientJoin.get("id"), patientId)
         );
         consulta = consulta.select(root).where(condiciones);
         TypedQuery<AppointmentEntity> query = em.createQuery(consulta);
@@ -171,10 +171,21 @@ public abstract class AppointmentManager implements IAppointmentManager {
             em.getTransaction().begin();
             AppointmentEntity appointment = em.find(AppointmentEntity.class, appointmentId);
             if (appointment != null) {
-                appointment.setAppointmentState(AppointmentStateEntity.CANCELED);
-                em.merge(appointment);
-                em.getTransaction().commit();
-                return true;
+                if(appointment.getAppointmentState() == AppointmentStateEntity.CANCELED){
+                    
+                    JOptionPane.showMessageDialog(null, "the appointment has already been canceled");
+                    em.getTransaction().commit();
+                    return false;
+                    
+                }else{
+                    
+                    appointment.setAppointmentState(AppointmentStateEntity.CANCELED);
+                    em.merge(appointment);
+                    em.getTransaction().commit();
+                    return true;
+                    
+                }
+                
             } else {
                 return false;
             }

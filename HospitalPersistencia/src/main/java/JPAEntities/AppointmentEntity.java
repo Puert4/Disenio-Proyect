@@ -31,7 +31,7 @@ public class AppointmentEntity implements Serializable {
     private PatientEntity patient;
 
     @Column(name = "appointment_date", nullable = false)
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Calendar appointmentDate;
 
     @Column(name = "apponitment_state", nullable = false)

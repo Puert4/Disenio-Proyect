@@ -10,7 +10,7 @@ public enum Specialization {
     CARDIOLOGY,
     NONE;
 
-    public Specialization StringToEnum(String name) {
+    public static Specialization StringToEnum(String name) {
 
         return switch (name) {
             case "PEDIATRIC" ->
@@ -31,4 +31,7 @@ public enum Specialization {
 
     }
 
+    
+    
+    
 }

@@ -1,6 +1,7 @@
 package patient.system;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 public class ExistentPatientDTO {
 
@@ -143,4 +144,59 @@ public class ExistentPatientDTO {
         this.birthDate = birthDate;
     }
 
+    @Override
+    public String toString() {
+        return name + ", " + curp;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ExistentPatientDTO other = (ExistentPatientDTO) obj;
+        if (this.zipCode != other.zipCode) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.firstName, other.firstName)) {
+            return false;
+        }
+        if (!Objects.equals(this.secondName, other.secondName)) {
+            return false;
+        }
+        if (!Objects.equals(this.curp, other.curp)) {
+            return false;
+        }
+        if (!Objects.equals(this.phone, other.phone)) {
+            return false;
+        }
+        if (!Objects.equals(this.sex, other.sex)) {
+            return false;
+        }
+        if (!Objects.equals(this.street, other.street)) {
+            return false;
+        }
+        if (!Objects.equals(this.colonia, other.colonia)) {
+            return false;
+        }
+        if (!Objects.equals(this.socialNumber, other.socialNumber)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return Objects.equals(this.birthDate, other.birthDate);
+    }
+
+    
+    
 }

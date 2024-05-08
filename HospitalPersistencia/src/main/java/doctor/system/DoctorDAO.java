@@ -99,17 +99,30 @@ public class DoctorDAO implements IDoctorDAO {
         try {
             TypedQuery<DoctorEntity> query = em.createQuery("SELECT d FROM DoctorEntity d WHERE d.medicalCart = :medicalCart", DoctorEntity.class);
             query.setParameter("medicalCart", medicart);
-
-            List<DoctorEntity> resultList = query.getResultList();
-            int numResults = resultList.size();
-            if (numResults > 0) {
-
-                JOptionPane.showMessageDialog(null, "The meidcalCart is already in use");
+            if(query.getSingleResult() == null){
+                
+                JOptionPane.showMessageDialog(null, "The medicalCart has no owner");
                 return null;
+            }else{
+                
+                List<DoctorEntity> resultList = query.getResultList();
+                int numResults = resultList.size();
+                if (numResults != 0 && query.getSingleResult() != null && 1 == 0) {
+
+                    JOptionPane.showMessageDialog(null, "The meidcalCart issss already in use");
+                    return null;
+                }else if(numResults == 1){
+
+                    return query.getSingleResult();
+
+                }
+                
             }
-            return query.getSingleResult();
+            JOptionPane.showMessageDialog(null, "No solution");
+            return null;
+            
         } catch (NoResultException e) {
-            LOGGER.log(Level.INFO, "No doctor was found with that medical cart");
+            JOptionPane.showMessageDialog(null, "The meidcalCart has been validated");
             return null;
         } finally {
 
