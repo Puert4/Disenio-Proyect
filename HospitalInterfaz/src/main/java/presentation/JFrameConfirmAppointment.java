@@ -23,7 +23,7 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         initComponents();
         this.lblName.setText(newAppointmentDTO.getPatient().getName());
         this.lblDoctor.setText(newAppointmentDTO.getDoctor().getName());
-        String dateString = "" + newAppointmentDTO.getAppointmentDate().get(Calendar.DATE) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.MONTH) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.YEAR);
+        String dateString = "" + newAppointmentDTO.getAppointmentDate().get(Calendar.DATE) + "/" + (newAppointmentDTO.getAppointmentDate().get(Calendar.MONTH)+1) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.YEAR) + "  " + newAppointmentDTO.getAppointmentDate().get(Calendar.HOUR_OF_DAY) + ":00";
         this.lblDate.setText(dateString);
         this.lblSpecialitazion.setText(newAppointmentDTO.getDoctor().getSpecialization().toString());
         this.lblNote.setText(newAppointmentDTO.getNote());
@@ -37,7 +37,7 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
         initComponents();
         this.lblName.setText(newAppointmentDTO.getPatient().getName());
         this.lblDoctor.setText(newAppointmentDTO.getDoctor().getName());
-        String dateString = "" + newAppointmentDTO.getAppointmentDate().get(Calendar.DATE) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.MONTH) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.YEAR);
+        String dateString = "" + newAppointmentDTO.getAppointmentDate().get(Calendar.DATE) + "/" + (newAppointmentDTO.getAppointmentDate().get(Calendar.MONTH)+1) + "/" + newAppointmentDTO.getAppointmentDate().get(Calendar.YEAR)  + "  " + newAppointmentDTO.getAppointmentDate().get(Calendar.HOUR_OF_DAY) + ":00";
         this.lblDate.setText(dateString);
         this.lblSpecialitazion.setText(newAppointmentDTO.getDoctor().getSpecialization().toString());
         this.lblNote.setText(newAppointmentDTO.getNote());
@@ -168,6 +168,7 @@ public class JFrameConfirmAppointment extends javax.swing.JFrame {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
+        System.out.println(newAppointmentDTO.getAppointmentDate().get(Calendar.HOUR));
         appointmentManager.createAppointment(newAppointmentDTO);
 
         if (doctorDTO == null) {

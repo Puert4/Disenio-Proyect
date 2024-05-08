@@ -17,6 +17,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import patient.system.ExistentPatientDTO;
 import com.toedter.calendar.JDateChooser;
+import java.awt.Point;
 import patient.system.IPatientDAO;
 
 public class JFrameRegisterAppointment extends javax.swing.JFrame {
@@ -27,71 +28,130 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
     private ExistentDoctorDTO existentDoctorDTO;
     private ExistentPatientDTO existentPateintDTO;
     private JDateChooser dateChooser;
-    private List<Calendar> limitDays;
+    private List<Calendar> limitDaysSelected;
+    private List<Calendar> limitDaysParner;
 
     public JFrameRegisterAppointment(NewAppointmentDTO appointmentDTO, ExistentDoctorDTO doctorDTO) {
 
         this.doctorP1 = doctorDTO;
         initComponents();
         dateChooser();
-        limitarFecha();
+//        limitarFecha();
+        
+        lblSpecilaization.setVisible(false);
+        cbxSpecialization.setVisible(false);
+        lblDate.setVisible(false);
+        cmbDoctor.setVisible(false);
+        lblDoctors1.setVisible(false);
+        lblPatient.setText("Patients");
+        
+        limitDaysSelected = new ArrayList<>();
+        patientList();
+        for(int i = 0; i < cmbPatient.getItemCount(); i ++){
+            cmbPatient.setSelectedIndex(i);
+            if(appointmentDTO.getPatient().equals((ExistentPatientDTO)cmbPatient.getSelectedItem())){
+                
+                cmbPatient.setSelectedIndex(i);
+                break;
+            }
+            
+        }
+//        cmbPatient.setSelectedItem(patientDTO);
         txtNota.setText(appointmentDTO.getNote());
-        cmbDoctor.setSelectedItem(appointmentDTO.getPatient());
         dateChooser.setCalendar(appointmentDTO.getAppointmentDate());
+        cmbTime.setSelectedIndex(indexComboBox(dateChooser.getCalendar().get(Calendar.HOUR_OF_DAY)));
+        
 
     }
+    
 
     public JFrameRegisterAppointment(NewAppointmentDTO appointmentDTO, ExistentPatientDTO patientDTO) {
         this.paciente = patientDTO;
         initComponents();
         dateChooser();
-        limitarFecha();
+//        limitarFecha();
         txtNota.setText(appointmentDTO.getNote());
+        
         cbxSpecialization.setSelectedItem(appointmentDTO.getDoctor().getSpecialization());
         cmbDoctor.setSelectedItem(appointmentDTO.getDoctor());
+        
+        
+        
         dateChooser.setCalendar(appointmentDTO.getAppointmentDate());
-
+        
+        lblDate.setVisible(false);
+        cmbPatient.setVisible(false);
+        lblPatient.setVisible(false);
+        for(int i = 0; i < cbxSpecialization.getItemCount(); i ++){
+            cbxSpecialization.setSelectedIndex(i);
+            Specialization specialization = Specialization.StringToEnum((String)cbxSpecialization.getSelectedItem());
+            if(appointmentDTO.getDoctor().getSpecialization().equals(specialization)){
+                
+                cbxSpecialization.setSelectedIndex(i);
+                break;
+            }
+            
+        }
+        for(int i = 0; i < cmbDoctor.getItemCount(); i ++){
+            cmbDoctor.setSelectedIndex(i);
+            if(appointmentDTO.getDoctor().equals((ExistentDoctorDTO)cmbDoctor.getSelectedItem())){
+                
+                cmbDoctor.setSelectedIndex(i);
+                break;
+            }
+            
+        }
+        cmbTime.setSelectedIndex(indexComboBox(dateChooser.getCalendar().get(Calendar.HOUR_OF_DAY)));
+        
     }
 
     public JFrameRegisterAppointment(ExistentPatientDTO paciente) {
         this.paciente = paciente;
         initComponents();
         dateChooser();
-        limitarFecha();
-        limitDays = new ArrayList<>();
+//        limitarFecha();
+        limitDaysSelected = new ArrayList<>();
+        cmbPatient.setVisible(false);
+        lblDate.setVisible(false);
+        lblPatient.setVisible(false);
+        
     }
 
     public JFrameRegisterAppointment(ExistentDoctorDTO doctor) {
         this.doctorP1 = doctor;
         initComponents();
         dateChooser();
-        limitarFecha();
-        lblSpecilaization.setEnabled(false);
-        cbxSpecialization.setEnabled(false);
-        lblDoctors.setText("Patients");
-        limitDays = new ArrayList<>();
+//        limitarFecha();
+        cmbDoctor.setVisible(false);
+        lblSpecilaization.setVisible(false);
+        cbxSpecialization.setVisible(false);
+        lblDoctors1.setVisible(false);
+        
+        lblPatient.setText("Patients");
+        limitDaysSelected = new ArrayList<>();
         patientList();
+        lblDate.setVisible(false);
     }
 
     public void patientList() {
 
         IPatientDAO patientDAO = Factory.getPatientDAO();
         List<ExistentPatientDTO> patientList = patientDAO.findAllPatient();
-        cmbDoctor.removeAllItems();
+        cmbPatient.removeAllItems();
         DefaultComboBoxModel model = new DefaultComboBoxModel();
-        cmbDoctor.setModel(model);
+        cmbPatient.setModel(model);
         for (ExistentPatientDTO patient : patientList) {
             model.addElement(patient);
         }
-        this.cmbDoctor.setVisible(true);
+        this.cmbPatient.setVisible(true);
 
     }
 
     public void dateChooser() {
 
-        dateChooser = new JDateChooser();
-        dateChooser.setBounds(lblFecha.getBounds());
-        this.add(dateChooser);
+        this.dateChooser = new JDateChooser();
+        this.dateChooser.setBounds(this.lblDate.getBounds());
+        this.FondoPanel.add(dateChooser);
 
     }
 
@@ -111,35 +171,44 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         cmbDoctor = new javax.swing.JComboBox<>();
-        lblDoctors = new javax.swing.JLabel();
+        lblPatient = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        jLabel12 = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         txtNota = new javax.swing.JTextField();
         cbxSpecialization = new javax.swing.JComboBox<>();
         lblSpecilaization = new javax.swing.JLabel();
-        lblFecha = new javax.swing.JLabel();
+        lblDoctors1 = new javax.swing.JLabel();
+        cmbPatient = new javax.swing.JComboBox<>();
+        lblDate = new javax.swing.JLabel();
+        cmbTime = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         FondoPanel.setBackground(new java.awt.Color(255, 255, 255));
         FondoPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        FondoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         FondoAzul.setBackground(new java.awt.Color(0, 153, 255));
         FondoAzul.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        FondoAzul.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Hospital_General.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Hospital_General.setText("General Hospital");
-        FondoAzul.add(Hospital_General, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 39));
 
-        FondoPanel.add(FondoAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, -1, -1));
+        javax.swing.GroupLayout FondoAzulLayout = new javax.swing.GroupLayout(FondoAzul);
+        FondoAzul.setLayout(FondoAzulLayout);
+        FondoAzulLayout.setHorizontalGroup(
+            FondoAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Hospital_General, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        FondoAzulLayout.setVerticalGroup(
+            FondoAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Hospital_General, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Register Appointment");
-        FondoPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
         jButton1.setText("Next");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +216,6 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        FondoPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, -1, -1));
 
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +223,6 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        FondoPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, -1));
 
         cmbDoctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         cmbDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,44 +235,135 @@ public class JFrameRegisterAppointment extends javax.swing.JFrame {
                 cmbDoctorActionPerformed(evt);
             }
         });
-        FondoPanel.add(cmbDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 110, -1));
 
-        lblDoctors.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        lblDoctors.setText("Doctors");
-        FondoPanel.add(lblDoctors, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, -1));
-        FondoPanel.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        lblPatient.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblPatient.setText("Patients");
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel12.setText("Date ");
-        FondoPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, -1));
+        lblTime.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblTime.setText("Time");
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel13.setText("Note...");
-        FondoPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, -1, -1));
 
         txtNota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNotaActionPerformed(evt);
             }
         });
-        FondoPanel.add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 320, 40));
 
         cbxSpecialization.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FAMILY",   "PEDIATRIC",
             "SURGERY",
             "PSYCHIATRY",
             "ANESTHIOLOGY",
-            "CARDIOLGY"}));
+            "CARDIOLOGY"}));
 cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
     public void actionPerformed(java.awt.event.ActionEvent evt) {
         cbxSpecializationActionPerformed(evt);
     }
     });
-    FondoPanel.add(cbxSpecialization, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 110, -1));
 
     lblSpecilaization.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
     lblSpecilaization.setText("Specialization");
-    FondoPanel.add(lblSpecilaization, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
-    FondoPanel.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 110, 20));
+
+    lblDoctors1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+    lblDoctors1.setText("Doctors");
+
+    cmbPatient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+
+    cmbTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"}));
+
+    jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+    jLabel14.setText("Date ");
+
+    javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
+    FondoPanel.setLayout(FondoPanelLayout);
+    FondoPanelLayout.setHorizontalGroup(
+        FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(FondoPanelLayout.createSequentialGroup()
+            .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(FondoPanelLayout.createSequentialGroup()
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(2, 2, 2)
+                    .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(FondoPanelLayout.createSequentialGroup()
+                    .addGap(50, 50, 50)
+                    .addComponent(jLabel1))
+                .addGroup(FondoPanelLayout.createSequentialGroup()
+                    .addGap(260, 260, 260)
+                    .addComponent(lblSpecilaization)
+                    .addGap(12, 12, 12)
+                    .addComponent(lblPatient)
+                    .addGap(18, 18, 18)
+                    .addComponent(lblDoctors1))
+                .addGroup(FondoPanelLayout.createSequentialGroup()
+                    .addGap(260, 260, 260)
+                    .addComponent(cbxSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(FondoPanelLayout.createSequentialGroup()
+                            .addGap(80, 80, 80)
+                            .addComponent(cmbDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(FondoPanelLayout.createSequentialGroup()
+                    .addGap(280, 280, 280)
+                    .addComponent(jLabel14)
+                    .addGap(120, 120, 120)
+                    .addComponent(lblTime))
+                .addGroup(FondoPanelLayout.createSequentialGroup()
+                    .addGap(280, 280, 280)
+                    .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(136, 136, 136)
+                    .addComponent(cmbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(FondoPanelLayout.createSequentialGroup()
+                    .addGap(280, 280, 280)
+                    .addComponent(jLabel13))
+                .addGroup(FondoPanelLayout.createSequentialGroup()
+                    .addGap(280, 280, 280)
+                    .addComponent(txtNota, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(FondoPanelLayout.createSequentialGroup()
+                    .addGap(100, 100, 100)
+                    .addComponent(jButton2)
+                    .addGap(518, 518, 518)
+                    .addComponent(jButton1)))
+            .addGap(2, 2, 2))
+    );
+    FondoPanelLayout.setVerticalGroup(
+        FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(FondoPanelLayout.createSequentialGroup()
+            .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(FondoPanelLayout.createSequentialGroup()
+                    .addGap(2, 2, 2)
+                    .addComponent(FondoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGap(17, 17, 17)
+            .addComponent(jLabel1)
+            .addGap(68, 68, 68)
+            .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(lblSpecilaization)
+                .addComponent(lblPatient)
+                .addComponent(lblDoctors1))
+            .addGap(8, 8, 8)
+            .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(cbxSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(28, 28, 28)
+            .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel14)
+                .addComponent(lblTime))
+            .addGap(8, 8, 8)
+            .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(cmbTime, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addComponent(lblDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(20, 20, 20)
+            .addComponent(jLabel13)
+            .addGap(8, 8, 8)
+            .addComponent(txtNota, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(50, 50, 50)
+            .addGroup(FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jButton2)
+                .addComponent(jButton1)))
+    );
 
     getContentPane().add(FondoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 880, 490));
 
@@ -213,28 +371,108 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
     setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public int hour(){
+        
+        int index = cmbTime.getSelectedIndex();
+        
+        return switch (index) {
+            case 0 -> 10;
+            case 1 -> 11;
+            case 2 -> 12;
+            case 3 -> 13;
+            case 4 -> 14;
+            case 5 -> 15;
+            case 6 -> 16;
+            case 7 -> 17;
+            case 8 -> 18;
+            case 9 -> 19;
+            case 10 -> 20;
+            case 11 -> 21;
+            case 12 -> 22;
+            case 13 -> 23;
+            default -> 4444;
+        };
+        
+    }
+    
+    public int indexComboBox(int hour){
+        
+        return switch (hour) {
+            case 10 -> 0;
+            case 11 -> 1;
+            case 12 -> 2;
+            case 13 -> 3;
+            case 14 -> 4;
+            case 15 -> 5;
+            case 16 -> 6;
+            case 17 -> 7;
+            case 18 -> 8;
+            case 19 -> 9;
+            case 20 -> 10;
+            case 21 -> 11;
+            case 22 -> 12;
+            case 23 -> 13;
+            default -> 4554;
+        };
+        
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        limitDays();
-        List<Calendar> dias = limitDays;
-        for (Calendar calendar : limitDays) {
+        
+        limitDaysSelected();
+        
+        Calendar dateWithTime = dateChooser.getCalendar();
+        
+        int date = dateWithTime.get(Calendar.DATE);
+        dateWithTime.set(Calendar.HOUR_OF_DAY, hour());
+        dateWithTime.set(Calendar.MINUTE, 0);
+        dateWithTime.set(Calendar.SECOND, 0);
+        dateWithTime.set(Calendar.DATE, date);
+        dateChooser.setCalendar(dateWithTime);
+        
+        
+        for (Calendar calendar : limitDaysSelected) {
 
             if (dateChooser.getCalendar().get(Calendar.MONTH) == calendar.get(Calendar.MONTH)) {
 
                 if (dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH) == calendar.get(Calendar.DAY_OF_MONTH)) {
 
                     if (dateChooser.getCalendar().get(Calendar.YEAR) == calendar.get(Calendar.YEAR)) {
-
-                        JOptionPane.showMessageDialog(this, "This date has already been set aside");
-                        return;
+                        
+                        if(dateChooser.getCalendar().get(Calendar.HOUR) == calendar.get(Calendar.HOUR)){
+                            
+                            JOptionPane.showMessageDialog(this, "This date has already been set aside");
+                            return;
+                        }
                     }
                 }
             }
+            
         }
+        limitDaysParner();
+        for (Calendar calendar : limitDaysParner) {
 
+            if (dateChooser.getCalendar().get(Calendar.MONTH) == calendar.get(Calendar.MONTH)) {
+
+                if (dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH) == calendar.get(Calendar.DAY_OF_MONTH)) {
+
+                    if (dateChooser.getCalendar().get(Calendar.YEAR) == calendar.get(Calendar.YEAR)) {
+                        
+                        if(dateChooser.getCalendar().get(Calendar.HOUR) == calendar.get(Calendar.HOUR)){
+                            
+                            JOptionPane.showMessageDialog(this, "You already have an appointment that day");
+                            return;
+                        }
+                    }
+                }
+            }
+            
+        }
         if (doctorP1 == null) {
 
+            createUser();
             NewAppointmentDTO newAppointmentDTO = new NewAppointmentDTO();
             newAppointmentDTO.setDoctor(existentDoctorDTO);
             newAppointmentDTO.setPatient(paciente);
@@ -248,6 +486,7 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
 
         } else {
 
+            createUser();
             NewAppointmentDTO newAppointmentDTO = new NewAppointmentDTO();
             newAppointmentDTO.setDoctor(doctorP1);
             newAppointmentDTO.setPatient(existentPateintDTO);
@@ -279,13 +518,19 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void cmbDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDoctorActionPerformed
-
+    public void createUser(){
+        
         if (doctorP1 == null) {
             existentDoctorDTO = (ExistentDoctorDTO) cmbDoctor.getSelectedItem();
         } else {
-            existentPateintDTO = (ExistentPatientDTO) cmbDoctor.getSelectedItem();
+            existentPateintDTO = (ExistentPatientDTO) cmbPatient.getSelectedItem();
         }
+        
+    }
+    
+    private void cmbDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDoctorActionPerformed
+
+        createUser();
     }//GEN-LAST:event_cmbDoctorActionPerformed
 
     private void cbxSpecializationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSpecializationActionPerformed
@@ -306,7 +551,35 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
         }
     }//GEN-LAST:event_cbxSpecializationActionPerformed
 
-    public void limitDays() {
+    public void limitDaysParner(){
+        
+        IAppointmentManager appointmentManager = Factory.getAppointmentManager();
+        
+        if(doctorP1 == null){
+            
+            IPatientDAO patientDAO = Factory.getPatientDAO();
+            PatientEntity patientEntity = patientDAO.ExistentDtoToEntity(paciente);
+            if(appointmentManager.findLimitDays(patientEntity) != null){
+                
+                limitDaysParner = appointmentManager.findLimitDays(patientEntity);
+                
+            }
+            
+        }else{
+            
+            IDoctorDAO doctorDAO = Factory.getDoctorDAO();
+            DoctorEntity doctorEntity = doctorDAO.ExistentDtoToEntity(doctorP1);
+            if(appointmentManager.findLimitDays(doctorEntity) != null){
+                
+                limitDaysParner = appointmentManager.findLimitDays(doctorEntity);
+                
+            }
+            
+        }
+        
+    }
+    
+    public void limitDaysSelected() {
 
         IAppointmentManager appointmentManager = Factory.getAppointmentManager();
         if (doctorP1 == null) {
@@ -314,14 +587,14 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
             ExistentDoctorDTO existentDoctor = (ExistentDoctorDTO) cmbDoctor.getSelectedItem();
             DoctorEntity doctorEntity = doctorDAO.ExistentDtoToEntity(existentDoctor);
             if (appointmentManager.findLimitDays(doctorEntity) != null) {
-                limitDays = appointmentManager.findLimitDays(doctorEntity);
+                limitDaysSelected = appointmentManager.findLimitDays(doctorEntity);
             }
         } else {
             IPatientDAO patientDAO = Factory.getPatientDAO();
-            ExistentPatientDTO existentPatientDTO = (ExistentPatientDTO) cmbDoctor.getSelectedItem();
+            ExistentPatientDTO existentPatientDTO = (ExistentPatientDTO) cmbPatient.getSelectedItem();
             PatientEntity patientEntity = patientDAO.findPatient(existentPatientDTO.getId());
             if (appointmentManager.findLimitDays(patientEntity) != null) {
-                limitDays = appointmentManager.findLimitDays(patientEntity);
+                limitDaysSelected = appointmentManager.findLimitDays(patientEntity);
             }
         }
     }
@@ -330,7 +603,7 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
         // TODO add your handling code 
         if (doctorP1 == null) {
             if (cmbDoctor.getSize() != null) {
-                limitDays();
+                limitDaysSelected();
             }
         }
     }//GEN-LAST:event_cmbDoctorMouseClicked
@@ -339,18 +612,18 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNotaActionPerformed
 
-    public void limitarFecha() {
-        Calendar fechaMinima = Calendar.getInstance();
-        fechaMinima.set(Calendar.DATE, 1);
-        Date minimo = fechaMinima.getTime();
-
-        Calendar fechaMaxima = Calendar.getInstance();
-        fechaMaxima.add(Calendar.YEAR, 2);
-        Date maximo = fechaMaxima.getTime();
-
-        dateChooser.setSelectableDateRange(minimo, maximo);
-
-    }
+//    public void limitarFecha() {
+//        Calendar fechaMinima = Calendar.getInstance();
+//        fechaMinima.set(Calendar.DATE, 1);
+//        Date minimo = fechaMinima.getTime();
+//
+//        Calendar fechaMaxima = Calendar.getInstance();
+//        fechaMaxima.add(Calendar.YEAR, 2);
+//        Date maximo = fechaMaxima.getTime();
+//
+//        dateChooser.setSelectableDateRange(minimo, maximo);
+//
+//    }
 
 //    /**
 //     * @param args the command line arguments
@@ -393,15 +666,19 @@ cbxSpecialization.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JLabel Hospital_General;
     private javax.swing.JComboBox<String> cbxSpecialization;
     private javax.swing.JComboBox<String> cmbDoctor;
+    private javax.swing.JComboBox<String> cmbPatient;
+    private javax.swing.JComboBox<String> cmbTime;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JLabel lblDoctors;
-    private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDoctors1;
+    private javax.swing.JLabel lblPatient;
     private javax.swing.JLabel lblSpecilaization;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JTextField txtNota;
     // End of variables declaration//GEN-END:variables
 }

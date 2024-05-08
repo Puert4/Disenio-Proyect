@@ -251,14 +251,14 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
             } else {
 
                 if (doctorDAO.searchByMedicart(doctorDTO.getMedicalCart()) == null) {
-
-                } else {
                     doctorDAO.registerDoctor(doctorDTO);
                     NewUserDTO userDTO = new NewUserDTO(user, password, doctorDTO);
                     userDAO.registerDoctorUser(doctorDTO, userDTO);
                     JFrameAdministrator frameAdministrator = new JFrameAdministrator(userDTOAdmin.getUser(), userDTOAdmin.getPassword());
                     frameAdministrator.setVisible(true);
                     this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "The medicalCart is already in use");
                 }
 
             }

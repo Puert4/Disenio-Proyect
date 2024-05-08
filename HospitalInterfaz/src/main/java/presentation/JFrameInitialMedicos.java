@@ -6,6 +6,7 @@ import doctor.system.ExistentDoctorDTO;
 import doctor.system.IDoctorDAO;
 import factory.Factory;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -45,8 +46,9 @@ public class JFrameInitialMedicos extends javax.swing.JFrame {
         List<ExistentAppointmentDTO> appointments = appointmentManager.findAppointmentsByDoctorId(idDoctor);
 
         for (ExistentAppointmentDTO appointment : appointments) {
+            String dateFormat = appointment.getAppointmentDate().get(Calendar.DAY_OF_MONTH) + "/" + (appointment.getAppointmentDate().get(Calendar.MONTH) + 1) + "/" + appointment.getAppointmentDate().get(Calendar.YEAR) + " " + appointment.getAppointmentDate().get(Calendar.HOUR_OF_DAY) + ":00";
             tblModel.addRow(new Object[]{
-                appointment.getAppointmentDate().getTime(),
+                dateFormat,
                 appointment.getPatient().getName(),
                 appointment.getNote(),
                 appointment.getStatus()
@@ -160,9 +162,12 @@ public class JFrameInitialMedicos extends javax.swing.JFrame {
         if (selectedIndex >= 0 && selectedIndex < listaDeLongs.size()) {
             Long valorCorrespondiente = listaDeLongs.get(selectedIndex);
 
-            boolean deleted = appointmentManager.cancelAppointment(valorCorrespondiente);
-            JOptionPane.showMessageDialog(this, "The appointment has been Successfully removed", "Success", JOptionPane.INFORMATION_MESSAGE);
-            cargarCitasPaciente();
+            if(appointmentManager.cancelAppointment(valorCorrespondiente)){
+                
+                JOptionPane.showMessageDialog(this, "The appointment has been Successfully removed", "Success", JOptionPane.INFORMATION_MESSAGE);
+                cargarCitasPaciente();
+                
+            }
 
         } else {
             JOptionPane.showMessageDialog(null, "Index not valid", "Error", JOptionPane.ERROR_MESSAGE);
