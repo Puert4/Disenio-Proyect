@@ -44,7 +44,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
 
         this.dateChooser = new JDateChooser();
         this.dateChooser.setBounds(lblDate.getBounds());
-        this.add(dateChooser);
+        this.FondoPanel.add(dateChooser);
 
     }
 
@@ -84,6 +84,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         txtPhone = new javax.swing.JTextField();
         Usuario6 = new javax.swing.JLabel();
         txtSecurityNumber = new javax.swing.JTextField();
+        lblDate = new javax.swing.JLabel();
         Usuario8 = new javax.swing.JLabel();
         btnAceptar = new javax.swing.JButton();
         FondoGenero = new javax.swing.JPanel();
@@ -98,7 +99,6 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         txtSecondName = new javax.swing.JTextField();
         Usuario12 = new javax.swing.JLabel();
         Usuario13 = new javax.swing.JLabel();
-        lblDate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
