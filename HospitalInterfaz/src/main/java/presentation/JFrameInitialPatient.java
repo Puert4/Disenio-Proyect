@@ -4,6 +4,7 @@ import appointment.system.ExistentAppointmentDTO;
 import appointment.system.IAppointmentManager;
 import factory.Factory;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -38,8 +39,9 @@ public class JFrameInitialPatient extends javax.swing.JFrame {
         List<ExistentAppointmentDTO> appointments = appointmentManager.findAppointmentsByPatientId(idPatient);
 
         for (ExistentAppointmentDTO appointment : appointments) {
+            String dateFormat = appointment.getAppointmentDate().get(Calendar.DAY_OF_MONTH) + "/" + (appointment.getAppointmentDate().get(Calendar.MONTH) + 1) + "/" + appointment.getAppointmentDate().get(Calendar.YEAR) + " " + appointment.getAppointmentDate().get(Calendar.HOUR_OF_DAY) + ":00";
             tblModel.addRow(new Object[]{
-                appointment.getAppointmentDate().getTime(),
+                dateFormat,
                 appointment.getDoctor().getName(),
                 appointment.getNote(),
                 appointment.getStatus()
