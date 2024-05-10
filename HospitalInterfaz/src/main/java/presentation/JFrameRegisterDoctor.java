@@ -225,9 +225,10 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
         if (names.isEmpty() || firstName.isEmpty() || secondName.isEmpty()
                 || medicalCart.isEmpty() || user.isEmpty() || password.isEmpty()) {
 
-            JOptionPane.showMessageDialog(null, "Favor de llenar todos los campos", "Error", JOptionPane.INFORMATION_MESSAGE);
-        }
-        if (!names.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]+") || !firstName.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ]+") || !secondName.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ]+")) {
+            JOptionPane.showMessageDialog(null, "Pleas, fill in all empty fields", "Error", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            
+            if (!names.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]+") || !firstName.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ]+") || !secondName.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ]+")) {
             JOptionPane.showMessageDialog(null, "Names can only contain leters", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
 
@@ -262,6 +263,9 @@ comboBox.addActionListener(new java.awt.event.ActionListener() {
                 }
 
             }
+            
+        }
+        
 
         }
 
