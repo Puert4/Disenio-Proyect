@@ -173,7 +173,7 @@ public abstract class AppointmentManager implements IAppointmentManager {
             if (appointment != null) {
                 if(appointment.getAppointmentState() == AppointmentStateEntity.CANCELED){
                     
-                    JOptionPane.showMessageDialog(null, "the appointment has already been canceled");
+                    JOptionPane.showMessageDialog(null, "the appointment has already been canceled", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                     em.getTransaction().commit();
                     return false;
                     
