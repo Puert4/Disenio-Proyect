@@ -419,7 +419,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
         if (names.isEmpty() || firstName.isEmpty() || secondName.isEmpty() || colony.isEmpty()
                 || zipCodeS.isEmpty() || curp.isEmpty() || phone.isEmpty() || socialNumber.isEmpty()
                 || street.isEmpty() || sex.isEmpty() || birthDate == null) {
-            JOptionPane.showMessageDialog(null, "Favor de llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Fields can't be in blank", "Error", JOptionPane.ERROR_MESSAGE);
         }
         if (!names.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]+") || !firstName.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ]+") || !secondName.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚ]+")) {
             JOptionPane.showMessageDialog(null, "Names can only contain leters", "Error", JOptionPane.INFORMATION_MESSAGE);
@@ -440,7 +440,7 @@ public class JFrameRegisterPatient extends javax.swing.JFrame {
                 userSystem.registerUser(userDTO);
 
             } catch (Exception ex) {
-                Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error al persistir", ex);
+                Logger.getLogger(JFrameRegisterPatient.class.getName()).log(Level.SEVERE, "Error saving", ex);
             }
 
             if (userDTOAdmin == null) {

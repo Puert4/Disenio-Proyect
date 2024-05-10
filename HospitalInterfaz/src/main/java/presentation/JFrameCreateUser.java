@@ -163,28 +163,35 @@ public class JFrameCreateUser extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
 
-        NewUserDTO userDTO = new NewUserDTO();
-        userDTO.setUser(txtUserName.getText());
-        userDTO.setPassword(txtPassword.getText());
-
-        IUserDAO userDAO = Factory.getUserDAO();
-        if (userDAO.userExist(userDTO.getUser())) {
-
-            JOptionPane.showMessageDialog(this, "The username is already in use");
+        if (txtUserName.getText().isEmpty() || txtPassword.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "The username or password can't be in blank");
 
         } else {
 
-            if (userDTOAdmin == null) {
+            NewUserDTO userDTO = new NewUserDTO();
+            userDTO.setUser(txtUserName.getText());
+            userDTO.setPassword(txtPassword.getText());
 
-                JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO);
-                frameRegisterPatient.setVisible(true);
-                this.dispose();
+            IUserDAO userDAO = Factory.getUserDAO();
+            if (userDAO.userExist(userDTO.getUser())) {
+
+                JOptionPane.showMessageDialog(this, "The username is already in use");
 
             } else {
-                JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO, userDTOAdmin);
-                frameRegisterPatient.setVisible(true);
-                this.dispose();
+
+                if (userDTOAdmin == null) {
+
+                    JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO);
+                    frameRegisterPatient.setVisible(true);
+                    this.dispose();
+
+                } else {
+                    JFrameRegisterPatient frameRegisterPatient = new JFrameRegisterPatient(userDTO, userDTOAdmin);
+                    frameRegisterPatient.setVisible(true);
+                    this.dispose();
+                }
             }
+
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
