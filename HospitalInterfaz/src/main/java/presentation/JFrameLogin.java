@@ -236,41 +236,46 @@ public class JFrameLogin extends javax.swing.JFrame {
         String user = txtUser.getText();
         String password = txtPassword.getText();
 
-        IUserDAO userSystem = Factory.getUserDAO();
-        ILogIn loginSystem = Factory.getLogIn();
-
-        String userType = userSystem.getUserTypeByUserAndPassword(user, password);
-
-        if (userType != null) {
-            switch (userType) {
-                case "admin":
-
-                    JFrameAdministrator frameAdministrator = new JFrameAdministrator(user, password);
-                    frameAdministrator.setVisible(true);
-                    this.dispose();
-                    break;
-                case "patient":
-                    Long idPatient = loginSystem.validateUser(user, password);
-                    JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(idPatient);
-                    frameInitialPatient.setVisible(true);
-                    this.dispose();
-                    break;
-
-                case "doctor":
-
-                    Long idDoctor = loginSystem.validateUser(user, password);
-                    JFrameInitialMedicos frameInitialMedicos = new JFrameInitialMedicos(idDoctor);
-                    frameInitialMedicos.setVisible(true);
-                    this.dispose();
-                    break;
-
-                default:
-
-                    break;
-            }
+        if (user.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Fields can't be blank", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
 
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+            IUserDAO userSystem = Factory.getUserDAO();
+            ILogIn loginSystem = Factory.getLogIn();
+
+            String userType = userSystem.getUserTypeByUserAndPassword(user, password);
+
+            if (userType != null) {
+                switch (userType) {
+                    case "admin":
+
+                        JFrameAdministrator frameAdministrator = new JFrameAdministrator(user, password);
+                        frameAdministrator.setVisible(true);
+                        this.dispose();
+                        break;
+                    case "patient":
+                        Long idPatient = loginSystem.validateUser(user, password);
+                        JFrameInitialPatient frameInitialPatient = new JFrameInitialPatient(idPatient);
+                        frameInitialPatient.setVisible(true);
+                        this.dispose();
+                        break;
+
+                    case "doctor":
+
+                        Long idDoctor = loginSystem.validateUser(user, password);
+                        JFrameInitialMedicos frameInitialMedicos = new JFrameInitialMedicos(idDoctor);
+                        frameInitialMedicos.setVisible(true);
+                        this.dispose();
+                        break;
+
+                    default:
+
+                        break;
+                }
+            } else {
+
+                JOptionPane.showMessageDialog(this, "username or password incorrect", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
 
     }//GEN-LAST:event_btnAceptarActionPerformed
